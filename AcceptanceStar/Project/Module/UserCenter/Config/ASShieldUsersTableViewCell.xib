@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ASShieldUsersTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qux-Gm-ZOA">
+                        <rect key="frame" x="540" y="20" width="80" height="60"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="bv6-30-UoO"/>
+                            <constraint firstAttribute="width" constant="80" id="uQu-Gu-o6V"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                        <state key="normal" title="取消">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kRQ-mu-55s">
+                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="Gxm-Oi-G8t"/>
+                            <constraint firstAttribute="width" constant="80" id="aBo-fv-7bn"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户昵称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLO-s6-jdb">
+                        <rect key="frame" x="110" y="10" width="112" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kRQ-mu-55s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2Kd-Ld-I5m"/>
+                    <constraint firstItem="kRQ-mu-55s" firstAttribute="top" secondItem="hLO-s6-jdb" secondAttribute="top" id="6L8-s2-HT7"/>
+                    <constraint firstItem="hLO-s6-jdb" firstAttribute="leading" secondItem="kRQ-mu-55s" secondAttribute="trailing" constant="20" id="D5T-np-iWa"/>
+                    <constraint firstAttribute="trailing" secondItem="qux-Gm-ZOA" secondAttribute="trailing" constant="20" id="NFE-uf-Amg"/>
+                    <constraint firstAttribute="centerY" secondItem="kRQ-mu-55s" secondAttribute="centerY" id="Tf3-b9-IuB"/>
+                    <constraint firstAttribute="centerY" secondItem="qux-Gm-ZOA" secondAttribute="centerY" id="oaf-LC-k7V"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="182" y="346"/>
+        </tableViewCell>
+    </objects>
+</document>

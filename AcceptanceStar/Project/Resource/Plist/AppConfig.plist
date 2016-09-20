@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>kResPathAppBaseUrl</key>
+	<string>http://chat.54blues.com</string>
+	<key>kResPathAppResUrl</key>
+	<string>http://chat.54blues.com</string>
+	<key>kBaiduMapKey</key>
+	<string>123456abcdefg</string>
+</dict>
+</plist>

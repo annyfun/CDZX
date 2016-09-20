@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="ASNewsDailyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="640" height="129.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oH-ej-AKM">
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="130"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="票据贷理财项目年化收益14.15%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-Hn-5jZ">
+                                <rect key="frame" x="20" y="8" width="520" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="票据贷理财项目年化收益14.15%票据贷理财项目年化收益14.15%票据贷理财项目年化收益14.15%票据贷理财项目年化收益14.15%票据贷理财项目年化收益14.15%" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiK-Ma-xeI">
+                                <rect key="frame" x="20" y="53" width="600" height="62.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcp-ML-hd9">
+                                <rect key="frame" x="10" y="44" width="620" height="1"/>
+                                <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Htt-bv-KRz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="blN-mg-Y0h">
+                                <rect key="frame" x="584" y="5" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="XMw-J4-F2b"/>
+                                    <constraint firstAttribute="width" constant="36" id="ZQ9-5a-NCv"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="blN-mg-Y0h" secondAttribute="trailing" constant="20" id="1Gh-ZX-mMR"/>
+                            <constraint firstItem="blN-mg-Y0h" firstAttribute="top" secondItem="8oH-ej-AKM" secondAttribute="top" constant="5" id="EXw-FK-XbW"/>
+                            <constraint firstAttribute="trailing" secondItem="ayV-Hn-5jZ" secondAttribute="trailing" constant="100" id="IrF-1S-GXH"/>
+                            <constraint firstItem="ayV-Hn-5jZ" firstAttribute="top" secondItem="8oH-ej-AKM" secondAttribute="top" constant="8" id="J8Z-ih-fu2"/>
+                            <constraint firstItem="qcp-ML-hd9" firstAttribute="top" secondItem="ayV-Hn-5jZ" secondAttribute="bottom" constant="3" id="LBm-Hi-75U"/>
+                            <constraint firstAttribute="trailing" secondItem="WiK-Ma-xeI" secondAttribute="trailing" constant="20" id="OA6-IH-8r4"/>
+                            <constraint firstAttribute="trailing" secondItem="qcp-ML-hd9" secondAttribute="trailing" constant="10" id="VUZ-5u-fDl"/>
+                            <constraint firstItem="ayV-Hn-5jZ" firstAttribute="leading" secondItem="8oH-ej-AKM" secondAttribute="leading" constant="20" id="Vjb-yJ-JNX"/>
+                            <constraint firstItem="WiK-Ma-xeI" firstAttribute="leading" secondItem="8oH-ej-AKM" secondAttribute="leading" constant="20" id="aT9-MN-JPx"/>
+                            <constraint firstItem="WiK-Ma-xeI" firstAttribute="top" secondItem="qcp-ML-hd9" secondAttribute="bottom" constant="8" id="cCC-5v-bCY"/>
+                            <constraint firstItem="qcp-ML-hd9" firstAttribute="leading" secondItem="8oH-ej-AKM" secondAttribute="leading" constant="10" id="hGg-nQ-Ewa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="8oH-ej-AKM" secondAttribute="bottom" id="AMw-qg-pbO"/>
+                    <constraint firstAttribute="trailing" secondItem="8oH-ej-AKM" secondAttribute="trailing" id="e8D-F5-XSr"/>
+                    <constraint firstItem="8oH-ej-AKM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sH5-jx-zlx"/>
+                    <constraint firstItem="8oH-ej-AKM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vYU-yD-so8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="iconNewImageView" destination="blN-mg-Y0h" id="sB4-i1-z3K"/>
+                <outlet property="summaryLabel" destination="WiK-Ma-xeI" id="8BP-SF-uGM"/>
+                <outlet property="titleLabel" destination="ayV-Hn-5jZ" id="uih-4g-5Pl"/>
+            </connections>
+            <point key="canvasLocation" x="379" y="323"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_new.png" width="18" height="18"/>
+    </resources>
+</document>

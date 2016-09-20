@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>kResPathAppBaseUrl</key>
+	<string>http://192.168.0.99/KqEcShop/app</string>
+	<key>kResPathAppResUrl</key>
+	<string>http://192.168.0.99</string>
+	<key>kCheckNewVersionUrl</key>
+	<string>http://m.hyuntao.com/updateApp.htm</string>
+	<key>kAlipayNotifyUrl</key>
+	<string>http://zdykkj.eicp.net/payproxy/lilian/app_alipay_notify.htm</string>
+	<key>kCheckNewVersionType</key>
+	<string>0</string>
+	<key>kLogManageType</key>
+	<string>0</string>
+	<key>kAppChannel</key>
+	<string>Debug</string>
+	<key>kAppId</key>
+	<string>test123456abcdefg</string>
+	<key>kUMAppKey</key>
+	<string>5523e740fd98c563680002d6</string>
+</dict>
+</plist>

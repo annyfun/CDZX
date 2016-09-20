@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="ASBankResultTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="260"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国工商银行股份有限公司成都高新支行指挥街分理处" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Am-05-YVj">
+                        <rect key="frame" x="20" y="15" width="600" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="Bqn-jb-TFI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付联行号：3423" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdL-Ro-Jqi">
+                        <rect key="frame" x="20" y="93" width="229" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址：成都市指挥街12号地址：成都市指挥街12号地址：成都市指挥街12号地址：成都市指挥街12号" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bl-0C-1cX">
+                        <rect key="frame" x="20" y="135" width="600" height="67"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHt-Zh-sbx">
+                        <rect key="frame" x="20" y="211" width="84" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="028-24234343" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-Vi-oev">
+                        <rect key="frame" x="104" y="211" width="183" height="33"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
+                        <color key="textColor" red="0.90588235294117647" green="0.45490196078431372" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sN-kB-VZU">
+                        <rect key="frame" x="104" y="244" width="183" height="1"/>
+                        <color key="backgroundColor" red="0.90588235289999997" green="0.4549019608" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="zh7-fg-qBd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
+                        <color key="textColor" red="0.90588235289999997" green="0.4549019608" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-6E-SgJ" userLabel="line_bottom">
+                        <rect key="frame" x="0.0" y="259" width="640" height="1"/>
+                        <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="t29-Wa-BzW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0Bl-0C-1cX" firstAttribute="top" secondItem="BdL-Ro-Jqi" secondAttribute="bottom" constant="8" id="1Je-lR-9q2"/>
+                    <constraint firstAttribute="trailing" secondItem="VgD-6E-SgJ" secondAttribute="trailing" id="32v-dN-fde"/>
+                    <constraint firstItem="1sN-kB-VZU" firstAttribute="top" secondItem="p5K-Vi-oev" secondAttribute="bottom" id="3qj-i3-NAZ"/>
+                    <constraint firstItem="1sN-kB-VZU" firstAttribute="width" secondItem="p5K-Vi-oev" secondAttribute="width" id="4ef-vN-WfG"/>
+                    <constraint firstItem="1sN-kB-VZU" firstAttribute="centerX" secondItem="p5K-Vi-oev" secondAttribute="centerX" id="7Hi-Kk-ShM"/>
+                    <constraint firstAttribute="trailing" secondItem="2Am-05-YVj" secondAttribute="trailing" constant="20" id="Abm-PW-iLm"/>
+                    <constraint firstItem="2Am-05-YVj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="QoT-C2-5NV"/>
+                    <constraint firstItem="BdL-Ro-Jqi" firstAttribute="top" secondItem="2Am-05-YVj" secondAttribute="bottom" constant="8" id="Rhv-aj-bxG"/>
+                    <constraint firstItem="HHt-Zh-sbx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="W0L-Kj-jrI"/>
+                    <constraint firstAttribute="bottom" secondItem="VgD-6E-SgJ" secondAttribute="bottom" id="aJI-rb-wvh"/>
+                    <constraint firstItem="BdL-Ro-Jqi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eYG-Vg-FCV"/>
+                    <constraint firstItem="2Am-05-YVj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eqt-6j-6uj"/>
+                    <constraint firstItem="VgD-6E-SgJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="f74-oX-2T6"/>
+                    <constraint firstItem="p5K-Vi-oev" firstAttribute="leading" secondItem="HHt-Zh-sbx" secondAttribute="trailing" id="nF5-ac-E8S"/>
+                    <constraint firstItem="HHt-Zh-sbx" firstAttribute="centerY" secondItem="p5K-Vi-oev" secondAttribute="centerY" constant="1" id="qH9-bc-yNy"/>
+                    <constraint firstItem="0Bl-0C-1cX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="t2o-6X-zh6"/>
+                    <constraint firstAttribute="bottom" secondItem="HHt-Zh-sbx" secondAttribute="bottom" constant="15" id="xh7-P2-EMo"/>
+                    <constraint firstAttribute="trailing" secondItem="0Bl-0C-1cX" secondAttribute="trailing" constant="20" id="yO1-to-Tsc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="0Bl-0C-1cX" id="7uI-DM-uUA"/>
+                <outlet property="bankNameLabel" destination="2Am-05-YVj" id="gFz-4l-mcK"/>
+                <outlet property="bankNumLabel" destination="BdL-Ro-Jqi" id="ole-nm-49B"/>
+                <outlet property="phoneNumberLabel" destination="p5K-Vi-oev" id="oCj-7p-QEc"/>
+            </connections>
+            <point key="canvasLocation" x="383" y="496"/>
+        </tableViewCell>
+    </objects>
+</document>
