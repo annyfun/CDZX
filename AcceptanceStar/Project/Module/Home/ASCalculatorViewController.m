@@ -27,7 +27,7 @@
     
     @property (strong, nonatomic) NSMutableArray *values;
 
-@property (strong, nonatomic) NSString *copyString;
+@property (strong, nonatomic) NSString *cString;
 
     @property (strong, nonatomic) UIScrollView *scrollView;
     @end
@@ -82,7 +82,7 @@
         }];
         
         if (view) {
-            self.copyString = view.text;
+            self.cString = view.text;
             UIMenuItem *flag = [[UIMenuItem alloc] initWithTitle:@"复制"action:@selector(flag:)];
             UIMenuController *menu = [UIMenuController sharedMenuController];
             [menu setMenuItems:[NSArray arrayWithObjects:flag, nil]];
@@ -92,7 +92,7 @@
     }
 
 - (void)flag:(id)sender {
-    [UIPasteboard generalPasteboard].string = self.copyString;
+    [UIPasteboard generalPasteboard].string = self.cString;
 }
 
 - (IBAction)digitPressed:(UIButton *)sender {
