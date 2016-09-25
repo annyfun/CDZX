@@ -63,7 +63,7 @@
     
     self.view.backgroundColor = RGB(188, 200, 173);
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 108, SCREEN_WIDTH, kPadHeight)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 108, SCREEN_WIDTH, kPadHeight-35)];
     [self.view insertSubview:self.scrollView atIndex:0];
     
     UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
@@ -71,26 +71,39 @@
 }
     
     - (void)longPress:(UILongPressGestureRecognizer *)ges{
-        CGPoint point = [ges locationInView:self.scrollView];
-        
-        __block UILabel *view = nil;
-        [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (CGRectContainsPoint(obj.frame, point)) {
-                view = obj;
-                *stop = YES;
+        if (ges.state==UIGestureRecognizerStateBegan) {
+            
+            [self becomeFirstResponder];
+            CGPoint point = [ges locationInView:self.scrollView];
+            
+            __block UILabel *view = nil;
+            [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (CGRectContainsPoint(obj.frame, point)) {
+                    view = obj;
+                    *stop = YES;
+                }
+            }];
+            
+            if (view) {
+                self.cString = view.text;
+                
+                CGRect frame = view.frame;
+                frame.origin.x = SCREEN_WIDTH-80;
+                frame.size.width = 80;
+                
+                UIMenuItem *flag = [[UIMenuItem alloc] initWithTitle:@"复制"action:@selector(flag:)];
+                UIMenuController *menu = [UIMenuController sharedMenuController];
+                [menu setMenuItems:[NSArray arrayWithObjects:flag, nil]];
+                [menu setTargetRect:frame inView:view.superview];
+                [menu setMenuVisible:YES animated:YES];
             }
-        }];
-        
-        if (view) {
-            self.cString = view.text;
-            UIMenuItem *flag = [[UIMenuItem alloc] initWithTitle:@"复制"action:@selector(flag:)];
-            UIMenuController *menu = [UIMenuController sharedMenuController];
-            [menu setMenuItems:[NSArray arrayWithObjects:flag, nil]];
-            [menu setTargetRect:view.frame inView:view.superview];
-            [menu setMenuVisible:YES animated:YES];
         }
     }
 
+    - (BOOL)canBecomeFirstResponder{
+        return YES;
+    }
+    
 - (void)flag:(id)sender {
     [UIPasteboard generalPasteboard].string = self.cString;
 }

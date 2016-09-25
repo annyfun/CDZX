@@ -193,7 +193,6 @@
 		D35F42461B93504E00905B1C /* icon_attr_zy1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D35F423E1B93504E00905B1C /* icon_attr_zy1@2x.png */; };
 		D35F42481B93613700905B1C /* icon_sendtime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D35F42471B93613700905B1C /* icon_sendtime@2x.png */; };
 		D364B8781BA8776400B75218 /* ASCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D364B8761BA8776400B75218 /* ASCalculatorViewController.m */; };
-		D364B8791BA8776400B75218 /* ASCalculatorViewController11.xib in Resources */ = {isa = PBXBuildFile; fileRef = D364B8771BA8776400B75218 /* ASCalculatorViewController11.xib */; };
 		D364B8821BA8788B00B75218 /* bkg_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D364B87B1BA8788B00B75218 /* bkg_top@2x.png */; };
 		D364B8831BA8788B00B75218 /* btn_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D364B87C1BA8788B00B75218 /* btn_0@2x.png */; };
 		D364B8841BA8788B00B75218 /* btn_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D364B87D1BA8788B00B75218 /* btn_1@2x.png */; };
@@ -1193,7 +1192,6 @@
 		D35F42471B93613700905B1C /* icon_sendtime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_sendtime@2x.png"; sourceTree = "<group>"; };
 		D364B8751BA8776400B75218 /* ASCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCalculatorViewController.h; sourceTree = "<group>"; };
 		D364B8761BA8776400B75218 /* ASCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCalculatorViewController.m; sourceTree = "<group>"; };
-		D364B8771BA8776400B75218 /* ASCalculatorViewController11.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCalculatorViewController11.xib; sourceTree = "<group>"; };
 		D364B87B1BA8788B00B75218 /* bkg_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bkg_top@2x.png"; sourceTree = "<group>"; };
 		D364B87C1BA8788B00B75218 /* btn_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_0@2x.png"; sourceTree = "<group>"; };
 		D364B87D1BA8788B00B75218 /* btn_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_1@2x.png"; sourceTree = "<group>"; };
@@ -2659,7 +2657,6 @@
 				D364B8751BA8776400B75218 /* ASCalculatorViewController.h */,
 				D364B8761BA8776400B75218 /* ASCalculatorViewController.m */,
 				71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */,
-				D364B8771BA8776400B75218 /* ASCalculatorViewController11.xib */,
 				D37BE76E1B199C7800FA7579 /* ASDraftQueryViewController.h */,
 				D37BE76F1B199C7800FA7579 /* ASDraftQueryViewController.m */,
 				D37BE7701B199C7800FA7579 /* ASDraftQueryViewController.xib */,
@@ -4972,7 +4969,7 @@
 				TargetAttributes = {
 					D38DA0B21B0F6FA4005BC113 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 6RBBH5H3DF;
+						DevelopmentTeam = LMFCH2UZ5X;
 					};
 					D38DA0CB1B0F6FA4005BC113 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -5019,7 +5016,6 @@
 			files = (
 				D37BEFC11B1A999300FA7579 /* talk_sound_p7.png in Resources */,
 				D38DA2D71B100D2A005BC113 /* ZSSh6.png in Resources */,
-				D364B8791BA8776400B75218 /* ASCalculatorViewController11.xib in Resources */,
 				D33AE7B51B14D67C00219A80 /* ASAboutUsViewController.xib in Resources */,
 				D37BEFB01B1A999300FA7579 /* talk_btn_voice.png in Resources */,
 				D37BF0361B1A999300FA7579 /* MessageLeftCell.xib in Resources */,
@@ -6065,7 +6061,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6RBBH5H3DF;
+				DEVELOPMENT_TEAM = LMFCH2UZ5X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6121,7 +6117,7 @@
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/UPPay",
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release$(EFFECTIVE_PLATFORM_NAME)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.annyfun.chengdui;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wxmovie.weipiao3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -6135,7 +6131,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6RBBH5H3DF;
+				DEVELOPMENT_TEAM = LMFCH2UZ5X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6191,7 +6187,7 @@
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/UPPay",
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release$(EFFECTIVE_PLATFORM_NAME)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.annyfun.chengdui;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wxmovie.weipiao3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
