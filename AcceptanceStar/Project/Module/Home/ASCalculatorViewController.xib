@@ -9,6 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASCalculatorViewController">
             <connections>
+                <outlet property="bottomC" destination="udf-tm-Viu" id="kTl-iW-ncx"/>
+                <outlet property="btnHeight" destination="Fax-sa-Xt4" id="CEv-aU-Elf"/>
+                <outlet property="btnViewHeight" destination="Rfw-Gz-OPO" id="iYt-PO-RiN"/>
+                <outlet property="display" destination="yed-Q8-HT5" id="mJT-8i-avn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,203 +21,285 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lqh-hl-hlh">
-                    <frame key="frameInset" minX="87" minY="304" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2N-Jv-bLa" userLabel="Digit Panel">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqh-hl-hlh" userLabel="Pad">
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em2-Zo-OcI" userLabel="0">
-                            <state key="normal" image="cal_0" backgroundImage="cal_r">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_h"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal_btn_bg" translatesAutoresizingMaskIntoConstraints="NO" id="f4w-eo-doe">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="Fax-sa-Xt4"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4EX-Tf-gQG">
+                            <state key="normal" image="cal_btn"/>
+                            <connections>
+                                <action selector="hiddenPress:" destination="-1" eventType="touchUpInside" id="TcY-kc-VtP"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7r-th-g4i" userLabel=".">
-                            <state key="normal" image="cal_dian" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2P-VW-Ykz" userLabel="=">
-                            <state key="normal" image="cal_deng" backgroundImage="cal_r">
-                                <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbN-MM-OME" userLabel="3">
-                            <state key="normal" image="cal_3" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUb-e6-KRQ" userLabel="2">
-                            <state key="normal" image="cal_2" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYU-se-Sgw" userLabel="1">
-                            <state key="normal" image="cal_1" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-IP-s9p" userLabel="4">
-                            <state key="normal" image="cal_4" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxH-dN-oBO" userLabel="5">
-                            <state key="normal" image="cal_5" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yua-cN-wwM" userLabel="6">
-                            <state key="normal" image="cal_6" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdT-WN-r6e" userLabel="-">
-                            <state key="normal" image="cal_jian" backgroundImage="cal_d">
-                                <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMz-SH-sPG" userLabel="7">
-                            <state key="normal" image="cal_7" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ups-WC-462" userLabel="9">
-                            <state key="normal" image="cal_9" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot6-8n-yjo" userLabel="c">
-                            <state key="normal" image="cal_c" backgroundImage="cal_r_d">
-                                <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkC-G6-0Am" userLabel="x">
-                            <state key="normal" image="cal_x" backgroundImage="cal_r_d">
-                                <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOF-1q-29Z" userLabel="del">
-                            <state key="normal" image="cal_del" backgroundImage="cal_d"/>
-                            <state key="highlighted" backgroundImage="cal_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UD-Pe-gRQ" userLabel="/">
-                            <state key="normal" image="cal_chu" backgroundImage="cal_r_d">
-                                <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kH-zB-o0x" userLabel="+">
-                            <state key="normal" image="cal_j" backgroundImage="cal_d">
-                                <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <state key="highlighted" image="cal_j" backgroundImage="cal_d_h"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKI-Vt-eJS" userLabel="8">
-                            <state key="normal" image="cal_8" backgroundImage="cal_r_d">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" backgroundImage="cal_r_d_h"/>
-                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2N-Jv-bLa" userLabel="Digit Panel">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em2-Zo-OcI" userLabel="0">
+                                    <state key="normal" image="cal_0" backgroundImage="cal_r">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="GeJ-lb-B2M"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7r-th-g4i" userLabel=".">
+                                    <state key="normal" image="cal_dian" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2P-VW-Ykz" userLabel="=">
+                                    <state key="normal" image="cal_deng" backgroundImage="cal_r">
+                                        <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_h"/>
+                                    <connections>
+                                        <action selector="equalR" destination="-1" eventType="touchUpInside" id="Ue2-9t-2OU"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbN-MM-OME" userLabel="3">
+                                    <state key="normal" image="cal_3" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="DLE-la-o0P"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUb-e6-KRQ" userLabel="2">
+                                    <state key="normal" image="cal_2" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="VCF-qc-RJw"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYU-se-Sgw" userLabel="1">
+                                    <state key="normal" image="cal_1" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="Ofe-7M-S5R"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-IP-s9p" userLabel="4">
+                                    <state key="normal" image="cal_4" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="63m-rU-n4p"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxH-dN-oBO" userLabel="5">
+                                    <state key="normal" image="cal_5" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="kxe-Zi-ZQ3"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yua-cN-wwM" userLabel="6">
+                                    <state key="normal" image="cal_6" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="wC5-iv-WGL"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdT-WN-r6e" userLabel="-">
+                                    <state key="normal" image="cal_jian" backgroundImage="cal_d">
+                                        <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_d_h"/>
+                                    <connections>
+                                        <action selector="operationPressed:" destination="-1" eventType="touchUpInside" id="OeQ-fG-83I"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMz-SH-sPG" userLabel="7">
+                                    <state key="normal" image="cal_7" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="pxf-zz-hIw"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ups-WC-462" userLabel="9">
+                                    <state key="normal" image="cal_9" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="8Gm-py-CBK"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot6-8n-yjo" userLabel="c">
+                                    <state key="normal" image="cal_c" backgroundImage="cal_r_d">
+                                        <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="zeroPressed" destination="-1" eventType="touchUpInside" id="N6u-XE-MVS"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkC-G6-0Am" userLabel="x">
+                                    <state key="normal" image="cal_x" backgroundImage="cal_r_d">
+                                        <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="operationPressed:" destination="-1" eventType="touchUpInside" id="7se-zQ-4Z4"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOF-1q-29Z" userLabel="del">
+                                    <state key="normal" image="cal_del" backgroundImage="cal_d"/>
+                                    <state key="highlighted" backgroundImage="cal_d_h"/>
+                                    <connections>
+                                        <action selector="deletePressed:" destination="-1" eventType="touchUpInside" id="9Pn-vl-9Bt"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UD-Pe-gRQ" userLabel="/">
+                                    <state key="normal" image="cal_chu" backgroundImage="cal_r_d">
+                                        <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="operationPressed:" destination="-1" eventType="touchUpInside" id="8Sq-f8-DEf"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kH-zB-o0x" userLabel="+">
+                                    <state key="normal" image="cal_j" backgroundImage="cal_d">
+                                        <color key="titleColor" red="0.18823529411764706" green="0.88235294117647056" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" image="cal_j" backgroundImage="cal_d_h"/>
+                                    <connections>
+                                        <action selector="operationPressed:" destination="-1" eventType="touchUpInside" id="F2p-d3-MjT"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKI-Vt-eJS" userLabel="8">
+                                    <state key="normal" image="cal_8" backgroundImage="cal_r_d">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="cal_r_d_h"/>
+                                    <connections>
+                                        <action selector="digitPressed:" destination="-1" eventType="touchUpInside" id="0M5-eR-KCh"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="e7r-th-g4i" firstAttribute="leading" secondItem="em2-Zo-OcI" secondAttribute="trailing" id="0fE-yp-JNW"/>
+                                <constraint firstItem="mMz-SH-sPG" firstAttribute="top" secondItem="ot6-8n-yjo" secondAttribute="bottom" id="3Pl-9a-Ywe"/>
+                                <constraint firstItem="em2-Zo-OcI" firstAttribute="height" secondItem="c2N-Jv-bLa" secondAttribute="height" multiplier="0.2" id="3hI-bf-uV1"/>
+                                <constraint firstItem="DdT-WN-r6e" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="4c7-kP-ufN"/>
+                                <constraint firstItem="em2-Zo-OcI" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="5TM-2Q-KtM"/>
+                                <constraint firstItem="nUb-e6-KRQ" firstAttribute="top" secondItem="gxH-dN-oBO" secondAttribute="bottom" id="5pp-a0-TRM"/>
+                                <constraint firstItem="EKI-Vt-eJS" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="5ym-Cc-LUZ"/>
+                                <constraint firstItem="8UD-Pe-gRQ" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="67f-78-WDT"/>
+                                <constraint firstItem="ZOF-1q-29Z" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="7Pb-Yi-y6V"/>
+                                <constraint firstItem="8UD-Pe-gRQ" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="7mN-Zs-WsF"/>
+                                <constraint firstItem="yua-cN-wwM" firstAttribute="leading" secondItem="gxH-dN-oBO" secondAttribute="trailing" id="95O-T5-3eE"/>
+                                <constraint firstItem="nUb-e6-KRQ" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="95R-fD-qnU"/>
+                                <constraint firstItem="em2-Zo-OcI" firstAttribute="top" secondItem="oYU-se-Sgw" secondAttribute="bottom" id="A71-GQ-Pw8"/>
+                                <constraint firstItem="ot6-8n-yjo" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="Bfg-md-RRe"/>
+                                <constraint firstItem="ups-WC-462" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="CO6-MM-vMI"/>
+                                <constraint firstItem="Cis-IP-s9p" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="EHu-Jz-jJU"/>
+                                <constraint firstItem="EKI-Vt-eJS" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="F8z-ML-bF3"/>
+                                <constraint firstItem="GbN-MM-OME" firstAttribute="leading" secondItem="nUb-e6-KRQ" secondAttribute="trailing" id="GoE-bc-K7b"/>
+                                <constraint firstItem="m2P-VW-Ykz" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" multiplier="2" id="JNz-UG-kl8"/>
+                                <constraint firstAttribute="bottom" secondItem="e7r-th-g4i" secondAttribute="bottom" id="Kyj-KK-9k5"/>
+                                <constraint firstItem="2kH-zB-o0x" firstAttribute="leading" secondItem="ups-WC-462" secondAttribute="trailing" id="LzR-BN-RXg"/>
+                                <constraint firstItem="ZOF-1q-29Z" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="MYH-Fz-mRE"/>
+                                <constraint firstItem="DdT-WN-r6e" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="NGe-xB-dzQ"/>
+                                <constraint firstItem="yua-cN-wwM" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="NQT-b6-wbn"/>
+                                <constraint firstItem="ups-WC-462" firstAttribute="top" secondItem="xkC-G6-0Am" secondAttribute="bottom" id="NRo-dB-B7D"/>
+                                <constraint firstItem="GbN-MM-OME" firstAttribute="top" secondItem="yua-cN-wwM" secondAttribute="bottom" id="NhZ-an-ZAm"/>
+                                <constraint firstItem="e7r-th-g4i" firstAttribute="height" secondItem="em2-Zo-OcI" secondAttribute="height" id="Qd0-5a-JxS"/>
+                                <constraint firstItem="oYU-se-Sgw" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="Qf4-OM-qb0"/>
+                                <constraint firstItem="ZOF-1q-29Z" firstAttribute="leading" secondItem="xkC-G6-0Am" secondAttribute="trailing" id="SC8-vH-rr1"/>
+                                <constraint firstItem="Cis-IP-s9p" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="SW5-HN-knG"/>
+                                <constraint firstItem="xkC-G6-0Am" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="SbF-4M-KU4"/>
+                                <constraint firstItem="GbN-MM-OME" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="TZH-lB-YxO"/>
+                                <constraint firstItem="ups-WC-462" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="TmE-QU-QUg"/>
+                                <constraint firstItem="em2-Zo-OcI" firstAttribute="width" secondItem="c2N-Jv-bLa" secondAttribute="width" multiplier="0.5" id="Tpr-6L-wC2"/>
+                                <constraint firstItem="oYU-se-Sgw" firstAttribute="top" secondItem="Cis-IP-s9p" secondAttribute="bottom" id="TxF-cz-Hga"/>
+                                <constraint firstItem="mMz-SH-sPG" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="UTi-IN-ewf"/>
+                                <constraint firstItem="ups-WC-462" firstAttribute="leading" secondItem="EKI-Vt-eJS" secondAttribute="trailing" id="UlB-KK-suF"/>
+                                <constraint firstItem="DdT-WN-r6e" firstAttribute="top" secondItem="2kH-zB-o0x" secondAttribute="bottom" id="XMB-a5-ncw"/>
+                                <constraint firstItem="DdT-WN-r6e" firstAttribute="leading" secondItem="yua-cN-wwM" secondAttribute="trailing" id="YbN-cc-2vB"/>
+                                <constraint firstItem="2kH-zB-o0x" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="YdO-Jd-50t"/>
+                                <constraint firstItem="mMz-SH-sPG" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="Z26-cL-gxM"/>
+                                <constraint firstItem="yua-cN-wwM" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="ZBQ-Mr-3Cx"/>
+                                <constraint firstItem="m2P-VW-Ykz" firstAttribute="leading" secondItem="e7r-th-g4i" secondAttribute="trailing" id="Zcl-dV-6t9"/>
+                                <constraint firstItem="gxH-dN-oBO" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="aJm-7F-jZr"/>
+                                <constraint firstItem="GbN-MM-OME" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="bII-Rb-rAT"/>
+                                <constraint firstItem="nUb-e6-KRQ" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="bM8-ui-QyC"/>
+                                <constraint firstItem="em2-Zo-OcI" firstAttribute="top" secondItem="nUb-e6-KRQ" secondAttribute="bottom" id="bnL-2J-1Ap"/>
+                                <constraint firstItem="gxH-dN-oBO" firstAttribute="leading" secondItem="Cis-IP-s9p" secondAttribute="trailing" id="cHa-zX-WGj"/>
+                                <constraint firstItem="gxH-dN-oBO" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="cXy-HE-v4V"/>
+                                <constraint firstItem="mMz-SH-sPG" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="chX-3m-mvR"/>
+                                <constraint firstItem="2kH-zB-o0x" firstAttribute="top" secondItem="ZOF-1q-29Z" secondAttribute="bottom" id="cyz-7t-0LP"/>
+                                <constraint firstItem="nUb-e6-KRQ" firstAttribute="leading" secondItem="oYU-se-Sgw" secondAttribute="trailing" id="e1h-CQ-mp7"/>
+                                <constraint firstAttribute="bottom" secondItem="em2-Zo-OcI" secondAttribute="bottom" id="eb0-jJ-1qI"/>
+                                <constraint firstItem="yua-cN-wwM" firstAttribute="top" secondItem="ups-WC-462" secondAttribute="bottom" id="hrD-Eo-qTk"/>
+                                <constraint firstItem="gxH-dN-oBO" firstAttribute="top" secondItem="EKI-Vt-eJS" secondAttribute="bottom" id="iqn-RY-A3J"/>
+                                <constraint firstItem="EKI-Vt-eJS" firstAttribute="top" secondItem="8UD-Pe-gRQ" secondAttribute="bottom" id="kGF-OB-V3E"/>
+                                <constraint firstItem="e7r-th-g4i" firstAttribute="width" secondItem="em2-Zo-OcI" secondAttribute="width" multiplier="0.5" id="kas-Y5-t5X"/>
+                                <constraint firstItem="EKI-Vt-eJS" firstAttribute="leading" secondItem="mMz-SH-sPG" secondAttribute="trailing" id="kj3-fR-aF8"/>
+                                <constraint firstItem="xkC-G6-0Am" firstAttribute="leading" secondItem="8UD-Pe-gRQ" secondAttribute="trailing" id="kwU-rc-O2T"/>
+                                <constraint firstItem="8UD-Pe-gRQ" firstAttribute="leading" secondItem="ot6-8n-yjo" secondAttribute="trailing" id="lgU-2i-ipq"/>
+                                <constraint firstItem="2kH-zB-o0x" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="lzi-TM-H7Q"/>
+                                <constraint firstItem="Cis-IP-s9p" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="mWc-PT-PT6"/>
+                                <constraint firstItem="ot6-8n-yjo" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="oOi-Uq-puC"/>
+                                <constraint firstItem="m2P-VW-Ykz" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="qOm-WG-UWj"/>
+                                <constraint firstItem="ot6-8n-yjo" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="qly-BY-Zhw"/>
+                                <constraint firstItem="m2P-VW-Ykz" firstAttribute="top" secondItem="DdT-WN-r6e" secondAttribute="bottom" id="sqk-AF-jjd"/>
+                                <constraint firstItem="oYU-se-Sgw" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="ue5-FO-WrN"/>
+                                <constraint firstItem="Cis-IP-s9p" firstAttribute="top" secondItem="mMz-SH-sPG" secondAttribute="bottom" id="uwW-fI-gE7"/>
+                                <constraint firstAttribute="bottom" secondItem="m2P-VW-Ykz" secondAttribute="bottom" id="v9z-oz-1OW"/>
+                                <constraint firstItem="oYU-se-Sgw" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="wj8-ii-Byy"/>
+                                <constraint firstItem="xkC-G6-0Am" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="x7z-Pu-TL3"/>
+                                <constraint firstItem="em2-Zo-OcI" firstAttribute="top" secondItem="GbN-MM-OME" secondAttribute="bottom" id="yPQ-vq-F5P"/>
+                            </constraints>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="e7r-th-g4i" firstAttribute="leading" secondItem="em2-Zo-OcI" secondAttribute="trailing" id="0fE-yp-JNW"/>
-                        <constraint firstItem="mMz-SH-sPG" firstAttribute="top" secondItem="ot6-8n-yjo" secondAttribute="bottom" id="3Pl-9a-Ywe"/>
-                        <constraint firstItem="em2-Zo-OcI" firstAttribute="height" secondItem="c2N-Jv-bLa" secondAttribute="height" multiplier="0.2" id="3hI-bf-uV1"/>
-                        <constraint firstItem="DdT-WN-r6e" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="4c7-kP-ufN"/>
-                        <constraint firstItem="em2-Zo-OcI" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="5TM-2Q-KtM"/>
-                        <constraint firstItem="nUb-e6-KRQ" firstAttribute="top" secondItem="gxH-dN-oBO" secondAttribute="bottom" id="5pp-a0-TRM"/>
-                        <constraint firstItem="EKI-Vt-eJS" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="5ym-Cc-LUZ"/>
-                        <constraint firstItem="8UD-Pe-gRQ" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="67f-78-WDT"/>
-                        <constraint firstItem="ZOF-1q-29Z" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="7Pb-Yi-y6V"/>
-                        <constraint firstItem="8UD-Pe-gRQ" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="7mN-Zs-WsF"/>
-                        <constraint firstItem="yua-cN-wwM" firstAttribute="leading" secondItem="gxH-dN-oBO" secondAttribute="trailing" id="95O-T5-3eE"/>
-                        <constraint firstItem="nUb-e6-KRQ" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="95R-fD-qnU"/>
-                        <constraint firstItem="em2-Zo-OcI" firstAttribute="top" secondItem="oYU-se-Sgw" secondAttribute="bottom" id="A71-GQ-Pw8"/>
-                        <constraint firstItem="ot6-8n-yjo" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="Bfg-md-RRe"/>
-                        <constraint firstItem="ups-WC-462" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="CO6-MM-vMI"/>
-                        <constraint firstItem="Cis-IP-s9p" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="EHu-Jz-jJU"/>
-                        <constraint firstItem="EKI-Vt-eJS" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="F8z-ML-bF3"/>
-                        <constraint firstItem="GbN-MM-OME" firstAttribute="leading" secondItem="nUb-e6-KRQ" secondAttribute="trailing" id="GoE-bc-K7b"/>
-                        <constraint firstItem="m2P-VW-Ykz" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" multiplier="2" id="JNz-UG-kl8"/>
-                        <constraint firstAttribute="bottom" secondItem="e7r-th-g4i" secondAttribute="bottom" id="Kyj-KK-9k5"/>
-                        <constraint firstAttribute="height" constant="516" id="LDY-Gt-HHb"/>
-                        <constraint firstItem="2kH-zB-o0x" firstAttribute="leading" secondItem="ups-WC-462" secondAttribute="trailing" id="LzR-BN-RXg"/>
-                        <constraint firstItem="ZOF-1q-29Z" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="MYH-Fz-mRE"/>
-                        <constraint firstItem="DdT-WN-r6e" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="NGe-xB-dzQ"/>
-                        <constraint firstItem="yua-cN-wwM" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="NQT-b6-wbn"/>
-                        <constraint firstItem="ups-WC-462" firstAttribute="top" secondItem="xkC-G6-0Am" secondAttribute="bottom" id="NRo-dB-B7D"/>
-                        <constraint firstItem="GbN-MM-OME" firstAttribute="top" secondItem="yua-cN-wwM" secondAttribute="bottom" id="NhZ-an-ZAm"/>
-                        <constraint firstItem="e7r-th-g4i" firstAttribute="height" secondItem="em2-Zo-OcI" secondAttribute="height" id="Qd0-5a-JxS"/>
-                        <constraint firstItem="oYU-se-Sgw" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="Qf4-OM-qb0"/>
-                        <constraint firstItem="ZOF-1q-29Z" firstAttribute="leading" secondItem="xkC-G6-0Am" secondAttribute="trailing" id="SC8-vH-rr1"/>
-                        <constraint firstItem="Cis-IP-s9p" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="SW5-HN-knG"/>
-                        <constraint firstItem="xkC-G6-0Am" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="SbF-4M-KU4"/>
-                        <constraint firstItem="GbN-MM-OME" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="TZH-lB-YxO"/>
-                        <constraint firstItem="ups-WC-462" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="TmE-QU-QUg"/>
-                        <constraint firstItem="em2-Zo-OcI" firstAttribute="width" secondItem="c2N-Jv-bLa" secondAttribute="width" multiplier="0.5" id="Tpr-6L-wC2"/>
-                        <constraint firstItem="oYU-se-Sgw" firstAttribute="top" secondItem="Cis-IP-s9p" secondAttribute="bottom" id="TxF-cz-Hga"/>
-                        <constraint firstItem="mMz-SH-sPG" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="UTi-IN-ewf"/>
-                        <constraint firstItem="ups-WC-462" firstAttribute="leading" secondItem="EKI-Vt-eJS" secondAttribute="trailing" id="UlB-KK-suF"/>
-                        <constraint firstItem="DdT-WN-r6e" firstAttribute="top" secondItem="2kH-zB-o0x" secondAttribute="bottom" id="XMB-a5-ncw"/>
-                        <constraint firstItem="DdT-WN-r6e" firstAttribute="leading" secondItem="yua-cN-wwM" secondAttribute="trailing" id="YbN-cc-2vB"/>
-                        <constraint firstItem="2kH-zB-o0x" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="YdO-Jd-50t"/>
-                        <constraint firstItem="mMz-SH-sPG" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="Z26-cL-gxM"/>
-                        <constraint firstItem="yua-cN-wwM" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="ZBQ-Mr-3Cx"/>
-                        <constraint firstItem="m2P-VW-Ykz" firstAttribute="leading" secondItem="e7r-th-g4i" secondAttribute="trailing" id="Zcl-dV-6t9"/>
-                        <constraint firstItem="gxH-dN-oBO" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="aJm-7F-jZr"/>
-                        <constraint firstItem="GbN-MM-OME" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="bII-Rb-rAT"/>
-                        <constraint firstItem="nUb-e6-KRQ" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="bM8-ui-QyC"/>
-                        <constraint firstItem="em2-Zo-OcI" firstAttribute="top" secondItem="nUb-e6-KRQ" secondAttribute="bottom" id="bnL-2J-1Ap"/>
-                        <constraint firstItem="gxH-dN-oBO" firstAttribute="leading" secondItem="Cis-IP-s9p" secondAttribute="trailing" id="cHa-zX-WGj"/>
-                        <constraint firstItem="gxH-dN-oBO" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="cXy-HE-v4V"/>
-                        <constraint firstItem="mMz-SH-sPG" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="chX-3m-mvR"/>
-                        <constraint firstItem="2kH-zB-o0x" firstAttribute="top" secondItem="ZOF-1q-29Z" secondAttribute="bottom" id="cyz-7t-0LP"/>
-                        <constraint firstItem="nUb-e6-KRQ" firstAttribute="leading" secondItem="oYU-se-Sgw" secondAttribute="trailing" id="e1h-CQ-mp7"/>
-                        <constraint firstAttribute="bottom" secondItem="em2-Zo-OcI" secondAttribute="bottom" id="eb0-jJ-1qI"/>
-                        <constraint firstItem="yua-cN-wwM" firstAttribute="top" secondItem="ups-WC-462" secondAttribute="bottom" id="hrD-Eo-qTk"/>
-                        <constraint firstItem="gxH-dN-oBO" firstAttribute="top" secondItem="EKI-Vt-eJS" secondAttribute="bottom" id="iqn-RY-A3J"/>
-                        <constraint firstItem="EKI-Vt-eJS" firstAttribute="top" secondItem="8UD-Pe-gRQ" secondAttribute="bottom" id="kGF-OB-V3E"/>
-                        <constraint firstItem="e7r-th-g4i" firstAttribute="width" secondItem="em2-Zo-OcI" secondAttribute="width" multiplier="0.5" id="kas-Y5-t5X"/>
-                        <constraint firstItem="EKI-Vt-eJS" firstAttribute="leading" secondItem="mMz-SH-sPG" secondAttribute="trailing" id="kj3-fR-aF8"/>
-                        <constraint firstItem="xkC-G6-0Am" firstAttribute="leading" secondItem="8UD-Pe-gRQ" secondAttribute="trailing" id="kwU-rc-O2T"/>
-                        <constraint firstItem="8UD-Pe-gRQ" firstAttribute="leading" secondItem="ot6-8n-yjo" secondAttribute="trailing" id="lgU-2i-ipq"/>
-                        <constraint firstItem="2kH-zB-o0x" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="lzi-TM-H7Q"/>
-                        <constraint firstItem="Cis-IP-s9p" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="mWc-PT-PT6"/>
-                        <constraint firstItem="ot6-8n-yjo" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="oOi-Uq-puC"/>
-                        <constraint firstItem="m2P-VW-Ykz" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="qOm-WG-UWj"/>
-                        <constraint firstItem="ot6-8n-yjo" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="qly-BY-Zhw"/>
-                        <constraint firstItem="m2P-VW-Ykz" firstAttribute="top" secondItem="DdT-WN-r6e" secondAttribute="bottom" id="sqk-AF-jjd"/>
-                        <constraint firstItem="oYU-se-Sgw" firstAttribute="leading" secondItem="c2N-Jv-bLa" secondAttribute="leading" id="ue5-FO-WrN"/>
-                        <constraint firstItem="Cis-IP-s9p" firstAttribute="top" secondItem="mMz-SH-sPG" secondAttribute="bottom" id="uwW-fI-gE7"/>
-                        <constraint firstAttribute="bottom" secondItem="m2P-VW-Ykz" secondAttribute="bottom" id="v9z-oz-1OW"/>
-                        <constraint firstItem="oYU-se-Sgw" firstAttribute="height" secondItem="e7r-th-g4i" secondAttribute="height" id="wj8-ii-Byy"/>
-                        <constraint firstItem="xkC-G6-0Am" firstAttribute="width" secondItem="e7r-th-g4i" secondAttribute="width" id="x7z-Pu-TL3"/>
-                        <constraint firstItem="em2-Zo-OcI" firstAttribute="top" secondItem="GbN-MM-OME" secondAttribute="bottom" id="yPQ-vq-F5P"/>
+                        <constraint firstItem="4EX-Tf-gQG" firstAttribute="top" secondItem="f4w-eo-doe" secondAttribute="top" id="4hy-b8-SP4"/>
+                        <constraint firstAttribute="bottom" secondItem="c2N-Jv-bLa" secondAttribute="bottom" id="7ZJ-Ye-SLu"/>
+                        <constraint firstItem="f4w-eo-doe" firstAttribute="top" secondItem="Lqh-hl-hlh" secondAttribute="top" id="Dmn-Df-BDj"/>
+                        <constraint firstAttribute="trailing" secondItem="c2N-Jv-bLa" secondAttribute="trailing" id="MII-ZZ-28B"/>
+                        <constraint firstItem="4EX-Tf-gQG" firstAttribute="trailing" secondItem="f4w-eo-doe" secondAttribute="trailing" id="Pfz-uW-8Ls"/>
+                        <constraint firstItem="4EX-Tf-gQG" firstAttribute="leading" secondItem="f4w-eo-doe" secondAttribute="leading" id="QIz-49-gUB"/>
+                        <constraint firstItem="f4w-eo-doe" firstAttribute="leading" secondItem="Lqh-hl-hlh" secondAttribute="leading" id="RSC-yI-YZZ"/>
+                        <constraint firstAttribute="height" constant="550" id="Rfw-Gz-OPO"/>
+                        <constraint firstItem="c2N-Jv-bLa" firstAttribute="top" secondItem="Lqh-hl-hlh" secondAttribute="top" constant="35" id="TfY-Gs-Wmh"/>
+                        <constraint firstAttribute="trailing" secondItem="f4w-eo-doe" secondAttribute="trailing" id="iJz-H6-eYH"/>
+                        <constraint firstItem="4EX-Tf-gQG" firstAttribute="height" secondItem="f4w-eo-doe" secondAttribute="height" id="jK9-x6-fA7"/>
+                        <constraint firstItem="c2N-Jv-bLa" firstAttribute="leading" secondItem="Lqh-hl-hlh" secondAttribute="leading" id="rq3-KF-XPL"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yed-Q8-HT5">
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.73725490196078436" green="0.78431372549019607" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="c2N-Jv-bLa" secondAttribute="bottom" id="U46-u0-Fzd"/>
-                <constraint firstAttribute="trailing" secondItem="c2N-Jv-bLa" secondAttribute="trailing" id="VSN-q7-9w4"/>
-                <constraint firstItem="c2N-Jv-bLa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bP4-Tg-zKY"/>
+                <constraint firstItem="yed-Q8-HT5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="2ZF-wL-sSf"/>
+                <constraint firstAttribute="trailing" secondItem="Lqh-hl-hlh" secondAttribute="trailing" id="NR2-cb-bx2"/>
+                <constraint firstAttribute="trailing" secondItem="yed-Q8-HT5" secondAttribute="trailing" constant="20" id="bKo-Gj-mwK"/>
+                <constraint firstItem="Lqh-hl-hlh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gcF-xV-MOk"/>
+                <constraint firstAttribute="bottom" secondItem="Lqh-hl-hlh" secondAttribute="bottom" id="udf-tm-Viu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
@@ -229,6 +315,8 @@
         <image name="cal_7" width="25" height="25"/>
         <image name="cal_8" width="25" height="25"/>
         <image name="cal_9" width="25" height="25"/>
+        <image name="cal_btn" width="26" height="9"/>
+        <image name="cal_btn_bg" width="26" height="44"/>
         <image name="cal_c" width="25" height="25"/>
         <image name="cal_chu" width="25" height="25"/>
         <image name="cal_d" width="30" height="30"/>
