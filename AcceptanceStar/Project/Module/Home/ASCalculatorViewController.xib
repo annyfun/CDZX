@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="NO">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -309,13 +309,12 @@
                         <constraint firstItem="c2N-Jv-bLa" firstAttribute="leading" secondItem="Lqh-hl-hlh" secondAttribute="leading" id="rq3-KF-XPL"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yed-Q8-HT5">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yed-Q8-HT5">
+                    <rect key="frame" x="15" y="0.0" width="384" height="108"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="108" id="Ipn-XZ-glj"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -323,10 +322,10 @@
             <constraints>
                 <constraint firstItem="yed-Q8-HT5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2ZF-wL-sSf"/>
                 <constraint firstAttribute="trailing" secondItem="Lqh-hl-hlh" secondAttribute="trailing" id="NR2-cb-bx2"/>
-                <constraint firstAttribute="trailing" secondItem="yed-Q8-HT5" secondAttribute="trailing" id="bKo-Gj-mwK"/>
+                <constraint firstAttribute="trailing" secondItem="yed-Q8-HT5" secondAttribute="trailing" constant="15" id="bKo-Gj-mwK"/>
                 <constraint firstItem="Lqh-hl-hlh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gcF-xV-MOk"/>
                 <constraint firstAttribute="bottom" secondItem="Lqh-hl-hlh" secondAttribute="bottom" id="udf-tm-Viu"/>
-                <constraint firstItem="yed-Q8-HT5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ylt-eU-ETp"/>
+                <constraint firstItem="yed-Q8-HT5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ylt-eU-ETp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

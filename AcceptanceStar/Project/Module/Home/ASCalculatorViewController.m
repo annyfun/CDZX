@@ -26,7 +26,9 @@
     @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomC;
     
     @property (strong, nonatomic) NSMutableArray *values;
-    
+
+@property (strong, nonatomic) NSString *copyString;
+
     @property (strong, nonatomic) UIScrollView *scrollView;
     @end
 
@@ -80,10 +82,19 @@
         }];
         
         if (view) {
-            
+            self.copyString = view.text;
+            UIMenuItem *flag = [[UIMenuItem alloc] initWithTitle:@"复制"action:@selector(flag:)];
+            UIMenuController *menu = [UIMenuController sharedMenuController];
+            [menu setMenuItems:[NSArray arrayWithObjects:flag, nil]];
+            [menu setTargetRect:view.frame inView:view.superview];
+            [menu setMenuVisible:YES animated:YES];
         }
     }
-    
+
+- (void)flag:(id)sender {
+    [UIPasteboard generalPasteboard].string = self.copyString;
+}
+
 - (IBAction)digitPressed:(UIButton *)sender {
     if (self.isNew) {
         self.display.text = @"";
