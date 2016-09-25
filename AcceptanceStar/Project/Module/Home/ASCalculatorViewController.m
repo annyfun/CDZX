@@ -24,7 +24,11 @@
     
     @property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnViewHeight;
     @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomC;
-@end
+    
+    @property (strong, nonatomic) NSMutableArray *values;
+    
+    @property (strong, nonatomic) UIScrollView *scrollView;
+    @end
 
 @implementation ASCalculatorViewController
 - (IBAction)hiddenPress:(id)sender {
@@ -39,7 +43,7 @@
         
     }];
 }
-
+    
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -48,13 +52,38 @@
     if (isEmpty(self.display.text)) {
         self.display.text = @"0";
     }
+    
+    self.display.font = [UIFont systemFontOfSize:30];
+    
     self.navigationItem.title = @"银行承兑贴现计算器";
     
     self.btnViewHeight.constant = kPadHeight;
     
     self.view.backgroundColor = RGB(188, 200, 173);
+    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 108, SCREEN_WIDTH, kPadHeight)];
+    [self.view insertSubview:self.scrollView atIndex:0];
+    
+    UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    [self.scrollView addGestureRecognizer:press];
 }
-
+    
+    - (void)longPress:(UILongPressGestureRecognizer *)ges{
+        CGPoint point = [ges locationInView:self.scrollView];
+        
+        __block UILabel *view = nil;
+        [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (CGRectContainsPoint(obj.frame, point)) {
+                view = obj;
+                *stop = YES;
+            }
+        }];
+        
+        if (view) {
+            
+        }
+    }
+    
 - (IBAction)digitPressed:(UIButton *)sender {
     if (self.isNew) {
         self.display.text = @"";
@@ -94,9 +123,6 @@
         operation = @"-";
     }
     
-    if (self.isNew) {
-        self.display.text = @"";
-    }
     self.isNew = NO;
     if ([@"0" isEqualToString:self.display.text]) {
         self.display.text = operation;
@@ -124,7 +150,48 @@
     
 - (IBAction)equalR {
     self.isNew = YES;
-    self.display.text = [NSString stringWithFormat:@"%@", [CaculatorUtility calcComplexFormulaString:self.display.text]];
+    
+    NSString *string = self.display.text;
+    
+    NSString *result = [NSString stringWithFormat:@"%@", [CaculatorUtility calcComplexFormulaString:string]];
+    
+    self.display.text = result;
+    
+    
+    if(nil==self.values)
+    self.values = [@[] mutableCopy];
+    
+    if (string && result) {
+        NSString *r = [NSString stringWithFormat:@"%@\n=%@",string,result];
+        self.values.count?[self.values insertObject:r atIndex:0]:[self.values addObject:r];
+        
+        if (self.values.count>20) {
+            [self.values removeLastObject];
+        }
+        
+        [self reloadHis];
+    }
 }
-
-@end
+    
+    
+    - (void)reloadHis{
+        
+        [self.scrollView removeAllSubviews];
+        
+        CGFloat height = 70;
+        [self.values enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, idx*height, SCREEN_WIDTH-30, height)];
+            label.textColor = [UIColor blackColor];
+            label.textAlignment = NSTextAlignmentRight;
+            label.font = [UIFont systemFontOfSize:24];
+            label.text = obj;
+            label.numberOfLines = 0;
+            
+            [self.scrollView addSubview:label];
+        }];
+        
+        self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, self.values.count * height);
+    }
+    
+    @end

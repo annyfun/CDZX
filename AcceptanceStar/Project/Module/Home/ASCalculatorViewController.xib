@@ -288,18 +288,22 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yed-Q8-HT5">
-                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="108" id="Ipn-XZ-glj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.73725490196078436" green="0.78431372549019607" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="yed-Q8-HT5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="2ZF-wL-sSf"/>
+                <constraint firstItem="yed-Q8-HT5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2ZF-wL-sSf"/>
                 <constraint firstAttribute="trailing" secondItem="Lqh-hl-hlh" secondAttribute="trailing" id="NR2-cb-bx2"/>
-                <constraint firstAttribute="trailing" secondItem="yed-Q8-HT5" secondAttribute="trailing" constant="20" id="bKo-Gj-mwK"/>
+                <constraint firstAttribute="trailing" secondItem="yed-Q8-HT5" secondAttribute="trailing" id="bKo-Gj-mwK"/>
                 <constraint firstItem="Lqh-hl-hlh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gcF-xV-MOk"/>
                 <constraint firstAttribute="bottom" secondItem="Lqh-hl-hlh" secondAttribute="bottom" id="udf-tm-Viu"/>
+                <constraint firstItem="yed-Q8-HT5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ylt-eU-ETp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
