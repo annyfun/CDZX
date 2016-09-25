@@ -23,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    return;
+    
     self.isNew = YES;
     self.display.text = self.params[kParamNumber];
     if (isEmpty(self.display.text)) {
