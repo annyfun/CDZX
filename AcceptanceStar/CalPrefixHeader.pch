@@ -1,83 +1,84 @@
 //
-//  Prefix header
+//  CalPrefixHeader.pch
+//  AcceptanceStar
 //
-//  The contents of this file are implicitly included at the beginning of every source file.
-//  FORMATED!
+//  Created by Jinjin on 2016/9/27.
+//  Copyright © 2016年 Builder. All rights reserved.
 //
 
-#import <Availability.h>
+#define AFAPP 1
 
-#ifndef __IPHONE_7_0
-#warning "This project uses features only available in iOS SDK 3.0 and later."
-#endif
+#ifndef CalPrefixHeader_pch
+#define CalPrefixHeader_pch
+
+
 
 #ifdef __OBJC__
-    //常用第三方库
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import <BlocksKit/BlocksKit.h>
-    #import <BlocksKit+UIKit.h>
-    #import <BlocksKit+MessageUI.h>
-    #import <MBProgressHUD/MBProgressHUD.h>
-    #import <POP/POP.h>
-    #import <FMDB/FMDB.h>
-    #import "PureLayout.h"
-    #import <OpenShare.h>
+//常用第三方库
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <BlocksKit/BlocksKit.h>
+#import <BlocksKit+UIKit.h>
+#import <BlocksKit+MessageUI.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <POP/POP.h>
+#import <FMDB/FMDB.h>
+#import "PureLayout.h"
+#import <OpenShare.h>
 
-    //定义固定常量和公用枚举
-    #import "Constants.h"
-    #import "UrlConstants.h"
-    #import "UMengConstants.h"
-    #import "EnumType.h"
+//定义固定常量和公用枚举
+#import "Constants.h"
+#import "UrlConstants.h"
+#import "UMengConstants.h"
+#import "EnumType.h"
 
-    //系统类扩展
-    #import "NSObject+Addition.h"
-    #import "UITextField+Additions.h"
-    #import "UIView+Addition.h"
-    #import "NSDate+Additions.h"
-    #import "NSTimer+Addition.h"
-    #import "UIColor+Expanded.h"
-    #import "NSString+Addition.h"
-    #import "UIImageView+Additions.h"
-    #import "UIDevice+Additions.h"
-    #import "UIResponder+Additions.h"
-    #import "NSLayoutConstraint+Additions.h"
-    #import "NSArray+Addition.h"
-    #import "UIScrollView+Additions.h"
-    #import "UIImage+Additions.h"
-    #import "UIViewController+ADTransitionController.h"
-    #import "UINavigationController+CustomAnimations.h"//系统自带的几种常用切换动画
+//系统类扩展
+#import "NSObject+Addition.h"
+#import "UITextField+Additions.h"
+#import "UIView+Addition.h"
+#import "NSDate+Additions.h"
+#import "NSTimer+Addition.h"
+#import "UIColor+Expanded.h"
+#import "NSString+Addition.h"
+#import "UIImageView+Additions.h"
+#import "UIDevice+Additions.h"
+#import "UIResponder+Additions.h"
+#import "NSLayoutConstraint+Additions.h"
+#import "NSArray+Addition.h"
+#import "UIScrollView+Additions.h"
+#import "UIImage+Additions.h"
+#import "UIViewController+ADTransitionController.h"
+#import "UINavigationController+CustomAnimations.h"//系统自带的几种常用切换动画
 
-    //Utils
-    #import "YSCFileUtils.h"
-    #import "YSCImageUtils.h"
-    #import "YSCCommonUtils.h"
+//Utils
+#import "YSCFileUtils.h"
+#import "YSCImageUtils.h"
+#import "YSCCommonUtils.h"
 
-    //Manager
-    #import "PlayAudioManager.h"
-    #import "ReachabilityManager.h"
-    #import "AppConfigManager.h"
-    #import "StorageManager.h"
-    #import "LogManager.h"
-    #import "AFNManager.h"
-    #import "SNSShareManager.h"
-    #import "ShowPhotosManager.h"
+//Manager
+#import "PlayAudioManager.h"
+#import "ReachabilityManager.h"
+#import "AppConfigManager.h"
+#import "StorageManager.h"
+#import "LogManager.h"
+#import "AFNManager.h"
+#import "SNSShareManager.h"
+#import "ShowPhotosManager.h"
 
-    //自定义view(对于全局需要使用的自定义view放这里)
+//自定义view(对于全局需要使用的自定义view放这里)
 
 
-    //业务逻辑相关
-    #import "DataModel.h"
+//业务逻辑相关
+#import "DataModel.h"
 
-    #import "Login.h"
 
-    #import "YSCPullToRefreshTableViewController.h"
-    #import "YSCPullToRefreshCollectionViewController.h"
-    #import "YSCBaseTableViewCell.h"
-    #import "YSCBaseCollectionViewCell.h"
-    #import "YSCBaseTableHeaderFooterView.h"
-    #import "YSCBaseCollectionHeaderFooterView.h"
-    #import "YSCTableView.h"
+#import "YSCPullToRefreshTableViewController.h"
+#import "YSCPullToRefreshCollectionViewController.h"
+#import "YSCBaseTableViewCell.h"
+#import "YSCBaseCollectionViewCell.h"
+#import "YSCBaseTableHeaderFooterView.h"
+#import "YSCBaseCollectionHeaderFooterView.h"
+#import "YSCTableView.h"
 #endif
 
 
@@ -93,16 +94,16 @@
 
 #define __NSLog(s, ...) do { \
 NSString *logString = [NSString stringWithFormat:@"[%@(%d)] %@",[[NSString stringWithUTF8String:__FILE__] lastPathComponent],__LINE__,[NSString stringWithFormat:(s), ##__VA_ARGS__]]; \
-    if ( DEBUGMODEL ) { \
-        NSLog(@"%@", logString);\
-        [LogManager saveLog:logString];\
-    } \
-    else { \
-        NSLog(@"%@", logString); \
-        if ([@"1" isEqualToString:kLogManageType]) { \
-            [LogManager saveLog:logString]; \
-        } \
-    } \
+if ( DEBUGMODEL ) { \
+NSLog(@"%@", logString);\
+[LogManager saveLog:logString];\
+} \
+else { \
+NSLog(@"%@", logString); \
+if ([@"1" isEqualToString:kLogManageType]) { \
+[LogManager saveLog:logString]; \
+} \
+} \
 } while (0)
 
 #define NSLog(...) __NSLog(__VA_ARGS__)
@@ -180,3 +181,5 @@ return _sharedObject;
 #define postN(_name)                                ([[NSNotificationCenter defaultCenter] postNotificationName:_name object:nil userInfo:nil])
 #define postNWithObj(_name,_obj)                    ([[NSNotificationCenter defaultCenter] postNotificationName:_name object:(_obj) userInfo:nil])
 #define postNWithInfo(_name,_info)                  ([[NSNotificationCenter defaultCenter] postNotificationName:_name object:nil userInfo:(_info)])
+
+#endif /* CalPrefixHeader_pch */

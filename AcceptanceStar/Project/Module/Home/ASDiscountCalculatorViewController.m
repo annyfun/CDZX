@@ -14,6 +14,8 @@
 #import "OpenShare+Renren.h"
 #import "OpenShare+Alipay.h"
 #import "SNSShareManager.h"
+#import "YSCInfiniteLoopView.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface ASDiscountCalculatorViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *inputView;
@@ -38,6 +40,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *discountMoneyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *zhiPiaoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *dianPiaoBtn;
+@property (weak, nonatomic) IBOutlet UIButton *chaXun;
+@property (weak, nonatomic) IBOutlet UITextField *chaXunField;
+@property (nonatomic, weak) IBOutlet YSCInfiniteLoopView *infiniteLoopView;
+@property (nonatomic, strong) NSMutableArray *bannerArray;
 
 @property (weak, nonatomic) IBOutlet UITextField *shiWanTextField;
 @property (assign, nonatomic) BOOL isDianPiao;
@@ -58,6 +64,7 @@
     [self initTextFields];
     [self initPicerView];
     [self initBlocks];
+    [self resetCalSubviews];
     
     addNObserverWithObj(@selector(textFieldChanged:), UITextFieldTextDidChangeNotification, self.discountDateTextField);
     addNObserverWithObj(@selector(textFieldChanged:), UITextFieldTextDidChangeNotification, self.expireDateTextField);
@@ -126,7 +133,6 @@
 
         
     }];
-
 }
 
 - (UIImage *)thumbnailForWeChat:(UIImage *)oImage size:(CGFloat)size
@@ -160,7 +166,10 @@
             [UIView makeBorderForView:subview withColor:RGB(170, 170, 170) borderWidth:1];
         }
         else if ([subview isMemberOfClass:[UIButton class]]) {
-            [UIView makeRoundForView:subview withRadius:AUTOLAYOUT_LENGTH(30)];
+            
+            if (subview.tag!=20) {
+                [UIView makeRoundForView:subview withRadius:AUTOLAYOUT_LENGTH(30)];
+            }
         }
     }
 }
@@ -412,4 +421,115 @@
     }
     return _daysDict;
 }
+
+
+
+#pragma Cal App
+
+- (void)doCalApp{
+    
+    self.bannerArray = [self commonLoadCaches:@"ABCBBCC"];
+    [self refreshBanner];
+}
+
+- (IBAction)chaXunAction:(id)sender{
+
+    [self hideKeyboard];
+    NSString *num = Trim(self.chaXunField.text);
+    num = [NSString replaceString:num byRegex:@"[ ]+" to:@""];
+    if (isEmpty(num)) {
+        [self showResultThenHide:@"请输入汇票票号"];
+        return;
+    }
+    WEAKSELF
+    [self showHUDLoading:@"正在查询"];
+    [AFNManager getDataWithAPI:@"Court/index/token"
+                  andDictParam:@{@"no" : num}
+                     modelName:ClassOfObject(CourtIndexModel)
+              requestSuccessed:^(id responseObject) {
+                  [blockSelf hideHUDLoading];
+                  [blockSelf pushViewController:@"ASDraftQueryResultViewController"
+                                     withParams:@{kParamModel : responseObject, kParamNumber : num}];
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    [blockSelf hideHUDLoading];
+                    [blockSelf pushViewController:@"ASDraftQueryResultViewController"
+                                       withParams:@{kParamNumber : num}];
+                }];
+}
+
+
+- (void)resetCalSubviews{
+        self.infiniteLoopView.backgroundColor = [UIColor clearColor];
+    self.chaXunField.backgroundColor = [UIColor whiteColor];
+    [UIView makeBorderForView:self.chaXunField withColor:RGB(170, 170, 170) borderWidth:1];
+    
+    [UIView makeRoundForView:self.chaXun withRadius:AUTOLAYOUT_LENGTH(30)];
+}
+
+
+
+- (void)layoutBannerView {
+    WeakSelfType blockSelf = self;
+    //设置数据源
+    self.infiniteLoopView.pageViewAtIndex = ^UIView *(NSInteger pageIndex) {
+        if (pageIndex >= [blockSelf.bannerArray count]) {
+            return nil;
+        }
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:blockSelf.infiniteLoopView.bounds];
+        BannerModel *item = blockSelf.bannerArray[pageIndex];
+        [imageView setImageWithURLString:item.thumb withFadeIn:NO];
+        return imageView;
+    };
+    //设置点击事件
+    self.infiniteLoopView.tapPageAtIndex = ^void(NSInteger pageIndex, UIView *contentView) {
+        if (pageIndex >= 0 && pageIndex < [blockSelf.bannerArray count]) {
+            BannerModel *item = blockSelf.bannerArray[pageIndex];
+            [blockSelf pushViewController:@"ASWebViewViewController" withParams:@{kParamTitle : Trim(item.title), kParamUrl : Trim(item.url)}];
+        }
+    };
+    self.infiniteLoopView.totalPageCount = [self.bannerArray count];
+    [self.infiniteLoopView reloadData];
+    if (1 == [self.bannerArray count]) {
+        [self.infiniteLoopView.timer invalidate];
+    }
+}
+
+- (void)refreshBanner {
+    WeakSelfType blockSelf = self;
+    [AFNManager getDataWithAPI:kResPathAppSlideIndex
+                  andDictParam:@{@"cat" : @"index"}
+                     modelName:ClassOfObject(BannerModel)
+              requestSuccessed:^(id responseObject) {
+                  if ([responseObject isKindOfClass:[NSArray class]]) {
+                      if ([NSObject isNotEmpty:responseObject]) {
+                          [blockSelf.bannerArray removeAllObjects];
+                          
+                          if ([[AVAnalytics getConfigParams:[NSString stringWithFormat:@"Review_%@",AppVersion]] boolValue]) {
+                              for (BannerModel *item in responseObject) {
+                                  if (![item.thumb isEqualToString:@"http://www.yhcd.net//thumb/slide/img/2015-09-24/800x600_0_1443085759_2273.jpg"]) {
+                                      [blockSelf.bannerArray addObject:item];
+                                  }
+                              }
+                          }else{
+                              [blockSelf.bannerArray addObjectsFromArray:responseObject];
+                          }
+                          [blockSelf saveObject:responseObject forKey:@"ABCBBCC"];//缓存banner数组
+                          [blockSelf layoutBannerView];
+                      }
+                  }
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    [blockSelf showResultThenHide:errorMessage];
+                }];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.infiniteLoopView) {
+        [self doCalApp];
+    }
+}
+
 @end

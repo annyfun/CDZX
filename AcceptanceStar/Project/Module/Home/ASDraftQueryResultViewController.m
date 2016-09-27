@@ -67,6 +67,8 @@
 }
 
 - (IBAction)addToObserverButtonClicked:(id)sender {
+    
+#ifndef AFAPP
     if (NO == ISLOGGED) {
         [self presentViewController:@"ASLoginViewController"];
         return;
@@ -86,6 +88,9 @@
     }];
     [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
     [alert show];
+#endif
+    
+    
 }
 
 #pragma mark - UMSocialUIDelegate
@@ -120,10 +125,16 @@
 
 //添加到监控列表
 - (void)addToMonitorList:(NSObject *)pay {
+    
+    NSString *path = @"Court/follow/token";
+#ifndef AFAPP
+    path = kResPathAppCourtFollow;
+#endif
+    
     NSString *payString = [NSString stringWithFormat:@"%@", pay];
     WEAKSELF
     [UIView showHUDLoadingOnWindow:@"正在添加至监控列表"];
-    [AFNManager getDataWithAPI:kResPathAppCourtFollow
+    [AFNManager getDataWithAPI:path
                    andDictParam:@{@"no" : Trim(self.params[kParamNumber]), @"pay" : payString}
                       modelName:nil
                requestSuccessed:^(id responseObject) {

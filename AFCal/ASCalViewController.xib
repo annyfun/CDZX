@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASDiscountCalculatorViewController">
             <connections>
+                <outlet property="chaXun" destination="UkS-GK-1Hl" id="Leh-pp-nhS"/>
+                <outlet property="chaXunField" destination="TBE-22-AXo" id="JMb-Xt-54Z"/>
                 <outlet property="daysTextField" destination="eow-1A-Dty" id="jQm-Ma-uls"/>
                 <outlet property="dianPiaoBtn" destination="J71-PC-awh" id="S0F-rO-gru"/>
                 <outlet property="discountDateTextField" destination="Cd4-6R-nLx" id="3pY-65-MS8"/>
@@ -15,6 +17,7 @@
                 <outlet property="discountMoneyTextField" destination="Ric-AO-M19" id="utq-uj-NU4"/>
                 <outlet property="expireDateTextField" destination="yu3-vG-ROv" id="DAF-58-wb9"/>
                 <outlet property="expireDateView" destination="Z8E-h4-eqy" id="7nl-Lh-rdD"/>
+                <outlet property="infiniteLoopView" destination="wm8-Ev-rWi" id="U6b-nO-jiV"/>
                 <outlet property="inputView" destination="eBU-2O-PmV" id="ceV-sU-KvZ"/>
                 <outlet property="interestDaysTextField" destination="j1Q-b7-XhC" id="DxW-u1-NJ9"/>
                 <outlet property="interestMoneyTextField" destination="UrD-bk-12O" id="o5L-Gn-6Rn"/>
@@ -28,7 +31,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="640" height="1000"/>
+            <rect key="frame" x="0.0" y="0.0" width="640" height="1420"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Mj-TY-5d1" customClass="TPKeyboardAvoidingScrollView">
@@ -441,24 +444,78 @@
                                 <constraint firstItem="Qtt-80-k5W" firstAttribute="top" secondItem="Z8E-h4-eqy" secondAttribute="bottom" id="vfU-Nd-5cG"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="继续收一百万元以上流通票，利率低，买断代贴都行，票送郑州或晋城，18202850022，微信同号，加微信每天发利率。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fw-eX-OsV">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wm8-Ev-rWi" customClass="YSCInfiniteLoopView">
+                            <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="600" id="8h9-nF-rWq"/>
-                                <constraint firstAttribute="height" constant="100" id="cQG-g9-bE9"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="KTl-zg-yMr"/>
+                                <constraint firstAttribute="height" constant="250" id="n0O-ID-5A5"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zom-wO-GH4" userLabel="5View">
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBE-22-AXo">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="VvP-fS-mUe"/>
+                                        <constraint firstAttribute="width" constant="270" id="guG-TU-Zid"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公示催告：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n4-D7-bw6">
+                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkS-GK-1Hl">
+                                    <color key="backgroundColor" red="0.8980392157" green="0.57254901960000004" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="120" id="bhL-l3-J68"/>
+                                        <constraint firstAttribute="height" constant="60" id="vGG-zc-hAX"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <state key="normal" title="查询">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="chaXunAction:" destination="-1" eventType="touchUpInside" id="AqW-cj-Wvl"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="6n4-D7-bw6" secondAttribute="centerY" id="Hi2-xE-uQU"/>
+                                <constraint firstItem="UkS-GK-1Hl" firstAttribute="leading" secondItem="TBE-22-AXo" secondAttribute="trailing" constant="15" id="Nwj-9q-UOH"/>
+                                <constraint firstAttribute="centerY" secondItem="UkS-GK-1Hl" secondAttribute="centerY" id="Uxa-ez-ZJR"/>
+                                <constraint firstAttribute="height" constant="80" id="XGJ-Ii-gXv"/>
+                                <constraint firstAttribute="trailing" secondItem="TBE-22-AXo" secondAttribute="trailing" constant="150" id="bXW-OX-QZD"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="bcw-iP-kIK"/>
+                                <constraint firstItem="6n4-D7-bw6" firstAttribute="leading" secondItem="zom-wO-GH4" secondAttribute="leading" constant="20" id="mnq-Ym-YLP"/>
+                                <constraint firstAttribute="centerY" secondItem="TBE-22-AXo" secondAttribute="centerY" id="uKZ-xl-RCm"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者：原建军V3.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOZ-pC-jfh">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="19C-18-3EO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="3Fw-eX-OsV" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" constant="20" id="Uyh-bJ-3fC"/>
+                        <constraint firstItem="zom-wO-GH4" firstAttribute="top" secondItem="eBU-2O-PmV" secondAttribute="bottom" constant="10" id="EJa-1R-9Ow"/>
+                        <constraint firstItem="zom-wO-GH4" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" constant="20" id="FVL-ou-L1t"/>
+                        <constraint firstAttribute="trailing" secondItem="dOZ-pC-jfh" secondAttribute="trailing" constant="20" id="I9G-ll-Yg4"/>
+                        <constraint firstItem="wm8-Ev-rWi" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" id="M1u-IU-NhX"/>
+                        <constraint firstAttribute="bottom" secondItem="dOZ-pC-jfh" secondAttribute="bottom" id="TCJ-Wr-1Y9"/>
                         <constraint firstItem="eBU-2O-PmV" firstAttribute="top" secondItem="8Mj-TY-5d1" secondAttribute="top" constant="20" id="ZUz-Vc-MF5"/>
-                        <constraint firstAttribute="bottom" secondItem="3Fw-eX-OsV" secondAttribute="bottom" id="fpI-kK-L3H"/>
+                        <constraint firstAttribute="trailing" secondItem="wm8-Ev-rWi" secondAttribute="trailing" id="cvP-CI-XA8"/>
+                        <constraint firstItem="wm8-Ev-rWi" firstAttribute="top" secondItem="zom-wO-GH4" secondAttribute="bottom" id="hoO-tg-aJg"/>
+                        <constraint firstItem="dOZ-pC-jfh" firstAttribute="top" secondItem="wm8-Ev-rWi" secondAttribute="bottom" constant="8" id="hwF-Pd-1ba"/>
+                        <constraint firstAttribute="trailing" secondItem="zom-wO-GH4" secondAttribute="trailing" constant="20" id="lau-o6-BXg"/>
                         <constraint firstAttribute="trailing" secondItem="eBU-2O-PmV" secondAttribute="trailing" constant="20" id="oa5-4y-EXn"/>
-                        <constraint firstItem="3Fw-eX-OsV" firstAttribute="top" secondItem="eBU-2O-PmV" secondAttribute="bottom" constant="8" id="tBm-h6-mI4"/>
                         <constraint firstItem="eBU-2O-PmV" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" constant="20" id="u4n-jH-Yi7"/>
-                        <constraint firstAttribute="trailing" secondItem="3Fw-eX-OsV" secondAttribute="trailing" constant="20" id="u7c-5I-cPV"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -471,7 +528,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="296" y="448"/>
+            <point key="canvasLocation" x="296" y="658"/>
         </view>
     </objects>
     <resources>
