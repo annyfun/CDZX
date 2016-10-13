@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		683BB3BBD4F213AB09CBA63B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC8F06DB13570101FE151D0 /* libPods.a */; };
+		710E8C321DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710E8C311DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib */; };
 		7118E5A01D9A526F00A2D44E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7118E59F1D9A526F00A2D44E /* main.m */; };
 		7118E5A31D9A526F00A2D44E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7118E5A21D9A526F00A2D44E /* AppDelegate.m */; };
 		7118E5A61D9A526F00A2D44E /* AFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7118E5A51D9A526F00A2D44E /* AFViewController.m */; };
@@ -995,7 +996,6 @@
 		D33AE78C1B14C1AB00219A80 /* ASWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33AE78A1B14C1AB00219A80 /* ASWebViewViewController.m */; };
 		D33AE78D1B14C1AB00219A80 /* ASWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33AE78B1B14C1AB00219A80 /* ASWebViewViewController.xib */; };
 		D33AE7911B14C20700219A80 /* ASDiscountCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33AE78F1B14C20700219A80 /* ASDiscountCalculatorViewController.m */; };
-		D33AE7921B14C20700219A80 /* ASDiscountCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33AE7901B14C20700219A80 /* ASDiscountCalculatorViewController.xib */; };
 		D33AE7961B14C22B00219A80 /* ASLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33AE7941B14C22B00219A80 /* ASLoginViewController.m */; };
 		D33AE7971B14C22B00219A80 /* ASLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33AE7951B14C22B00219A80 /* ASLoginViewController.xib */; };
 		D33AE79B1B14C23A00219A80 /* ASRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33AE7991B14C23A00219A80 /* ASRegisterViewController.m */; };
@@ -1501,6 +1501,7 @@
 /* Begin PBXFileReference section */
 		3CE8BE2A5FDB1149D274FAEF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6D593CD018BE5BF6B50FCB8E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		710E8C311DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASDiscountCalculatorViewController.xib; sourceTree = "<group>"; };
 		7118E59C1D9A526F00A2D44E /* AFCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7118E59F1D9A526F00A2D44E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7118E5A11D9A526F00A2D44E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2133,7 +2134,6 @@
 		D33AE78B1B14C1AB00219A80 /* ASWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASWebViewViewController.xib; sourceTree = "<group>"; };
 		D33AE78E1B14C20700219A80 /* ASDiscountCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASDiscountCalculatorViewController.h; path = ../AcceptanceStar/Project/Module/Home/ASDiscountCalculatorViewController.h; sourceTree = "<group>"; };
 		D33AE78F1B14C20700219A80 /* ASDiscountCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASDiscountCalculatorViewController.m; path = ../AcceptanceStar/Project/Module/Home/ASDiscountCalculatorViewController.m; sourceTree = "<group>"; };
-		D33AE7901B14C20700219A80 /* ASDiscountCalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ASDiscountCalculatorViewController.xib; path = ../AcceptanceStar/Project/Module/Home/ASDiscountCalculatorViewController.xib; sourceTree = "<group>"; };
 		D33AE7931B14C22B00219A80 /* ASLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLoginViewController.h; sourceTree = "<group>"; };
 		D33AE7941B14C22B00219A80 /* ASLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLoginViewController.m; sourceTree = "<group>"; };
 		D33AE7951B14C22B00219A80 /* ASLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASLoginViewController.xib; sourceTree = "<group>"; };
@@ -3006,7 +3006,7 @@
 				7118E5A51D9A526F00A2D44E /* AFViewController.m */,
 				D33AE78E1B14C20700219A80 /* ASDiscountCalculatorViewController.h */,
 				D33AE78F1B14C20700219A80 /* ASDiscountCalculatorViewController.m */,
-				D33AE7901B14C20700219A80 /* ASDiscountCalculatorViewController.xib */,
+				710E8C311DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib */,
 				7118EB471D9A608000A2D44E /* ASCalViewController.xib */,
 				7118E5A71D9A526F00A2D44E /* Main.storyboard */,
 				7118E5AA1D9A526F00A2D44E /* Assets.xcassets */,
@@ -6447,6 +6447,7 @@
 				D37BF09C1B1B4C2300FA7579 /* icon_usercenter_changephone@2x.png in Resources */,
 				7118E9641D9A5CA100A2D44E /* location_msg.png in Resources */,
 				D396E2F81B5B7C8400569708 /* ASReSaleSubmitViewController.xib in Resources */,
+				710E8C321DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib in Resources */,
 				D38DA2E11B100D2A005BC113 /* ZSSitalic.png in Resources */,
 				D38DA2771B100D2A005BC113 /* UMSCommentInputController.xib in Resources */,
 				D33917BE1B3320F50084286F /* icon_pinglun_down@2x.png in Resources */,
@@ -6585,7 +6586,6 @@
 				D396E3161B5C2C0A00569708 /* icon_sort1@2x.png in Resources */,
 				D38DA3021B100D2A005BC113 /* ZSSunderline@2x.png in Resources */,
 				D37BF0911B1B444000FA7579 /* test_banner@2x.png in Resources */,
-				D33AE7921B14C20700219A80 /* ASDiscountCalculatorViewController.xib in Resources */,
 				D38DA3061B100D2A005BC113 /* ZSSunlink@2x.png in Resources */,
 				7118EA121D9A5CA200A2D44E /* tabbarItem0_d.png in Resources */,
 				D38DA29F1B100D2A005BC113 /* KLSwitch_icon_lock@2x.png in Resources */,

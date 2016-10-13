@@ -58,7 +58,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"贴现计算器";
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = RGB(221, 221, 221);
     
     [self resetSubviewsOfView:self.inputView];
     [self initTextFields];
@@ -88,6 +88,7 @@
             [UIView showResultThenHideOnWindow:@"分享成功"];
         };
         void(^fail)(void) = ^() {
+            [MobClick event:UMEventKeyShareFail];
             [UIView showResultThenHideOnWindow:@"分享失败"];
         };
         
@@ -95,6 +96,8 @@
         UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:@"分享截图"];
         [actionSheet bk_addButtonWithTitle:@"微信好友"
                                    handler:^{
+                                       
+                                       [MobClick event:UMEventKeyShareWechatSession];
                                        [OpenShare shareToWeixinSession:message Success:^(OSMessage *message) {
                                            success();
                                        } Fail:^(OSMessage *message, NSError *error) {
@@ -103,15 +106,9 @@
                                    }];
         [actionSheet bk_addButtonWithTitle:@"微信朋友圈"
                                    handler:^{
+                                       
+                                       [MobClick event:UMEventKeyShareWechatTimeline];
                                        [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
-                                           success();
-                                       } Fail:^(OSMessage *message, NSError *error) {
-                                           fail();
-                                       }];
-                                   }];
-        [actionSheet bk_addButtonWithTitle:@"QQ好友"
-                                   handler:^{
-                                       [OpenShare shareToQQFriends:message Success:^(OSMessage *message) {
                                            success();
                                        } Fail:^(OSMessage *message, NSError *error) {
                                            fail();
@@ -119,6 +116,8 @@
                                    }];
         [actionSheet bk_addButtonWithTitle:@"QQ空间"
                                    handler:^{
+                                       
+                                       [MobClick event:UMEventKeyShareWeiboTencent];
                                        message.title = @" ";
                                        message.link = @"http://xizue.com";
                                        message.desc = @" ";
@@ -157,18 +156,23 @@
 
 
 - (void)resetSubviewsOfView:(UIView *)view {
+    
     for (UIView *subview in view.subviews) {
         if ([subview isMemberOfClass:[UIView class]]) {
             [self resetSubviewsOfView:subview];
         }
         else if ([subview isMemberOfClass:[UITextField class]]) {
-            subview.backgroundColor = [UIColor whiteColor];
+            subview.layer.cornerRadius = 3;
+            subview.clipsToBounds = YES;
             [UIView makeBorderForView:subview withColor:RGB(170, 170, 170) borderWidth:1];
         }
         else if ([subview isMemberOfClass:[UIButton class]]) {
             
             if (subview.tag!=20) {
-                [UIView makeRoundForView:subview withRadius:AUTOLAYOUT_LENGTH(30)];
+                [UIView makeRoundForView:subview withRadius:4];
+            }else{
+                
+                [UIView makeRoundForView:subview withRadius:3];
             }
         }
     }
@@ -254,7 +258,7 @@
     [self hideKeyboard];
     CGFloat ticketMoney = self.ticketTextField.text.floatValue * 10000;
     CGFloat monthRate = self.monthRateTextField.text.floatValue / 1000;
-    CGFloat yearRate = self.yearRateTextField.text.floatValue / 1000;
+    CGFloat yearRate = self.yearRateTextField.text.floatValue / 100;
     NSInteger tztsf = self.daysTextField.text.integerValue;
     
     
@@ -331,6 +335,7 @@
     
     self.dianPiaoBtn.selected = isDianPiao;
     self.zhiPiaoBtn.selected = !isDianPiao;
+    [self setExpireDate];
     [self setDays];
 }
 
@@ -339,12 +344,12 @@
     if (textField==self.monthRateTextField) {
         
         CGFloat value = [self.monthRateTextField.text floatValue];
-        self.yearRateTextField.text = [NSString stringWithFormat:@"%.2f",value*12];
+        self.yearRateTextField.text = [NSString stringWithFormat:@"%.2f",value*12 / 10];
         
     }else if (textField==self.yearRateTextField){
     
         CGFloat value = [self.yearRateTextField.text floatValue];
-        self.monthRateTextField.text = [NSString stringWithFormat:@"%.2f",value/12];
+        self.monthRateTextField.text = [NSString stringWithFormat:@"%.2f",value/12 * 10];
     }
 }
 
@@ -426,7 +431,7 @@
 }
 
 - (NSDictionary *)daysDict{
-    if (nil==_daysDict) {
+    if (nil==_daysDict || _daysDict.count==0) {
         NSString *string = [[NSUserDefaults standardUserDefaults] objectForKey:@"hehehe"];
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         if (string) {
@@ -487,7 +492,9 @@
     self.chaXunField.backgroundColor = [UIColor whiteColor];
     [UIView makeBorderForView:self.chaXunField withColor:RGB(170, 170, 170) borderWidth:1];
     
-    [UIView makeRoundForView:self.chaXun withRadius:AUTOLAYOUT_LENGTH(30)];
+    [UIView makeRoundForView:self.chaXun withRadius:4];
+    
+    [UIView makeRoundForView:self.chaXunField withRadius:3];
 }
 
 

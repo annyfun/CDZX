@@ -108,6 +108,7 @@
 #define UMEventKeyShareWechatSession            @"ShareWechatSession"
 #define UMEventKeyShareWechatTimeline           @"ShareWechatTimeline"
 #define UMEventKeyShareSuccess                  @"ShareSuccess"
+#define UMEventKeyShareFail                     @"ShareFail"
 
 //搜索
 #define UMEventKeySearchInput                   @"SearchInput"
