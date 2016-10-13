@@ -190,7 +190,7 @@
         else if (2 == blockSelf.pickerIndex) {
             blockSelf.expireDate = date;
             blockSelf.expireDateTextField.text = [NSString stringWithFormat:@"%@ %@", dateString, weekDay];
-            [self setDays];
+            [blockSelf setDays];
         }
     };
     self.yscPickerView.completionShowBlock = ^{
@@ -256,6 +256,13 @@
     CGFloat monthRate = self.monthRateTextField.text.floatValue / 1000;
     CGFloat yearRate = self.yearRateTextField.text.floatValue / 1000;
     NSInteger tztsf = self.daysTextField.text.integerValue;
+    
+    
+    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf + 1;
+    
+    CGFloat interestMoney = (yearRate / 360 * (days) * ticketMoney);
+    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
+    
     if (ticketMoney == 0) {
         [self showResultThenHide:@"请输入票面金额"];
         return;
@@ -277,10 +284,6 @@
         return;
     }
     
-    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf;
-    
-    CGFloat interestMoney = (yearRate / 360 * (days) * ticketMoney);
-    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
     self.shiWanTextField.text = [NSString stringWithFormat:@"%.2f", (yearRate / 360 * (days) * 100000)];
     self.interestMoneyTextField.text = [NSString stringWithFormat:@"%.2f", interestMoney];
     self.discountMoneyTextField.text = [NSString stringWithFormat:@"%.2f", ticketMoney - interestMoney];
@@ -300,6 +303,25 @@
     else if (self.yearRateTextField.isFirstResponder && self.yearRateTextField == textField) {
         self.monthRateTextField.text = [NSString stringWithFormat:@"%.2f", self.yearRateTextField.text.floatValue / 1.2];
     }
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(self.chaXunField == textField){
+        NSString *targetString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        BOOL add = targetString.length>textField.text.length;
+        NSString * str= [targetString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if (add && str.length>8) {
+            
+            NSMutableString *newString = [[NSMutableString alloc] initWithString:str];
+            [newString insertString:@" " atIndex:8];
+            textField.text = newString;
+            
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 
@@ -329,6 +351,7 @@
 
 - (void)setExpireDate{
     NSDate *date = [self dayOfAfterMonth:self.isDianPiao?12:6 date:self.discountDate];
+    date = [date dateByAddingDays:-1];
     NSString *dateString = [date stringWithFormat:DateFormat3];
     NSString *weekDay = [date chineseWeekDay];
     self.expireDate = date;
@@ -498,7 +521,7 @@
 - (void)refreshBanner {
     WeakSelfType blockSelf = self;
     [AFNManager getDataWithAPI:kResPathAppSlideIndex
-                  andDictParam:@{@"cat" : @"index"}
+                  andDictParam:@{@"cat" : @"calculator"}
                      modelName:ClassOfObject(BannerModel)
               requestSuccessed:^(id responseObject) {
                   if ([responseObject isKindOfClass:[NSArray class]]) {

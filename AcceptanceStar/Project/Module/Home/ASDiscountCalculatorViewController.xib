@@ -189,8 +189,8 @@
                                         </label>
                                         <button opaque="NO" tag="20" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J71-PC-awh">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="7HM-6S-fDH"/>
-                                                <constraint firstAttribute="height" constant="40" id="JO7-5V-4SC"/>
+                                                <constraint firstAttribute="width" constant="65" id="7HM-6S-fDH"/>
+                                                <constraint firstAttribute="height" constant="60" id="JO7-5V-4SC"/>
                                             </constraints>
                                             <state key="normal" title="电票" backgroundImage="btn_col">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -202,8 +202,8 @@
                                         </button>
                                         <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Li-um-gUN">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="1aH-2R-awm"/>
-                                                <constraint firstAttribute="width" constant="60" id="NLg-uG-oMf"/>
+                                                <constraint firstAttribute="height" constant="60" id="1aH-2R-awm"/>
+                                                <constraint firstAttribute="width" constant="65" id="NLg-uG-oMf"/>
                                             </constraints>
                                             <state key="normal" title="纸票" backgroundImage="btn_col">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -192,8 +193,8 @@
                                         </label>
                                         <button opaque="NO" tag="20" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J71-PC-awh">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="7HM-6S-fDH"/>
-                                                <constraint firstAttribute="height" constant="40" id="JO7-5V-4SC"/>
+                                                <constraint firstAttribute="width" constant="65" id="7HM-6S-fDH"/>
+                                                <constraint firstAttribute="height" constant="60" id="JO7-5V-4SC"/>
                                             </constraints>
                                             <state key="normal" title="电票" backgroundImage="btn_col">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,8 +206,8 @@
                                         </button>
                                         <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Li-um-gUN">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="1aH-2R-awm"/>
-                                                <constraint firstAttribute="width" constant="60" id="NLg-uG-oMf"/>
+                                                <constraint firstAttribute="height" constant="60" id="1aH-2R-awm"/>
+                                                <constraint firstAttribute="width" constant="65" id="NLg-uG-oMf"/>
                                             </constraints>
                                             <state key="normal" title="纸票" backgroundImage="btn_col">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -447,8 +448,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wm8-Ev-rWi" customClass="YSCInfiniteLoopView">
                             <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="KTl-zg-yMr"/>
-                                <constraint firstAttribute="height" constant="250" id="n0O-ID-5A5"/>
+                                <constraint firstAttribute="width" secondItem="wm8-Ev-rWi" secondAttribute="height" multiplier="320:50" id="i8U-Ph-7jg"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zom-wO-GH4" userLabel="5View">
@@ -460,6 +460,9 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="2Ip-4J-nb6"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公示催告：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n4-D7-bw6">
                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
