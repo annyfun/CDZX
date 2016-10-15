@@ -14,6 +14,8 @@
 #import "OpenShare+Renren.h"
 #import "OpenShare+Alipay.h"
 #import "SNSShareManager.h"
+#import "YSCInfiniteLoopView.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface ASDiscountCalculatorViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *inputView;
@@ -38,6 +40,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *discountMoneyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *zhiPiaoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *dianPiaoBtn;
+@property (weak, nonatomic) IBOutlet UIButton *chaXun;
+@property (weak, nonatomic) IBOutlet UITextField *chaXunField;
+@property (nonatomic, weak) IBOutlet YSCInfiniteLoopView *infiniteLoopView;
+@property (nonatomic, strong) NSMutableArray *bannerArray;
 
 @property (weak, nonatomic) IBOutlet UITextField *shiWanTextField;
 @property (assign, nonatomic) BOOL isDianPiao;
@@ -52,12 +58,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"贴现计算器";
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = RGB(221, 221, 221);
     
     [self resetSubviewsOfView:self.inputView];
     [self initTextFields];
     [self initPicerView];
     [self initBlocks];
+    [self resetCalSubviews];
     
     addNObserverWithObj(@selector(textFieldChanged:), UITextFieldTextDidChangeNotification, self.discountDateTextField);
     addNObserverWithObj(@selector(textFieldChanged:), UITextFieldTextDidChangeNotification, self.expireDateTextField);
@@ -81,6 +88,7 @@
             [UIView showResultThenHideOnWindow:@"分享成功"];
         };
         void(^fail)(void) = ^() {
+            [MobClick event:UMEventKeyShareFail];
             [UIView showResultThenHideOnWindow:@"分享失败"];
         };
         
@@ -88,6 +96,8 @@
         UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:@"分享截图"];
         [actionSheet bk_addButtonWithTitle:@"微信好友"
                                    handler:^{
+                                       
+                                       [MobClick event:UMEventKeyShareWechatSession];
                                        [OpenShare shareToWeixinSession:message Success:^(OSMessage *message) {
                                            success();
                                        } Fail:^(OSMessage *message, NSError *error) {
@@ -96,15 +106,9 @@
                                    }];
         [actionSheet bk_addButtonWithTitle:@"微信朋友圈"
                                    handler:^{
+                                       
+                                       [MobClick event:UMEventKeyShareWechatTimeline];
                                        [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
-                                           success();
-                                       } Fail:^(OSMessage *message, NSError *error) {
-                                           fail();
-                                       }];
-                                   }];
-        [actionSheet bk_addButtonWithTitle:@"QQ好友"
-                                   handler:^{
-                                       [OpenShare shareToQQFriends:message Success:^(OSMessage *message) {
                                            success();
                                        } Fail:^(OSMessage *message, NSError *error) {
                                            fail();
@@ -112,6 +116,8 @@
                                    }];
         [actionSheet bk_addButtonWithTitle:@"QQ空间"
                                    handler:^{
+                                       
+                                       [MobClick event:UMEventKeyShareWeiboTencent];
                                        message.title = @" ";
                                        message.link = @"http://xizue.com";
                                        message.desc = @" ";
@@ -126,7 +132,6 @@
 
         
     }];
-
 }
 
 - (UIImage *)thumbnailForWeChat:(UIImage *)oImage size:(CGFloat)size
@@ -151,16 +156,24 @@
 
 
 - (void)resetSubviewsOfView:(UIView *)view {
+    
     for (UIView *subview in view.subviews) {
         if ([subview isMemberOfClass:[UIView class]]) {
             [self resetSubviewsOfView:subview];
         }
         else if ([subview isMemberOfClass:[UITextField class]]) {
-            subview.backgroundColor = [UIColor whiteColor];
+            subview.layer.cornerRadius = 3;
+            subview.clipsToBounds = YES;
             [UIView makeBorderForView:subview withColor:RGB(170, 170, 170) borderWidth:1];
         }
         else if ([subview isMemberOfClass:[UIButton class]]) {
-            [UIView makeRoundForView:subview withRadius:AUTOLAYOUT_LENGTH(30)];
+            
+            if (subview.tag!=20) {
+                [UIView makeRoundForView:subview withRadius:4];
+            }else{
+                
+                [UIView makeRoundForView:subview withRadius:3];
+            }
         }
     }
 }
@@ -181,7 +194,7 @@
         else if (2 == blockSelf.pickerIndex) {
             blockSelf.expireDate = date;
             blockSelf.expireDateTextField.text = [NSString stringWithFormat:@"%@ %@", dateString, weekDay];
-            [self setDays];
+            [blockSelf setDays];
         }
     };
     self.yscPickerView.completionShowBlock = ^{
@@ -245,8 +258,15 @@
     [self hideKeyboard];
     CGFloat ticketMoney = self.ticketTextField.text.floatValue * 10000;
     CGFloat monthRate = self.monthRateTextField.text.floatValue / 1000;
-    CGFloat yearRate = self.yearRateTextField.text.floatValue / 1000;
+    CGFloat yearRate = self.yearRateTextField.text.floatValue / 100;
     NSInteger tztsf = self.daysTextField.text.integerValue;
+    
+    
+    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf + 1;
+    
+    CGFloat interestMoney = (yearRate / 360 * (days) * ticketMoney);
+    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
+    
     if (ticketMoney == 0) {
         [self showResultThenHide:@"请输入票面金额"];
         return;
@@ -268,10 +288,6 @@
         return;
     }
     
-    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf;
-    
-    CGFloat interestMoney = (yearRate / 360 * (days) * ticketMoney);
-    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
     self.shiWanTextField.text = [NSString stringWithFormat:@"%.2f", (yearRate / 360 * (days) * 100000)];
     self.interestMoneyTextField.text = [NSString stringWithFormat:@"%.2f", interestMoney];
     self.discountMoneyTextField.text = [NSString stringWithFormat:@"%.2f", ticketMoney - interestMoney];
@@ -294,12 +310,32 @@
 }
 
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(self.chaXunField == textField){
+        NSString *targetString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        BOOL add = targetString.length>textField.text.length;
+        NSString * str= [targetString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if (add && str.length>8) {
+            
+            NSMutableString *newString = [[NSMutableString alloc] initWithString:str];
+            [newString insertString:@" " atIndex:8];
+            textField.text = newString;
+            
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+
 - (IBAction)col_selected:(id)sender{
     
     BOOL isDianPiao = self.dianPiaoBtn==sender;
     
     self.dianPiaoBtn.selected = isDianPiao;
     self.zhiPiaoBtn.selected = !isDianPiao;
+    [self setExpireDate];
     [self setDays];
 }
 
@@ -308,18 +344,19 @@
     if (textField==self.monthRateTextField) {
         
         CGFloat value = [self.monthRateTextField.text floatValue];
-        self.yearRateTextField.text = [NSString stringWithFormat:@"%.2f",value*12];
+        self.yearRateTextField.text = [NSString stringWithFormat:@"%.2f",value*12 / 10];
         
     }else if (textField==self.yearRateTextField){
     
         CGFloat value = [self.yearRateTextField.text floatValue];
-        self.monthRateTextField.text = [NSString stringWithFormat:@"%.2f",value/12];
+        self.monthRateTextField.text = [NSString stringWithFormat:@"%.2f",value/12 * 10];
     }
 }
 
 
 - (void)setExpireDate{
     NSDate *date = [self dayOfAfterMonth:self.isDianPiao?12:6 date:self.discountDate];
+    date = [date dateByAddingDays:-1];
     NSString *dateString = [date stringWithFormat:DateFormat3];
     NSString *weekDay = [date chineseWeekDay];
     self.expireDate = date;
@@ -394,7 +431,7 @@
 }
 
 - (NSDictionary *)daysDict{
-    if (nil==_daysDict) {
+    if (nil==_daysDict || _daysDict.count==0) {
         NSString *string = [[NSUserDefaults standardUserDefaults] objectForKey:@"hehehe"];
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         if (string) {
@@ -412,4 +449,117 @@
     }
     return _daysDict;
 }
+
+
+
+#pragma Cal App
+
+- (void)doCalApp{
+    
+    self.bannerArray = [self commonLoadCaches:@"ABCBBCC"];
+    [self refreshBanner];
+}
+
+- (IBAction)chaXunAction:(id)sender{
+
+    [self hideKeyboard];
+    NSString *num = Trim(self.chaXunField.text);
+    num = [NSString replaceString:num byRegex:@"[ ]+" to:@""];
+    if (isEmpty(num)) {
+        [self showResultThenHide:@"请输入汇票票号"];
+        return;
+    }
+    WEAKSELF
+    [self showHUDLoading:@"正在查询"];
+    [AFNManager getDataWithAPI:@"Court/index/token"
+                  andDictParam:@{@"no" : num}
+                     modelName:ClassOfObject(CourtIndexModel)
+              requestSuccessed:^(id responseObject) {
+                  [blockSelf hideHUDLoading];
+                  [blockSelf pushViewController:@"ASDraftQueryResultViewController"
+                                     withParams:@{kParamModel : responseObject, kParamNumber : num}];
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    [blockSelf hideHUDLoading];
+                    [blockSelf pushViewController:@"ASDraftQueryResultViewController"
+                                       withParams:@{kParamNumber : num}];
+                }];
+}
+
+
+- (void)resetCalSubviews{
+        self.infiniteLoopView.backgroundColor = [UIColor clearColor];
+    self.chaXunField.backgroundColor = [UIColor whiteColor];
+    [UIView makeBorderForView:self.chaXunField withColor:RGB(170, 170, 170) borderWidth:1];
+    
+    [UIView makeRoundForView:self.chaXun withRadius:4];
+    
+    [UIView makeRoundForView:self.chaXunField withRadius:3];
+}
+
+
+
+- (void)layoutBannerView {
+    WeakSelfType blockSelf = self;
+    //设置数据源
+    self.infiniteLoopView.pageViewAtIndex = ^UIView *(NSInteger pageIndex) {
+        if (pageIndex >= [blockSelf.bannerArray count]) {
+            return nil;
+        }
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:blockSelf.infiniteLoopView.bounds];
+        BannerModel *item = blockSelf.bannerArray[pageIndex];
+        [imageView setImageWithURLString:item.thumb withFadeIn:NO];
+        return imageView;
+    };
+    //设置点击事件
+    self.infiniteLoopView.tapPageAtIndex = ^void(NSInteger pageIndex, UIView *contentView) {
+        if (pageIndex >= 0 && pageIndex < [blockSelf.bannerArray count]) {
+            BannerModel *item = blockSelf.bannerArray[pageIndex];
+            [blockSelf pushViewController:@"ASWebViewViewController" withParams:@{kParamTitle : Trim(item.title), kParamUrl : Trim(item.url)}];
+        }
+    };
+    self.infiniteLoopView.totalPageCount = [self.bannerArray count];
+    [self.infiniteLoopView reloadData];
+    if (1 == [self.bannerArray count]) {
+        [self.infiniteLoopView.timer invalidate];
+    }
+}
+
+- (void)refreshBanner {
+    WeakSelfType blockSelf = self;
+    [AFNManager getDataWithAPI:kResPathAppSlideIndex
+                  andDictParam:@{@"cat" : @"calculator"}
+                     modelName:ClassOfObject(BannerModel)
+              requestSuccessed:^(id responseObject) {
+                  if ([responseObject isKindOfClass:[NSArray class]]) {
+                      if ([NSObject isNotEmpty:responseObject]) {
+                          [blockSelf.bannerArray removeAllObjects];
+                          
+                          if ([[AVAnalytics getConfigParams:[NSString stringWithFormat:@"Review_%@",AppVersion]] boolValue]) {
+                              for (BannerModel *item in responseObject) {
+                                  if (![item.thumb isEqualToString:@"http://www.yhcd.net//thumb/slide/img/2015-09-24/800x600_0_1443085759_2273.jpg"]) {
+                                      [blockSelf.bannerArray addObject:item];
+                                  }
+                              }
+                          }else{
+                              [blockSelf.bannerArray addObjectsFromArray:responseObject];
+                          }
+                          [blockSelf saveObject:responseObject forKey:@"ABCBBCC"];//缓存banner数组
+                          [blockSelf layoutBannerView];
+                      }
+                  }
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    [blockSelf showResultThenHide:errorMessage];
+                }];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.infiniteLoopView) {
+        [self doCalApp];
+    }
+}
+
 @end

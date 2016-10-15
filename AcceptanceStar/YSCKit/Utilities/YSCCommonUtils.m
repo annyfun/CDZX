@@ -105,7 +105,13 @@
     [UMSocialData openLog:NO];//是否打开调试日志输出
     [UMFeedback setLogEnabled:NO];
     
+    
+#ifndef AFAPP
     UMConfigInstance.appKey = kUMAppKey;
+#else
+    UMConfigInstance.appKey = @"57ff6adbe0f55ab426001e6d";
+#endif
+    
     UMConfigInstance.channelId = @"App Store";
     [MobClick startWithConfigure:UMConfigInstance];
     

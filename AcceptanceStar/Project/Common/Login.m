@@ -225,7 +225,6 @@
             [observer loggedOutWithUserId:self.user.userId];
         }
     }
-    
     [[AppDelegate instance] signOut];
     [self clearLoginData];
 }

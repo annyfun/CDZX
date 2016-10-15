@@ -46,6 +46,12 @@
         }
         return YES;
     };
+    
+    
+    if (self.code) {
+        self.textField.text = self.code;
+        [self queryButtonClicked:nil];
+    }
 }
 
 - (IBAction)queryButtonClicked:(id)sender {

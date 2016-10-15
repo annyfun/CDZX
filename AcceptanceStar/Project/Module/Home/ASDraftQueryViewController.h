@@ -10,4 +10,6 @@
 
 @interface ASDraftQueryViewController : YSCBaseViewController
 
+@property (nonatomic, copy) NSString *code;
+
 @end

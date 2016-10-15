@@ -3,14 +3,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASDiscountCalculatorViewController">
             <connections>
-                <outlet property="chaXun" destination="UkS-GK-1Hl" id="Leh-pp-nhS"/>
-                <outlet property="chaXunField" destination="TBE-22-AXo" id="JMb-Xt-54Z"/>
                 <outlet property="daysTextField" destination="eow-1A-Dty" id="jQm-Ma-uls"/>
                 <outlet property="dianPiaoBtn" destination="J71-PC-awh" id="S0F-rO-gru"/>
                 <outlet property="discountDateTextField" destination="Cd4-6R-nLx" id="3pY-65-MS8"/>
@@ -18,7 +15,6 @@
                 <outlet property="discountMoneyTextField" destination="Ric-AO-M19" id="utq-uj-NU4"/>
                 <outlet property="expireDateTextField" destination="yu3-vG-ROv" id="DAF-58-wb9"/>
                 <outlet property="expireDateView" destination="Z8E-h4-eqy" id="7nl-Lh-rdD"/>
-                <outlet property="infiniteLoopView" destination="wm8-Ev-rWi" id="U6b-nO-jiV"/>
                 <outlet property="inputView" destination="eBU-2O-PmV" id="ceV-sU-KvZ"/>
                 <outlet property="interestDaysTextField" destination="j1Q-b7-XhC" id="DxW-u1-NJ9"/>
                 <outlet property="interestMoneyTextField" destination="UrD-bk-12O" id="o5L-Gn-6Rn"/>
@@ -488,86 +484,27 @@
                                 <constraint firstItem="Qtt-80-k5W" firstAttribute="top" secondItem="Z8E-h4-eqy" secondAttribute="bottom" id="vfU-Nd-5cG"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wm8-Ev-rWi" customClass="YSCInfiniteLoopView">
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="wm8-Ev-rWi" secondAttribute="height" multiplier="320:62" id="i8U-Ph-7jg"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3lt-f3-0Ue" userLabel="line">
                             <color key="backgroundColor" red="0.76071685552597046" green="0.76082748174667358" blue="0.76069265604019165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="LBl-OC-wP4"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zom-wO-GH4" userLabel="5View">
-                            <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBE-22-AXo">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="VvP-fS-mUe"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="-1" id="2Ip-4J-nb6"/>
-                                    </connections>
-                                </textField>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公示催告" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n4-D7-bw6">
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkS-GK-1Hl">
-                                    <color key="backgroundColor" red="0.0019589094445109367" green="0.62266892194747925" blue="0.92371445894241333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="bhL-l3-J68"/>
-                                        <constraint firstAttribute="height" constant="45" id="vGG-zc-hAX"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                    <state key="normal" title="查询">
-                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="chaXunAction:" destination="-1" eventType="touchUpInside" id="AqW-cj-Wvl"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="UkS-GK-1Hl" firstAttribute="leading" secondItem="TBE-22-AXo" secondAttribute="trailing" constant="15" id="7vW-Kl-w5w"/>
-                                <constraint firstAttribute="centerY" secondItem="6n4-D7-bw6" secondAttribute="centerY" id="Hi2-xE-uQU"/>
-                                <constraint firstAttribute="trailing" secondItem="UkS-GK-1Hl" secondAttribute="trailing" constant="15" id="Pxu-II-DjF"/>
-                                <constraint firstAttribute="centerY" secondItem="UkS-GK-1Hl" secondAttribute="centerY" id="Uxa-ez-ZJR"/>
-                                <constraint firstAttribute="height" constant="80" id="XGJ-Ii-gXv"/>
-                                <constraint firstItem="TBE-22-AXo" firstAttribute="leading" secondItem="6n4-D7-bw6" secondAttribute="trailing" constant="40" id="c85-CY-Zrg"/>
-                                <constraint firstItem="6n4-D7-bw6" firstAttribute="leading" secondItem="zom-wO-GH4" secondAttribute="leading" constant="20" id="mnq-Ym-YLP"/>
-                                <constraint firstAttribute="centerY" secondItem="TBE-22-AXo" secondAttribute="centerY" id="uKZ-xl-RCm"/>
-                            </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者：原建军V3.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOZ-pC-jfh">
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="19C-18-3EO"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="继续收一百万元以上流通票，利率低，买断代贴都行，票送郑州或晋城，18202850022，微信同号，加微信每天发利率。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOZ-pC-jfh">
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
                         <constraint firstItem="3lt-f3-0Ue" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" id="3by-NO-3BM"/>
-                        <constraint firstItem="zom-wO-GH4" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" constant="20" id="FVL-ou-L1t"/>
                         <constraint firstAttribute="trailing" secondItem="dOZ-pC-jfh" secondAttribute="trailing" constant="20" id="I9G-ll-Yg4"/>
-                        <constraint firstItem="wm8-Ev-rWi" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" id="M1u-IU-NhX"/>
-                        <constraint firstAttribute="bottom" secondItem="dOZ-pC-jfh" secondAttribute="bottom" id="TCJ-Wr-1Y9"/>
-                        <constraint firstItem="zom-wO-GH4" firstAttribute="top" secondItem="3lt-f3-0Ue" secondAttribute="bottom" constant="12" id="Vkh-UA-x52"/>
+                        <constraint firstAttribute="bottom" secondItem="dOZ-pC-jfh" secondAttribute="bottom" priority="250" id="TCJ-Wr-1Y9"/>
                         <constraint firstItem="3lt-f3-0Ue" firstAttribute="top" secondItem="eBU-2O-PmV" secondAttribute="bottom" constant="12" id="XeD-s8-nDn"/>
                         <constraint firstItem="eBU-2O-PmV" firstAttribute="top" secondItem="8Mj-TY-5d1" secondAttribute="top" constant="20" id="ZUz-Vc-MF5"/>
-                        <constraint firstAttribute="trailing" secondItem="wm8-Ev-rWi" secondAttribute="trailing" id="cvP-CI-XA8"/>
-                        <constraint firstItem="wm8-Ev-rWi" firstAttribute="top" secondItem="zom-wO-GH4" secondAttribute="bottom" constant="12" id="hoO-tg-aJg"/>
-                        <constraint firstItem="dOZ-pC-jfh" firstAttribute="top" secondItem="wm8-Ev-rWi" secondAttribute="bottom" constant="8" id="hwF-Pd-1ba"/>
+                        <constraint firstItem="dOZ-pC-jfh" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" constant="20" id="cR3-NN-Bn1"/>
                         <constraint firstAttribute="trailing" secondItem="3lt-f3-0Ue" secondAttribute="trailing" constant="8" id="iPU-AX-I1r"/>
-                        <constraint firstAttribute="trailing" secondItem="zom-wO-GH4" secondAttribute="trailing" constant="20" id="lau-o6-BXg"/>
+                        <constraint firstItem="dOZ-pC-jfh" firstAttribute="top" secondItem="3lt-f3-0Ue" secondAttribute="bottom" constant="12" id="kdS-0N-pTB"/>
                         <constraint firstAttribute="trailing" secondItem="eBU-2O-PmV" secondAttribute="trailing" constant="20" id="oa5-4y-EXn"/>
                         <constraint firstItem="eBU-2O-PmV" firstAttribute="leading" secondItem="8Mj-TY-5d1" secondAttribute="leading" constant="20" id="u4n-jH-Yi7"/>
                     </constraints>

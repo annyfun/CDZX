@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASDraftQueryViewController">
@@ -20,25 +21,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqo-4M-YGE" userLabel="TopContainr">
-                    <rect key="frame" x="0.0" y="0.0" width="640" height="120"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkB-Hm-pWs" userLabel="Input">
-                            <rect key="frame" x="30" y="20" width="580" height="80"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入汇票票号" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Fwe-pM-O3M">
-                                    <rect key="frame" x="75" y="0.0" width="497" height="80"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="tIZ-sw-UfH">
-                                    <rect key="frame" x="20" y="23" width="35" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="35" id="101-6x-dX6"/>
                                         <constraint firstAttribute="height" constant="35" id="7XA-WD-oIn"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="Fwe-pM-O3M" firstAttribute="leading" secondItem="tIZ-sw-UfH" secondAttribute="trailing" constant="20" id="2BY-ht-ITg"/>
                                 <constraint firstAttribute="height" constant="80" id="2qa-Pc-36D"/>
@@ -51,7 +48,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="UkB-Hm-pWs" secondAttribute="centerX" id="B5W-4D-Lf1"/>
                         <constraint firstAttribute="centerY" secondItem="UkB-Hm-pWs" secondAttribute="centerY" id="IKp-PS-XDG"/>
@@ -59,36 +56,33 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAA-hw-WcN">
-                    <rect key="frame" x="20" y="795" width="600" height="90"/>
-                    <color key="backgroundColor" red="0.19215686269999999" green="0.45772038669999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.19215686269999999" green="0.45772038669999998" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="yAi-Ah-yHd"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <state key="normal" title="查询票号">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="queryButtonClicked:" destination="-1" eventType="touchUpInside" id="YXr-YD-V1m"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uR-Ef-cNq">
-                    <rect key="frame" x="20" y="140" width="600" height="280"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDN-qv-eHb">
-                            <rect key="frame" x="8" y="8" width="584" height="264"/>
                             <string key="text">提示：
 1. 公示催告数据来源于中国法院网、人民法院报、其他省市法制报及全国范围内的其他包装
 2. 请输入完整的16位汇票票号
 3. 仅提供最近6个月内公示催告
 4. 免责声明：本软件旨在最大化帮助用户避免汇票业务风险，因本软件未能收录数据而使用户遇到风险，与本软件无关，由用户自己承担</string>
                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                            <color key="textColor" red="0.52549019607843139" green="0.52549019607843139" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.52549019607843139" green="0.52549019607843139" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="dDN-qv-eHb" secondAttribute="trailing" constant="8" id="Faa-MG-zMM"/>
                         <constraint firstItem="dDN-qv-eHb" firstAttribute="leading" secondItem="5uR-Ef-cNq" secondAttribute="leading" constant="8" id="LGG-vA-1fr"/>
@@ -98,7 +92,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="aqo-4M-YGE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4MD-cT-GpD"/>
                 <constraint firstItem="aqo-4M-YGE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Wt-NO-AaP"/>

@@ -67,6 +67,9 @@
 }
 
 - (IBAction)addToObserverButtonClicked:(id)sender {
+    
+   
+#ifndef AFAPP
     if (NO == ISLOGGED) {
         [self presentViewController:@"ASLoginViewController"];
         return;
@@ -86,6 +89,22 @@
     }];
     [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
     [alert show];
+#else
+    BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"wx02be3a6564b7a50d"]];
+    [WCAlertView showAlertWithTitle:@"此票号添加到挂失预警监控列表，需要下载承兑之星APP" message:nil customizationBlock:NULL completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+        if (buttonIndex==1) {
+            if (canOpen) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"wx02be3a6564b7a50d"]];
+            }
+            else{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/cheng-dui-zhi-xing/id1045101824?mt=8"]];
+                
+            }
+        }
+    } cancelButtonTitle:@"取消" otherButtonTitles:canOpen?@"打开承兑之星":@"下载", nil];
+    
+    
+#endif
 }
 
 #pragma mark - UMSocialUIDelegate
@@ -120,10 +139,16 @@
 
 //添加到监控列表
 - (void)addToMonitorList:(NSObject *)pay {
+    
+    NSString *path = @"Court/follow/token";
+#ifndef AFAPP
+    path = kResPathAppCourtFollow;
+#endif
+    
     NSString *payString = [NSString stringWithFormat:@"%@", pay];
     WEAKSELF
     [UIView showHUDLoadingOnWindow:@"正在添加至监控列表"];
-    [AFNManager getDataWithAPI:kResPathAppCourtFollow
+    [AFNManager getDataWithAPI:path
                    andDictParam:@{@"no" : Trim(self.params[kParamNumber]), @"pay" : payString}
                       modelName:nil
                requestSuccessed:^(id responseObject) {
