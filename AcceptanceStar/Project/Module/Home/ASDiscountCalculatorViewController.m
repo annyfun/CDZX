@@ -363,7 +363,7 @@
 
 - (void)setExpireDate{
     NSDate *date = [self dayOfAfterMonth:self.isDianPiao?12:6 date:self.discountDate];
-    date = [date dateByAddingDays:-1];
+   // date = [date dateByAddingDays:-1];
     NSString *dateString = [date stringWithFormat:DateFormat3];
     NSString *weekDay = [date chineseWeekDay];
     self.expireDate = date;
@@ -463,7 +463,8 @@
 
 - (void)doCalApp{
     
-    self.bannerArray = [self commonLoadCaches:@"ABCBBCC"];
+    self.bannerArray = [self commonLoadCaches:@"ABCBB.CC"];
+    [self layoutBannerView];
     [self refreshBanner];
 }
 
@@ -551,7 +552,7 @@
                           }else{
                               [blockSelf.bannerArray addObjectsFromArray:responseObject];
                           }
-                          [blockSelf saveObject:responseObject forKey:@"ABCBBCC"];//缓存banner数组
+                          [blockSelf saveObject:responseObject forKey:@"ABCBB.CC"];//缓存banner数组
                           [blockSelf layoutBannerView];
                       }
                   }

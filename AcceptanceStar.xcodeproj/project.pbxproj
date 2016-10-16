@@ -903,6 +903,8 @@
 		7118EB4A1D9A676000A2D44E /* ASDraftQueryResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3AD11601B6E15280091DA97 /* ASDraftQueryResultViewController.xib */; };
 		713CE65F1DB2FBCB0052C618 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */; };
 		713CE6601DB2FBCB0052C618 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */; };
+		713CE6611DB2FDE20052C618 /* ASWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33AE78A1B14C1AB00219A80 /* ASWebViewViewController.m */; };
+		713CE6621DB2FDEC0052C618 /* ASWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33AE78B1B14C1AB00219A80 /* ASWebViewViewController.xib */; };
 		71C391E71D977FCB003DCADB /* ASCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */; };
 		7EE907BC73B18E25ABDF9E25 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC8F06DB13570101FE151D0 /* libPods.a */; };
 		D300011D1B989A9D0045F3E9 /* icon_changepassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */; };
@@ -5720,6 +5722,7 @@
 				7118E9E11D9A5CA100A2D44E /* cell_system.png in Resources */,
 				7118E64C1D9A555A00A2D44E /* ZSSunderline@2x.png in Resources */,
 				7118EB201D9A5E4F00A2D44E /* icon_home_mymonitor@2x.png in Resources */,
+				713CE6621DB2FDEC0052C618 /* ASWebViewViewController.xib in Resources */,
 				7118EA071D9A5CA200A2D44E /* nav_search_n.png in Resources */,
 				7118E9751D9A5CA100A2D44E /* talk_bkg_send.png in Resources */,
 				7118E9ED1D9A5CA100A2D44E /* nav_back_d.png in Resources */,
@@ -6720,6 +6723,7 @@
 				7118E8F31D9A5CA100A2D44E /* ProfileEditController.m in Sources */,
 				7118E66D1D9A55A000A2D44E /* UIView+MJExtension.m in Sources */,
 				7118E6021D9A554B00A2D44E /* CYRToken.m in Sources */,
+				713CE6611DB2FDE20052C618 /* ASWebViewViewController.m in Sources */,
 				7118E5DB1D9A54CF00A2D44E /* SNSShareManager.m in Sources */,
 				7118E8E71D9A5CA100A2D44E /* MineViewController.m in Sources */,
 				7118EA871D9A5CA200A2D44E /* TCObject.m in Sources */,

@@ -101,7 +101,7 @@
                 
             }
         }
-    } cancelButtonTitle:@"取消" otherButtonTitles:canOpen?@"打开承兑之星":@"下载", nil];
+    } cancelButtonTitle:@"取消" otherButtonTitles:canOpen?@"打开承兑之星":canOpen?@"打开":@"下载", nil];
     
     
 #endif

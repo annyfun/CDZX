@@ -14,24 +14,24 @@
 #define kPadTopHeight 35
 
 @interface ASCalculatorViewController ()
-    
-    @property (weak, nonatomic) IBOutlet UILabel *display;
-    @property (assign, nonatomic) BOOL isNew;
-    
-    @property (assign, nonatomic) BOOL isPadHidden;
-    
-    @property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnHeight;
-    
-    @property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnViewHeight;
-    @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomC;
-    
-    @property (strong, nonatomic) NSMutableArray *values;
+
+@property (weak, nonatomic) IBOutlet UILabel *display;
+@property (assign, nonatomic) BOOL isNew;
+
+@property (assign, nonatomic) BOOL isPadHidden;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnHeight;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomC;
+
+@property (strong, nonatomic) NSMutableArray *values;
 
 @property (strong, nonatomic) NSString *cString;
 @property (strong, nonatomic) NSString *oString;
 
-    @property (strong, nonatomic) UIScrollView *scrollView;
-    @end
+@property (strong, nonatomic) UIScrollView *scrollView;
+@end
 
 @implementation ASCalculatorViewController
 - (IBAction)hiddenPress:(id)sender {
@@ -46,7 +46,7 @@
         
     }];
 }
-    
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -70,41 +70,41 @@
     UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     [self.scrollView addGestureRecognizer:press];
 }
-    
-    - (void)longPress:(UILongPressGestureRecognizer *)ges{
-        if (ges.state==UIGestureRecognizerStateBegan) {
-            
-            [self becomeFirstResponder];
-            CGPoint point = [ges locationInView:self.scrollView];
-            
-            __block UILabel *view = nil;
-            [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (CGRectContainsPoint(obj.frame, point)) {
-                    view = obj;
-                    *stop = YES;
-                }
-            }];
-            
-            if (view) {
-                self.cString = view.text;
-                
-                CGRect frame = view.frame;
-                frame.origin.x = SCREEN_WIDTH-80;
-                frame.size.width = 80;
-                
-                UIMenuItem *flag = [[UIMenuItem alloc] initWithTitle:@"复制"action:@selector(flag:)];
-                UIMenuController *menu = [UIMenuController sharedMenuController];
-                [menu setMenuItems:[NSArray arrayWithObjects:flag, nil]];
-                [menu setTargetRect:frame inView:view.superview];
-                [menu setMenuVisible:YES animated:YES];
+
+- (void)longPress:(UILongPressGestureRecognizer *)ges{
+    if (ges.state==UIGestureRecognizerStateBegan) {
+        
+        [self becomeFirstResponder];
+        CGPoint point = [ges locationInView:self.scrollView];
+        
+        __block UILabel *view = nil;
+        [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (CGRectContainsPoint(obj.frame, point)) {
+                view = obj;
+                *stop = YES;
             }
+        }];
+        
+        if (view) {
+            self.cString = view.text;
+            
+            CGRect frame = view.frame;
+            frame.origin.x = SCREEN_WIDTH-80;
+            frame.size.width = 80;
+            
+            UIMenuItem *flag = [[UIMenuItem alloc] initWithTitle:@"复制"action:@selector(flag:)];
+            UIMenuController *menu = [UIMenuController sharedMenuController];
+            [menu setMenuItems:[NSArray arrayWithObjects:flag, nil]];
+            [menu setTargetRect:frame inView:view.superview];
+            [menu setMenuVisible:YES animated:YES];
         }
     }
+}
 
-    - (BOOL)canBecomeFirstResponder{
-        return YES;
-    }
-    
+- (BOOL)canBecomeFirstResponder{
+    return YES;
+}
+
 - (void)flag:(id)sender {
     [UIPasteboard generalPasteboard].string = self.cString;
 }
@@ -124,7 +124,7 @@
         self.display.text = [self.display.text stringByAppendingString:text];
     }
 }
-    
+
 - (IBAction)operationPressed:(UIButton *)sender {
     /*
      tag
@@ -172,7 +172,7 @@
         }
     }
 }
-    
+
 - (IBAction)zeroPressed {
     self.isNew = YES;
     self.oString = nil;
@@ -217,21 +217,57 @@
     }
     
 }
-    
-    
+
+
 - (IBAction)equalR {
-    self.isNew = YES;
-    
-    self.oString = nil;
     NSString *string = self.display.text;
-    
-    NSString *result = [NSString stringWithFormat:@"%@", [CaculatorUtility calcComplexFormulaString:string]];
+    NSString *result =  nil;
+    if (self.oString.length) {
+        
+        NSRange location = [self.display.text rangeOfString:self.oString];
+        if (location.location!=NSNotFound){
+            if (location.length<self.display.text.length) {
+
+                NSArray *c = [string componentsSeparatedByString:self.oString];
+                if (c.count==2) {
+                    double one = [c[0] doubleValue];
+                    double tow = [c[1] doubleValue];
+                    if ([self.oString isEqualToString:@"/"]) {
+                        if (tow==0) {
+                            result = @"0.00";
+                        }else{
+                            result = [NSString stringWithFormat:@"%.2f",one/tow];
+                        }
+                    }
+                    else if ([self.oString isEqualToString:@"*"]){
+                        result = [NSString stringWithFormat:@"%.2f",one*tow];
+                    }
+                    else if ([self.oString isEqualToString:@"+"]){
+                        result = [NSString stringWithFormat:@"%.2f",one+tow];
+                    }
+                    else if ([self.oString isEqualToString:@"-"]){
+                        result = [NSString stringWithFormat:@"%.2f",one-tow];
+                    }else{
+                        result = [string substringFromIndex:location.location];
+                    }
+                }else{
+                    result = [string substringFromIndex:location.location];
+                }
+            }else{
+                
+                result = [string substringFromIndex:location.location];
+            }
+        }
+        else{
+                result = string;
+        }
+    }else{
+        result = string;
+    }
     
     self.display.text = result;
-    
-    
     if(nil==self.values)
-    self.values = [@[] mutableCopy];
+        self.values = [@[] mutableCopy];
     
     if (string && result) {
         NSString *r = [NSString stringWithFormat:@"%@\n=%@",string,result];
@@ -243,27 +279,33 @@
         
         [self reloadHis];
     }
+    
+    self.isNew = YES;
+    self.oString = nil;
+ 
+//    NSString *result = [NSString stringWithFormat:@"%@", [CaculatorUtility calcComplexFormulaString:string]];
+   
 }
+
+
+- (void)reloadHis{
     
+    [self.scrollView removeAllSubviews];
     
-    - (void)reloadHis{
+    CGFloat height = 70;
+    [self.values enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        [self.scrollView removeAllSubviews];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, idx*height, SCREEN_WIDTH-30, height)];
+        label.textColor = [UIColor blackColor];
+        label.textAlignment = NSTextAlignmentRight;
+        label.font = [UIFont systemFontOfSize:24];
+        label.text = obj;
+        label.numberOfLines = 0;
         
-        CGFloat height = 70;
-        [self.values enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, idx*height, SCREEN_WIDTH-30, height)];
-            label.textColor = [UIColor blackColor];
-            label.textAlignment = NSTextAlignmentRight;
-            label.font = [UIFont systemFontOfSize:24];
-            label.text = obj;
-            label.numberOfLines = 0;
-            
-            [self.scrollView addSubview:label];
-        }];
-        
-        self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, self.values.count * height);
-    }
+        [self.scrollView addSubview:label];
+    }];
     
-    @end
+    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, self.values.count * height);
+}
+
+@end
