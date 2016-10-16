@@ -901,6 +901,8 @@
 		7118EB481D9A608000A2D44E /* ASCalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7118EB471D9A608000A2D44E /* ASCalViewController.xib */; };
 		7118EB491D9A676000A2D44E /* ASDraftQueryResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AD115F1B6E15280091DA97 /* ASDraftQueryResultViewController.m */; };
 		7118EB4A1D9A676000A2D44E /* ASDraftQueryResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3AD11601B6E15280091DA97 /* ASDraftQueryResultViewController.xib */; };
+		713CE65F1DB2FBCB0052C618 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */; };
+		713CE6601DB2FBCB0052C618 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */; };
 		71C391E71D977FCB003DCADB /* ASCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */; };
 		7EE907BC73B18E25ABDF9E25 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC8F06DB13570101FE151D0 /* libPods.a */; };
 		D300011D1B989A9D0045F3E9 /* icon_changepassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */; };
@@ -1969,6 +1971,8 @@
 		7118EAE01D9A5D7900A2D44E /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		7118EB471D9A608000A2D44E /* ASCalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCalViewController.xib; sourceTree = "<group>"; };
 		7118EB4B1D9A698500A2D44E /* CalPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalPrefixHeader.pch; sourceTree = "<group>"; };
+		713CE65D1DB2FBCB0052C618 /* TSCurrencyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCurrencyTextField.h; sourceTree = "<group>"; };
+		713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCurrencyTextField.m; sourceTree = "<group>"; };
 		71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCalculatorViewController.xib; sourceTree = "<group>"; };
 		D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_changepassword@2x.png"; sourceTree = "<group>"; };
 		D300011E1B989B100045F3E9 /* ASChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChangePasswordViewController.h; sourceTree = "<group>"; };
@@ -3004,6 +3008,8 @@
 				7118E5A21D9A526F00A2D44E /* AppDelegate.m */,
 				7118E5A41D9A526F00A2D44E /* AFViewController.h */,
 				7118E5A51D9A526F00A2D44E /* AFViewController.m */,
+				713CE65D1DB2FBCB0052C618 /* TSCurrencyTextField.h */,
+				713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */,
 				D33AE78E1B14C20700219A80 /* ASDiscountCalculatorViewController.h */,
 				D33AE78F1B14C20700219A80 /* ASDiscountCalculatorViewController.m */,
 				710E8C311DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib */,
@@ -6906,6 +6912,7 @@
 				7118E5F81D9A54FF00A2D44E /* YSCBasePullToRefreshView.m in Sources */,
 				7118EA831D9A5CA200A2D44E /* TCExtend.m in Sources */,
 				7118E8AD1D9A5CA000A2D44E /* UIImage+Rotate_Flip.m in Sources */,
+				713CE65F1DB2FBCB0052C618 /* TSCurrencyTextField.m in Sources */,
 				7118E5EA1D9A54E800A2D44E /* ServerTimeSynchronizer.m in Sources */,
 				7118E6621D9A558C00A2D44E /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				7118E8B11D9A5CA000A2D44E /* UIImageAddtions.m in Sources */,
@@ -7232,6 +7239,7 @@
 				D38DA2AE1B100D2A005BC113 /* TCBlobDownloader.m in Sources */,
 				7118EAD81D9A5CA200A2D44E /* SimpleHeadCell.m in Sources */,
 				7118E8C81D9A5CA100A2D44E /* GroupDetailController.m in Sources */,
+				713CE6601DB2FBCB0052C618 /* TSCurrencyTextField.m in Sources */,
 				7118E9081D9A5CA100A2D44E /* SetNotifyController.m in Sources */,
 				D33AE7911B14C20700219A80 /* ASDiscountCalculatorViewController.m in Sources */,
 				D33AE7871B14C18E00219A80 /* ASHomeViewController.m in Sources */,

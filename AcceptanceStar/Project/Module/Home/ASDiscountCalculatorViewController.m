@@ -16,6 +16,7 @@
 #import "SNSShareManager.h"
 #import "YSCInfiniteLoopView.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "TSCurrencyTextField.h"
 
 @interface ASDiscountCalculatorViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *inputView;
@@ -36,8 +37,8 @@
 @property (assign, nonatomic) NSInteger pickerIndex;
 
 @property (weak, nonatomic) IBOutlet UITextField *interestDaysTextField;
-@property (weak, nonatomic) IBOutlet UITextField *interestMoneyTextField;
-@property (weak, nonatomic) IBOutlet UITextField *discountMoneyTextField;
+@property (weak, nonatomic) IBOutlet TSCurrencyTextField *interestMoneyTextField;
+@property (weak, nonatomic) IBOutlet TSCurrencyTextField *discountMoneyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *zhiPiaoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *dianPiaoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *chaXun;
@@ -45,7 +46,7 @@
 @property (nonatomic, weak) IBOutlet YSCInfiniteLoopView *infiniteLoopView;
 @property (nonatomic, strong) NSMutableArray *bannerArray;
 
-@property (weak, nonatomic) IBOutlet UITextField *shiWanTextField;
+@property (weak, nonatomic) IBOutlet TSCurrencyTextField *shiWanTextField;
 @property (assign, nonatomic) BOOL isDianPiao;
 @property (strong, nonatomic) NSDictionary *daysDict;
 @end
@@ -288,24 +289,30 @@
         return;
     }
     
-    self.shiWanTextField.text = [NSString stringWithFormat:@"%.2f", (yearRate / 360 * (days) * 100000)];
-    self.interestMoneyTextField.text = [NSString stringWithFormat:@"%.2f", interestMoney];
-    self.discountMoneyTextField.text = [NSString stringWithFormat:@"%.2f", ticketMoney - interestMoney];
+    self.shiWanTextField.amount = @((yearRate / 360 * (days) * 100000));
+    self.interestMoneyTextField.amount = @(interestMoney);
+    self.discountMoneyTextField.amount = @(ticketMoney - interestMoney);
 }
 //再计算
-- (IBAction)recalculateButtonClicked:(id)sender {
+- (IBAction)recalculateButtonClicked:(UIButton *)sender {
     [self hideKeyboard];
-    [self pushViewController:@"ASCalculatorViewController" withParams:@{kParamNumber : Trim(self.discountMoneyTextField.text)}];
+    if (sender.tag==1) {
+        
+        [self pushViewController:@"ASCalculatorViewController" withParams:@{kParamNumber : [NSString stringWithFormat:@"%.2f",self.discountMoneyTextField.amount.doubleValue]}];
+    }else{
+        
+        [self pushViewController:@"ASCalculatorViewController" withParams:@{kParamNumber : [NSString stringWithFormat:@"%.2f",self.interestMoneyTextField.amount.doubleValue]}];
+    }
 }
 
 #pragma mark - UITextFieldDelegate
 - (void)textFieldChanged:(NSNotification *)notification {
     UITextField *textField = (UITextField *)notification.object;
     if (self.monthRateTextField.isFirstResponder && self.monthRateTextField == textField) {
-        self.yearRateTextField.text = [NSString stringWithFormat:@"%.2f", self.monthRateTextField.text.floatValue * 1.2];
+        self.yearRateTextField.text = [NSString stringWithFormat:@"%.4f", self.monthRateTextField.text.floatValue * 1.2];
     }
     else if (self.yearRateTextField.isFirstResponder && self.yearRateTextField == textField) {
-        self.monthRateTextField.text = [NSString stringWithFormat:@"%.2f", self.yearRateTextField.text.floatValue / 1.2];
+        self.monthRateTextField.text = [NSString stringWithFormat:@"%.4f", self.yearRateTextField.text.floatValue / 1.2];
     }
 }
 
@@ -344,12 +351,12 @@
     if (textField==self.monthRateTextField) {
         
         CGFloat value = [self.monthRateTextField.text floatValue];
-        self.yearRateTextField.text = [NSString stringWithFormat:@"%.2f",value*12 / 10];
+        self.yearRateTextField.text = [NSString stringWithFormat:@"%.4f",value*12 / 10];
         
     }else if (textField==self.yearRateTextField){
     
         CGFloat value = [self.yearRateTextField.text floatValue];
-        self.monthRateTextField.text = [NSString stringWithFormat:@"%.2f",value/12 * 10];
+        self.monthRateTextField.text = [NSString stringWithFormat:@"%.4f",value/12 * 10];
     }
 }
 
