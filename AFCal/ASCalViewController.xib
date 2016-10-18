@@ -206,10 +206,10 @@
                                         </label>
                                         <button opaque="NO" tag="20" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J71-PC-awh">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="7HM-6S-fDH"/>
-                                                <constraint firstAttribute="height" constant="40" id="JO7-5V-4SC"/>
+                                                <constraint firstAttribute="width" constant="100" id="7HM-6S-fDH"/>
+                                                <constraint firstAttribute="height" constant="45" id="JO7-5V-4SC"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <state key="normal" title="电票" backgroundImage="btn_col">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -220,10 +220,10 @@
                                         </button>
                                         <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Li-um-gUN">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="1aH-2R-awm"/>
-                                                <constraint firstAttribute="width" constant="70" id="NLg-uG-oMf"/>
+                                                <constraint firstAttribute="height" constant="45" id="1aH-2R-awm"/>
+                                                <constraint firstAttribute="width" constant="100" id="NLg-uG-oMf"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <state key="normal" title="纸票" backgroundImage="btn_col">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
