@@ -108,7 +108,9 @@
     
 #ifndef AFAPP
     UMConfigInstance.appKey = kUMAppKey;
+    [UMSocialData setAppKey:kUMAppKey];//设置友盟社会化组件
 #else
+    [UMSocialData setAppKey:@"57ff6adbe0f55ab426001e6d"];
     UMConfigInstance.appKey = @"57ff6adbe0f55ab426001e6d";
 #endif
     

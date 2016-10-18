@@ -18,7 +18,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "TSCurrencyTextField.h"
 
-@interface ASDiscountCalculatorViewController ()<UITextFieldDelegate>
+@interface ASDiscountCalculatorViewController ()<UITextFieldDelegate,UMSocialUIDelegate>
 @property (weak, nonatomic) IBOutlet UIView *inputView;
 @property (weak, nonatomic) IBOutlet UITextField *ticketTextField;
 @property (weak, nonatomic) IBOutlet UITextField *monthRateTextField;
@@ -75,61 +75,76 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"分享" style:UIBarButtonItemStylePlain handler:^(id sender) {
         
 
+#ifndef AFAPP
+        NSString *appKy = kUMAppKey;
+#else
+        NSString *appKy = @"57ff6adbe0f55ab426001e6d";
+#endif
+    
+        
+        UIImage *shareImage = [UIView screenshotOfView:blockSelf.inputView.superview];
+        [UMSocialSnsService presentSnsIconSheetView:blockSelf
+                                             appKey:appKy
+                                          shareText:nil
+                                         shareImage:shareImage
+                                    shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline, UMShareToQzone]
+                                           delegate:blockSelf];
+        
+//        [[UMSocialDataService defaultDataService] postSNSWithTypes:@[UMShareToWechatSession,UMShareToWechatTimeline, UMShareToQzone] content:<#(NSString *)#> image:<#(id)#> location:<#(CLLocation *)#> urlResource:<#(UMSocialUrlResource *)#> completion:<#^(UMSocialResponseEntity *response)completion#>];
         
        //TODO HEMY 分享截图分享
-        UIImage *shareImage = [UIView screenshotOfView:blockSelf.inputView.superview];
-        
-        ShareType shareType = ShareTypeWechatSession;
-        
-        OSMessage *message = [[OSMessage alloc] init];
-        message.image = shareImage;
-        message.thumbnail = [blockSelf thumbnailForWeChat:shareImage size:32];
-        void(^success)(void) = ^() {
-            [MobClick event:UMEventKeyShareSuccess];
-            [UIView showResultThenHideOnWindow:@"分享成功"];
-        };
-        void(^fail)(void) = ^() {
-            [MobClick event:UMEventKeyShareFail];
-            [UIView showResultThenHideOnWindow:@"分享失败"];
-        };
-        
-        
-        UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:@"分享截图"];
-        [actionSheet bk_addButtonWithTitle:@"微信好友"
-                                   handler:^{
-                                       
-                                       [MobClick event:UMEventKeyShareWechatSession];
-                                       [OpenShare shareToWeixinSession:message Success:^(OSMessage *message) {
-                                           success();
-                                       } Fail:^(OSMessage *message, NSError *error) {
-                                           fail();
-                                       }];
-                                   }];
-        [actionSheet bk_addButtonWithTitle:@"微信朋友圈"
-                                   handler:^{
-                                       
-                                       [MobClick event:UMEventKeyShareWechatTimeline];
-                                       [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
-                                           success();
-                                       } Fail:^(OSMessage *message, NSError *error) {
-                                           fail();
-                                       }];
-                                   }];
-        [actionSheet bk_addButtonWithTitle:@"QQ空间"
-                                   handler:^{
-                                       
-                                       [MobClick event:UMEventKeyShareWeiboTencent];
-                                       message.title = @" ";
-                                       message.link = @"http://xizue.com";
-                                       message.desc = @" ";
-                                       [OpenShare shareToQQZone:message Success:^(OSMessage *message) {
-                                           success();
-                                       } Fail:^(OSMessage *message, NSError *error) {
-                                           fail();
-                                       }];
-                                   }];
-        [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
-        [actionSheet showInView:blockSelf.view];
+//
+//        ShareType shareType = ShareTypeWechatSession;
+//        
+//        OSMessage *message = [[OSMessage alloc] init];
+//        message.image = shareImage;
+//        message.thumbnail = [blockSelf thumbnailForWeChat:shareImage size:32];
+//        void(^success)(void) = ^() {
+//            [MobClick event:UMEventKeyShareSuccess];
+//            [UIView showResultThenHideOnWindow:@"分享成功"];
+//        };
+//        void(^fail)(void) = ^() {
+//            [MobClick event:UMEventKeyShareFail];
+//            [UIView showResultThenHideOnWindow:@"分享失败"];
+//        };
+//        
+//        
+//        UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:@"分享截图"];
+//        [actionSheet bk_addButtonWithTitle:@"微信好友"
+//                                   handler:^{
+//                                       
+//                                       [MobClick event:UMEventKeyShareWechatSession];
+//                                       [OpenShare shareToWeixinSession:message Success:^(OSMessage *message) {
+//                                           success();
+//                                       } Fail:^(OSMessage *message, NSError *error) {
+//                                           fail();
+//                                       }];
+//                                   }];
+//        [actionSheet bk_addButtonWithTitle:@"微信朋友圈"
+//                                   handler:^{
+//                                       
+//                                       [MobClick event:UMEventKeyShareWechatTimeline];
+//                                       [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
+//                                           success();
+//                                       } Fail:^(OSMessage *message, NSError *error) {
+//                                           fail();
+//                                       }];
+//                                   }];
+//        [actionSheet bk_addButtonWithTitle:@"QQ空间"
+//                                   handler:^{
+//                                       
+//                                       [MobClick event:UMEventKeyShareWeiboTencent];
+//                                       message.title = @" ";
+//                                       message.link = @"http://xizue.com";
+//                                       message.desc = @" ";
+//                                       [OpenShare shareToQQZone:message Success:^(OSMessage *message) {
+//                                           success();
+//                                       } Fail:^(OSMessage *message, NSError *error) {
+//                                           fail();
+//                                       }];
+//                                   }];
+//        [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
+//        [actionSheet showInView:blockSelf.view];
 
         
     }];
@@ -263,7 +278,7 @@
     NSInteger tztsf = self.daysTextField.text.integerValue;
     
     
-    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf + 1;
+    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf;
     
     CGFloat interestMoney = (yearRate / 360 * (days) * ticketMoney);
     self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
@@ -570,4 +585,34 @@
     }
 }
 
+//关闭当前页面之后
+-(void)didCloseUIViewController:(UMSViewControllerType)fromViewControllerType {
+    NSLog(@"fromViewControllerType");
+}
+-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
+    if (UMShareToWechatTimeline == platformName) {
+        [UMSocialData defaultData].extConfig.wechatTimelineData.url = nil;
+        [UMSocialData defaultData].extConfig.wechatTimelineData.wxMessageType = UMSocialWXMessageTypeImage;
+    }
+    else  if (UMShareToWechatSession == platformName) {
+        [UMSocialData defaultData].extConfig.wechatSessionData.url = nil;
+        [UMSocialData defaultData].extConfig.wechatSessionData.wxMessageType = UMSocialWXMessageTypeImage;
+    }
+    else if (UMShareToQzone == platformName) {
+        [UMSocialData defaultData].extConfig.qzoneData.url =  @"http://www.yhcd.net";
+    }
+}
+//各个页面执行授权完成、分享完成、或者评论完成时的回调函数
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response {
+    NSLog(@"didFinishGetUMSocialDataInViewController");
+    if (response.responseCode == UMSResponseCodeSuccess) {
+        [self showResultThenHide:@"分享成功"];
+    }
+    else if (UMSResponseCodeCancel == response.responseCode){
+        [self showResultThenHide:@"取消分享"];
+    }
+    else {
+        [self showResultThenHide:@"分享失败"];
+    }
+}
 @end
