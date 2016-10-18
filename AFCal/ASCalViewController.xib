@@ -551,7 +551,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="19C-18-3EO"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -567,7 +567,7 @@
                         <constraint firstItem="eBU-2O-PmV" firstAttribute="top" secondItem="8Mj-TY-5d1" secondAttribute="top" constant="20" id="ZUz-Vc-MF5"/>
                         <constraint firstAttribute="trailing" secondItem="wm8-Ev-rWi" secondAttribute="trailing" id="cvP-CI-XA8"/>
                         <constraint firstItem="wm8-Ev-rWi" firstAttribute="top" secondItem="zom-wO-GH4" secondAttribute="bottom" constant="12" id="hoO-tg-aJg"/>
-                        <constraint firstItem="dOZ-pC-jfh" firstAttribute="top" secondItem="wm8-Ev-rWi" secondAttribute="bottom" constant="8" id="hwF-Pd-1ba"/>
+                        <constraint firstItem="dOZ-pC-jfh" firstAttribute="top" secondItem="wm8-Ev-rWi" secondAttribute="bottom" constant="4" id="hwF-Pd-1ba"/>
                         <constraint firstAttribute="trailing" secondItem="3lt-f3-0Ue" secondAttribute="trailing" constant="8" id="iPU-AX-I1r"/>
                         <constraint firstAttribute="trailing" secondItem="zom-wO-GH4" secondAttribute="trailing" constant="20" id="lau-o6-BXg"/>
                         <constraint firstAttribute="trailing" secondItem="eBU-2O-PmV" secondAttribute="trailing" constant="20" id="oa5-4y-EXn"/>

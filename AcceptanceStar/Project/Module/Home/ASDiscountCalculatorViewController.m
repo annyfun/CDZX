@@ -58,7 +58,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"贴现计算器";
+    self.title = @"银行承兑贴现计算器";
     self.view.backgroundColor = RGB(221, 221, 221);
     
     [self resetSubviewsOfView:self.inputView];
