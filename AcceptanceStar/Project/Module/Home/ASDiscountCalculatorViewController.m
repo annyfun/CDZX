@@ -212,6 +212,10 @@
             blockSelf.expireDateTextField.text = [NSString stringWithFormat:@"%@ %@", dateString, weekDay];
             [blockSelf setDays];
         }
+        
+        NSInteger tztsf = blockSelf.daysTextField.text.integerValue;
+        NSInteger days = [blockSelf.expireDate daysAfterDate:blockSelf.discountDate] + tztsf;
+        blockSelf.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
     };
     self.yscPickerView.completionShowBlock = ^{
     };
@@ -277,11 +281,10 @@
     CGFloat yearRate = self.yearRateTextField.text.floatValue / 100;
     NSInteger tztsf = self.daysTextField.text.integerValue;
     
-    
     NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf;
+    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
     
     CGFloat interestMoney = (yearRate / 360 * (days) * ticketMoney);
-    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
     
     if (ticketMoney == 0) {
         [self showResultThenHide:@"请输入票面金额"];
@@ -383,6 +386,10 @@
     NSString *weekDay = [date chineseWeekDay];
     self.expireDate = date;
     self.expireDateTextField.text = [NSString stringWithFormat:@"%@ %@", dateString, weekDay];
+    
+    NSInteger tztsf = self.daysTextField.text.integerValue;
+    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf;
+    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
 }
 
 - (void)setDays{
@@ -402,9 +409,9 @@
     if (daysStr) {
         NSInteger day = [daysStr integerValue];
         if (self.isDianPiao) {
-            self.daysTextField.text = [NSString stringWithFormat:@"%ld",MAX(0, day-3)];
+            self.daysTextField.text = [NSString stringWithFormat:@"%zd",MAX(0, day-3)];
         }else{
-            self.daysTextField.text = [NSString stringWithFormat:@"%ld",MAX(0, day)];
+            self.daysTextField.text = [NSString stringWithFormat:@"%zd",MAX(0, day)];
         }
     }
     else{
@@ -431,6 +438,10 @@
             }
         }
     }
+    
+    NSInteger tztsf = self.daysTextField.text.integerValue;
+    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf;
+    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
 }
 
 - (NSDate *)dayOfAfterMonth:(NSInteger)month date:(NSDate *)date{
