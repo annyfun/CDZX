@@ -48,14 +48,14 @@
     NSLocale *locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"] ;
     _currencyNumberFormatter = [[NSNumberFormatter alloc] init];
    _currencyNumberFormatter.locale = locale;
-//    _currencyNumberFormatter.currencyCode = @"Y";
+    _currencyNumberFormatter.currencySymbol = nil;
     _currencyNumberFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;
     _currencyNumberFormatter.usesGroupingSeparator = YES;
     
     _currencyTextFieldDelegate = [TSCurrencyTextFieldDelegate new];
     [super setDelegate: _currencyTextFieldDelegate];
     
-    [self setText: @"0"];
+    [self setText:nil];
 }
 
 - (void) setCaratPosition: (NSInteger) pos
@@ -108,9 +108,15 @@
 
 - (void) setText: (NSString *) text
 {
-    NSString* formatted = [_currencyNumberFormatter stringFromNumber: [self amountFromString: text]];
-    
-    [super setText: formatted];
+    if (text) {
+        
+        NSString* formatted = [_currencyNumberFormatter stringFromNumber: [self amountFromString: text]];
+        formatted = [formatted stringByReplacingOccurrencesOfString:@"￥" withString:@""];
+        [super setText: formatted];
+    }else{
+        [super setText: nil];
+        
+    }
 }
 
 @end
