@@ -89,12 +89,13 @@
     }];
     [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
     [alert show];
+
 #else
-    BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"CDZXAppScheme"]];
+    BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"CDZXAppScheme://"]];
     [WCAlertView showAlertWithTitle:@"此票号添加到挂失预警监控列表，需要下载承兑之星APP" message:nil customizationBlock:NULL completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
         if (buttonIndex==1) {
             if (canOpen) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"CDZXAppScheme"]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"CDZXAppScheme://"]];
             }
             else{
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/cheng-dui-zhi-xing/id1045101824?mt=8"]];

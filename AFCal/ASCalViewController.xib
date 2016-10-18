@@ -547,7 +547,7 @@
                                 <constraint firstAttribute="centerY" secondItem="TBE-22-AXo" secondAttribute="centerY" id="uKZ-xl-RCm"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者：原建军V3.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOZ-pC-jfh">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者：原建军V4.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOZ-pC-jfh">
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="19C-18-3EO"/>
                             </constraints>
