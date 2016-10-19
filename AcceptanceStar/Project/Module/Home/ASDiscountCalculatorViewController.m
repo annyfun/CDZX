@@ -281,35 +281,38 @@
     CGFloat yearRate = self.yearRateTextField.text.floatValue / 100;
     NSInteger tztsf = self.daysTextField.text.integerValue;
     
-    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf;
-    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
-    
-    CGFloat interestMoney = (yearRate / 360 * (days) * ticketMoney);
-    
-    if (ticketMoney == 0) {
-        [self showResultThenHide:@"请输入票面金额"];
-        return;
-    }
-    if (monthRate == 0) {
-        [self showResultThenHide:@"请输入月利率"];
-        return;
-    }
-    if (yearRate == 0) {
-        [self showResultThenHide:@"请输入年利率"];
-        return;
-    }
     if ([self.expireDate isEarlierThanDate:self.discountDate]) {
         [self showResultThenHide:@"到期日期不能小于贴现日期"];
         return;
     }
+    
     if (tztsf == 0 && !self.isDianPiao) {
         [self showResultThenHide:@"请输入调整天数"];
         return;
     }
     
-    self.shiWanTextField.amount = @((yearRate / 360 * (days) * 100000));
-    self.interestMoneyTextField.amount = @(interestMoney);
-    self.discountMoneyTextField.amount = @(ticketMoney - interestMoney);
+    NSInteger days = [self.expireDate daysAfterDate:self.discountDate] + tztsf;
+    self.interestDaysTextField.text = [NSString stringWithFormat:@"%ld", (long)(days)];
+    CGFloat interestMoney = (yearRate / 360 * (days) * ticketMoney);
+    
+    if (ticketMoney || monthRate || yearRate) {
+        if (ticketMoney == 0) {
+            [self showResultThenHide:@"请输入票面金额"];
+            return;
+        }
+        if (monthRate == 0) {
+            [self showResultThenHide:@"请输入月利率"];
+            return;
+        }
+        if (yearRate == 0) {
+            [self showResultThenHide:@"请输入年利率"];
+            return;
+        }
+        
+        self.shiWanTextField.amount = @((yearRate / 360 * (days) * 100000));
+        self.interestMoneyTextField.amount = @(interestMoney);
+        self.discountMoneyTextField.amount = @(ticketMoney - interestMoney);
+    }
 }
 //再计算
 - (IBAction)recalculateButtonClicked:(UIButton *)sender {
@@ -327,11 +330,30 @@
 - (void)textFieldChanged:(NSNotification *)notification {
     UITextField *textField = (UITextField *)notification.object;
     if (self.monthRateTextField.isFirstResponder && self.monthRateTextField == textField) {
-        self.yearRateTextField.text = [NSString stringWithFormat:@"%.4f", self.monthRateTextField.text.floatValue * 1.2];
+        self.yearRateTextField.text = [self removeZeroString:[NSString stringWithFormat:@"%.4f", self.monthRateTextField.text.floatValue * 1.2]];
     }
     else if (self.yearRateTextField.isFirstResponder && self.yearRateTextField == textField) {
-        self.monthRateTextField.text = [NSString stringWithFormat:@"%.4f", self.yearRateTextField.text.floatValue / 1.2];
+        self.monthRateTextField.text = [self removeZeroString:[NSString stringWithFormat:@"%.4f", self.yearRateTextField.text.floatValue / 1.2]];
     }
+}
+
+- (NSString *)removeZeroString:(NSString *)string{
+    
+    NSString *result = string;
+    NSArray *components = [string componentsSeparatedByString:@"."];
+    if (components.count==2) {
+        NSString *part2 = components[1];
+        if (part2.length>2) {
+            NSString *subString = [part2 substringFromIndex:part2.length-1];
+            if ([subString isEqualToString:@"0"]) {
+                result = [NSString stringWithFormat:@"%@.%@",components[0], [part2 substringToIndex:part2.length-1]];
+            
+                
+                return [self removeZeroString:result];
+            }
+        }
+    }
+    return result;
 }
 
 
@@ -369,12 +391,12 @@
     if (textField==self.monthRateTextField) {
         
         CGFloat value = [self.monthRateTextField.text floatValue];
-        self.yearRateTextField.text = [NSString stringWithFormat:@"%.4f",value*12 / 10];
+        self.yearRateTextField.text = [self removeZeroString:[NSString stringWithFormat:@"%.4f",value*12 / 10]];
         
     }else if (textField==self.yearRateTextField){
     
         CGFloat value = [self.yearRateTextField.text floatValue];
-        self.monthRateTextField.text = [NSString stringWithFormat:@"%.4f",value/12 * 10];
+        self.monthRateTextField.text = [self removeZeroString:[NSString stringWithFormat:@"%.4f",value/12 * 10]];
     }
 }
 
