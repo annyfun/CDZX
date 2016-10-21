@@ -106,6 +106,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>获取摄像头使用权限</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>定位您的城市信息</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>保存分享图片</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
