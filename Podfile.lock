@@ -39,7 +39,6 @@ PODS:
     - BlocksKit/DynamicDelegate
   - Canvas (0.1.2)
   - CXPhotoBrowser (1.1.1)
-  - DRDynamicSlideShow (HEAD based on 1.0.1)
   - DWTagList (0.0.7)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
@@ -75,7 +74,6 @@ DEPENDENCIES:
   - BlocksKit (~> 2.2.0)
   - Canvas (~> 0.1.2)
   - CXPhotoBrowser (~> 1.1.1)
-  - DRDynamicSlideShow (HEAD)
   - DWTagList (= 0.0.7)
   - FMDB (~> 2.6)
   - HMSegmentedControl (from `https://github.com/yangshengchaoios/HMSegmentedControl.git`)
@@ -127,7 +125,6 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
   CXPhotoBrowser: 33d91a9def828f6fde8cdc03b9f7e6cc7e337ab0
-  DRDynamicSlideShow: 04d7a439462a5b8714c3cd61e929dbd76cfae522
   DWTagList: cdf3607a7c37850a0c437d63c981f643dc5904bb
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   HMSegmentedControl: ea2d0c15ad9812b000874c3a4a51e302d0d082f2
@@ -145,11 +142,13 @@ SPEC CHECKSUMS:
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDURLCache: 8b271cce7263032f6345b6dc838dea23c98844ac
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
-  SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
+  SMPageControl: be8802d237a622556b5276730bb26acc8574639f
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   UIImage-Categories: a0593f6a7991c99016b9ecadfbd38b3717ff1a73
   UIImage-Resize: fa776860f10e6900bbaf53a73e494bdceaaccc77
   UMengAnalytics-NO-IDFA: 1064992c1b7aaa22823179c0b33a664813fd7a85
   ZYQAssetPickerController: e5cf51ee6c05fa06746830026c247cb9f6699e84
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: fb691d0902b768200af69b3859b806d5c708e8c0
+
+COCOAPODS: 1.1.1
