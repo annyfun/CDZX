@@ -87,16 +87,9 @@
     [UIView hideHUDLoadingOnWindow];
     
     WeakSelfType blockSelf = self;
-    if (isEmpty(USER.nickname)) {
-        [self bk_performBlock:^(id obj) {
-            [blockSelf pushViewController:@"ASImproveInformationViewController" withParams:@{kParamTitle : @"完善资料"}];
-        } afterDelay:1];
-    }
-    else {
-        [self bk_performBlock:^(id obj) {
-            [blockSelf dismissViewControllerAnimated:YES completion:nil];
-        } afterDelay:1];
-    }
+    [self bk_performBlock:^(id obj) {
+        [blockSelf dismissViewControllerAnimated:YES completion:nil];
+    } afterDelay:1];
 }
 - (void)loginFailedWithError:(NSString *)theError {
     [UIView showResultThenHideOnWindow:theError];

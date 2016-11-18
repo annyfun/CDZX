@@ -13,12 +13,14 @@
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *typeCollectionArray;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *typeImageViewArray;
 @property (assign, nonatomic) NSInteger selectedTypeIndex;
+@property (assign, nonatomic) NSInteger selectedCityId;
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *textFieldViewArray;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *verifyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordRepeatTextField;
+@property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 @property (weak, nonatomic) IBOutlet UIView *agreementView;
 @property (weak, nonatomic) IBOutlet UIImageView *agreeImageView;
 @property (assign, nonatomic) BOOL isAgreed;
@@ -61,6 +63,18 @@
         [UIView makeRoundForView:textFieldView withRadius:5];
         [UIView makeBorderForView:textFieldView withColor:kDefaultBorderColor borderWidth:1];
     }
+    
+    //业务所在地选择
+    [((UIView *)self.textFieldViewArray[4]) bk_whenTapped:^{
+        YSCObjectResultBlock block = ^(NSObject *object, NSError *error) {
+            ASCityModel *city = (ASCityModel *)object;
+            blockSelf.selectedCityId = city.id;
+            blockSelf.cityTextField.text = city.city;
+        };
+        [blockSelf pushViewController:@"ASCitySelectionViewController"
+                           withParams:@{kParamBlock : block,
+                                        kParamIndex : @(blockSelf.selectedCityId)}];
+    }];
     //同意注册协议
     self.agreementLabel.userInteractionEnabled = YES;
     [self.agreementLabel bk_whenTapped:^{
@@ -158,7 +172,8 @@
                                   kParamPhone : phone,
                                   @"pw" : password,
                                   @"repw" : passwordRepeat,
-                                  kParamVerify : verifyCode}
+                                  kParamVerify : verifyCode,
+                                  kParamCity : @(self.selectedCityId)} // TODO-tsw: 业务地区参数待确定
                       modelName:ClassOfObject(UserModel)
                requestSuccessed:^(id responseObject) {
                    UserModel *user = (UserModel *)responseObject;
@@ -166,9 +181,6 @@
                        [user setPw:password];
                        [LOGIN resetUser:user];
                        [UIView showResultThenHideOnWindow:@"注册成功"];
-                       [blockSelf bk_performBlock:^(id obj) {
-                           [blockSelf pushViewController:@"ASImproveInformationViewController" withParams:@{kParamTitle : @"完善资料"}];
-                       } afterDelay:1];
                    }
                    else {
                        [UIView showResultThenHideOnWindow:@"注册失败"];

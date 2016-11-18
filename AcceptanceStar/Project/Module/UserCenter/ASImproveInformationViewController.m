@@ -137,20 +137,7 @@ ZYQAssetPickerControllerDelegate>
         }];
     }
 }
-- (UIViewController *)backViewController {
-    WEAKSELF
-    if (ISLOGGED && isEmpty(USER.nickname)) {
-        UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:@"请完善资料，否则无法登陆"];
-        [alertView bk_addButtonWithTitle:@"不完善了" handler:^{
-            [LOGIN logout];
-            [blockSelf dismissOnPresentingViewController];
-        }];
-        [alertView bk_setCancelButtonWithTitle:@"继续完善" handler:nil];
-        [alertView show];
-        return nil;
-    }
-    return [super backViewController];
-}
+
 - (void)initUserInfo {
     self.nickNameTextField.text = USER.nickname;
     self.isMale = (1 == USER.isex);
