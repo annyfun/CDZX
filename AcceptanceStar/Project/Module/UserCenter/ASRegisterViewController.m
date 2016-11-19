@@ -164,6 +164,7 @@
         [UIView showResultThenHideOnWindow:@"两次输入的密码不一致"];
         return;
     }
+    CheckStringEmpty(self.cityTextField.text, @"请选择业务所在地区");
     
     WeakSelfType blockSelf = self;
     [UIView showHUDLoadingOnWindow:@"正在注册"];

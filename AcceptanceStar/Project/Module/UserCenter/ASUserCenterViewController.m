@@ -94,7 +94,7 @@
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_friendcircle" title:@"朋友圈" viewController:@"ASMomentsViewController"]];
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_balance" title:@"余额" viewController:@"ASBalanceViewController"]];
     if (0 == USER.itype) {//银行同行
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_verify" title:@"个人认证" viewController:@"ASPersonalVerifyViewController"]];
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_verify" title:@"认证机构" viewController:@"ASPersonalVerifyViewController"]];
     }
     else {//企业认证 + 票据经理
         [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_verify" title:@"企业认证" viewController:@"ASCompanyVerifyViewController"]];
