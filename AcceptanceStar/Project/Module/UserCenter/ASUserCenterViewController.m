@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *starNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mobilePhoneLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *unLoginContainerView;      //未登录容器
 @property (weak, nonatomic) IBOutlet UIView *configView;
@@ -71,10 +70,7 @@
     
     [self.headerView resetFontSizeOfView];
     [self.headerView resetConstraintOfView];
-    //设置用户头像圆角，边框白色
-    [UIView makeRoundForView:self.avatarImageView withRadius:AUTOLAYOUT_LENGTH(90) / 2];
-    [UIView makeBorderForView:self.avatarImageView withColor:[UIColor whiteColor] borderWidth:2];
-    self.headerView.height = AUTOLAYOUT_LENGTH(135);
+    self.headerView.height = AUTOLAYOUT_LENGTH(206);
     [self.headerView bk_whenTapped:^{
         [blockSelf pushViewController:@"ASImproveInformationViewController" withParams:@{kParamTitle : @"个人资料",@"showEditItem":@YES}];
     }];
@@ -103,6 +99,17 @@
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_submission" title:@"我的发布" viewController:@""]];
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_collection" title:@"我的收藏" viewController:@""]];
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_mymonitor" title:@"我的预警票据" viewController:@"ASMyMonitorTicketsViewController"]];
+    
+    if (0 == USER.itype || 1 == USER.itype) {
+        // 银行同业和票据经纪
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_quotation" title:@"发布利率报价" viewController:nil]]; // TODO:
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"收到的贴现申请" viewController:nil]]; // TODO:
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_maintenance" title:@"授信银行维护" viewController:nil]]; // TODO:
+    } else if (2 == USER.itype) {
+        // 企业
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"我的贴现申请" viewController:nil]]; // TODO:
+    }
+    
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_config" title:@"设置" viewController:@"ASConfigViewController"]];
     
     //3. 监控是否登录
@@ -139,7 +146,6 @@
         self.nickNameLabel.text = Trim(USER.nickname);
         self.starNumLabel.text = Trim(USER.userId);
         self.userTypeLabel.text = Trim(USER.type);
-        self.mobilePhoneLabel.text = [NSString stringWithFormat:@"手机号：%@", Trim(USER.phone)];
     }
     else {
         self.tableView.hidden = YES;
