@@ -80,7 +80,10 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:AUTOLAYOUT_CGRECT(0, 0, 0, 20)];
-    self.tableView.separatorInset = AUTOLAYOUT_EDGEINSETS(0, 86, 0, 0);
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    if([self.tableView respondsToSelector:@selector(setCellLayoutMarginsFollowReadableWidth:)]) {
+        self.tableView.cellLayoutMarginsFollowReadableWidth = NO;
+    }
     [self.tableView registerNib:[YSCTableViewCell NibNameOfCell] forCellReuseIdentifier:kCellIdentifier];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -192,6 +195,7 @@
         cell.subtitleRightLabel.text = [YSCCommonUtils formatPrice:USER.money];
     }
     if ([item.title isContains:@"朋友圈"]) {
+        cell.arrowImageView.hidden = NO;
         [cell addSubview:self.badgeSuperView];
         
         [self.badgeSuperView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -199,8 +203,26 @@
             make.right.equalTo(cell.mas_right).offset(-25);
             make.centerY.equalTo(cell);
         }];
+    } else {
+        cell.arrowImageView.hidden = YES;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 调整cell的分割线left margin
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 //HEADER

@@ -66,7 +66,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234567890" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laH-lH-Noc">
-                    <rect key="frame" x="289" y="88.5" width="141.5" height="29"/>
+                    <rect key="frame" x="281" y="88.5" width="141.5" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                 <constraint firstItem="TWw-mL-rJc" firstAttribute="top" secondItem="DU9-JR-Onf" secondAttribute="bottom" constant="15.5" id="hkt-xN-w6U"/>
                 <constraint firstItem="kcv-Dg-Lys" firstAttribute="leading" secondItem="Pdd-mk-uRB" secondAttribute="leading" id="jZ9-H6-b8P"/>
                 <constraint firstItem="dJf-he-685" firstAttribute="leading" secondItem="Qcr-M8-CTK" secondAttribute="trailing" constant="10" id="qxY-HM-ymi"/>
-                <constraint firstItem="laH-lH-Noc" firstAttribute="leading" secondItem="DU9-JR-Onf" secondAttribute="trailing" constant="8" id="toC-Rh-Wg0"/>
+                <constraint firstItem="laH-lH-Noc" firstAttribute="leading" secondItem="DU9-JR-Onf" secondAttribute="trailing" id="toC-Rh-Wg0"/>
                 <constraint firstItem="DU9-JR-Onf" firstAttribute="centerY" secondItem="laH-lH-Noc" secondAttribute="centerY" id="wFm-J1-Cni"/>
                 <constraint firstAttribute="centerY" secondItem="Qcr-M8-CTK" secondAttribute="centerY" id="wsf-2q-blE"/>
             </constraints>
@@ -161,8 +161,8 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH9-ao-oGw">
-                            <rect key="frame" x="76" y="28" width="56" height="34"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH9-ao-oGw">
+                            <rect key="frame" x="76" y="28" width="57" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
