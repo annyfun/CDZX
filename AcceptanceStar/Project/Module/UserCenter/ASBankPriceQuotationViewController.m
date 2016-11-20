@@ -61,11 +61,10 @@
     [UIView showHUDLoadingOnWindow:@"正在发送请求"];
     [AFNManager postDataWithAPI:kResPathAppBondElectricAdd andDictParam:[self userInputParameters] modelName:nil requestSuccessed:^(id responseObject) {
         [UIView hideHUDLoadingOnWindow];
-        
+        self.alertView.hidden = NO;
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
         [UIView hideHUDLoadingOnWindow];
-        self.alertView.hidden = NO;
-        [UIView showResultThenHideOnWindow:@"" afterDelay:1.5];
+        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
     }];
 }
 
