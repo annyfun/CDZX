@@ -63,7 +63,6 @@
         [UIView hideHUDLoadingOnWindow];
         self.alertView.hidden = NO;
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-        [UIView hideHUDLoadingOnWindow];
         [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
     }];
 }

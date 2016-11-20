@@ -75,6 +75,15 @@
                                 andObserver:self];
 }
 
+/// QQ登录
+- (IBAction)clickQQLogin:(id)sender {
+    // TODO-tsw:
+}
+
+/// 微信登录
+- (IBAction)clickWechatLogin:(id)sender {
+    // TODO-tsw:
+}
 
 #pragma mark - LoginObserverDelegate
 

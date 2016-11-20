@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		466F826C1DE1D79600E14A83 /* third_party_qq_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */; };
+		466F826E1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */; };
 		4699F8B51DE0143D0087787B /* icon_usercenter_friendcircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8B41DE0143D0087787B /* icon_usercenter_friendcircle@2x.png */; };
 		4699F8B71DE014630087787B /* icon_usercenter_balance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8B61DE014630087787B /* icon_usercenter_balance@2x.png */; };
 		4699F8B91DE014970087787B /* icon_usercenter_verify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8B81DE014970087787B /* icon_usercenter_verify@2x.png */; };
@@ -1510,6 +1512,8 @@
 /* Begin PBXFileReference section */
 		27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AcceptanceStar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D2520D5C40F3FBC8522A48 /* Pods-AcceptanceStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceStar.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar.release.xcconfig"; sourceTree = "<group>"; };
+		466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third_party_qq_icon@2x.png"; sourceTree = "<group>"; };
+		466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third_party_wechat_icon@2x.png"; sourceTree = "<group>"; };
 		4699F8B41DE0143D0087787B /* icon_usercenter_friendcircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_friendcircle@2x.png"; sourceTree = "<group>"; };
 		4699F8B61DE014630087787B /* icon_usercenter_balance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_balance@2x.png"; sourceTree = "<group>"; };
 		4699F8B81DE014970087787B /* icon_usercenter_verify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_verify@2x.png"; sourceTree = "<group>"; };
@@ -4318,6 +4322,8 @@
 				D33DA8AA1BB4324D00E3A869 /* icon_login_user@2x.png */,
 				D37BF04F1B1ABFB000FA7579 /* bg_login@2x.png */,
 				D37BF0521B1ABFB000FA7579 /* icon_star@2x.png */,
+				466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */,
+				466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -6145,6 +6151,7 @@
 				D313D8561B17698F0092DEAC /* ASMessageViewController.xib in Resources */,
 				D304716B1B65321A000EBADA /* ASCitySelectionHeader.xib in Resources */,
 				7118E8E61D9A5CA100A2D44E /* MapViewController.xib in Resources */,
+				466F826C1DE1D79600E14A83 /* third_party_qq_icon@2x.png in Resources */,
 				D3ABE2791B9A8724009BE0D7 /* button_ok@2x.png in Resources */,
 				D38DA2F61B100D2A005BC113 /* ZSSrightjustify@2x.png in Resources */,
 				7118E9B81D9A5CA100A2D44E /* cell_group_gray_bottom_d.png in Resources */,
@@ -6608,6 +6615,7 @@
 				7118E9221D9A5CA100A2D44E /* UserListController.xib in Resources */,
 				D341F4491B1F6DBF00342991 /* icon_down@2x.png in Resources */,
 				D37BF0731B1B340700FA7579 /* icon_tabbar_message_normal@2x.png in Resources */,
+				466F826E1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png in Resources */,
 				7118E8CE1D9A5CA100A2D44E /* GroupListController.xib in Resources */,
 				D38DA2FB1B100D2A005BC113 /* ZSSsuperscript.png in Resources */,
 				7118E9DE1D9A5CA100A2D44E /* cell_password.png in Resources */,
