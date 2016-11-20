@@ -19,6 +19,8 @@
 		4699F8C71DE015AD0087787B /* icon_usercenter_discount_apply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8C61DE015AD0087787B /* icon_usercenter_discount_apply@2x.png */; };
 		4699F8C91DE015B90087787B /* icon_usercenter_bank_maintenance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8C81DE015B90087787B /* icon_usercenter_bank_maintenance@2x.png */; };
 		4699F8CB1DE0169D0087787B /* icon_usercenter_gradient_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8CA1DE0169D0087787B /* icon_usercenter_gradient_background@2x.png */; };
+		46EBC0041DE1AF0800431901 /* ASBankPriceQuotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EBC0021DE1AF0800431901 /* ASBankPriceQuotationViewController.m */; };
+		46EBC0051DE1AF0800431901 /* ASBankPriceQuotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EBC0031DE1AF0800431901 /* ASBankPriceQuotationViewController.xib */; };
 		710E8C321DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710E8C311DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib */; };
 		7118E5A01D9A526F00A2D44E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7118E59F1D9A526F00A2D44E /* main.m */; };
 		7118E5A31D9A526F00A2D44E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7118E5A21D9A526F00A2D44E /* AppDelegate.m */; };
@@ -1521,6 +1523,9 @@
 		4699F8C81DE015B90087787B /* icon_usercenter_bank_maintenance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_bank_maintenance@2x.png"; sourceTree = "<group>"; };
 		4699F8CA1DE0169D0087787B /* icon_usercenter_gradient_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_gradient_background@2x.png"; sourceTree = "<group>"; };
 		46D94D601000EB01594F528B /* Pods-AcceptanceStar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceStar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar.debug.xcconfig"; sourceTree = "<group>"; };
+		46EBC0011DE1AF0800431901 /* ASBankPriceQuotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBankPriceQuotationViewController.h; sourceTree = "<group>"; };
+		46EBC0021DE1AF0800431901 /* ASBankPriceQuotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBankPriceQuotationViewController.m; sourceTree = "<group>"; };
+		46EBC0031DE1AF0800431901 /* ASBankPriceQuotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASBankPriceQuotationViewController.xib; sourceTree = "<group>"; };
 		710E8C311DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASDiscountCalculatorViewController.xib; sourceTree = "<group>"; };
 		7118E59C1D9A526F00A2D44E /* AFCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7118E59F1D9A526F00A2D44E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -4185,6 +4190,9 @@
 				D382F3A91BCFF4C80074CA94 /* ASAddMonitorTicketViewController.h */,
 				D382F3AA1BCFF4C80074CA94 /* ASAddMonitorTicketViewController.m */,
 				D382F3AB1BCFF4C80074CA94 /* ASAddMonitorTicketViewController.xib */,
+				46EBC0011DE1AF0800431901 /* ASBankPriceQuotationViewController.h */,
+				46EBC0021DE1AF0800431901 /* ASBankPriceQuotationViewController.m */,
+				46EBC0031DE1AF0800431901 /* ASBankPriceQuotationViewController.xib */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -6178,6 +6186,7 @@
 				4699F8BF1DE015350087787B /* icon_usercenter_collection@2x.png in Resources */,
 				D33C22E51BB06E4C00B7B904 /* AlbumHeaderBackgrounImage@2x.png in Resources */,
 				7118E9621D9A5CA100A2D44E /* btn_icon_delete_n.png in Resources */,
+				46EBC0051DE1AF0800431901 /* ASBankPriceQuotationViewController.xib in Resources */,
 				D33C22E41BB06E4C00B7B904 /* AlbumFlagMark@2x.png in Resources */,
 				D38DA3041B100D2A005BC113 /* ZSSundo@2x.png in Resources */,
 				D38DA2F11B100D2A005BC113 /* ZSSquicklink.png in Resources */,
@@ -6915,6 +6924,7 @@
 				D37BE7801B199D5300FA7579 /* ASShiBorQueryViewController.m in Sources */,
 				7118E8D41D9A5CA100A2D44E /* GroupNewController.m in Sources */,
 				7118EA7A1D9A5CA200A2D44E /* TCMessageBody.m in Sources */,
+				46EBC0041DE1AF0800431901 /* ASBankPriceQuotationViewController.m in Sources */,
 				7118EA8A1D9A5CA200A2D44E /* TCPageInfo.m in Sources */,
 				D38DA3101B100D2A005BC113 /* HRCgUtil.m in Sources */,
 				D38DA2971B100D2A005BC113 /* UIView+Addition.m in Sources */,

@@ -107,7 +107,7 @@
 #define kResPathAppBondCompanyAdd               [@"bond/company_add/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppBondComplete                 [@"bond/complete/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppBondViewSellInfo             [@"bond/view_sell_info/token" stringByAppendingPathComponent:TOKEN]
-
+#define kResPathAppBondElectricAdd              @"bond/electric_add"
 #define kResPathAppCaiShuiIndex                 @"caishui/index"
 
 
