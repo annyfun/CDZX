@@ -925,10 +925,9 @@
 		713CE6611DB2FDE20052C618 /* ASWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33AE78A1B14C1AB00219A80 /* ASWebViewViewController.m */; };
 		713CE6621DB2FDEC0052C618 /* ASWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33AE78B1B14C1AB00219A80 /* ASWebViewViewController.xib */; };
 		71C391E71D977FCB003DCADB /* ASCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */; };
-		9E1886B96A736BC0708F07E6 /* libPods-AcceptanceStar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */; };
 		71E842171DE2F7FA00D954AA /* ASJiaoYiDatingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */; };
 		71E842181DE2F7FA00D954AA /* ASJiaoYiDatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */; };
-		7EE907BC73B18E25ABDF9E25 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC8F06DB13570101FE151D0 /* libPods.a */; };
+		9E1886B96A736BC0708F07E6 /* libPods-AcceptanceStar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */; };
 		D300011D1B989A9D0045F3E9 /* icon_changepassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */; };
 		D30001211B989B100045F3E9 /* ASChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D300011F1B989B100045F3E9 /* ASChangePasswordViewController.m */; };
 		D30001221B989B100045F3E9 /* ASChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30001201B989B100045F3E9 /* ASChangePasswordViewController.xib */; };
@@ -5671,6 +5670,7 @@
 				D38DA0B11B0F6FA4005BC113 /* Resources */,
 				691C55A63CFF643863043623 /* [CP] Embed Pods Frameworks */,
 				97862D0E496411E268F734D4 /* [CP] Copy Pods Resources */,
+				62689F6BFD0082510369B4B1 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -5711,7 +5711,7 @@
 				TargetAttributes = {
 					7118E59B1D9A526F00A2D44E = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 92UH237K8W;
+						DevelopmentTeam = 284B4JMB2G;
 						ProvisioningStyle = Automatic;
 					};
 					D38DA0B21B0F6FA4005BC113 = {
@@ -6671,6 +6671,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		62689F6BFD0082510369B4B1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		691C55A63CFF643863043623 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -7367,7 +7382,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 92UH237K8W;
+				DEVELOPMENT_TEAM = 284B4JMB2G;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -7396,7 +7411,7 @@
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat2/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release-iphoneos",
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat2/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release-iphonesimulator",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eachmob.Millet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wxmovie.weipiao3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -7410,7 +7425,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 92UH237K8W;
+				DEVELOPMENT_TEAM = 284B4JMB2G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7438,7 +7453,7 @@
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat2/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release-iphoneos",
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat2/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release-iphonesimulator",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eachmob.Millet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wxmovie.weipiao3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
