@@ -926,6 +926,9 @@
 		713CE6621DB2FDEC0052C618 /* ASWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33AE78B1B14C1AB00219A80 /* ASWebViewViewController.xib */; };
 		71C391E71D977FCB003DCADB /* ASCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */; };
 		9E1886B96A736BC0708F07E6 /* libPods-AcceptanceStar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */; };
+		71E842171DE2F7FA00D954AA /* ASJiaoYiDatingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */; };
+		71E842181DE2F7FA00D954AA /* ASJiaoYiDatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */; };
+		7EE907BC73B18E25ABDF9E25 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC8F06DB13570101FE151D0 /* libPods.a */; };
 		D300011D1B989A9D0045F3E9 /* icon_changepassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */; };
 		D30001211B989B100045F3E9 /* ASChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D300011F1B989B100045F3E9 /* ASChangePasswordViewController.m */; };
 		D30001221B989B100045F3E9 /* ASChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30001201B989B100045F3E9 /* ASChangePasswordViewController.xib */; };
@@ -2011,6 +2014,9 @@
 		713CE65D1DB2FBCB0052C618 /* TSCurrencyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCurrencyTextField.h; sourceTree = "<group>"; };
 		713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCurrencyTextField.m; sourceTree = "<group>"; };
 		71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCalculatorViewController.xib; sourceTree = "<group>"; };
+		71E842141DE2F7FA00D954AA /* ASJiaoYiDatingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJiaoYiDatingController.h; sourceTree = "<group>"; };
+		71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJiaoYiDatingController.m; sourceTree = "<group>"; };
+		71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASJiaoYiDatingController.xib; sourceTree = "<group>"; };
 		D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_changepassword@2x.png"; sourceTree = "<group>"; };
 		D300011E1B989B100045F3E9 /* ASChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChangePasswordViewController.h; sourceTree = "<group>"; };
 		D300011F1B989B100045F3E9 /* ASChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASChangePasswordViewController.m; sourceTree = "<group>"; };
@@ -4121,6 +4127,9 @@
 				D328C1951C343A730073469E /* ASLawyerOnlineCell.h */,
 				D328C1961C343A730073469E /* ASLawyerOnlineCell.m */,
 				D328C1971C343A730073469E /* ASLawyerOnlineCell.xib */,
+				71E842141DE2F7FA00D954AA /* ASJiaoYiDatingController.h */,
+				71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */,
+				71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -6265,6 +6274,7 @@
 				7118EA0A1D9A5CA200A2D44E /* nav_send_d.png in Resources */,
 				7118E91E1D9A5CA100A2D44E /* UserDetailController.xib in Resources */,
 				D3EA60061B23550200466401 /* ASPriceSortViewController.xib in Resources */,
+				71E842181DE2F7FA00D954AA /* ASJiaoYiDatingController.xib in Resources */,
 				D38DA2ED1B100D2A005BC113 /* ZSSparagraph.png in Resources */,
 				7118E94A1D9A5CA100A2D44E /* audio_msg_send.caf in Resources */,
 				D38DA2DB1B100D2A005BC113 /* ZSSimage.png in Resources */,
@@ -7120,6 +7130,7 @@
 				D37BE7711B199C7800FA7579 /* ASDraftQueryViewController.m in Sources */,
 				D38DA30C1B100D2A005BC113 /* CYRTextStorage.m in Sources */,
 				7118EAAE1D9A5CA200A2D44E /* BaseMessageCell.m in Sources */,
+				71E842171DE2F7FA00D954AA /* ASJiaoYiDatingController.m in Sources */,
 				D38DA26E1B100D29005BC113 /* DataModel.m in Sources */,
 				D38DA31E1B100D2A005BC113 /* ReachabilityManager.m in Sources */,
 				D38DA2A51B100D2A005BC113 /* UIScrollView+MJExtension.m in Sources */,

@@ -121,8 +121,10 @@
     self.itemArray = [NSMutableArray array];
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_notice" title:@"公示催告" viewController:@"ASDraftQueryViewController"]];
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_mymonitor" title:@"票据挂失预警" viewController:@"ASMyMonitorTicketsViewController"]];
-    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_financial_expert" title:@"财税专家" viewController:@"ASLawyerOnlineViewController"]];
-    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_lawyer_online" title:@"律师在线" viewController:@"ASLawyerOnlineViewController"]];
+    
+    [self.itemArray addObject:[CommonItemModel buildNewItem:@"home_item_1" title:@"电票交易大厅" viewController:@"ASJiaoYiDatingController"]];
+//    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_financial_expert" title:@"财税专家" viewController:@"ASLawyerOnlineViewController"]];
+//    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_lawyer_online" title:@"律师在线" viewController:@"ASLawyerOnlineViewController"]];
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_bankquery" title:@"行号查询" viewController:@"ASBankNumQueryViewController"]];
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_calculator" title:@"贴现计算器" viewController:@"ASDiscountCalculatorViewController"]];
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_shiborquery" title:@"shibor查询" viewController:@"ASShiBorQueryViewController"]];
