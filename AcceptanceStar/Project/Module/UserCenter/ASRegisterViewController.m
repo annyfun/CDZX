@@ -174,7 +174,7 @@
                                   @"pw" : password,
                                   @"repw" : passwordRepeat,
                                   kParamVerify : verifyCode,
-                                  kParamCity : @(self.selectedCityId)} // TODO-tsw: 业务地区参数待确定
+                                  kParamCity : @(self.selectedCityId)}
                       modelName:ClassOfObject(UserModel)
                requestSuccessed:^(id responseObject) {
                    UserModel *user = (UserModel *)responseObject;

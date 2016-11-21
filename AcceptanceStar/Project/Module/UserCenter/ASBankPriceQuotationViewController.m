@@ -76,7 +76,6 @@
 - (IBAction)reSubmitData:(id)sender {
     self.alertView.hidden = YES;
     [self.scrollView setContentOffset:CGPointMake(0, -64) animated:YES];
-    // 清零 TODO:
 }
 
 #pragma mark - Private Method
@@ -89,10 +88,9 @@
              @"rt_2"      : self.secondRateTextField.text,
              @"rt_3"      : self.thirdRateTextField.text,
              @"rt_4"      : self.forthRateTextField.text,
-             @"company"   : self.publisherTextField.text, //TODO-tsw: 发布机构/发布人?
+             @"company"   : self.publisherTextField.text,
              @"phone"     : self.mainPhoneTextField.text,
              @"comment"   : self.commentTextField.text,
-             @"ticket_no" : @"", // TODO-tsw: 字段不明
              };
 }
 
