@@ -162,7 +162,7 @@
     }
     
     //相对布局——自动调整约束值和font大小
-    if (AUTOLAYOUT_SCALE != 1) {
+    if (AUTOLAYOUT_SCALE != 1 && [self resetAutolayout]) {
         [self.view resetFontSizeOfView];
         [self.view resetConstraintOfView];
     }
@@ -302,6 +302,12 @@
 - (void)setupConstraints {
     
 }
+
+- (BOOL)resetAutolayout{
+    
+    return YES;
+}
+
 
 #pragma mark - push & pop & dismiss view controller
 - (UIViewController *)pushViewController:(NSString *)className {
