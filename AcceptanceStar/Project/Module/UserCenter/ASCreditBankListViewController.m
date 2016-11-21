@@ -13,7 +13,8 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *tabbars; // 顺序(一类,二类,三类,四类)
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *creditBanks;
+@property (strong, nonatomic) NSArray<CreditBankModel *> *creditBanks;
+@property (weak, nonatomic) IBOutlet UIView *menuView;
 
 @end
 
@@ -44,13 +45,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ASCreditBankCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-//    cell.nameLabel.text = self.creditBanks
+    cell.nameLabel.text = self.creditBanks[indexPath.row].bank;
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.menuView.hidden = NO;
+    
+    NSIndexPath *mindexPath = [self.tableView indexPathForSelectedRow];
     
 }
 
@@ -69,12 +73,38 @@
     // TODO-tsw:
 }
 
+/// Menu
+
+// 取消
+- (IBAction)cancelMenu:(id)sender {
+    self.menuView.hidden = YES;
+}
+
+// 取消授信
+- (IBAction)removeCreditBank:(id)sender {
+    [UIView showHUDLoadingOnWindow:@"正在取消授信"];
+    NSInteger selectedRow = [self.tableView indexPathForSelectedRow].row;
+    CreditBankModel *model = self.creditBanks[selectedRow];
+    WEAKSELF
+    [AFNManager postDataWithAPI:@"banksx/my_del" andDictParam:@{@"id": model.id} modelName:nil requestSuccessed:^(id responseObject) {
+        [UIView hideHUDLoadingOnWindow];
+        
+        [blockSelf.tableView reloadData];
+    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+    }];
+}
+
+// 调整授信类别
+- (IBAction)setCreditBankIndex:(id)sender {
+}
+
 #pragma mark - Private Method
 
 - (void)loadCreditBanksWithIndex:(NSInteger)index {
     [UIView showHUDLoadingOnWindow:@"正在请求数据"];
     WEAKSELF
-    [AFNManager getDataWithAPI:@"banksx/my_list" andDictParam:@{@"rt": @(index)} modelName:nil requestSuccessed:^(id responseObject) {
+    [AFNManager getDataWithAPI:kResPathAppBankSXMyList andDictParam:@{@"rt": @(index)} modelName:nil requestSuccessed:^(id responseObject) {
         [UIView hideHUDLoadingOnWindow];
         [blockSelf.tableView reloadData];
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {

@@ -107,9 +107,9 @@
 #define kResPathAppBondCompanyAdd               [@"bond/company_add/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppBondComplete                 [@"bond/complete/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppBondViewSellInfo             [@"bond/view_sell_info/token" stringByAppendingPathComponent:TOKEN]
-#define kResPathAppBondElectricAdd              @"bond/electric_add"
+#define kResPathAppBondElectricAdd              [@"bond/electric_add/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppCaiShuiIndex                 @"caishui/index"
-
+#define kResPathAppBankSXMyList                 [@"banksx/my_list/token" stringByAppendingPathComponent:TOKEN]
 
 /**
  *  定义网络POST提交、GET提交、页面间传递的参数

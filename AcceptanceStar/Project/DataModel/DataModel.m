@@ -198,5 +198,14 @@
     return @{@"_url" : @"iurl"};
 }
 @end
-
+@implementation CreditBankModel
++ (NSDictionary *)jsonToModelMapping {
+    return @{
+             @"_bank" : @"ibank",
+             @"_uid" : @"iuid",
+             @"_rt" : @"irt",
+             @"_url" : @"iurl"
+    };
+}
+@end
 

@@ -45,7 +45,7 @@
 @protocol UserGroupModel            @end
 @protocol CreateOrderModel          @end
 @protocol CaiShuiModel              @end
-
+@protocol CreditBankModel           @end
 
 #pragma mark - 公共model需要用到的class声明
 
@@ -489,4 +489,25 @@
 //"addtime": "1234567733",
 //"_url": "/chengdui/caishui/index/id/3.html"
 
+@end
+
+/// 授信银行model
+@interface CreditBankModel : BaseDataModel
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *bank;
+@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, strong) NSString *rt;
+@property (nonatomic, strong) NSString *ibank;
+@property (nonatomic, strong) NSString *iuid;
+@property (nonatomic, strong) NSString *irt;
+@property (nonatomic, strong) NSString *iurl;
+
+//"id": "1",
+//"bank": "中国工商银行",
+//"uid": "没有",
+//"rt": "一类",
+//"_bank": "5",
+//"_uid": "101945",
+//"_rt": "1",
+//"_url": "/banksxlinks/index/id/1.html"
 @end

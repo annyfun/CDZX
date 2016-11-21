@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASCreditBankListViewController">
             <connections>
+                <outlet property="menuView" destination="3Wa-6H-Td1" id="RPJ-9l-saj"/>
                 <outlet property="tableView" destination="wIE-Qs-WKs" id="rp1-z3-9yE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="tabbars" destination="Ns8-1L-0eg" id="Gq3-8v-Qgf"/>
@@ -138,14 +139,176 @@
                         <outlet property="delegate" destination="-1" id="txA-2y-BZN"/>
                     </connections>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wa-6H-Td1" userLabel="Menu View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGh-q8-yvv" userLabel="Dimming View">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-eb-zVu" userLabel="Menu">
+                            <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAr-ye-fAt">
+                                    <rect key="frame" x="0.0" y="250" width="375" height="50"/>
+                                    <color key="backgroundColor" red="1" green="0.036469896039999998" blue="0.24855750409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="取消">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="cancelMenu:" destination="-1" eventType="touchUpInside" id="GEV-gC-ga9"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6A-ka-Z0j">
+                                    <rect key="frame" x="0.0" y="200" width="375" height="50"/>
+                                    <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="四类">
+                                        <color key="titleColor" red="0.5490196078431373" green="0.55294117647058827" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="setCreditBankIndex:" destination="-1" eventType="touchUpInside" id="IaX-m6-hFb"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4E-ah-Y27">
+                                    <rect key="frame" x="0.0" y="150" width="375" height="50"/>
+                                    <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="三类">
+                                        <color key="titleColor" red="0.5490196078431373" green="0.55294117647058827" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="setCreditBankIndex:" destination="-1" eventType="touchUpInside" id="MAP-aE-E1f"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ily-22-z1Z">
+                                    <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                                    <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="二类">
+                                        <color key="titleColor" red="0.5490196078431373" green="0.55294117647058827" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="setCreditBankIndex:" destination="-1" eventType="touchUpInside" id="5p5-je-mPX"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdC-lR-Me0">
+                                    <rect key="frame" x="0.0" y="50" width="375" height="50"/>
+                                    <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="一类">
+                                        <color key="titleColor" red="0.5490196078431373" green="0.55294117647058827" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="setCreditBankIndex:" destination="-1" eventType="touchUpInside" id="kAG-BF-8hW"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NQ-ea-e20">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="取消授信">
+                                        <color key="titleColor" red="0.5490196078431373" green="0.55294117647058827" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="removeCreditBank:" destination="-1" eventType="touchUpInside" id="E48-mb-O2l"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5R-eF-gVD" userLabel="Separator Line">
+                                    <rect key="frame" x="0.0" y="50" width="375" height="1"/>
+                                    <color key="backgroundColor" red="0.76862745098039209" green="0.77254901960784317" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="Qb9-MJ-qei"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YP-mn-orV" userLabel="Separator Line">
+                                    <rect key="frame" x="0.0" y="100" width="375" height="1"/>
+                                    <color key="backgroundColor" red="0.76862745099999996" green="0.7725490196" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="m1y-dP-a3N"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTU-T3-7Df" userLabel="Separator Line">
+                                    <rect key="frame" x="0.0" y="149" width="375" height="1"/>
+                                    <color key="backgroundColor" red="0.76862745099999996" green="0.7725490196" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="SNR-SG-R4i"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRQ-5e-7Lp" userLabel="Separator Line">
+                                    <rect key="frame" x="0.0" y="199" width="375" height="1"/>
+                                    <color key="backgroundColor" red="0.76862745099999996" green="0.7725490196" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="u6A-8M-wde"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="LdC-lR-Me0" secondAttribute="trailing" id="13w-Hw-Y1m"/>
+                                <constraint firstItem="MTU-T3-7Df" firstAttribute="trailing" secondItem="g4E-ah-Y27" secondAttribute="trailing" id="1Nu-Z0-S0s"/>
+                                <constraint firstAttribute="bottom" secondItem="JAr-ye-fAt" secondAttribute="bottom" id="1OD-nP-9YZ"/>
+                                <constraint firstItem="g4E-ah-Y27" firstAttribute="top" secondItem="MTU-T3-7Df" secondAttribute="bottom" id="5dM-PX-Ose"/>
+                                <constraint firstItem="g4E-ah-Y27" firstAttribute="top" secondItem="ily-22-z1Z" secondAttribute="bottom" id="6uA-6l-Jlt"/>
+                                <constraint firstItem="vRQ-5e-7Lp" firstAttribute="leading" secondItem="k6A-ka-Z0j" secondAttribute="leading" id="6wN-CP-JVE"/>
+                                <constraint firstItem="O5R-eF-gVD" firstAttribute="trailing" secondItem="JAr-ye-fAt" secondAttribute="trailing" id="70Q-se-P6I"/>
+                                <constraint firstItem="ily-22-z1Z" firstAttribute="leading" secondItem="xzd-eb-zVu" secondAttribute="leading" id="87w-Za-tBd"/>
+                                <constraint firstItem="5YP-mn-orV" firstAttribute="top" secondItem="LdC-lR-Me0" secondAttribute="bottom" id="8qJ-7s-2mq"/>
+                                <constraint firstItem="k6A-ka-Z0j" firstAttribute="top" secondItem="g4E-ah-Y27" secondAttribute="bottom" id="8vZ-QD-1A1"/>
+                                <constraint firstItem="5YP-mn-orV" firstAttribute="trailing" secondItem="LdC-lR-Me0" secondAttribute="trailing" id="9eU-p8-rCx"/>
+                                <constraint firstItem="LdC-lR-Me0" firstAttribute="leading" secondItem="xzd-eb-zVu" secondAttribute="leading" id="Efu-Ju-cQB"/>
+                                <constraint firstItem="vRQ-5e-7Lp" firstAttribute="trailing" secondItem="k6A-ka-Z0j" secondAttribute="trailing" id="JZE-AR-Mpg"/>
+                                <constraint firstItem="JAr-ye-fAt" firstAttribute="top" secondItem="k6A-ka-Z0j" secondAttribute="bottom" id="KdH-Cn-sud"/>
+                                <constraint firstAttribute="trailing" secondItem="k6A-ka-Z0j" secondAttribute="trailing" id="MqO-cJ-PCy"/>
+                                <constraint firstItem="O5R-eF-gVD" firstAttribute="leading" secondItem="JAr-ye-fAt" secondAttribute="leading" id="NiP-ok-ur7"/>
+                                <constraint firstItem="k6A-ka-Z0j" firstAttribute="top" secondItem="vRQ-5e-7Lp" secondAttribute="bottom" id="QGY-tx-VBf"/>
+                                <constraint firstItem="MTU-T3-7Df" firstAttribute="leading" secondItem="g4E-ah-Y27" secondAttribute="leading" id="QZ4-Xq-pdh"/>
+                                <constraint firstItem="ily-22-z1Z" firstAttribute="height" secondItem="7NQ-ea-e20" secondAttribute="height" id="RVg-Yp-Afh"/>
+                                <constraint firstAttribute="height" constant="300" id="Smd-cT-XhF"/>
+                                <constraint firstItem="k6A-ka-Z0j" firstAttribute="height" secondItem="7NQ-ea-e20" secondAttribute="height" id="Tr3-cO-9Of"/>
+                                <constraint firstAttribute="trailing" secondItem="7NQ-ea-e20" secondAttribute="trailing" id="Ugz-X1-IQo"/>
+                                <constraint firstItem="7NQ-ea-e20" firstAttribute="top" secondItem="xzd-eb-zVu" secondAttribute="top" id="Xaq-Iw-dDo"/>
+                                <constraint firstItem="g4E-ah-Y27" firstAttribute="height" secondItem="7NQ-ea-e20" secondAttribute="height" id="Y3B-Wo-0jt"/>
+                                <constraint firstItem="ily-22-z1Z" firstAttribute="top" secondItem="LdC-lR-Me0" secondAttribute="bottom" id="aHa-7g-0HD"/>
+                                <constraint firstItem="5YP-mn-orV" firstAttribute="leading" secondItem="LdC-lR-Me0" secondAttribute="leading" id="aam-GI-cQf"/>
+                                <constraint firstItem="k6A-ka-Z0j" firstAttribute="leading" secondItem="xzd-eb-zVu" secondAttribute="leading" id="gYB-vG-b6a"/>
+                                <constraint firstItem="O5R-eF-gVD" firstAttribute="top" secondItem="7NQ-ea-e20" secondAttribute="bottom" id="ivT-yn-aRa"/>
+                                <constraint firstAttribute="trailing" secondItem="ily-22-z1Z" secondAttribute="trailing" id="jiR-bQ-BeA"/>
+                                <constraint firstItem="JAr-ye-fAt" firstAttribute="leading" secondItem="xzd-eb-zVu" secondAttribute="leading" id="kaG-Sg-Iy7"/>
+                                <constraint firstItem="7NQ-ea-e20" firstAttribute="leading" secondItem="xzd-eb-zVu" secondAttribute="leading" id="koE-lB-Pf5"/>
+                                <constraint firstAttribute="trailing" secondItem="JAr-ye-fAt" secondAttribute="trailing" id="omu-mr-6tx"/>
+                                <constraint firstAttribute="trailing" secondItem="g4E-ah-Y27" secondAttribute="trailing" id="pHg-Oz-CR8"/>
+                                <constraint firstItem="g4E-ah-Y27" firstAttribute="leading" secondItem="xzd-eb-zVu" secondAttribute="leading" id="vYw-NC-p56"/>
+                                <constraint firstItem="LdC-lR-Me0" firstAttribute="top" secondItem="7NQ-ea-e20" secondAttribute="bottom" id="xho-U8-Eri"/>
+                                <constraint firstItem="LdC-lR-Me0" firstAttribute="height" secondItem="7NQ-ea-e20" secondAttribute="height" id="y2y-JV-Fz2"/>
+                                <constraint firstItem="JAr-ye-fAt" firstAttribute="height" secondItem="7NQ-ea-e20" secondAttribute="height" id="y9E-tU-lGh"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xzd-eb-zVu" secondAttribute="bottom" id="BRg-rY-6Fc"/>
+                        <constraint firstAttribute="bottom" secondItem="IGh-q8-yvv" secondAttribute="bottom" id="F9h-Cr-goa"/>
+                        <constraint firstItem="xzd-eb-zVu" firstAttribute="leading" secondItem="3Wa-6H-Td1" secondAttribute="leading" id="IDF-d9-XG1"/>
+                        <constraint firstItem="IGh-q8-yvv" firstAttribute="leading" secondItem="3Wa-6H-Td1" secondAttribute="leading" id="WnL-d8-L0T"/>
+                        <constraint firstAttribute="trailing" secondItem="xzd-eb-zVu" secondAttribute="trailing" id="cSl-Eq-Z75"/>
+                        <constraint firstItem="IGh-q8-yvv" firstAttribute="top" secondItem="3Wa-6H-Td1" secondAttribute="top" id="vhj-12-8Lq"/>
+                        <constraint firstAttribute="trailing" secondItem="IGh-q8-yvv" secondAttribute="trailing" id="yUw-mX-s5v"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstItem="3Wa-6H-Td1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3OC-Dt-LIB"/>
+                <constraint firstAttribute="bottom" secondItem="3Wa-6H-Td1" secondAttribute="bottom" id="Cwe-AY-Mjn"/>
                 <constraint firstItem="5gT-Oh-coJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FcV-i7-j5S"/>
                 <constraint firstItem="wIE-Qs-WKs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KIC-AJ-oR3"/>
                 <constraint firstAttribute="trailing" secondItem="5gT-Oh-coJ" secondAttribute="trailing" id="MRW-Lz-wAf"/>
                 <constraint firstItem="wIE-Qs-WKs" firstAttribute="top" secondItem="5gT-Oh-coJ" secondAttribute="bottom" id="Wds-n0-8Zr"/>
                 <constraint firstAttribute="trailing" secondItem="wIE-Qs-WKs" secondAttribute="trailing" id="XQr-ok-Jfz"/>
+                <constraint firstItem="3Wa-6H-Td1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YS6-a8-MIT"/>
                 <constraint firstAttribute="bottom" secondItem="wIE-Qs-WKs" secondAttribute="bottom" id="Yuu-bw-18t"/>
+                <constraint firstAttribute="trailing" secondItem="3Wa-6H-Td1" secondAttribute="trailing" id="otA-3n-r40"/>
                 <constraint firstItem="5gT-Oh-coJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="siw-oi-9fm"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
