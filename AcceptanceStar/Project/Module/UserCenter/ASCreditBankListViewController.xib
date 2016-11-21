@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASCreditBankListViewController">
+            <connections>
+                <outlet property="tableView" destination="wIE-Qs-WKs" id="rp1-z3-9yE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="tabbars" destination="Ns8-1L-0eg" id="Gq3-8v-Qgf"/>
+                <outletCollection property="tabbars" destination="m0u-yL-imA" id="7jU-b1-3AW"/>
+                <outletCollection property="tabbars" destination="Dpf-cy-khj" id="De3-5Q-vap"/>
+                <outletCollection property="tabbars" destination="aBj-He-tdc" id="kQy-gr-DUB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-Oh-coJ" userLabel="Top Tab Bar">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="39"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns8-1L-0eg">
+                            <rect key="frame" x="0.0" y="0.0" width="94" height="39"/>
+                            <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="一类">
+                                <color key="titleColor" red="0.054901960784313725" green="0.30588235294117649" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" backgroundImage="creditbank_tabbar_gradient_background">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="tapTabBar:" destination="-1" eventType="touchUpInside" id="YSC-AO-DF1"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0u-yL-imA">
+                            <rect key="frame" x="94" y="0.0" width="93.5" height="39"/>
+                            <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="二类">
+                                <color key="titleColor" red="0.054901960784313725" green="0.30588235294117649" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" backgroundImage="creditbank_tabbar_gradient_background">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="tapTabBar:" destination="-1" eventType="touchUpInside" id="rQ6-jV-oh1"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dpf-cy-khj">
+                            <rect key="frame" x="187.5" y="0.0" width="94" height="39"/>
+                            <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="三类">
+                                <color key="titleColor" red="0.054901960784313725" green="0.30588235294117649" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" backgroundImage="creditbank_tabbar_gradient_background">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="tapTabBar:" destination="-1" eventType="touchUpInside" id="h6b-jE-mDa"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBj-He-tdc">
+                            <rect key="frame" x="281.5" y="0.0" width="93.5" height="39"/>
+                            <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="四类">
+                                <color key="titleColor" red="0.054901960784313725" green="0.30588235294117649" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" backgroundImage="creditbank_tabbar_gradient_background">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="tapTabBar:" destination="-1" eventType="touchUpInside" id="m0n-Rx-tFN"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditbank_tabbar_separator_line" translatesAutoresizingMaskIntoConstraints="NO" id="4Ij-Da-uzk" userLabel="separator">
+                            <rect key="frame" x="94" y="18.5" width="1" height="1"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditbank_tabbar_separator_line" translatesAutoresizingMaskIntoConstraints="NO" id="Ma6-93-eTi" userLabel="separator">
+                            <rect key="frame" x="187.5" y="18.5" width="1" height="1"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditbank_tabbar_separator_line" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-zY-h2p" userLabel="separator">
+                            <rect key="frame" x="281.5" y="18.5" width="1" height="1"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqB-Oz-SLh" userLabel="Bottom Line">
+                            <rect key="frame" x="0.0" y="38" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="maE-yQ-MgF"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="EgC-zY-h2p" firstAttribute="centerY" secondItem="Dpf-cy-khj" secondAttribute="centerY" id="2Zg-xZ-WGt"/>
+                        <constraint firstItem="Ma6-93-eTi" firstAttribute="leading" secondItem="m0u-yL-imA" secondAttribute="trailing" id="5zu-AH-2ED"/>
+                        <constraint firstItem="Dpf-cy-khj" firstAttribute="width" secondItem="Ns8-1L-0eg" secondAttribute="width" id="650-4Z-Pww"/>
+                        <constraint firstItem="m0u-yL-imA" firstAttribute="width" secondItem="Ns8-1L-0eg" secondAttribute="width" id="7GV-bL-oT6"/>
+                        <constraint firstAttribute="bottom" secondItem="JqB-Oz-SLh" secondAttribute="bottom" id="Blc-4N-fvX"/>
+                        <constraint firstAttribute="bottom" secondItem="Ns8-1L-0eg" secondAttribute="bottom" id="EkZ-Px-0AO"/>
+                        <constraint firstAttribute="height" constant="39" id="GlC-ps-8Fm"/>
+                        <constraint firstItem="Dpf-cy-khj" firstAttribute="trailing" secondItem="EgC-zY-h2p" secondAttribute="leading" id="HQg-eN-vap"/>
+                        <constraint firstItem="Dpf-cy-khj" firstAttribute="height" secondItem="m0u-yL-imA" secondAttribute="height" id="HdM-Du-sPv"/>
+                        <constraint firstItem="aBj-He-tdc" firstAttribute="height" secondItem="Dpf-cy-khj" secondAttribute="height" id="K8k-uJ-sO4"/>
+                        <constraint firstItem="Dpf-cy-khj" firstAttribute="centerY" secondItem="m0u-yL-imA" secondAttribute="centerY" id="PDb-4c-RSy"/>
+                        <constraint firstAttribute="trailing" secondItem="aBj-He-tdc" secondAttribute="trailing" id="Qpq-2X-VX2"/>
+                        <constraint firstItem="m0u-yL-imA" firstAttribute="height" secondItem="Ns8-1L-0eg" secondAttribute="height" id="UFx-u2-uAz"/>
+                        <constraint firstItem="Ns8-1L-0eg" firstAttribute="top" secondItem="5gT-Oh-coJ" secondAttribute="top" id="dTs-gD-4Eq"/>
+                        <constraint firstItem="aBj-He-tdc" firstAttribute="width" secondItem="Ns8-1L-0eg" secondAttribute="width" id="ewr-jm-1IT"/>
+                        <constraint firstItem="aBj-He-tdc" firstAttribute="centerY" secondItem="Dpf-cy-khj" secondAttribute="centerY" id="gka-uH-laa"/>
+                        <constraint firstItem="JqB-Oz-SLh" firstAttribute="leading" secondItem="5gT-Oh-coJ" secondAttribute="leading" id="hJj-O1-oWf"/>
+                        <constraint firstItem="4Ij-Da-uzk" firstAttribute="leading" secondItem="Ns8-1L-0eg" secondAttribute="trailing" id="kaq-AB-9AY"/>
+                        <constraint firstItem="4Ij-Da-uzk" firstAttribute="centerY" secondItem="Ns8-1L-0eg" secondAttribute="centerY" id="mxH-m7-twQ"/>
+                        <constraint firstItem="m0u-yL-imA" firstAttribute="leading" secondItem="Ns8-1L-0eg" secondAttribute="trailing" id="mxX-Dm-2jb"/>
+                        <constraint firstAttribute="trailing" secondItem="JqB-Oz-SLh" secondAttribute="trailing" id="nV4-FY-Kd0"/>
+                        <constraint firstItem="Dpf-cy-khj" firstAttribute="leading" secondItem="m0u-yL-imA" secondAttribute="trailing" id="o8x-58-GK4"/>
+                        <constraint firstItem="Ns8-1L-0eg" firstAttribute="leading" secondItem="5gT-Oh-coJ" secondAttribute="leading" id="qBB-8I-gig"/>
+                        <constraint firstItem="aBj-He-tdc" firstAttribute="leading" secondItem="Dpf-cy-khj" secondAttribute="trailing" id="uFs-Gc-80w"/>
+                        <constraint firstItem="m0u-yL-imA" firstAttribute="centerY" secondItem="Ns8-1L-0eg" secondAttribute="centerY" id="vJf-VS-bSR"/>
+                        <constraint firstItem="Ma6-93-eTi" firstAttribute="centerY" secondItem="m0u-yL-imA" secondAttribute="centerY" id="xXt-sM-DpE"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIE-Qs-WKs">
+                    <rect key="frame" x="0.0" y="39" width="375" height="628"/>
+                    <color key="backgroundColor" red="0.93333333330000001" green="0.93725490199999995" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="kgy-We-HxA"/>
+                        <outlet property="delegate" destination="-1" id="txA-2y-BZN"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="5gT-Oh-coJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FcV-i7-j5S"/>
+                <constraint firstItem="wIE-Qs-WKs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KIC-AJ-oR3"/>
+                <constraint firstAttribute="trailing" secondItem="5gT-Oh-coJ" secondAttribute="trailing" id="MRW-Lz-wAf"/>
+                <constraint firstItem="wIE-Qs-WKs" firstAttribute="top" secondItem="5gT-Oh-coJ" secondAttribute="bottom" id="Wds-n0-8Zr"/>
+                <constraint firstAttribute="trailing" secondItem="wIE-Qs-WKs" secondAttribute="trailing" id="XQr-ok-Jfz"/>
+                <constraint firstAttribute="bottom" secondItem="wIE-Qs-WKs" secondAttribute="bottom" id="Yuu-bw-18t"/>
+                <constraint firstItem="5gT-Oh-coJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="siw-oi-9fm"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="80" y="268"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="creditbank_tabbar_gradient_background" width="1" height="1"/>
+        <image name="creditbank_tabbar_separator_line" width="1" height="1"/>
+    </resources>
+</document>

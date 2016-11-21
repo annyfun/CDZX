@@ -107,7 +107,7 @@
         // 银行同业和票据经纪
         [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_quotation" title:@"发布本行报价" viewController:@"ASBankPriceQuotationViewController"]];
         [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"收到的贴现申请" viewController:nil]]; // TODO:
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_maintenance" title:@"授信银行维护" viewController:nil]]; // TODO:
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_maintenance" title:@"授信银行维护" viewController:@"ASCreditBankListViewController"]];
     } else if (2 == USER.itype) {
         // 企业
         [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"我的贴现申请" viewController:nil]]; // TODO:
