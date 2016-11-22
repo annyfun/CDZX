@@ -930,6 +930,12 @@
 		713CE6621DB2FDEC0052C618 /* ASWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33AE78B1B14C1AB00219A80 /* ASWebViewViewController.xib */; };
 		719C98C41DE4267F007A4EEB /* ASElectricViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98C21DE4267F007A4EEB /* ASElectricViewController.m */; };
 		719C98C51DE4267F007A4EEB /* ASElectricViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 719C98C31DE4267F007A4EEB /* ASElectricViewController.xib */; };
+		719C98C91DE431B4007A4EEB /* ASElectricCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98C71DE431B4007A4EEB /* ASElectricCell.m */; };
+		719C98CA1DE431B4007A4EEB /* ASElectricCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 719C98C81DE431B4007A4EEB /* ASElectricCell.xib */; };
+		719C98D41DE43B79007A4EEB /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98CD1DE43B79007A4EEB /* UITableView+FDIndexPathHeightCache.m */; };
+		719C98D51DE43B79007A4EEB /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98CF1DE43B79007A4EEB /* UITableView+FDKeyedHeightCache.m */; };
+		719C98D61DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98D11DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.m */; };
+		719C98D71DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98D31DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		71C391E71D977FCB003DCADB /* ASCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */; };
 		71E842171DE2F7FA00D954AA /* ASJiaoYiDatingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */; };
 		71E842181DE2F7FA00D954AA /* ASJiaoYiDatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */; };
@@ -2031,6 +2037,17 @@
 		719C98C11DE4267F007A4EEB /* ASElectricViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASElectricViewController.h; sourceTree = "<group>"; };
 		719C98C21DE4267F007A4EEB /* ASElectricViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASElectricViewController.m; sourceTree = "<group>"; };
 		719C98C31DE4267F007A4EEB /* ASElectricViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASElectricViewController.xib; sourceTree = "<group>"; };
+		719C98C61DE431B4007A4EEB /* ASElectricCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASElectricCell.h; sourceTree = "<group>"; };
+		719C98C71DE431B4007A4EEB /* ASElectricCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASElectricCell.m; sourceTree = "<group>"; };
+		719C98C81DE431B4007A4EEB /* ASElectricCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASElectricCell.xib; sourceTree = "<group>"; };
+		719C98CC1DE43B79007A4EEB /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
+		719C98CD1DE43B79007A4EEB /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
+		719C98CE1DE43B79007A4EEB /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
+		719C98CF1DE43B79007A4EEB /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
+		719C98D01DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		719C98D11DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		719C98D21DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
+		719C98D31DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 		71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCalculatorViewController.xib; sourceTree = "<group>"; };
 		71E842141DE2F7FA00D954AA /* ASJiaoYiDatingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJiaoYiDatingController.h; sourceTree = "<group>"; };
 		71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJiaoYiDatingController.m; sourceTree = "<group>"; };
@@ -3983,6 +4000,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		719C98CB1DE43B79007A4EEB /* FDClasses */ = {
+			isa = PBXGroup;
+			children = (
+				719C98CC1DE43B79007A4EEB /* UITableView+FDIndexPathHeightCache.h */,
+				719C98CD1DE43B79007A4EEB /* UITableView+FDIndexPathHeightCache.m */,
+				719C98CE1DE43B79007A4EEB /* UITableView+FDKeyedHeightCache.h */,
+				719C98CF1DE43B79007A4EEB /* UITableView+FDKeyedHeightCache.m */,
+				719C98D01DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.h */,
+				719C98D11DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.m */,
+				719C98D21DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.h */,
+				719C98D31DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.m */,
+			);
+			name = FDClasses;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		D30470F11B615F50000EBADA /* IdentityVerify */ = {
 			isa = PBXGroup;
 			children = (
@@ -4190,6 +4223,9 @@
 				719C98C11DE4267F007A4EEB /* ASElectricViewController.h */,
 				719C98C21DE4267F007A4EEB /* ASElectricViewController.m */,
 				719C98C31DE4267F007A4EEB /* ASElectricViewController.xib */,
+				719C98C61DE431B4007A4EEB /* ASElectricCell.h */,
+				719C98C71DE431B4007A4EEB /* ASElectricCell.m */,
+				719C98C81DE431B4007A4EEB /* ASElectricCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -4592,6 +4628,7 @@
 		D38DA0EA1B100D29005BC113 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				719C98CB1DE43B79007A4EEB /* FDClasses */,
 				7118E6AC1D9A5CA000A2D44E /* ThinkChat2 */,
 				D3CDC9011B6FBB6E00131A06 /* Alipay */,
 				D3CDC8781B6FB40400131A06 /* UPPay */,
@@ -6370,6 +6407,7 @@
 				D3C046151B1CB62A0066EF6D /* icon_tabbar_sale_normal@2x.png in Resources */,
 				7118E8DE1D9A5CA100A2D44E /* ImageViewController.xib in Resources */,
 				D33C22E81BB06E4C00B7B904 /* AlbumOperateMore@2x.png in Resources */,
+				719C98CA1DE431B4007A4EEB /* ASElectricCell.xib in Resources */,
 				7118E9021D9A5CA100A2D44E /* SessionListController.xib in Resources */,
 				D37BE78E1B19D40100FA7579 /* arrow_left_dark@2x.png in Resources */,
 				D35F42341B934FBE00905B1C /* icon_as_class@2x.png in Resources */,
@@ -7035,6 +7073,7 @@
 				D38DA29B1B100D2A005BC113 /* UIViewController+ScrollingNavbar.m in Sources */,
 				D37BE7801B199D5300FA7579 /* ASShiBorQueryViewController.m in Sources */,
 				7118E8D41D9A5CA100A2D44E /* GroupNewController.m in Sources */,
+				719C98D41DE43B79007A4EEB /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				7118EA7A1D9A5CA200A2D44E /* TCMessageBody.m in Sources */,
 				46EBC0041DE1AF0800431901 /* ASBankPriceQuotationViewController.m in Sources */,
 				7118EA8A1D9A5CA200A2D44E /* TCPageInfo.m in Sources */,
@@ -7133,6 +7172,7 @@
 				D3A77E021B5FDDE8008C49B4 /* ASRePurchaseViewController.m in Sources */,
 				D313D8741B176CA00092DEAC /* MJRefreshLegendFooter.m in Sources */,
 				7118EA8E1D9A5CA200A2D44E /* TCMessage.m in Sources */,
+				719C98D71DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				7118E8E01D9A5CA100A2D44E /* LoginController.m in Sources */,
 				D3CDC9E31B6FBCF700131A06 /* RSADataVerifier.m in Sources */,
 				D304715A1B628FFA000EBADA /* TOCroppedImageAttributes.m in Sources */,
@@ -7202,6 +7242,7 @@
 				D38DA31B1B100D2A005BC113 /* DownloadManager.m in Sources */,
 				D3EA60051B23550200466401 /* ASPriceSortViewController.m in Sources */,
 				D3CDC9E01B6FBCF700131A06 /* NSDataEx.m in Sources */,
+				719C98D51DE43B79007A4EEB /* UITableView+FDKeyedHeightCache.m in Sources */,
 				D38DA2AA1B100D2A005BC113 /* PRTween.m in Sources */,
 				7118EA981D9A5CA200A2D44E /* TCEngine.m in Sources */,
 				D38DA2BC1B100D2A005BC113 /* UIImageView+XHURLDownload.m in Sources */,
@@ -7244,6 +7285,7 @@
 				7118E8E41D9A5CA100A2D44E /* MapViewController.m in Sources */,
 				7118E9181D9A5CA100A2D44E /* UploadPreViewController.m in Sources */,
 				D38DA0BC1B0F6FA4005BC113 /* AppDelegate.mm in Sources */,
+				719C98D61DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				D313D8791B1771440092DEAC /* ASHomeCollectionViewCell.m in Sources */,
 				D304715C1B628FFA000EBADA /* UIImage+CropRotate.m in Sources */,
 				D3A77DFC1B5FDDE8008C49B4 /* ASQuotePriceCell.m in Sources */,
@@ -7301,6 +7343,7 @@
 				7118EA941D9A5CA200A2D44E /* TCUser.m in Sources */,
 				7118EA661D9A5CA200A2D44E /* TalkingRecordView.m in Sources */,
 				D38DA28F1B100D2A005BC113 /* UIColor+Expanded.m in Sources */,
+				719C98C91DE431B4007A4EEB /* ASElectricCell.m in Sources */,
 				7118E8D01D9A5CA100A2D44E /* GroupModifyController.m in Sources */,
 				7118EAA01D9A5CA200A2D44E /* ThinkChat.m in Sources */,
 				7118E92A1D9A5CA100A2D44E /* Globals.m in Sources */,

@@ -62,6 +62,9 @@ target "AcceptanceStar" do
     pod 'UMengAnalytics-NO-IDFA'
 
     pod 'OpenShare', :git => 'https://github.com/qpwang/openshare.git', :commit => 'f421a30'
+    
+    #pod 'UITableView+FDTemplateLayoutCell', '~> 1.3'
+    
 
 end
 

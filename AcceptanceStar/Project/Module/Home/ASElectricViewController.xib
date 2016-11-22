@@ -25,6 +25,10 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="60R-tB-nyR">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="YfC-Hu-Eci"/>
+                        <outlet property="delegate" destination="-1" id="YVp-D8-xln"/>
+                    </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJC-rp-e5f" userLabel="My">
                     <rect key="frame" x="0.0" y="607" width="375" height="60"/>
