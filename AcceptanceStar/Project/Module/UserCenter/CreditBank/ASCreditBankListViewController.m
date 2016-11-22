@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *tabbars; // 顺序(一类,二类,三类,四类)
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIView *emptyView;
 @property (strong, nonatomic) NSArray<CreditBankModel *> *creditBanks;
 @property (assign, nonatomic) NSInteger selectedIndex;  // 选中类索引
 @end
@@ -122,9 +123,31 @@
         [UIView hideHUDLoadingOnWindow];
         blockSelf.creditBanks = responseObject;
         [blockSelf.tableView reloadData];
+        if (blockSelf.creditBanks.count == 0) {
+            blockSelf.tableView.backgroundView = blockSelf.emptyView;
+        } else {
+            blockSelf.tableView.backgroundView = nil;
+        }
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
         [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
     }];
+}
+
+#pragma mark - Property Getter
+
+- (UIView *)emptyView {
+    if (!_emptyView) {
+        _emptyView = [UIView new];
+        _emptyView.backgroundColor = [UIColor clearColor];
+        UILabel *guideLabel = [UILabel new];
+        guideLabel.text = @"授信银行为空，请点击右上角添加";
+        guideLabel.font = [UIFont systemFontOfSize:15];
+        [_emptyView addSubview:guideLabel];
+        [guideLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(_emptyView);
+        }];
+    }
+    return _emptyView;
 }
 
 @end
