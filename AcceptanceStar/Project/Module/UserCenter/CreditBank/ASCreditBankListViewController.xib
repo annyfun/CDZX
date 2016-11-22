@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASCreditBankListViewController">
             <connections>
+                <outlet property="menuBottomConstraint" destination="BRg-rY-6Fc" id="xeA-6u-C2f"/>
+                <outlet property="menuHeightConstraint" destination="Smd-cT-XhF" id="feA-ej-LXW"/>
                 <outlet property="menuView" destination="3Wa-6H-Td1" id="RPJ-9l-saj"/>
                 <outlet property="tableView" destination="wIE-Qs-WKs" id="rp1-z3-9yE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -43,7 +45,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0u-yL-imA">
-                            <rect key="frame" x="94" y="0.0" width="94" height="39"/>
+                            <rect key="frame" x="94" y="0.0" width="93.5" height="39"/>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="二类">
@@ -57,7 +59,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dpf-cy-khj">
-                            <rect key="frame" x="188" y="0.0" width="93" height="39"/>
+                            <rect key="frame" x="187.5" y="0.0" width="94" height="39"/>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="三类">
@@ -71,7 +73,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBj-He-tdc">
-                            <rect key="frame" x="281" y="0.0" width="94" height="39"/>
+                            <rect key="frame" x="281.5" y="0.0" width="93.5" height="39"/>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="四类">
@@ -88,10 +90,10 @@
                             <rect key="frame" x="94" y="19" width="1" height="1"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditbank_tabbar_separator_line" translatesAutoresizingMaskIntoConstraints="NO" id="Ma6-93-eTi" userLabel="separator">
-                            <rect key="frame" x="188" y="19" width="1" height="1"/>
+                            <rect key="frame" x="187.5" y="19" width="1" height="1"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditbank_tabbar_separator_line" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-zY-h2p" userLabel="separator">
-                            <rect key="frame" x="281" y="19" width="1" height="1"/>
+                            <rect key="frame" x="281.5" y="19" width="1" height="1"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqB-Oz-SLh" userLabel="Bottom Line">
                             <rect key="frame" x="0.0" y="38" width="375" height="1"/>
@@ -150,7 +152,7 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-eb-zVu" userLabel="Menu">
-                            <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                            <rect key="frame" x="0.0" y="667" width="375" height="300"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAr-ye-fAt">
                                     <rect key="frame" x="0.0" y="250" width="375" height="50"/>
@@ -291,7 +293,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="xzd-eb-zVu" secondAttribute="bottom" id="BRg-rY-6Fc"/>
+                        <constraint firstAttribute="bottom" secondItem="xzd-eb-zVu" secondAttribute="bottom" constant="-300" id="BRg-rY-6Fc"/>
                         <constraint firstAttribute="bottom" secondItem="IGh-q8-yvv" secondAttribute="bottom" id="F9h-Cr-goa"/>
                         <constraint firstItem="xzd-eb-zVu" firstAttribute="leading" secondItem="3Wa-6H-Td1" secondAttribute="leading" id="IDF-d9-XG1"/>
                         <constraint firstItem="IGh-q8-yvv" firstAttribute="leading" secondItem="3Wa-6H-Td1" secondAttribute="leading" id="WnL-d8-L0T"/>

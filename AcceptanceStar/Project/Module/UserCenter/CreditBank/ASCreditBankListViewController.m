@@ -16,6 +16,10 @@
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIView *emptyView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuHeightConstraint;
+
 @property (strong, nonatomic) NSArray<CreditBankModel *> *creditBanks;
 @property (assign, nonatomic) NSInteger selectedIndex;  // 选中类索引
 @end
@@ -58,6 +62,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.menuView.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.menuBottomConstraint.constant = 0;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 #pragma mark - User Action
@@ -81,7 +89,12 @@
 
 // 取消
 - (IBAction)cancelMenu:(id)sender {
-    self.menuView.hidden = YES;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.menuBottomConstraint.constant = -self.menuHeightConstraint.constant;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self.menuView.hidden = YES;
+    }];
 }
 
 // 取消授信
@@ -93,6 +106,7 @@
     [AFNManager postDataWithAPI:kResPathAppBankSXMyDel andDictParam:@{@"id": model.id} modelName:nil requestSuccessed:^(id responseObject) {
         [UIView hideHUDLoadingOnWindow];
         blockSelf.menuView.hidden = YES;
+        blockSelf.menuBottomConstraint.constant = -blockSelf.menuHeightConstraint.constant;
         [blockSelf loadCreditBanksWithIndex:self.selectedIndex];
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
         [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
@@ -108,6 +122,7 @@
     [AFNManager postDataWithAPI:kResPathAppBankSXMyUpdate andDictParam:@{@"id": model.id, @"rt": @(sender.tag)} modelName:nil requestSuccessed:^(id responseObject) {
         [UIView hideHUDLoadingOnWindow];
         blockSelf.menuView.hidden = YES;
+        blockSelf.menuBottomConstraint.constant = -blockSelf.menuHeightConstraint.constant;
         [blockSelf loadCreditBanksWithIndex:self.selectedIndex];
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
         [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];

@@ -77,12 +77,31 @@
 
 /// QQ登录
 - (IBAction)clickQQLogin:(id)sender {
-    // TODO-tsw:
+    [self loginWithThirdPartyPlatform:UMShareToQQ];
 }
 
 /// 微信登录
 - (IBAction)clickWechatLogin:(id)sender {
-    // TODO-tsw:
+    [self loginWithThirdPartyPlatform:UMShareToQQ];
+}
+
+- (void)loginWithThirdPartyPlatform:(NSString *)platform {
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:platform];
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:platform];
+            NSString *uid = snsAccount.usid;
+            // 尝试登录(不知道是否注册过)
+            [AFNManager postDataWithAPI:@"user/third_login" andDictParam:nil modelName:nil requestSuccessed:^(id responseObject) {
+                // 登录成功
+            } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                // 登录失败
+                // 跳转到注册页面
+            }];
+        } else {
+            [UIView showResultThenHideOnWindow:response.message afterDelay:1.5];
+        }
+    });
 }
 
 #pragma mark - LoginObserverDelegate
