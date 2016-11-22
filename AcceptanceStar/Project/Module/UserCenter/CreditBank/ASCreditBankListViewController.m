@@ -7,15 +7,16 @@
 //
 
 #import "ASCreditBankListViewController.h"
+#import "ASAppendCreditBankViewController.h"
 #import "ASCreditBankCell.h"
 
 @interface ASCreditBankListViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *tabbars; // 顺序(一类,二类,三类,四类)
+@property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray<CreditBankModel *> *creditBanks;
-@property (weak, nonatomic) IBOutlet UIView *menuView;
-
+@property (assign, nonatomic) NSInteger selectedIndex;  // 选中类索引
 @end
 
 @implementation ASCreditBankListViewController
@@ -26,9 +27,12 @@
     self.navigationItem.title = @"授信银行";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCreditBank:)];
     [self setUpTableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     // 触发事件
-    [self.tabbars.firstObject sendActionsForControlEvents:UIControlEventTouchUpInside];
-    
+    [self.tabbars[self.selectedIndex] sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setUpTableView {
@@ -53,9 +57,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.menuView.hidden = NO;
-    
-    NSIndexPath *mindexPath = [self.tableView indexPathForSelectedRow];
-    
 }
 
 #pragma mark - User Action
@@ -66,11 +67,13 @@
         button.selected = (button == sender);
     }
     // 操作
+    self.selectedIndex = sender.tag;
     [self loadCreditBanksWithIndex:sender.tag];
 }
 
 - (void)addCreditBank:(id)sender {
-    // TODO-tsw:
+    ASAppendCreditBankViewController *appendVC = [[ASAppendCreditBankViewController alloc] init];
+    [self presentViewController:appendVC animated:YES completion:nil];
 }
 
 /// Menu
@@ -86,26 +89,38 @@
     NSInteger selectedRow = [self.tableView indexPathForSelectedRow].row;
     CreditBankModel *model = self.creditBanks[selectedRow];
     WEAKSELF
-    [AFNManager postDataWithAPI:@"banksx/my_del" andDictParam:@{@"id": model.id} modelName:nil requestSuccessed:^(id responseObject) {
+    [AFNManager postDataWithAPI:kResPathAppBankSXMyDel andDictParam:@{@"id": model.id} modelName:nil requestSuccessed:^(id responseObject) {
         [UIView hideHUDLoadingOnWindow];
-        
-        [blockSelf.tableView reloadData];
+        blockSelf.menuView.hidden = YES;
+        [blockSelf loadCreditBanksWithIndex:self.selectedIndex];
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
         [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
     }];
 }
 
 // 调整授信类别
-- (IBAction)setCreditBankIndex:(id)sender {
+- (IBAction)setCreditBankIndex:(UIButton *)sender {
+    [UIView showHUDLoadingOnWindow:@"正在调整授信"];
+    NSInteger selectedRow = [self.tableView indexPathForSelectedRow].row;
+    CreditBankModel *model = self.creditBanks[selectedRow];
+    WEAKSELF
+    [AFNManager postDataWithAPI:kResPathAppBankSXMyUpdate andDictParam:@{@"id": model.id, @"rt": @(sender.tag)} modelName:nil requestSuccessed:^(id responseObject) {
+        [UIView hideHUDLoadingOnWindow];
+        blockSelf.menuView.hidden = YES;
+        [blockSelf loadCreditBanksWithIndex:self.selectedIndex];
+    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+    }];
 }
 
 #pragma mark - Private Method
 
 - (void)loadCreditBanksWithIndex:(NSInteger)index {
-    [UIView showHUDLoadingOnWindow:@"正在请求数据"];
+    [UIView showHUDLoadingOnWindow:nil];
     WEAKSELF
-    [AFNManager getDataWithAPI:kResPathAppBankSXMyList andDictParam:@{@"rt": @(index)} modelName:nil requestSuccessed:^(id responseObject) {
+    [AFNManager getDataWithAPI:kResPathAppBankSXMyList andDictParam:@{@"rt": @(index + 1)} modelName:ClassOfObject(CreditBankModel) requestSuccessed:^(id responseObject) {
         [UIView hideHUDLoadingOnWindow];
+        blockSelf.creditBanks = responseObject;
         [blockSelf.tableView reloadData];
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
         [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];

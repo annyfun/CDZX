@@ -110,6 +110,11 @@
 #define kResPathAppBondElectricAdd              [@"bond/electric_add/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppCaiShuiIndex                 @"caishui/index"
 #define kResPathAppBankSXMyList                 [@"banksx/my_list/token" stringByAppendingPathComponent:TOKEN]
+#define kResPathAppBankSXBankList               [@"banksx/bank_list/token" stringByAppendingPathComponent:TOKEN]
+#define kResPathAppBankSXMyAdd                  [@"banksx/my_add/token" stringByAppendingPathComponent:TOKEN]
+#define kResPathAppBankSXMyDel                  [@"banksx/my_del/token" stringByAppendingPathComponent:TOKEN]
+#define kResPathAppBankSXMyUpdate               [@"banksx/my_update/token" stringByAppendingPathComponent:TOKEN]
+
 
 /**
  *  定义网络POST提交、GET提交、页面间传递的参数

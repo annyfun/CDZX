@@ -25,6 +25,14 @@
 		4699F8C71DE015AD0087787B /* icon_usercenter_discount_apply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8C61DE015AD0087787B /* icon_usercenter_discount_apply@2x.png */; };
 		4699F8C91DE015B90087787B /* icon_usercenter_bank_maintenance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8C81DE015B90087787B /* icon_usercenter_bank_maintenance@2x.png */; };
 		4699F8CB1DE0169D0087787B /* icon_usercenter_gradient_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8CA1DE0169D0087787B /* icon_usercenter_gradient_background@2x.png */; };
+		46EB20101DE3F3BF0033DE4C /* ASAppendCreditBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB20041DE3F3BF0033DE4C /* ASAppendCreditBankViewController.m */; };
+		46EB20111DE3F3BF0033DE4C /* ASAppendCreditBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EB20051DE3F3BF0033DE4C /* ASAppendCreditBankViewController.xib */; };
+		46EB20121DE3F3BF0033DE4C /* ASCreditBankListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB20071DE3F3BF0033DE4C /* ASCreditBankListViewController.m */; };
+		46EB20131DE3F3BF0033DE4C /* ASCreditBankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EB20081DE3F3BF0033DE4C /* ASCreditBankListViewController.xib */; };
+		46EB20141DE3F3BF0033DE4C /* ASAppendCreditBankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB200B1DE3F3BF0033DE4C /* ASAppendCreditBankCell.m */; };
+		46EB20151DE3F3BF0033DE4C /* ASAppendCreditBankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EB200C1DE3F3BF0033DE4C /* ASAppendCreditBankCell.xib */; };
+		46EB20161DE3F3BF0033DE4C /* ASCreditBankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB200E1DE3F3BF0033DE4C /* ASCreditBankCell.m */; };
+		46EB20171DE3F3BF0033DE4C /* ASCreditBankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EB200F1DE3F3BF0033DE4C /* ASCreditBankCell.xib */; };
 		46EBC0041DE1AF0800431901 /* ASBankPriceQuotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EBC0021DE1AF0800431901 /* ASBankPriceQuotationViewController.m */; };
 		46EBC0051DE1AF0800431901 /* ASBankPriceQuotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EBC0031DE1AF0800431901 /* ASBankPriceQuotationViewController.xib */; };
 		710E8C321DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710E8C311DAFB1AC00406000 /* ASDiscountCalculatorViewController.xib */; };
@@ -1539,6 +1547,18 @@
 		4699F8C81DE015B90087787B /* icon_usercenter_bank_maintenance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_bank_maintenance@2x.png"; sourceTree = "<group>"; };
 		4699F8CA1DE0169D0087787B /* icon_usercenter_gradient_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_gradient_background@2x.png"; sourceTree = "<group>"; };
 		46D94D601000EB01594F528B /* Pods-AcceptanceStar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceStar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar.debug.xcconfig"; sourceTree = "<group>"; };
+		46EB20031DE3F3BF0033DE4C /* ASAppendCreditBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAppendCreditBankViewController.h; sourceTree = "<group>"; };
+		46EB20041DE3F3BF0033DE4C /* ASAppendCreditBankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAppendCreditBankViewController.m; sourceTree = "<group>"; };
+		46EB20051DE3F3BF0033DE4C /* ASAppendCreditBankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASAppendCreditBankViewController.xib; sourceTree = "<group>"; };
+		46EB20061DE3F3BF0033DE4C /* ASCreditBankListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCreditBankListViewController.h; sourceTree = "<group>"; };
+		46EB20071DE3F3BF0033DE4C /* ASCreditBankListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCreditBankListViewController.m; sourceTree = "<group>"; };
+		46EB20081DE3F3BF0033DE4C /* ASCreditBankListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCreditBankListViewController.xib; sourceTree = "<group>"; };
+		46EB200A1DE3F3BF0033DE4C /* ASAppendCreditBankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAppendCreditBankCell.h; sourceTree = "<group>"; };
+		46EB200B1DE3F3BF0033DE4C /* ASAppendCreditBankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAppendCreditBankCell.m; sourceTree = "<group>"; };
+		46EB200C1DE3F3BF0033DE4C /* ASAppendCreditBankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASAppendCreditBankCell.xib; sourceTree = "<group>"; };
+		46EB200D1DE3F3BF0033DE4C /* ASCreditBankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCreditBankCell.h; sourceTree = "<group>"; };
+		46EB200E1DE3F3BF0033DE4C /* ASCreditBankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCreditBankCell.m; sourceTree = "<group>"; };
+		46EB200F1DE3F3BF0033DE4C /* ASCreditBankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCreditBankCell.xib; sourceTree = "<group>"; };
 		46EBC0011DE1AF0800431901 /* ASBankPriceQuotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBankPriceQuotationViewController.h; sourceTree = "<group>"; };
 		46EBC0021DE1AF0800431901 /* ASBankPriceQuotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBankPriceQuotationViewController.m; sourceTree = "<group>"; };
 		46EBC0031DE1AF0800431901 /* ASBankPriceQuotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASBankPriceQuotationViewController.xib; sourceTree = "<group>"; };
@@ -3033,6 +3053,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		46EB20021DE3F3BF0033DE4C /* CreditBank */ = {
+			isa = PBXGroup;
+			children = (
+				46EB20091DE3F3BF0033DE4C /* Cell */,
+				46EB20031DE3F3BF0033DE4C /* ASAppendCreditBankViewController.h */,
+				46EB20041DE3F3BF0033DE4C /* ASAppendCreditBankViewController.m */,
+				46EB20051DE3F3BF0033DE4C /* ASAppendCreditBankViewController.xib */,
+				46EB20061DE3F3BF0033DE4C /* ASCreditBankListViewController.h */,
+				46EB20071DE3F3BF0033DE4C /* ASCreditBankListViewController.m */,
+				46EB20081DE3F3BF0033DE4C /* ASCreditBankListViewController.xib */,
+			);
+			path = CreditBank;
+			sourceTree = "<group>";
+		};
+		46EB20091DE3F3BF0033DE4C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				46EB200A1DE3F3BF0033DE4C /* ASAppendCreditBankCell.h */,
+				46EB200B1DE3F3BF0033DE4C /* ASAppendCreditBankCell.m */,
+				46EB200C1DE3F3BF0033DE4C /* ASAppendCreditBankCell.xib */,
+				46EB200D1DE3F3BF0033DE4C /* ASCreditBankCell.h */,
+				46EB200E1DE3F3BF0033DE4C /* ASCreditBankCell.m */,
+				46EB200F1DE3F3BF0033DE4C /* ASCreditBankCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7118E59D1D9A526F00A2D44E /* AFCal */ = {
 			isa = PBXGroup;
 			children = (
@@ -4173,6 +4220,7 @@
 				D33AE7801B14C13D00219A80 /* CircleOfFriends */,
 				D33AE7811B14C13D00219A80 /* Config */,
 				D30470F11B615F50000EBADA /* IdentityVerify */,
+				46EB20021DE3F3BF0033DE4C /* CreditBank */,
 				D33AE7A71B14D48A00219A80 /* ASUserCenterViewController.h */,
 				D33AE7A81B14D48A00219A80 /* ASUserCenterViewController.m */,
 				D33AE7A91B14D48A00219A80 /* ASUserCenterViewController.xib */,
@@ -6305,6 +6353,7 @@
 				D3A77DF91B5FDDE8008C49B4 /* ASBuyCell.xib in Resources */,
 				D38DA2D61B100D2A005BC113 /* ZSSh5@2x.png in Resources */,
 				7118E9CA1D9A5CA100A2D44E /* cell_group_gray_single_d@2x.png in Resources */,
+				46EB20131DE3F3BF0033DE4C /* ASCreditBankListViewController.xib in Resources */,
 				D38DA2FD1B100D2A005BC113 /* ZSStable.png in Resources */,
 				7118E9701D9A5CA100A2D44E /* talk_bkg_msg_r@2x.png in Resources */,
 				7118E9541D9A5CA100A2D44E /* bkg_image_cut.png in Resources */,
@@ -6393,6 +6442,7 @@
 				7118E9A01D9A5CA100A2D44E /* talk_sound_p3.png in Resources */,
 				D38DA2EF1B100D2A005BC113 /* ZSSpicker.png in Resources */,
 				7118EAC41D9A5CA200A2D44E /* MessageLeftCell.xib in Resources */,
+				46EB20111DE3F3BF0033DE4C /* ASAppendCreditBankViewController.xib in Resources */,
 				D382F3A81BCFF3050074CA94 /* circle_green@2x.png in Resources */,
 				7118E97A1D9A5CA100A2D44E /* talk_btn_add.png in Resources */,
 				7118E9941D9A5CA100A2D44E /* talk_r_voice0.png in Resources */,
@@ -6570,6 +6620,7 @@
 				7118EACC1D9A5CA200A2D44E /* NotifyCell.xib in Resources */,
 				7118E9AC1D9A5CA100A2D44E /* cell_check_n.png in Resources */,
 				D35F422F1B93455600905B1C /* mark_agreed@2x.png in Resources */,
+				46EB20171DE3F3BF0033DE4C /* ASCreditBankCell.xib in Resources */,
 				7118E8D21D9A5CA100A2D44E /* GroupModifyController.xib in Resources */,
 				7118E9FC1D9A5CA100A2D44E /* nav_more_n.png in Resources */,
 				D3C046111B1CB62A0066EF6D /* icon_tabbar_quoteprice_normal@2x.png in Resources */,
@@ -6625,6 +6676,7 @@
 				D35A6B711B691CD300B5D89D /* icon_uncollection@2x.png in Resources */,
 				7118E96A1D9A5CA100A2D44E /* talk_bkg_msg_l.png in Resources */,
 				7118E9D21D9A5CA100A2D44E /* cell_group_gray_top_d@2x.png in Resources */,
+				46EB20151DE3F3BF0033DE4C /* ASAppendCreditBankCell.xib in Resources */,
 				D37BF0851B1B3A1800FA7579 /* icon_home_buyback@2x.png in Resources */,
 				D35F42401B93504E00905B1C /* icon_attr_ds1@2x.png in Resources */,
 				D3ABE2771B9A8562009BE0D7 /* icon_more1@2x.png in Resources */,
@@ -6991,6 +7043,7 @@
 				D3A77E081B5FDDE8008C49B4 /* ASSellCell.m in Sources */,
 				D33AE7AF1B14D66500219A80 /* ASConfigViewController.m in Sources */,
 				D33AE7BE1B14D6EC00219A80 /* ASShieldUsersViewController.m in Sources */,
+				46EB20141DE3F3BF0033DE4C /* ASAppendCreditBankCell.m in Sources */,
 				D38DA32E1B100D2A005BC113 /* YSCBaseCollectionViewCell.m in Sources */,
 				D30471331B628304000EBADA /* ViewController+MASAdditions.m in Sources */,
 				D38DA2BD1B100D2A005BC113 /* XHCacheManager.m in Sources */,
@@ -7133,6 +7186,7 @@
 				D3F524581B72440F008E305B /* LZAlbumOperationView.m in Sources */,
 				7118EA781D9A5CA200A2D44E /* TCLocationMessageBody.m in Sources */,
 				D304710D1B628225000EBADA /* YSCTextDelegate.m in Sources */,
+				46EB20161DE3F3BF0033DE4C /* ASCreditBankCell.m in Sources */,
 				D38DA2C01B100D2A005BC113 /* XHViewState.m in Sources */,
 				D3F524591B72440F008E305B /* LZAlbumPhotoCollectionViewCell.m in Sources */,
 				D38DA31B1B100D2A005BC113 /* DownloadManager.m in Sources */,
@@ -7215,6 +7269,7 @@
 				D33B1EEC1B25EED8006B7E6E /* ASInputTextAndImageCell.m in Sources */,
 				D33AE7A51B14C2C500219A80 /* ASResetPasswordViewController.m in Sources */,
 				7118EA821D9A5CA200A2D44E /* TCError.m in Sources */,
+				46EB20101DE3F3BF0033DE4C /* ASAppendCreditBankViewController.m in Sources */,
 				D304712F1B628304000EBADA /* MASViewConstraint.m in Sources */,
 				7118EAA81D9A5CA200A2D44E /* WTStatusWindow.m in Sources */,
 				D38DA2B31B100D2A005BC113 /* TPKeyboardAvoidingTableView.m in Sources */,
@@ -7231,6 +7286,7 @@
 				7118EA9A1D9A5CA200A2D44E /* TCRequest.m in Sources */,
 				7118E8CC1D9A5CA100A2D44E /* GroupListController.m in Sources */,
 				D38DA2A91B100D2A005BC113 /* MLNavigationController.m in Sources */,
+				46EB20121DE3F3BF0033DE4C /* ASCreditBankListViewController.m in Sources */,
 				D304715D1B628FFA000EBADA /* TOCropViewController.m in Sources */,
 				D3F524551B72440F008E305B /* LZAlbum.m in Sources */,
 				7118EA941D9A5CA200A2D44E /* TCUser.m in Sources */,

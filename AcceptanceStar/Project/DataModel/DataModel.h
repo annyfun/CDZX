@@ -501,6 +501,7 @@
 @property (nonatomic, strong) NSString *iuid;
 @property (nonatomic, strong) NSString *irt;
 @property (nonatomic, strong) NSString *iurl;
+@property (nonatomic, strong) NSString *name;   // 查询授信银行列表名称为name(bank)
 
 //"id": "1",
 //"bank": "中国工商银行",
