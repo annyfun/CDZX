@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4650730F1DE2A5E6002860AF /* ASCreditBankListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4650730D1DE2A5E6002860AF /* ASCreditBankListViewController.m */; };
-		465073101DE2A5E6002860AF /* ASCreditBankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4650730E1DE2A5E6002860AF /* ASCreditBankListViewController.xib */; };
 		466F826C1DE1D79600E14A83 /* third_party_qq_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */; };
 		466F826E1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */; };
 		4699F8B51DE0143D0087787B /* icon_usercenter_friendcircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8B41DE0143D0087787B /* icon_usercenter_friendcircle@2x.png */; };
@@ -1530,9 +1528,6 @@
 /* Begin PBXFileReference section */
 		27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AcceptanceStar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D2520D5C40F3FBC8522A48 /* Pods-AcceptanceStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceStar.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar.release.xcconfig"; sourceTree = "<group>"; };
-		4650730C1DE2A5E6002860AF /* ASCreditBankListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCreditBankListViewController.h; sourceTree = "<group>"; };
-		4650730D1DE2A5E6002860AF /* ASCreditBankListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCreditBankListViewController.m; sourceTree = "<group>"; };
-		4650730E1DE2A5E6002860AF /* ASCreditBankListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCreditBankListViewController.xib; sourceTree = "<group>"; };
 		466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third_party_qq_icon@2x.png"; sourceTree = "<group>"; };
 		466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third_party_wechat_icon@2x.png"; sourceTree = "<group>"; };
 		4699F8B41DE0143D0087787B /* icon_usercenter_friendcircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_friendcircle@2x.png"; sourceTree = "<group>"; };
@@ -4282,9 +4277,6 @@
 				46EBC0011DE1AF0800431901 /* ASBankPriceQuotationViewController.h */,
 				46EBC0021DE1AF0800431901 /* ASBankPriceQuotationViewController.m */,
 				46EBC0031DE1AF0800431901 /* ASBankPriceQuotationViewController.xib */,
-				4650730C1DE2A5E6002860AF /* ASCreditBankListViewController.h */,
-				4650730D1DE2A5E6002860AF /* ASCreditBankListViewController.m */,
-				4650730E1DE2A5E6002860AF /* ASCreditBankListViewController.xib */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -6659,7 +6651,6 @@
 				D396E3141B5C2C0A00569708 /* icon_buy@2x.png in Resources */,
 				D33C22E21BB06E4C00B7B904 /* AlbumAddBtn@2x.png in Resources */,
 				7118E9161D9A5CA100A2D44E /* SingleTextViewController.xib in Resources */,
-				465073101DE2A5E6002860AF /* ASCreditBankListViewController.xib in Resources */,
 				D3A77DFB1B5FDDE8008C49B4 /* ASBuyViewController.xib in Resources */,
 				D37BF0721B1B340700FA7579 /* icon_tabbar_home_selected@2x.png in Resources */,
 				D3A77DFF1B5FDDE8008C49B4 /* ASQuotePriceViewController.xib in Resources */,
@@ -7269,7 +7260,6 @@
 				D382F3AC1BCFF4C80074CA94 /* ASAddMonitorTicketViewController.m in Sources */,
 				D3ABE2691B99FAF0009BE0D7 /* ASGroupCell.m in Sources */,
 				D3ABE2741B9A83AD009BE0D7 /* ASJuBaoViewController.m in Sources */,
-				4650730F1DE2A5E6002860AF /* ASCreditBankListViewController.m in Sources */,
 				7118E8B61D9A5CA100A2D44E /* AboutUsController.m in Sources */,
 				D304712D1B628304000EBADA /* MASLayoutConstraint.m in Sources */,
 				D38DA2B41B100D2A005BC113 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
