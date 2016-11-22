@@ -36,7 +36,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Event Methods
 - (IBAction)shenQingDidTap:(id)sender {
+}
+
+
+#pragma mark - Overwrite
+- (BOOL)resetAutolayout{
+    return NO;
 }
 
 @end
