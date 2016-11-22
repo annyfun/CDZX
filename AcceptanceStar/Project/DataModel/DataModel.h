@@ -46,6 +46,7 @@
 @protocol CreateOrderModel          @end
 @protocol CaiShuiModel              @end
 @protocol CreditBankModel           @end
+@protocol ElectricModel           @end
 
 #pragma mark - 公共model需要用到的class声明
 
@@ -512,3 +513,59 @@
 //"_rt": "1",
 //"_url": "/banksxlinks/index/id/1.html"
 @end
+
+
+
+@interface ElectricModel : BaseDataModel
+
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, strong) NSString *company;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *pic;
+@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *rt_1;
+@property (nonatomic, strong) NSString *rt_2;
+@property (nonatomic, strong) NSString *rt_3;
+@property (nonatomic, strong) NSString *rt_4;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSString *comment;
+@property (nonatomic, assign) NSInteger days;
+@property (nonatomic, assign) NSInteger status;
+@property (nonatomic, assign) NSInteger n_status;
+@property (nonatomic, strong) NSString *contacts;
+@property (nonatomic, strong) NSString *collect;
+@property (nonatomic, strong) NSString *iurl;
+@property (nonatomic, strong) NSString *itype;
+@property (nonatomic, strong) NSString *iuid;
+@property (nonatomic, strong) NSString *istatus;
+
+/*
+ {
+ "id": "1",
+ "uid": "*^_^*",
+ "company": "测试",
+ "phone": "13228159788",
+ "pic": null,
+ "price": "10",
+ "rt_1": "1",
+ "rt_2": "2",
+ "rt_3": "3",
+ "rt_4": "4",
+ "date": 1478247162,
+ "comment": null,
+ "days": null,
+ "status": "未完成",
+ "contacts": null,
+ "n_status": "1",
+ "_uid": "100404",
+ "_status": "1",
+ "collect": "",
+ "_url": "/electric/index/id/1.html",
+ "_type": "票据经纪"
+ }
+ */
+@end
+
+
+

@@ -209,3 +209,13 @@
 }
 @end
 
+@implementation ElectricModel
++ (NSDictionary *)jsonToModelMapping {
+    return @{
+             @"_status" : @"istatus",
+             @"_uid" : @"iuid",
+             @"_type" : @"itype",
+             @"_url" : @"iurl"
+             };
+}
+@end

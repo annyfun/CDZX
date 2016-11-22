@@ -8,6 +8,8 @@
 
 #import "ASJiaoYiDatingController.h"
 #import "YSCInfiniteLoopView.h"
+#import "ASJiaoYiDatingCell.h"
+#import "ASElectricViewController.h"
 
 @interface ASJiaoYiDatingController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet YSCInfiniteLoopView *infiniteLoopView;
@@ -16,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 
 @property (nonatomic,strong) NSMutableArray *bannerArray;
+@property (nonatomic,strong) NSMutableArray *electricModelArray;
 @end
 
 @implementation ASJiaoYiDatingController
@@ -36,11 +39,15 @@
     UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
     footer.backgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = footer;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASJiaoYiDatingCell class]) bundle:nil] forCellReuseIdentifier:@"ASJiaoYiDatingCell"];
     
     
     self.bannerArray = [self commonLoadCaches:@"keyOfCachedBanner"];
     [blockSelf layoutBannerView];
     [self refreshBanner];
+    [self getList:nil price:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,7 +96,7 @@
 - (void)refreshBanner {
     WeakSelfType blockSelf = self;
     [AFNManager getDataWithAPI:kResPathAppSlideIndex
-                  andDictParam:@{@"cat" : @"index"}
+                  andDictParam:@{@"cat" : @"electric"}
                      modelName:ClassOfObject(BannerModel)
               requestSuccessed:^(id responseObject) {
                   if ([responseObject isKindOfClass:[NSArray class]]) {
@@ -97,6 +104,36 @@
                           blockSelf.bannerArray = [NSMutableArray array];
                           [blockSelf.bannerArray addObjectsFromArray:responseObject];
                           [blockSelf layoutBannerView];
+                      }
+                  }
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                }];
+}
+
+/*
+ sort	N		利率类型排序，rt_1,rt_2,rt_3,rt_4
+ price	N		票面金额（万） 500- , 0-500
+ */
+- (void)getList:(NSString *)sort price:(NSString *)price{
+    
+    NSMutableDictionary *params = [@{} mutableCopy];
+    if (sort) {
+        [params setObject:sort forKey:@"sort"];
+    }
+    if (price) {
+        [params setObject:price forKey:@"price"];
+    }
+    
+    WeakSelfType blockSelf = self;
+    [AFNManager getDataWithAPI:@"/bond/electric"
+                  andDictParam:params
+                     modelName:ClassOfObject(ElectricModel)
+              requestSuccessed:^(id responseObject) {
+                  if ([responseObject isKindOfClass:[NSArray class]]) {
+                      if ([NSObject isNotEmpty:responseObject]) {
+                          blockSelf.electricModelArray = [responseObject mutableCopy];
+                          [blockSelf.tableView reloadData];
                       }
                   }
               }
@@ -140,11 +177,42 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 0;
+    return ceil(self.electricModelArray.count * 0.5);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 185;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    NSInteger loc = indexPath.row * 2;
+    NSInteger len = ((loc+2)<=self.electricModelArray.count)?2:1;
+    
+    
+    ASJiaoYiDatingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ASJiaoYiDatingCell"];
+    cell.tag = indexPath.row;
+    [cell loadData:[self.electricModelArray subarrayWithRange:NSMakeRange(loc, len)]];
+    
+    WeakSelfType ws = self;
+    cell.didTap = ^(NSInteger index){
+        if (index<ws.electricModelArray.count) {
+            
+            id model = ws.electricModelArray[index];
+            if (model) {
+                
+                [ws pushViewController:@"ASElectricViewController"
+                              withParams:@{kParamTitle : @"银行报价详细",
+                                           kParamModel : model}];
+            }
+        }
+    };
+    return cell;
 }
 
 
-
+#pragma mark - Overwrite
 - (BOOL)resetAutolayout{
     return NO;
 }

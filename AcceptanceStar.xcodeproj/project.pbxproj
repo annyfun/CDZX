@@ -932,9 +932,15 @@
 		713CE6601DB2FBCB0052C618 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */; };
 		713CE6611DB2FDE20052C618 /* ASWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D33AE78A1B14C1AB00219A80 /* ASWebViewViewController.m */; };
 		713CE6621DB2FDEC0052C618 /* ASWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33AE78B1B14C1AB00219A80 /* ASWebViewViewController.xib */; };
+		719C98C41DE4267F007A4EEB /* ASElectricViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98C21DE4267F007A4EEB /* ASElectricViewController.m */; };
+		719C98C51DE4267F007A4EEB /* ASElectricViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 719C98C31DE4267F007A4EEB /* ASElectricViewController.xib */; };
 		71C391E71D977FCB003DCADB /* ASCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */; };
 		71E842171DE2F7FA00D954AA /* ASJiaoYiDatingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */; };
 		71E842181DE2F7FA00D954AA /* ASJiaoYiDatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */; };
+		71E8421C1DE3E17900D954AA /* ASJiaoYiDatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E8421A1DE3E17900D954AA /* ASJiaoYiDatingCell.m */; };
+		71E8421D1DE3E17900D954AA /* ASJiaoYiDatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E8421B1DE3E17900D954AA /* ASJiaoYiDatingCell.xib */; };
+		71E842201DE3E2D100D954AA /* ASJiaoYiDatingItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E8421F1DE3E2D100D954AA /* ASJiaoYiDatingItemView.m */; };
+		71E842221DE3E2E800D954AA /* ASJiaoYiDatingItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E842211DE3E2E800D954AA /* ASJiaoYiDatingItemView.xib */; };
 		9E1886B96A736BC0708F07E6 /* libPods-AcceptanceStar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */; };
 		D300011D1B989A9D0045F3E9 /* icon_changepassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */; };
 		D30001211B989B100045F3E9 /* ASChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D300011F1B989B100045F3E9 /* ASChangePasswordViewController.m */; };
@@ -2032,10 +2038,19 @@
 		7118EB4B1D9A698500A2D44E /* CalPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalPrefixHeader.pch; sourceTree = "<group>"; };
 		713CE65D1DB2FBCB0052C618 /* TSCurrencyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCurrencyTextField.h; sourceTree = "<group>"; };
 		713CE65E1DB2FBCB0052C618 /* TSCurrencyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCurrencyTextField.m; sourceTree = "<group>"; };
+		719C98C11DE4267F007A4EEB /* ASElectricViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASElectricViewController.h; sourceTree = "<group>"; };
+		719C98C21DE4267F007A4EEB /* ASElectricViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASElectricViewController.m; sourceTree = "<group>"; };
+		719C98C31DE4267F007A4EEB /* ASElectricViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASElectricViewController.xib; sourceTree = "<group>"; };
 		71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCalculatorViewController.xib; sourceTree = "<group>"; };
 		71E842141DE2F7FA00D954AA /* ASJiaoYiDatingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJiaoYiDatingController.h; sourceTree = "<group>"; };
 		71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJiaoYiDatingController.m; sourceTree = "<group>"; };
 		71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASJiaoYiDatingController.xib; sourceTree = "<group>"; };
+		71E842191DE3E17900D954AA /* ASJiaoYiDatingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJiaoYiDatingCell.h; sourceTree = "<group>"; };
+		71E8421A1DE3E17900D954AA /* ASJiaoYiDatingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJiaoYiDatingCell.m; sourceTree = "<group>"; };
+		71E8421B1DE3E17900D954AA /* ASJiaoYiDatingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASJiaoYiDatingCell.xib; sourceTree = "<group>"; };
+		71E8421E1DE3E2D100D954AA /* ASJiaoYiDatingItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJiaoYiDatingItemView.h; sourceTree = "<group>"; };
+		71E8421F1DE3E2D100D954AA /* ASJiaoYiDatingItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJiaoYiDatingItemView.m; sourceTree = "<group>"; };
+		71E842211DE3E2E800D954AA /* ASJiaoYiDatingItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASJiaoYiDatingItemView.xib; sourceTree = "<group>"; };
 		D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_changepassword@2x.png"; sourceTree = "<group>"; };
 		D300011E1B989B100045F3E9 /* ASChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChangePasswordViewController.h; sourceTree = "<group>"; };
 		D300011F1B989B100045F3E9 /* ASChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASChangePasswordViewController.m; sourceTree = "<group>"; };
@@ -4176,6 +4191,15 @@
 				71E842141DE2F7FA00D954AA /* ASJiaoYiDatingController.h */,
 				71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */,
 				71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */,
+				71E842191DE3E17900D954AA /* ASJiaoYiDatingCell.h */,
+				71E8421A1DE3E17900D954AA /* ASJiaoYiDatingCell.m */,
+				71E8421B1DE3E17900D954AA /* ASJiaoYiDatingCell.xib */,
+				71E8421E1DE3E2D100D954AA /* ASJiaoYiDatingItemView.h */,
+				71E8421F1DE3E2D100D954AA /* ASJiaoYiDatingItemView.m */,
+				71E842211DE3E2E800D954AA /* ASJiaoYiDatingItemView.xib */,
+				719C98C11DE4267F007A4EEB /* ASElectricViewController.h */,
+				719C98C21DE4267F007A4EEB /* ASElectricViewController.m */,
+				719C98C31DE4267F007A4EEB /* ASElectricViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -6443,6 +6467,7 @@
 				D38DA2EF1B100D2A005BC113 /* ZSSpicker.png in Resources */,
 				7118EAC41D9A5CA200A2D44E /* MessageLeftCell.xib in Resources */,
 				46EB20111DE3F3BF0033DE4C /* ASAppendCreditBankViewController.xib in Resources */,
+				71E842221DE3E2E800D954AA /* ASJiaoYiDatingItemView.xib in Resources */,
 				D382F3A81BCFF3050074CA94 /* circle_green@2x.png in Resources */,
 				7118E97A1D9A5CA100A2D44E /* talk_btn_add.png in Resources */,
 				7118E9941D9A5CA100A2D44E /* talk_r_voice0.png in Resources */,
@@ -6502,6 +6527,7 @@
 				D38DA2D01B100D2A005BC113 /* ZSSh2@2x.png in Resources */,
 				7118E9E41D9A5CA100A2D44E /* Launch_1136.png in Resources */,
 				D33AE7971B14C22B00219A80 /* ASLoginViewController.xib in Resources */,
+				71E8421D1DE3E17900D954AA /* ASJiaoYiDatingCell.xib in Resources */,
 				4699F8C91DE015B90087787B /* icon_usercenter_bank_maintenance@2x.png in Resources */,
 				D3ABE25B1B99F507009BE0D7 /* button_add1@2x.png in Resources */,
 				D38DA3081B100D2A005BC113 /* ZSSviewsource.png in Resources */,
@@ -6666,6 +6692,7 @@
 				D33AE7B01B14D66500219A80 /* ASConfigViewController.xib in Resources */,
 				D3F524671B726739008E305B /* addimage_normal@2x.png in Resources */,
 				D30471001B615FF9000EBADA /* ASPersonalVerifyViewController.xib in Resources */,
+				719C98C51DE4267F007A4EEB /* ASElectricViewController.xib in Resources */,
 				D396E3011B5BA17900569708 /* frame_addpic@2x.png in Resources */,
 				D38DA2741B100D2A005BC113 /* UMSocialLocalizable.strings in Resources */,
 				D38DA2A01B100D2A005BC113 /* MJRefresh.bundle in Resources */,
@@ -7080,6 +7107,7 @@
 				D38DA29E1B100D2A005BC113 /* KLSwitch.m in Sources */,
 				7118EA4A1D9A5CA200A2D44E /* JSBadgeView.m in Sources */,
 				7118EA421D9A5CA200A2D44E /* DBConnection.m in Sources */,
+				71E8421C1DE3E17900D954AA /* ASJiaoYiDatingCell.m in Sources */,
 				7118E8AE1D9A5CA000A2D44E /* UIImage+Rotate_Flip.m in Sources */,
 				D37BE79F1B19DC9E00FA7579 /* ASShieldUsersTableViewCell.m in Sources */,
 				D38DA3211B100D2A005BC113 /* StorageManager.m in Sources */,
@@ -7108,6 +7136,7 @@
 				7118EA841D9A5CA200A2D44E /* TCExtend.m in Sources */,
 				7118E8F41D9A5CA100A2D44E /* ProfileEditController.m in Sources */,
 				D313D88D1B1776950092DEAC /* ASAlbumDetailViewController.m in Sources */,
+				719C98C41DE4267F007A4EEB /* ASElectricViewController.m in Sources */,
 				D30470FA1B615FE2000EBADA /* ASCompanyVerifyViewController.m in Sources */,
 				D304715F1B628FFA000EBADA /* TOCropScrollView.m in Sources */,
 				D38DA32A1B100D2A005BC113 /* YSCPullToRefreshTableViewController.m in Sources */,
@@ -7350,6 +7379,7 @@
 				7118EA801D9A5CA200A2D44E /* TCBaseObject.m in Sources */,
 				7118E8BC1D9A5CA100A2D44E /* BaseNavigationController.m in Sources */,
 				7118EACA1D9A5CA200A2D44E /* NotifyCell.m in Sources */,
+				71E842201DE3E2D100D954AA /* ASJiaoYiDatingItemView.m in Sources */,
 				D30471691B653208000EBADA /* ASCitySelectionHeader.m in Sources */,
 				D38DA28C1B100D2A005BC113 /* NSObject+Addition.m in Sources */,
 				D38DA2901B100D2A005BC113 /* UIDevice+Additions.m in Sources */,
