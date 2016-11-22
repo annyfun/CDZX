@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		4650730F1DE2A5E6002860AF /* ASCreditBankListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4650730D1DE2A5E6002860AF /* ASCreditBankListViewController.m */; };
 		465073101DE2A5E6002860AF /* ASCreditBankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4650730E1DE2A5E6002860AF /* ASCreditBankListViewController.xib */; };
-		465073191DE2D141002860AF /* ASCreditBankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 465073171DE2D141002860AF /* ASCreditBankCell.m */; };
-		4650731A1DE2D141002860AF /* ASCreditBankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 465073181DE2D141002860AF /* ASCreditBankCell.xib */; };
 		466F826C1DE1D79600E14A83 /* third_party_qq_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */; };
 		466F826E1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */; };
 		4699F8B51DE0143D0087787B /* icon_usercenter_friendcircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8B41DE0143D0087787B /* icon_usercenter_friendcircle@2x.png */; };
@@ -1535,9 +1533,6 @@
 		4650730C1DE2A5E6002860AF /* ASCreditBankListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCreditBankListViewController.h; sourceTree = "<group>"; };
 		4650730D1DE2A5E6002860AF /* ASCreditBankListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCreditBankListViewController.m; sourceTree = "<group>"; };
 		4650730E1DE2A5E6002860AF /* ASCreditBankListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCreditBankListViewController.xib; sourceTree = "<group>"; };
-		465073161DE2D141002860AF /* ASCreditBankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCreditBankCell.h; sourceTree = "<group>"; };
-		465073171DE2D141002860AF /* ASCreditBankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCreditBankCell.m; sourceTree = "<group>"; };
-		465073181DE2D141002860AF /* ASCreditBankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCreditBankCell.xib; sourceTree = "<group>"; };
 		466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third_party_qq_icon@2x.png"; sourceTree = "<group>"; };
 		466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third_party_wechat_icon@2x.png"; sourceTree = "<group>"; };
 		4699F8B41DE0143D0087787B /* icon_usercenter_friendcircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_usercenter_friendcircle@2x.png"; sourceTree = "<group>"; };
@@ -4290,9 +4285,6 @@
 				4650730C1DE2A5E6002860AF /* ASCreditBankListViewController.h */,
 				4650730D1DE2A5E6002860AF /* ASCreditBankListViewController.m */,
 				4650730E1DE2A5E6002860AF /* ASCreditBankListViewController.xib */,
-				465073161DE2D141002860AF /* ASCreditBankCell.h */,
-				465073171DE2D141002860AF /* ASCreditBankCell.m */,
-				465073181DE2D141002860AF /* ASCreditBankCell.xib */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -6252,7 +6244,6 @@
 				D3ABE2791B9A8724009BE0D7 /* button_ok@2x.png in Resources */,
 				D38DA2F61B100D2A005BC113 /* ZSSrightjustify@2x.png in Resources */,
 				7118E9B81D9A5CA100A2D44E /* cell_group_gray_bottom_d.png in Resources */,
-				4650731A1DE2D141002860AF /* ASCreditBankCell.xib in Resources */,
 				D30001221B989B100045F3E9 /* ASChangePasswordViewController.xib in Resources */,
 				D33917C01B3320F50084286F /* icon_zan_down@2x.png in Resources */,
 				7118EA1C1D9A5CA200A2D44E /* tabbarItem1_d@2x.png in Resources */,
@@ -7146,7 +7137,6 @@
 				D341F4361B1F3E6A00342991 /* ASPriceDetailViewController.m in Sources */,
 				D30001211B989B100045F3E9 /* ASChangePasswordViewController.m in Sources */,
 				7118EA441D9A5CA200A2D44E /* Statement.m in Sources */,
-				465073191DE2D141002860AF /* ASCreditBankCell.m in Sources */,
 				D382F3A31BCFEDFE0074CA94 /* ASMyMonitorTicketsCell.m in Sources */,
 				D313D8731B176CA00092DEAC /* MJRefreshHeader.m in Sources */,
 				D3A77E021B5FDDE8008C49B4 /* ASRePurchaseViewController.m in Sources */,
