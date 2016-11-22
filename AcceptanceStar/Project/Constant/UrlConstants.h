@@ -41,6 +41,8 @@
 #define kResPathAppUserResetPassword            @"user/modifypwd"//TODO:
 #define kResPathAppUserLogin                    @"user/login"
 #define kResPathAppUserDetail                   @"user/detail"
+#define kResPathAppUserThirdLogin               @"user/third_login"
+#define kResPathAppUserThirdRegister            @"user/third_register"
 #define kResPathAppUserEditPassword             [@"user/editPassword/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppUserEditDetail               [@"user/edit_detail/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppUserChangePhone              [@"user/change_phone/token" stringByAppendingPathComponent:TOKEN]
