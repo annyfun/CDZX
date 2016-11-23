@@ -168,13 +168,24 @@
     
     WeakSelfType blockSelf = self;
     [UIView showHUDLoadingOnWindow:@"正在注册"];
-    [AFNManager postDataWithAPI:kResPathAppUserRegister
-                   andDictParam:@{kParamType : @(self.selectedTypeIndex),
-                                  kParamPhone : phone,
-                                  @"pw" : password,
-                                  @"repw" : passwordRepeat,
-                                  kParamVerify : verifyCode,
-                                  kParamCity : @(self.selectedCityId)}
+    
+    NSString *registerAPI = nil;
+    NSMutableDictionary *params = @{kParamType : @(self.selectedTypeIndex),
+                                    kParamPhone : phone,
+                                    @"pw" : password,
+                                    @"repw" : passwordRepeat,
+                                    kParamVerify : verifyCode,
+                                    kParamCity : @(self.selectedCityId)}.mutableCopy;
+    if (self.params[@"third_id"]) {
+        // 第三方登录
+        registerAPI = kResPathAppUserThirdRegister;
+        [params setObject:self.params[@"third_id"] forKey:@"third_id"];
+        [params setObject:self.params[@"third_type"] forKey:@"third_type"];
+    } else {
+        registerAPI = kResPathAppUserRegister;
+    }
+    [AFNManager postDataWithAPI:registerAPI
+                   andDictParam:params
                       modelName:ClassOfObject(UserModel)
                requestSuccessed:^(id responseObject) {
                    UserModel *user = (UserModel *)responseObject;

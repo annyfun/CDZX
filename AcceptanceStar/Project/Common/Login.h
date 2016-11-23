@@ -34,6 +34,7 @@ typedef void(^LoginFailedWithError)(NSString *errorMessage);
 // email+手机号登录
 - (void)loginWithParams:(NSDictionary *)params andObserver:(id<LoginObserverDelegate>)observer;
 - (void)loginWithSNSType:(ShareType)type andObserver:(id<LoginObserverDelegate>)observer;
+- (void)loginWithThirdParty:(NSString *)thirdParty andObserver:(id<LoginObserverDelegate>)observer;
 - (void)logout;
 
 #pragma mark - Login Observer CallBack
@@ -49,6 +50,7 @@ typedef void(^LoginFailedWithError)(NSString *errorMessage);
 - (void)loginSucceededWithUserId:(NSString *)theUserId session:(NSString *)theSession;
 - (void)loginFailedWithError:(NSString *)errorMessage;
 - (void)loggedOut;
+- (void)jumpToRegisterViewControllerWithParams:(NSDictionary *)params;
 
 @optional
 - (void)doLogining;         //第三方登录成功后，正在登录本地系统

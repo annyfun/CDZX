@@ -174,6 +174,41 @@
     
 }
 
+/// 第三方登录(new)
+- (void)loginWithThirdParty:(NSString *)thirdParty andObserver:(id<LoginObserverDelegate>)observer {
+    NSAssert(observer, @"the login observer is nil");
+    [self registerLoginObserver:observer];
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:thirdParty];
+    snsPlatform.loginClickHandler(observer,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:thirdParty];
+            // 尝试登录(不知道是否注册过)
+            NSDictionary *params = @{@"third_id": snsAccount.usid,@"third_type": snsAccount.platformName};
+            WeakSelfType blockSelf = self;
+            [AFNManager postDataWithAPI:kResPathAppUserThirdLogin andDictParam:params modelName:ClassOfObject(UserModel) requestSuccessed:^(id responseObject) {
+                // 登录成功
+                UserModel *userModel = (UserModel *)responseObject;
+                if ([userModel isKindOfClass:[UserModel class]] && [NSString isNotEmptyConsiderWhitespace:userModel.userId]) {
+                    [[StorageManager sharedInstance] setConfigValue:Trim(userModel.token) forKey:kCachedUserToken];//NOTE:只有登录才返回token
+                    [blockSelf resetUser:userModel];
+                    [blockSelf loginSucceeded];
+                }
+                else {
+                    [blockSelf loginFailedWithError:@"登录失败！"];
+                }
+            } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                if (errorCode == 1103) { // 第三方账号未注册
+                    [blockSelf jumpToRegisterViewControllerWithParams:params];
+                } else {
+                    [blockSelf loginFailedWithError:errorMessage];
+                }
+            }];
+        } else {
+            [UIView showResultThenHideOnWindow:response.message afterDelay:1.5];
+        }
+    });
+    
+}
 
 /**
  *  发送登录请求
@@ -295,6 +330,16 @@
     for (id<LoginObserverDelegate> observer in self.loginObservers) {
         if ([observer respondsToSelector:@selector(loginCancelled)]) {
             [observer loginCancelled];
+        }
+    }
+}
+
+- (void)jumpToRegisterViewControllerWithParams:(NSDictionary *)params {
+    self.isLogging = NO;
+
+    for (id<LoginObserverDelegate> observer in self.loginObservers) {
+        if ([observer respondsToSelector:@selector(jumpToRegisterViewControllerWithParams:)]) {
+            [observer jumpToRegisterViewControllerWithParams:params];
         }
     }
 }

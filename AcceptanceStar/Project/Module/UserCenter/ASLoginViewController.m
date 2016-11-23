@@ -77,37 +77,12 @@
 
 /// QQ登录
 - (IBAction)clickQQLogin:(id)sender {
-    [self loginWithThirdPartyPlatform:UMShareToQQ];
+    [[Login sharedInstance] loginWithThirdParty:UMShareToQQ andObserver:self];
 }
 
 /// 微信登录
 - (IBAction)clickWechatLogin:(id)sender {
-    [self loginWithThirdPartyPlatform:UMShareToQQ];
-}
-
-- (void)loginWithThirdPartyPlatform:(NSString *)platform {
-    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:platform];
-    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-        if (response.responseCode == UMSResponseCodeSuccess) {
-            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:platform];
-            // 尝试登录(不知道是否注册过)
-            [AFNManager postDataWithAPI:kResPathAppUserThirdLogin andDictParam:@{@"third_id": snsAccount.usid,@"third_type": snsAccount.platformName} modelName:nil requestSuccessed:^(id responseObject) {
-                // 登录成功
-                [[Login sharedInstance] loginWithParams:@{kParamPhone : @"123",
-                                                          @"pw" : @"123"}
-                                            andObserver:self];
-            } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-                // 登录失败
-                // 跳转到注册页面
-                if (errorCode == 1103) {
-                    // code-1103意思？
-                    [self pushViewController:@"ASRegisterViewController" withParams:@{}];
-                }
-            }];
-        } else {
-            [UIView showResultThenHideOnWindow:response.message afterDelay:1.5];
-        }
-    });
+    [[Login sharedInstance] loginWithThirdParty:UMShareToWechatSession andObserver:self];
 }
 
 #pragma mark - LoginObserverDelegate
@@ -131,5 +106,9 @@
 - (void)loggedOut {
     [UIView hideHUDLoadingOnWindow];
 }
+- (void)jumpToRegisterViewControllerWithParams:(NSDictionary *)params {
+    [self pushViewController:@"ASRegisterViewController" withParams:params];
+}
+
 @end
 
