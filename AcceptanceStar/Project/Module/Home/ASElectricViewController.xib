@@ -30,13 +30,6 @@
                         <outlet property="delegate" destination="-1" id="YVp-D8-xln"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJC-rp-e5f" userLabel="My">
-                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="kgR-SL-xQa"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhI-Rb-sJN" userLabel="Other">
                     <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                     <subviews>
@@ -61,6 +54,55 @@
                         <constraint firstItem="peF-zN-B6u" firstAttribute="leading" secondItem="yhI-Rb-sJN" secondAttribute="leading" constant="15" id="kEK-A2-7bi"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJC-rp-e5f" userLabel="My">
+                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFZ-c5-mNK">
+                            <rect key="frame" x="15" y="15" width="165" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="交易完成" backgroundImage="btn_blue">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="jiaoYiWanChengDidTap:" destination="-1" eventType="touchUpInside" id="4qq-hq-lyL"/>
+                                <action selector="shenQingDidTap:" destination="-1" eventType="touchUpInside" id="AVJ-VT-UZ3"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BT4-wH-RuW">
+                            <rect key="frame" x="195" y="15" width="165" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="重新发布" backgroundImage="btn_blue">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="chongXinFaBuDidTap:" destination="-1" eventType="touchUpInside" id="b5F-Ll-ton"/>
+                                <action selector="shenQingDidTap:" destination="-1" eventType="touchUpInside" id="I9U-iW-TRf"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="776-z2-N8n">
+                            <rect key="frame" x="180" y="0.0" width="15" height="60"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="2fK-R1-7Tv"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="BT4-wH-RuW" firstAttribute="top" secondItem="SJC-rp-e5f" secondAttribute="top" constant="15" id="C7d-B2-mCu"/>
+                        <constraint firstAttribute="bottom" secondItem="AFZ-c5-mNK" secondAttribute="bottom" constant="5" id="EaE-Oo-UvQ"/>
+                        <constraint firstItem="AFZ-c5-mNK" firstAttribute="top" secondItem="SJC-rp-e5f" secondAttribute="top" constant="15" id="GWe-eT-dyX"/>
+                        <constraint firstItem="776-z2-N8n" firstAttribute="centerX" secondItem="SJC-rp-e5f" secondAttribute="centerX" id="Hcn-kr-Dr9"/>
+                        <constraint firstItem="BT4-wH-RuW" firstAttribute="leading" secondItem="776-z2-N8n" secondAttribute="trailing" id="KGU-CA-EO8"/>
+                        <constraint firstItem="776-z2-N8n" firstAttribute="top" secondItem="SJC-rp-e5f" secondAttribute="top" id="Qlw-kj-Z5l"/>
+                        <constraint firstAttribute="bottom" secondItem="776-z2-N8n" secondAttribute="bottom" id="SHx-3d-efe"/>
+                        <constraint firstItem="AFZ-c5-mNK" firstAttribute="leading" secondItem="SJC-rp-e5f" secondAttribute="leading" constant="15" id="bL7-2n-2aw"/>
+                        <constraint firstAttribute="trailing" secondItem="BT4-wH-RuW" secondAttribute="trailing" constant="15" id="cJw-fa-dzo"/>
+                        <constraint firstItem="776-z2-N8n" firstAttribute="leading" secondItem="AFZ-c5-mNK" secondAttribute="trailing" id="cLA-nl-U0o"/>
+                        <constraint firstAttribute="bottom" secondItem="BT4-wH-RuW" secondAttribute="bottom" constant="5" id="fMb-xn-68n"/>
+                        <constraint firstAttribute="height" constant="60" id="kgR-SL-xQa"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -75,6 +117,7 @@
                 <constraint firstItem="SJC-rp-e5f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hDZ-SY-O4t"/>
                 <constraint firstAttribute="trailing" secondItem="SJC-rp-e5f" secondAttribute="trailing" id="qYg-mv-ygl"/>
             </constraints>
+            <point key="canvasLocation" x="50.5" y="53.5"/>
         </view>
     </objects>
     <resources>

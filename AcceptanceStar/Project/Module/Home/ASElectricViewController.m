@@ -36,8 +36,11 @@
     ElectricModel *model = self.params[kParamModel];
     self.dataSource = [NSMutableArray array];
     
-    ;
+    BOOL isMy = [[[Login sharedInstance] user].userId isEqualToString:model.iuid];
+    self.otherView.hidden = isMy;
+    self.myView.hidden = !isMy;
     
+    ;
     
     [self.dataSource addObject:@[@"发布机构",model.company?:@""]];
     [self.dataSource addObject:@[@"单张票面",[NSString stringWithFormat:@"%@万元起",model.price?:@""]]];
@@ -47,7 +50,7 @@
     [self.dataSource addObject:@[@"三类银行",[NSString stringWithFormat:@"月利率%@%%",model.rt_3?:@""]]];
     [self.dataSource addObject:@[@"四类银行",[NSString stringWithFormat:@"月利率%@%%",model.rt_4?:@""]]];
     [self.dataSource addObject:@[@"发布时间",[model.date stringWithFormat:@"yyyy-MM-dd hh:mm"]]];
-    [self.dataSource addObject:@[@"备注信息",@"这里填什么字段？这里填什么字段？这里填什么字段？这里填什么字段？这里填什么字段？"]];
+    [self.dataSource addObject:@[@"备注信息",model.comment?:@""]];
     [self.dataSource addObject:@[@"银行简介",@"这里填什么字段？这里填什么字段？这里填什么字段？这里填什么字段？这里填什么字段？"]];
 }
 
@@ -106,7 +109,7 @@
     if (indexPath.row<8) {
         cell.rightLabel.text = data[1];
     }else{
-        cell.detailLabel.text = data[1]?[NSString stringWithFormat:@"%@\n",data[1]]:nil;
+        cell.detailLabel.text = data[1];
     }
     return cell;
 }
@@ -114,6 +117,31 @@
 
 #pragma mark - Event Methods
 - (IBAction)shenQingDidTap:(id)sender {
+}
+
+- (IBAction)jiaoYiWanChengDidTap:(id)sender {
+    ElectricModel *model = self.params[kParamModel];
+    
+    WeakSelfType blockSelf = self;
+    [AFNManager getDataWithAPI:@"/bond/electric_complete"
+                  andDictParam:model.id?@{@"id":model.id}:nil
+                     modelName:ClassOfObject(ElectricModel)
+              requestSuccessed:^(ElectricModel *responseObject) {
+                  BOOL success = NO;
+                  if ([responseObject isKindOfClass:[ElectricModel class]]) {
+                      
+                      if  (responseObject.istatus==ASElectricStautsWan){
+                          success = YES;
+                      }
+                  }
+                  [blockSelf showResultThenHide:success?@"交易完成":@"提交失败"];
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    [blockSelf showResultThenHide:@"提交失败"];
+                }];
+}
+- (IBAction)chongXinFaBuDidTap:(id)sender {
+    //TODO 跳转到发布界面
 }
 
 
