@@ -160,6 +160,7 @@ ZYQAssetPickerControllerDelegate>
     self.currentCityId = USER.icity;
 }
 - (void)setIsMale:(BOOL)isMale {
+    _isMale = isMale;
     if (isMale) {
         self.maleImageView.image = [UIImage imageNamed:@"radio_selected"];
         self.femaleImageView.image = [UIImage imageNamed:@"radio_unselected"];
