@@ -515,6 +515,11 @@
 @end
 
 
+typedef NS_ENUM(NSUInteger, ASElectricStauts) {
+    ASElectricStautsNotWan = 1,
+    ASElectricStautsWan = 2,
+};
+
 
 @interface ElectricModel : BaseDataModel
 
@@ -538,7 +543,9 @@
 @property (nonatomic, strong) NSString *iurl;
 @property (nonatomic, strong) NSString *itype;
 @property (nonatomic, strong) NSString *iuid;
-@property (nonatomic, strong) NSString *istatus;
+@property (nonatomic, assign) ASElectricStauts istatus;
+@property (nonatomic, assign) NSInteger buy_num;
+
 
 /*
  {

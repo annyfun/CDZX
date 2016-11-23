@@ -22,6 +22,8 @@
 
     self.countLabel.layer.cornerRadius = 10;
     self.countLabel.clipsToBounds = YES;
+    self.countLabel.text = [NSString stringWithFormat:@"%zd",model.buy_num];
+    self.countLabel.hidden = model.buy_num==0;
     
     self.categoryLabel.text = @"几类？";
     
