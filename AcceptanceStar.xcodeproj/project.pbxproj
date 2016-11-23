@@ -3079,12 +3079,12 @@
 			isa = PBXGroup;
 			children = (
 				46EB20091DE3F3BF0033DE4C /* Cell */,
-				46EB20031DE3F3BF0033DE4C /* ASAppendCreditBankViewController.h */,
-				46EB20041DE3F3BF0033DE4C /* ASAppendCreditBankViewController.m */,
-				46EB20051DE3F3BF0033DE4C /* ASAppendCreditBankViewController.xib */,
 				46EB20061DE3F3BF0033DE4C /* ASCreditBankListViewController.h */,
 				46EB20071DE3F3BF0033DE4C /* ASCreditBankListViewController.m */,
 				46EB20081DE3F3BF0033DE4C /* ASCreditBankListViewController.xib */,
+				46EB20031DE3F3BF0033DE4C /* ASAppendCreditBankViewController.h */,
+				46EB20041DE3F3BF0033DE4C /* ASAppendCreditBankViewController.m */,
+				46EB20051DE3F3BF0033DE4C /* ASAppendCreditBankViewController.xib */,
 			);
 			path = CreditBank;
 			sourceTree = "<group>";
@@ -3092,12 +3092,12 @@
 		46EB20091DE3F3BF0033DE4C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				46EB200A1DE3F3BF0033DE4C /* ASAppendCreditBankCell.h */,
-				46EB200B1DE3F3BF0033DE4C /* ASAppendCreditBankCell.m */,
-				46EB200C1DE3F3BF0033DE4C /* ASAppendCreditBankCell.xib */,
 				46EB200D1DE3F3BF0033DE4C /* ASCreditBankCell.h */,
 				46EB200E1DE3F3BF0033DE4C /* ASCreditBankCell.m */,
 				46EB200F1DE3F3BF0033DE4C /* ASCreditBankCell.xib */,
+				46EB200A1DE3F3BF0033DE4C /* ASAppendCreditBankCell.h */,
+				46EB200B1DE3F3BF0033DE4C /* ASAppendCreditBankCell.m */,
+				46EB200C1DE3F3BF0033DE4C /* ASAppendCreditBankCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";

@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) NSArray<CreditBankModel *> *creditBanks;
 @property (strong, nonatomic) NSMutableArray<NSString *> *selectedIDs; // 选中的授信银行ID
-@property (assign, nonatomic) NSInteger selectedIndex;  // 选中类索引
 
 @end
 
@@ -28,6 +27,7 @@
     self.navigationItem.title = @"添加授信银行";
     [self setUpTableView];
     [self loadCreditBanks];
+    [self.tabBars[self.selectedIndex] sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setUpTableView {

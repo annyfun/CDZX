@@ -11,4 +11,6 @@
 /// 添加授信银行
 @interface ASAppendCreditBankViewController : UIViewController
 
+@property (assign, nonatomic) NSInteger selectedIndex;  // 选中类索引
+
 @end

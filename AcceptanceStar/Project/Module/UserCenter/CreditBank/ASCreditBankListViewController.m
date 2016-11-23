@@ -82,6 +82,7 @@
 
 - (void)addCreditBank:(id)sender {
     ASAppendCreditBankViewController *appendVC = [[ASAppendCreditBankViewController alloc] init];
+    appendVC.selectedIndex = self.selectedIndex;
     [self presentViewController:appendVC animated:YES completion:nil];
 }
 
