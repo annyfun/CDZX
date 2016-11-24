@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		217CB8BF1DE6891600192CC7 /* ASInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 217CB8B71DE6891600192CC7 /* ASInfoTableViewCell.m */; };
+		217CB8C01DE6891600192CC7 /* ASInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217CB8B81DE6891600192CC7 /* ASInfoTableViewCell.xib */; };
+		217CB8C11DE6891600192CC7 /* ASPiaoJuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 217CB8BA1DE6891600192CC7 /* ASPiaoJuTableViewCell.m */; };
+		217CB8C21DE6891600192CC7 /* ASPiaoJuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217CB8BB1DE6891600192CC7 /* ASPiaoJuTableViewCell.xib */; };
+		217CB8C31DE6891600192CC7 /* ASShenQingTieXianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 217CB8BD1DE6891600192CC7 /* ASShenQingTieXianViewController.m */; };
+		217CB8C41DE6891600192CC7 /* ASShenQingTieXianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217CB8BE1DE6891600192CC7 /* ASShenQingTieXianViewController.xib */; };
 		466F826C1DE1D79600E14A83 /* third_party_qq_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */; };
 		466F826E1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */; };
 		4699F8B51DE0143D0087787B /* icon_usercenter_friendcircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8B41DE0143D0087787B /* icon_usercenter_friendcircle@2x.png */; };
@@ -1532,6 +1538,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		217CB8B61DE6891600192CC7 /* ASInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASInfoTableViewCell.h; sourceTree = "<group>"; };
+		217CB8B71DE6891600192CC7 /* ASInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASInfoTableViewCell.m; sourceTree = "<group>"; };
+		217CB8B81DE6891600192CC7 /* ASInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASInfoTableViewCell.xib; sourceTree = "<group>"; };
+		217CB8B91DE6891600192CC7 /* ASPiaoJuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPiaoJuTableViewCell.h; sourceTree = "<group>"; };
+		217CB8BA1DE6891600192CC7 /* ASPiaoJuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPiaoJuTableViewCell.m; sourceTree = "<group>"; };
+		217CB8BB1DE6891600192CC7 /* ASPiaoJuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASPiaoJuTableViewCell.xib; sourceTree = "<group>"; };
+		217CB8BC1DE6891600192CC7 /* ASShenQingTieXianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASShenQingTieXianViewController.h; sourceTree = "<group>"; };
+		217CB8BD1DE6891600192CC7 /* ASShenQingTieXianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASShenQingTieXianViewController.m; sourceTree = "<group>"; };
+		217CB8BE1DE6891600192CC7 /* ASShenQingTieXianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASShenQingTieXianViewController.xib; sourceTree = "<group>"; };
 		27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AcceptanceStar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D2520D5C40F3FBC8522A48 /* Pods-AcceptanceStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceStar.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar.release.xcconfig"; sourceTree = "<group>"; };
 		466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third_party_qq_icon@2x.png"; sourceTree = "<group>"; };
@@ -3066,6 +3081,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		217CB8B51DE6891600192CC7 /* ShenQingTieXian */ = {
+			isa = PBXGroup;
+			children = (
+				217CB8B61DE6891600192CC7 /* ASInfoTableViewCell.h */,
+				217CB8B71DE6891600192CC7 /* ASInfoTableViewCell.m */,
+				217CB8B81DE6891600192CC7 /* ASInfoTableViewCell.xib */,
+				217CB8B91DE6891600192CC7 /* ASPiaoJuTableViewCell.h */,
+				217CB8BA1DE6891600192CC7 /* ASPiaoJuTableViewCell.m */,
+				217CB8BB1DE6891600192CC7 /* ASPiaoJuTableViewCell.xib */,
+				217CB8BC1DE6891600192CC7 /* ASShenQingTieXianViewController.h */,
+				217CB8BD1DE6891600192CC7 /* ASShenQingTieXianViewController.m */,
+				217CB8BE1DE6891600192CC7 /* ASShenQingTieXianViewController.xib */,
+			);
+			path = ShenQingTieXian;
+			sourceTree = "<group>";
+		};
 		22BCE5B1985CC67FDCBD99AC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -4162,6 +4193,7 @@
 		D33AE77C1B14C13D00219A80 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				217CB8B51DE6891600192CC7 /* ShenQingTieXian */,
 				D33AE77D1B14C13D00219A80 /* QuotePlatform */,
 				D33AE7841B14C18E00219A80 /* ASHomeViewController.h */,
 				D33AE7851B14C18E00219A80 /* ASHomeViewController.m */,
@@ -6406,6 +6438,7 @@
 				D3ABE26F1B9A0D65009BE0D7 /* gender_female1@2x.png in Resources */,
 				D3C046151B1CB62A0066EF6D /* icon_tabbar_sale_normal@2x.png in Resources */,
 				7118E8DE1D9A5CA100A2D44E /* ImageViewController.xib in Resources */,
+				217CB8C21DE6891600192CC7 /* ASPiaoJuTableViewCell.xib in Resources */,
 				D33C22E81BB06E4C00B7B904 /* AlbumOperateMore@2x.png in Resources */,
 				719C98CA1DE431B4007A4EEB /* ASElectricCell.xib in Resources */,
 				7118E9021D9A5CA100A2D44E /* SessionListController.xib in Resources */,
@@ -6504,6 +6537,7 @@
 				D3C046131B1CB62A0066EF6D /* icon_tabbar_repost_normal@2x.png in Resources */,
 				7118E96C1D9A5CA100A2D44E /* talk_bkg_msg_l@2x.png in Resources */,
 				D341F44A1B1F6DBF00342991 /* icon_up@2x.png in Resources */,
+				217CB8C01DE6891600192CC7 /* ASInfoTableViewCell.xib in Resources */,
 				7118E9421D9A5CA100A2D44E /* icon_58.png in Resources */,
 				D38DA2C51B100D2A005BC113 /* ZSSbold.png in Resources */,
 				7118E9921D9A5CA100A2D44E /* talk_r_voice.png in Resources */,
@@ -6655,6 +6689,7 @@
 				7118E9C61D9A5CA100A2D44E /* cell_group_gray_middle_n@2x.png in Resources */,
 				D33917B71B3319420084286F /* ASCreateMomentViewController.xib in Resources */,
 				7118E9761D9A5CA100A2D44E /* talk_bkg_send.png in Resources */,
+				217CB8C41DE6891600192CC7 /* ASShenQingTieXianViewController.xib in Resources */,
 				D38DA2D41B100D2A005BC113 /* ZSSh4@2x.png in Resources */,
 				D3DBF7131B4C18FB0036200C /* icon_msgsys@2x.png in Resources */,
 				7118E96E1D9A5CA100A2D44E /* talk_bkg_msg_r.png in Resources */,
@@ -7118,9 +7153,11 @@
 				7118EA681D9A5CA200A2D44E /* TCNSDictionaryAdditions.m in Sources */,
 				D33AE78C1B14C1AB00219A80 /* ASWebViewViewController.m in Sources */,
 				7118E8FC1D9A5CA100A2D44E /* SessionDetailController.m in Sources */,
+				217CB8C11DE6891600192CC7 /* ASPiaoJuTableViewCell.m in Sources */,
 				D38DA2921B100D2A005BC113 /* UIImageView+Additions.m in Sources */,
 				7118E8AC1D9A5CA000A2D44E /* UIImage+Resize.m in Sources */,
 				7118E9361D9A5CA100A2D44E /* BaseRequest.m in Sources */,
+				217CB8C31DE6891600192CC7 /* ASShenQingTieXianViewController.m in Sources */,
 				D38DA2BB1B100D2A005BC113 /* UIImage+Utility.m in Sources */,
 				7118E8B21D9A5CA000A2D44E /* UIImageAddtions.m in Sources */,
 				7118EAAC1D9A5CA200A2D44E /* BaseHeadCell.m in Sources */,
@@ -7168,6 +7205,7 @@
 				D30001211B989B100045F3E9 /* ASChangePasswordViewController.m in Sources */,
 				7118EA441D9A5CA200A2D44E /* Statement.m in Sources */,
 				D382F3A31BCFEDFE0074CA94 /* ASMyMonitorTicketsCell.m in Sources */,
+				217CB8BF1DE6891600192CC7 /* ASInfoTableViewCell.m in Sources */,
 				D313D8731B176CA00092DEAC /* MJRefreshHeader.m in Sources */,
 				D3A77E021B5FDDE8008C49B4 /* ASRePurchaseViewController.m in Sources */,
 				D313D8741B176CA00092DEAC /* MJRefreshLegendFooter.m in Sources */,

@@ -11,6 +11,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *bankNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *priceTF;
 @property (weak, nonatomic) IBOutlet UITextField *expTF;
+@property (weak, nonatomic) IBOutlet UITextField *ticketNoTF;
 
 @end
 @implementation ASPiaoJuTableViewCell
@@ -22,6 +23,7 @@
     [self.addView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addClick:)]];
     [self.bankNameTF addTarget:self action:@selector(tFDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.priceTF addTarget:self action:@selector(tFDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.ticketNoTF addTarget:self action:@selector(tFDidChange:)  forControlEvents:UIControlEventEditingChanged];
     self.expDateTF.delegate = self;
     WEAKSELF1
     [self.addIV bk_whenTapped:^{
@@ -33,6 +35,7 @@
 {
     _paperModel = paperModel;
     self.bankNameTF.text = paperModel.bankName;
+    self.ticketNoTF.text = paperModel.ticketNo;
     self.priceTF.text = paperModel.price ==0 ? nil: [NSString stringWithFormat:@"%ld", paperModel.price];
     self.expDateTF.text = [paperModel getExpDateString];
     if (paperModel.exp != 0) {
@@ -56,6 +59,8 @@
     } else if (sender == self.priceTF){
         self.paperModel.price = [sender.text integerValue];
         !self.priceChangeBlock?:self.priceChangeBlock([sender.text integerValue]);
+    }else if (sender == self.ticketNoTF){
+        self.paperModel.ticketNo = sender.text;
     }
 }
 

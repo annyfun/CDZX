@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIToolbar *toolBar;
 @property (nonatomic, strong) NSIndexPath *selectDateIndexPath;
 @property (nonatomic, strong) TieXianModel *tieXianModel;
+@property (nonatomic, strong) NSMutableArray *imageArray;
 @end
 
 @implementation ASShenQingTieXianViewController
@@ -97,7 +98,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section < self.dataArray.count - 1 ? 200: 244;
+    return indexPath.section < self.dataArray.count - 1 ? 233: 277;
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -110,6 +111,7 @@
     if (pickedImage) {
         ASPiaoJuTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.selectDateIndexPath];
         [cell.addIV setImageWithURLString:nil placeholderImage:pickedImage];
+        [self.imageArray addObject:pickedImage];
     }
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -174,6 +176,15 @@
     return _tieXianModel;
 }
 
+-(NSMutableArray *)imageArray
+{
+    if (!_imageArray) {
+        self.imageArray = [NSMutableArray array];
+    }
+    return _imageArray;
+}
+
+
 - (IBAction)requsetClick:(id)sender {
     [self requestData];
 }
@@ -188,10 +199,23 @@
     }];
     self.tieXianModel.list = paperArray;
     self.tieXianModel.id = @"123456";
-    self.tieXianModel.pic = imageArray;
     
     NSDictionary *dic = [self.tieXianModel toDictionary];
     [UIView showHUDLoadingOnWindow:@"正在发送请求"];
+//    [AFNManager uploadImageDataParam:@{@"pic" : self.imageArray}
+//                               toUrl:kResPathAppBaseUrl
+//                             withApi:kResPathAppBondElectricBuy
+//                        andDictParam:dic
+//                           modelName:nil
+//                        imageQuality:ImageQualityNormal
+//                    requestSuccessed:^(id responseObject) {
+//                        [UIView hideHUDLoadingOnWindow];
+//                    }
+//                      requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+//                          [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+//                      }];
+    
+    
     [AFNManager postDataWithAPI:kResPathAppBondElectricBuy andDictParam:dic modelName:nil requestSuccessed:^(id responseObject) {
         [UIView hideHUDLoadingOnWindow];
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
