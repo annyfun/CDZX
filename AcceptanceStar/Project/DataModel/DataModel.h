@@ -543,6 +543,7 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *iurl;
 @property (nonatomic, strong) NSString *itype;
 @property (nonatomic, strong) NSString *iuid;
+@property (nonatomic, strong) NSString *sstatus;
 @property (nonatomic, assign) ASElectricStauts istatus;
 @property (nonatomic, assign) NSInteger buy_num;
 

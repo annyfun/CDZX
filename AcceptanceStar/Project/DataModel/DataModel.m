@@ -212,13 +212,17 @@
 @implementation ElectricModel
 + (NSDictionary *)jsonToModelMapping {
     return @{
-             @"_status" : @"istatus",
+             @"_status" : @"sstatus",
              @"_uid" : @"iuid",
              @"_type" : @"itype",
              @"_url" : @"iurl"
              };
 }
 
+- (ASElectricStauts)istatus{
+    
+    return [self.sstatus integerValue];
+}
 @end
 
 @implementation PaperModel

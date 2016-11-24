@@ -145,6 +145,7 @@
 }
 - (IBAction)chongXinFaBuDidTap:(id)sender {
     //TODO 跳转到发布界面
+    [self pushViewController:@"ASBankPriceQuotationViewController" withParams:nil];
 }
 
 
