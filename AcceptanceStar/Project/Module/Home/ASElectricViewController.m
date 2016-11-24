@@ -35,7 +35,6 @@
  
     
     ElectricModel *model = self.params[kParamModel];
-    self.dataSource = [NSMutableArray array];
     
     BOOL isMy = [[[Login sharedInstance] user].userId isEqualToString:model.iuid];
     self.otherView.hidden = isMy;
@@ -43,6 +42,7 @@
     
     ;
     
+    self.dataSource = [NSMutableArray array];
     [self.dataSource addObject:@[@"发布机构",model.company?:@""]];
     [self.dataSource addObject:@[@"单张票面",[NSString stringWithFormat:@"%@万元起",model.price?:@""]]];
     [self.dataSource addObject:@[@"期限",[NSString stringWithFormat:@"%zd天起",model.days]]];
@@ -95,7 +95,6 @@
                                            }else{
                                                cell.detailLabel.text = data[1];
                                            }
-                                           
                                        }];
 }
 

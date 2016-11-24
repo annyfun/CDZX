@@ -943,6 +943,10 @@
 		719C98D61DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98D11DE43B79007A4EEB /* UITableView+FDTemplateLayoutCell.m */; };
 		719C98D71DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 719C98D31DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		71C391E71D977FCB003DCADB /* ASCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */; };
+		71E207981DE6C2800056EA59 /* ASSearchEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E207961DE6C2800056EA59 /* ASSearchEViewController.m */; };
+		71E207991DE6C2800056EA59 /* ASSearchEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E207971DE6C2800056EA59 /* ASSearchEViewController.xib */; };
+		71E2079D1DE6CE280056EA59 /* ASSearchECell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E2079B1DE6CE280056EA59 /* ASSearchECell.m */; };
+		71E2079E1DE6CE280056EA59 /* ASSearchECell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E2079C1DE6CE280056EA59 /* ASSearchECell.xib */; };
 		71E842171DE2F7FA00D954AA /* ASJiaoYiDatingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */; };
 		71E842181DE2F7FA00D954AA /* ASJiaoYiDatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */; };
 		71E8421C1DE3E17900D954AA /* ASJiaoYiDatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E8421A1DE3E17900D954AA /* ASJiaoYiDatingCell.m */; };
@@ -2064,6 +2068,12 @@
 		719C98D21DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
 		719C98D31DE43B79007A4EEB /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 		71C391E61D977FCB003DCADB /* ASCalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASCalculatorViewController.xib; sourceTree = "<group>"; };
+		71E207951DE6C2800056EA59 /* ASSearchEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSearchEViewController.h; sourceTree = "<group>"; };
+		71E207961DE6C2800056EA59 /* ASSearchEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSearchEViewController.m; sourceTree = "<group>"; };
+		71E207971DE6C2800056EA59 /* ASSearchEViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASSearchEViewController.xib; sourceTree = "<group>"; };
+		71E2079A1DE6CE280056EA59 /* ASSearchECell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSearchECell.h; sourceTree = "<group>"; };
+		71E2079B1DE6CE280056EA59 /* ASSearchECell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSearchECell.m; sourceTree = "<group>"; };
+		71E2079C1DE6CE280056EA59 /* ASSearchECell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASSearchECell.xib; sourceTree = "<group>"; };
 		71E842141DE2F7FA00D954AA /* ASJiaoYiDatingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJiaoYiDatingController.h; sourceTree = "<group>"; };
 		71E842151DE2F7FA00D954AA /* ASJiaoYiDatingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJiaoYiDatingController.m; sourceTree = "<group>"; };
 		71E842161DE2F7FA00D954AA /* ASJiaoYiDatingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASJiaoYiDatingController.xib; sourceTree = "<group>"; };
@@ -4258,6 +4268,12 @@
 				719C98C61DE431B4007A4EEB /* ASElectricCell.h */,
 				719C98C71DE431B4007A4EEB /* ASElectricCell.m */,
 				719C98C81DE431B4007A4EEB /* ASElectricCell.xib */,
+				71E207951DE6C2800056EA59 /* ASSearchEViewController.h */,
+				71E207961DE6C2800056EA59 /* ASSearchEViewController.m */,
+				71E207971DE6C2800056EA59 /* ASSearchEViewController.xib */,
+				71E2079A1DE6CE280056EA59 /* ASSearchECell.h */,
+				71E2079B1DE6CE280056EA59 /* ASSearchECell.m */,
+				71E2079C1DE6CE280056EA59 /* ASSearchECell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -5841,7 +5857,7 @@
 					};
 					D38DA0B21B0F6FA4005BC113 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = LMFCH2UZ5X;
+						DevelopmentTeam = 284B4JMB2G;
 					};
 					D38DA0CB1B0F6FA4005BC113 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -6279,6 +6295,7 @@
 				D328C18A1C3367080073469E /* icon_phone2@2x.png in Resources */,
 				D328C1881C3367080073469E /* icon_financial_expert@2x.png in Resources */,
 				D3CDC9681B6FBB6E00131A06 /* AlipaySDK.bundle in Resources */,
+				71E2079E1DE6CE280056EA59 /* ASSearchECell.xib in Resources */,
 				D3ABE26C1B99FB59009BE0D7 /* button_delete@2x.png in Resources */,
 				D37BF0581B1AC24000FA7579 /* arrow_left_white@2x.png in Resources */,
 				7118E9661D9A5CA100A2D44E /* talk_bkg_input.png in Resources */,
@@ -6575,6 +6592,7 @@
 				7118E9B01D9A5CA100A2D44E /* default_head_user.png in Resources */,
 				D38DA3011B100D2A005BC113 /* ZSSunderline.png in Resources */,
 				D38DA2E41B100D2A005BC113 /* ZSSkeyboard@2x.png in Resources */,
+				71E207991DE6C2800056EA59 /* ASSearchEViewController.xib in Resources */,
 				D35F42411B93504E00905B1C /* icon_attr_dy@2x.png in Resources */,
 				D3A77E171B5FF858008C49B4 /* icon_banktype@2x.png in Resources */,
 				D3A77E1D1B5FF858008C49B4 /* icon_city@2x.png in Resources */,
@@ -7172,6 +7190,7 @@
 				7118EAAA1D9A5CA200A2D44E /* BaseContent.m in Sources */,
 				D38DA3361B100D2A005BC113 /* YSCTitleBarView.m in Sources */,
 				D3F406D11BA9C3B400132E4E /* CaculatorUtility.m in Sources */,
+				71E207981DE6C2800056EA59 /* ASSearchEViewController.m in Sources */,
 				D38DA3391B100D2A005BC113 /* YSCKTipsView.m in Sources */,
 				D37BE7931B19D64A00FA7579 /* ASBankResultTableViewCell.m in Sources */,
 				D38DA31D1B100D2A005BC113 /* PlayAudioManager.m in Sources */,
@@ -7237,6 +7256,7 @@
 				D3E91EF01BAB13F900AAEE6C /* ASMyMonitorTicketsViewController.m in Sources */,
 				D313D8881B1776730092DEAC /* ASMyAlbumViewController.m in Sources */,
 				D38DA3191B100D2A005BC113 /* AFNManager.m in Sources */,
+				71E2079D1DE6CE280056EA59 /* ASSearchECell.m in Sources */,
 				7118EAA21D9A5CA200A2D44E /* WCAlertView.m in Sources */,
 				D38DA28B1B100D2A005BC113 /* NSLayoutConstraint+Additions.m in Sources */,
 				D304712B1B628304000EBADA /* MASConstraint.m in Sources */,
@@ -7697,7 +7717,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = LMFCH2UZ5X;
+				DEVELOPMENT_TEAM = 284B4JMB2G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7772,7 +7792,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = LMFCH2UZ5X;
+				DEVELOPMENT_TEAM = 284B4JMB2G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

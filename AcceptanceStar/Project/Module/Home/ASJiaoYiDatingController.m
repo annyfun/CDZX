@@ -19,6 +19,10 @@
 
 @property (nonatomic,strong) NSMutableArray *bannerArray;
 @property (nonatomic,strong) NSMutableArray *electricModelArray;
+
+@property (nonatomic,strong) NSString *rateKey;
+@property (nonatomic,strong) NSString *amountKey;
+@property (nonatomic,strong) NSString *daysKey;
 @end
 
 @implementation ASJiaoYiDatingController
@@ -32,7 +36,26 @@
     WEAKSELF
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"筛选" style:UIBarButtonItemStylePlain handler:^(id sender) {
         
-        //TODO 筛选
+        NSMutableDictionary *dict = [@{@"actionBlock":^(NSString *rate,NSString *amount,NSString *days){
+            
+            blockSelf.rateKey = rate;
+            blockSelf.amountKey = amount;
+            blockSelf.daysKey = days;
+
+            [blockSelf getList:blockSelf.rateKey price:blockSelf.amountKey];
+        }} mutableCopy];
+        
+        if (blockSelf.rateKey) {
+            [dict setObject:blockSelf.rateKey forKey:@"ASRate"];
+        }
+        if (blockSelf.amountKey) {
+            [dict setObject:blockSelf.amountKey forKey:@"ASAmount"];
+        }
+        if (blockSelf.daysKey) {
+            [dict setObject:blockSelf.daysKey forKey:@"ASDays"];
+        }
+        
+        [blockSelf pushViewController:@"ASSearchEViewController" withParams:dict];
     }];
     
     

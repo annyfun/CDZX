@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASSearchEViewController">
+            <connections>
+                <outlet property="tableView" destination="GWZ-xn-mkA" id="zEQ-Ss-E1Y"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scO-S6-wrV" userLabel="My">
+                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAi-Uc-RED">
+                            <rect key="frame" x="15" y="15" width="345" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="提交" backgroundImage="btn_blue">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="suerBtnDidTap:" destination="-1" eventType="touchUpInside" id="6BW-jv-2kC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="JAi-Uc-RED" secondAttribute="trailing" constant="15" id="BDQ-9W-RlT"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="L2u-SZ-EO1"/>
+                        <constraint firstItem="JAi-Uc-RED" firstAttribute="leading" secondItem="scO-S6-wrV" secondAttribute="leading" constant="15" id="PVM-WN-kKC"/>
+                        <constraint firstAttribute="bottom" secondItem="JAi-Uc-RED" secondAttribute="bottom" constant="5" id="pTy-4V-dpd"/>
+                        <constraint firstItem="JAi-Uc-RED" firstAttribute="top" secondItem="scO-S6-wrV" secondAttribute="top" constant="15" id="vhn-a4-trF"/>
+                        <constraint firstAttribute="height" constant="60" id="yWV-Kz-cfo"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GWZ-xn-mkA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gRi-V5-MHS"/>
+                        <outlet property="delegate" destination="-1" id="15q-zS-m1g"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GWZ-xn-mkA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9ts-gW-JSt"/>
+                <constraint firstItem="scO-S6-wrV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IbT-Nd-x0z"/>
+                <constraint firstAttribute="trailing" secondItem="GWZ-xn-mkA" secondAttribute="trailing" id="JER-oy-maJ"/>
+                <constraint firstItem="GWZ-xn-mkA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KCK-68-f2b"/>
+                <constraint firstAttribute="bottom" secondItem="scO-S6-wrV" secondAttribute="bottom" id="YX7-fc-yaE"/>
+                <constraint firstAttribute="trailing" secondItem="scO-S6-wrV" secondAttribute="trailing" id="bw0-bz-CtN"/>
+                <constraint firstItem="scO-S6-wrV" firstAttribute="top" secondItem="GWZ-xn-mkA" secondAttribute="bottom" id="z8d-Zh-jna"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_blue" width="16" height="15"/>
+    </resources>
+</document>
