@@ -218,4 +218,30 @@
              @"_url" : @"iurl"
              };
 }
+
+@end
+
+@implementation PaperModel
++ (NSDictionary *)jsonToModelMapping {
+    return @{
+             @"ticket_no" : @"ticketNo",
+             @"bank_name" : @"bankName",
+             @"price" : @"price",
+             @"exp" : @"exp"
+             };
+}
+
+-(NSString *)getExpDateString
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DateFormat3];
+    if (self.exp == 0) {
+        return [formatter stringFromDate:[NSDate dateNow]];
+    }else{
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.exp];
+        return [formatter stringFromDate:date];
+    }
+}
+@end
+@implementation TieXianModel
 @end

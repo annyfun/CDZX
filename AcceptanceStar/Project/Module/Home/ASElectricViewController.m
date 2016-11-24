@@ -10,6 +10,7 @@
 #import "YSCTableViewCell.h"
 #import "ASElectricCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "ASShenQingTieXianViewController.h"
 
 @interface ASElectricViewController ()
 @property (weak, nonatomic) IBOutlet UIView *otherView;
@@ -117,6 +118,8 @@
 
 #pragma mark - Event Methods
 - (IBAction)shenQingDidTap:(id)sender {
+    ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithNibName:NSStringFromClass([ASShenQingTieXianViewController class]) bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)jiaoYiWanChengDidTap:(id)sender {

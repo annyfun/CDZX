@@ -574,5 +574,24 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
  */
 @end
 
+@protocol PaperModel
+@end
+@interface PaperModel : BaseDataModel
+@property (nonatomic, strong) NSString *ticketNo;
+@property (nonatomic, strong) NSString *bankName;
+@property (nonatomic, assign) NSInteger price;
+@property (nonatomic, assign) long exp;
+-(NSString *)getExpDateString;
+@end
+
+@interface TieXianModel : BaseDataModel
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *company;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSMutableArray *list;
+@property (nonatomic, strong) NSMutableArray *pic;
+@property (nonatomic, assign) NSInteger totalPrice;
+@end
 
 

@@ -110,6 +110,7 @@
 #define kResPathAppBondComplete                 [@"bond/complete/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppBondViewSellInfo             [@"bond/view_sell_info/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppBondElectricAdd              [@"bond/electric_add/token" stringByAppendingPathComponent:TOKEN]
+#define kResPathAppBondElectricBuy              [@"bond/eletric_buy/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppCaiShuiIndex                 @"caishui/index"
 #define kResPathAppBankSXMyList                 [@"banksx/my_list/token" stringByAppendingPathComponent:TOKEN]
 #define kResPathAppBankSXBankList               [@"banksx/bank_list/token" stringByAppendingPathComponent:TOKEN]
