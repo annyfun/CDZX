@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UIToolbar *toolBar;
 @property (nonatomic, strong) NSIndexPath *selectDateIndexPath;
 @property (nonatomic, strong) TieXianModel *tieXianModel;
-@property (nonatomic, strong) NSMutableArray *imageArray;
+@property (nonatomic, strong) NSMutableDictionary *imageDic;
 @end
 
 @implementation ASShenQingTieXianViewController
@@ -111,7 +111,7 @@
     if (pickedImage) {
         ASPiaoJuTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.selectDateIndexPath];
         [cell.addIV setImageWithURLString:nil placeholderImage:pickedImage];
-        [self.imageArray addObject:pickedImage];
+        [self.imageDic setObject:pickedImage forKey:[NSString stringWithFormat:@"%d", self.selectDateIndexPath.section]];
     }
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -176,12 +176,12 @@
     return _tieXianModel;
 }
 
--(NSMutableArray *)imageArray
+-(NSMutableDictionary *)imageDic
 {
-    if (!_imageArray) {
-        self.imageArray = [NSMutableArray array];
+    if (!_imageDic) {
+        self.imageDic = [NSMutableDictionary dictionary];
     }
-    return _imageArray;
+    return _imageDic;
 }
 
 
@@ -192,34 +192,41 @@
 -(void)requestData
 {
     NSMutableArray *paperArray = [NSMutableArray array];
-    NSMutableArray *imageArray = [NSMutableArray array];
     [self.dataArray enumerateObjectsUsingBlock:^(PaperModel *  _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
         [paperArray addObject:[model toDictionary]];
-        [imageArray addObject:@"aasdasdasdads"];
     }];
     self.tieXianModel.list = paperArray;
     self.tieXianModel.id = @"123456";
     
+    NSArray *sortedArray = [[self.imageDic allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    
+    NSMutableDictionary *dictNew = [[NSMutableDictionary alloc] init];
+    [sortedArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [dictNew setObject:[self.imageDic objectForKey:obj] forKey:obj];
+    }];
+    
     NSDictionary *dic = [self.tieXianModel toDictionary];
     [UIView showHUDLoadingOnWindow:@"正在发送请求"];
-//    [AFNManager uploadImageDataParam:@{@"pic" : self.imageArray}
-//                               toUrl:kResPathAppBaseUrl
-//                             withApi:kResPathAppBondElectricBuy
-//                        andDictParam:dic
-//                           modelName:nil
-//                        imageQuality:ImageQualityNormal
-//                    requestSuccessed:^(id responseObject) {
-//                        [UIView hideHUDLoadingOnWindow];
-//                    }
-//                      requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-//                          [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
-//                      }];
+    [AFNManager uploadImageDataParam:dictNew
+                               toUrl:kResPathAppBaseUrl
+                             withApi:kResPathAppBondElectricBuy
+                        andDictParam:dic
+                           modelName:nil
+                        imageQuality:ImageQualityNormal
+                    requestSuccessed:^(id responseObject) {
+                        [UIView hideHUDLoadingOnWindow];
+                    }
+                      requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                          [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+                      }];
     
     
-    [AFNManager postDataWithAPI:kResPathAppBondElectricBuy andDictParam:dic modelName:nil requestSuccessed:^(id responseObject) {
-        [UIView hideHUDLoadingOnWindow];
-    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
-    }];
+//    [AFNManager postDataWithAPI:kResPathAppBondElectricBuy andDictParam:dic modelName:nil requestSuccessed:^(id responseObject) {
+//        [UIView hideHUDLoadingOnWindow];
+//    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+//        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+//    }];
 }
 @end

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASTieXianShenQingViewController">
+            <connections>
+                <outlet property="tableView" destination="FDY-vb-Rpm" id="rDf-F8-jIX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FDY-vb-Rpm">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="xrb-31-WQP"/>
+                        <outlet property="delegate" destination="-1" id="B6G-U3-SGd"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUr-9s-sea">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.38431372549019605" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="7R0-nZ-2SY"/>
+                    </constraints>
+                    <state key="normal" title="今日贴现0万元，累计贴现0万元"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FDY-vb-Rpm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1jy-Hn-9zj"/>
+                <constraint firstItem="OUr-9s-sea" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9HM-xG-a1B"/>
+                <constraint firstAttribute="trailing" secondItem="FDY-vb-Rpm" secondAttribute="trailing" id="KyN-2c-6wu"/>
+                <constraint firstItem="FDY-vb-Rpm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TYI-R9-mQO"/>
+                <constraint firstItem="OUr-9s-sea" firstAttribute="top" secondItem="FDY-vb-Rpm" secondAttribute="bottom" id="gw8-Z3-jLk"/>
+                <constraint firstAttribute="trailing" secondItem="OUr-9s-sea" secondAttribute="trailing" id="hAW-8Z-wA8"/>
+                <constraint firstAttribute="bottom" secondItem="OUr-9s-sea" secondAttribute="bottom" id="ncs-of-EcV"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -591,8 +591,10 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSMutableArray *list;
-@property (nonatomic, strong) NSMutableArray *pic;
+@property (nonatomic, strong) NSString *pic;
 @property (nonatomic, assign) NSInteger totalPrice;
+@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *date;
 @end
 
 

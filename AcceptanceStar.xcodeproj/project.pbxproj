@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211F77A21DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211F77A01DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.m */; };
+		211F77A31DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211F77A11DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.xib */; };
 		217CB8BF1DE6891600192CC7 /* ASInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 217CB8B71DE6891600192CC7 /* ASInfoTableViewCell.m */; };
 		217CB8C01DE6891600192CC7 /* ASInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217CB8B81DE6891600192CC7 /* ASInfoTableViewCell.xib */; };
 		217CB8C11DE6891600192CC7 /* ASPiaoJuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 217CB8BA1DE6891600192CC7 /* ASPiaoJuTableViewCell.m */; };
 		217CB8C21DE6891600192CC7 /* ASPiaoJuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217CB8BB1DE6891600192CC7 /* ASPiaoJuTableViewCell.xib */; };
 		217CB8C31DE6891600192CC7 /* ASShenQingTieXianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 217CB8BD1DE6891600192CC7 /* ASShenQingTieXianViewController.m */; };
 		217CB8C41DE6891600192CC7 /* ASShenQingTieXianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217CB8BE1DE6891600192CC7 /* ASShenQingTieXianViewController.xib */; };
+		218491851DE6D1CE00F9E196 /* ASTieXianShenQingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218491831DE6D1CE00F9E196 /* ASTieXianShenQingViewController.m */; };
+		218491861DE6D1CE00F9E196 /* ASTieXianShenQingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218491841DE6D1CE00F9E196 /* ASTieXianShenQingViewController.xib */; };
+		2184918A1DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 218491881DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.m */; };
+		2184918B1DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218491891DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.xib */; };
 		466F826C1DE1D79600E14A83 /* third_party_qq_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */; };
 		466F826E1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466F826D1DE1D79B00E14A83 /* third_party_wechat_icon@2x.png */; };
 		4699F8B51DE0143D0087787B /* icon_usercenter_friendcircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4699F8B41DE0143D0087787B /* icon_usercenter_friendcircle@2x.png */; };
@@ -1542,6 +1548,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211F779F1DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASReceivedTieXianShenQingTableViewCell.h; sourceTree = "<group>"; };
+		211F77A01DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASReceivedTieXianShenQingTableViewCell.m; sourceTree = "<group>"; };
+		211F77A11DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASReceivedTieXianShenQingTableViewCell.xib; sourceTree = "<group>"; };
 		217CB8B61DE6891600192CC7 /* ASInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASInfoTableViewCell.h; sourceTree = "<group>"; };
 		217CB8B71DE6891600192CC7 /* ASInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASInfoTableViewCell.m; sourceTree = "<group>"; };
 		217CB8B81DE6891600192CC7 /* ASInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -1551,6 +1560,12 @@
 		217CB8BC1DE6891600192CC7 /* ASShenQingTieXianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASShenQingTieXianViewController.h; sourceTree = "<group>"; };
 		217CB8BD1DE6891600192CC7 /* ASShenQingTieXianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASShenQingTieXianViewController.m; sourceTree = "<group>"; };
 		217CB8BE1DE6891600192CC7 /* ASShenQingTieXianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASShenQingTieXianViewController.xib; sourceTree = "<group>"; };
+		218491821DE6D1CE00F9E196 /* ASTieXianShenQingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTieXianShenQingViewController.h; sourceTree = "<group>"; };
+		218491831DE6D1CE00F9E196 /* ASTieXianShenQingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTieXianShenQingViewController.m; sourceTree = "<group>"; };
+		218491841DE6D1CE00F9E196 /* ASTieXianShenQingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASTieXianShenQingViewController.xib; sourceTree = "<group>"; };
+		218491871DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTieXianShenQingTableViewCell.h; sourceTree = "<group>"; };
+		218491881DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTieXianShenQingTableViewCell.m; sourceTree = "<group>"; };
+		218491891DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASTieXianShenQingTableViewCell.xib; sourceTree = "<group>"; };
 		27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AcceptanceStar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D2520D5C40F3FBC8522A48 /* Pods-AcceptanceStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceStar.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar.release.xcconfig"; sourceTree = "<group>"; };
 		466F826B1DE1D79600E14A83 /* third_party_qq_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third_party_qq_icon@2x.png"; sourceTree = "<group>"; };
@@ -3103,6 +3118,15 @@
 				217CB8BC1DE6891600192CC7 /* ASShenQingTieXianViewController.h */,
 				217CB8BD1DE6891600192CC7 /* ASShenQingTieXianViewController.m */,
 				217CB8BE1DE6891600192CC7 /* ASShenQingTieXianViewController.xib */,
+				218491821DE6D1CE00F9E196 /* ASTieXianShenQingViewController.h */,
+				218491831DE6D1CE00F9E196 /* ASTieXianShenQingViewController.m */,
+				218491841DE6D1CE00F9E196 /* ASTieXianShenQingViewController.xib */,
+				218491871DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.h */,
+				218491881DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.m */,
+				218491891DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.xib */,
+				211F779F1DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.h */,
+				211F77A01DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.m */,
+				211F77A11DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.xib */,
 			);
 			path = ShenQingTieXian;
 			sourceTree = "<group>";
@@ -6399,6 +6423,7 @@
 				D35F42431B93504E00905B1C /* icon_attr_zs@2x.png in Resources */,
 				7118E9F61D9A5CA100A2D44E /* nav_edit_d.png in Resources */,
 				7118E9FA1D9A5CA100A2D44E /* nav_more_d.png in Resources */,
+				2184918B1DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.xib in Resources */,
 				D3A77E181B5FF858008C49B4 /* icon_exp@2x.png in Resources */,
 				D37BE7811B199D5300FA7579 /* ASShiBorQueryViewController.xib in Resources */,
 				7118EA1A1D9A5CA200A2D44E /* tabbarItem1_d.png in Resources */,
@@ -6626,6 +6651,7 @@
 				D364B8831BA8788B00B75218 /* btn_0@2x.png in Resources */,
 				7118E9F01D9A5CA100A2D44E /* nav_back_n.png in Resources */,
 				D341F43C1B1F3F3900342991 /* ASPriceDetailCell.xib in Resources */,
+				211F77A31DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.xib in Resources */,
 				D3ABE2601B99F815009BE0D7 /* ASUserProfileViewController.xib in Resources */,
 				D3ABE26A1B99FAF0009BE0D7 /* ASGroupCell.xib in Resources */,
 				7118E9261D9A5CA100A2D44E /* UserSearchController.xib in Resources */,
@@ -6689,6 +6715,7 @@
 				7118E9381D9A5CA100A2D44E /* icon_114.png in Resources */,
 				7118E9E21D9A5CA100A2D44E /* cell_system.png in Resources */,
 				4699F8C51DE015A10087787B /* icon_usercenter_bank_quotation@2x.png in Resources */,
+				218491861DE6D1CE00F9E196 /* ASTieXianShenQingViewController.xib in Resources */,
 				D328C1991C343A730073469E /* ASLawyerOnlineCell.xib in Resources */,
 				D38DA2CA1B100D2A005BC113 /* ZSSclearstyle@2x.png in Resources */,
 				D328C18C1C33A0870073469E /* icon_home_newsdaily@2x.png in Resources */,
@@ -7358,6 +7385,7 @@
 				D313D8751B176CA00092DEAC /* MJRefreshLegendHeader.m in Sources */,
 				7118EA581D9A5CA200A2D44E /* KAlertView.m in Sources */,
 				D382F3AC1BCFF4C80074CA94 /* ASAddMonitorTicketViewController.m in Sources */,
+				218491851DE6D1CE00F9E196 /* ASTieXianShenQingViewController.m in Sources */,
 				D3ABE2691B99FAF0009BE0D7 /* ASGroupCell.m in Sources */,
 				D3ABE2741B9A83AD009BE0D7 /* ASJuBaoViewController.m in Sources */,
 				7118E8B61D9A5CA100A2D44E /* AboutUsController.m in Sources */,
@@ -7387,9 +7415,11 @@
 				D328C18F1C3413E90073469E /* YSCTableView.m in Sources */,
 				7118EAA61D9A5CA200A2D44E /* WTStatusView.m in Sources */,
 				7118EA3A1D9A5CA200A2D44E /* AudioMsgPlayer.m in Sources */,
+				2184918A1DE6D39B00F9E196 /* ASTieXianShenQingTableViewCell.m in Sources */,
 				7118E8BE1D9A5CA100A2D44E /* BaseViewController.m in Sources */,
 				7118E8BA1D9A5CA100A2D44E /* BaseListController.m in Sources */,
 				D38DA0B91B0F6FA4005BC113 /* main.m in Sources */,
+				211F77A21DE6E6B500757417 /* ASReceivedTieXianShenQingTableViewCell.m in Sources */,
 				D396E3051B5BF9F700569708 /* ASPriceSortCell.m in Sources */,
 				D38DA3281B100D2A005BC113 /* ServerTimeSynchronizer.m in Sources */,
 				7118EA9A1D9A5CA200A2D44E /* TCRequest.m in Sources */,
