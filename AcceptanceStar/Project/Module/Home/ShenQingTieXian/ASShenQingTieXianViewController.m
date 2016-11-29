@@ -9,25 +9,51 @@
 #import "ASShenQingTieXianViewController.h"
 #import "ASPiaoJuTableViewCell.h"
 #import "ASInfoTableViewCell.h"
+#import <UIView+FDCollapsibleConstraints.h>
+typedef NS_ENUM(NSInteger, OperateType)
+{
+    OperateTypeEdit,
+    OperateTypeShow
+};
 
 @interface ASShenQingTieXianViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UIToolbar *toolBar;
 @property (nonatomic, strong) NSIndexPath *selectDateIndexPath;
 @property (nonatomic, strong) TieXianModel *tieXianModel;
 @property (nonatomic, strong) NSMutableDictionary *imageDic;
+@property (nonatomic, assign) OperateType operateType;
 @end
 
 @implementation ASShenQingTieXianViewController
+
+-(id)initWithTieXianModel:(TieXianModel *)model
+{
+    if (self = [super initWithNibName:NSStringFromClass([ASShenQingTieXianViewController class]) bundle:nil]) {
+        self.tieXianModel = model;
+        self.operateType = OperateTypeShow;
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASPiaoJuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASPiaoJuTableViewCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASInfoTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASInfoTableViewCell class])];
-    [self.dataArray addObject:[PaperModel new]];
+    if (self.operateType == OperateTypeEdit) {
+        [self.dataArray addObject:[PaperModel new]];
+    }
+    else{
+        self.bottomView.fd_collapsed = YES;
+        //request netwokring
+        
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +86,7 @@
     if (indexPath.section == self.dataArray.count) {
         ASInfoTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ASInfoTableViewCell class])];
         cell.tieXianModel = self.tieXianModel;
+        cell.userInteractionEnabled = self.operateType == OperateTypeEdit;
         return cell;
     }
     else
@@ -91,14 +118,15 @@
                                                 numberOfSelection:1
                                                  onViewController:weakSelf];
         };
-        cell.addView.hidden = (indexPath.section < self.dataArray.count - 1);
+        cell.addView.hidden = self.operateType == OperateTypeEdit ?  (indexPath.section < self.dataArray.count - 1) : YES;
+        cell.userInteractionEnabled = self.operateType == OperateTypeEdit;
         return cell;
     }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section < self.dataArray.count - 1 ? 233: 277;
+    return self.operateType == OperateTypeEdit ? (indexPath.section < self.dataArray.count - 1 ? 233: 277) : 233;
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -172,6 +200,7 @@
         self.tieXianModel = [TieXianModel new];
         self.tieXianModel.name = USER.nickname;
         self.tieXianModel.phone = USER.phone;
+        self.operateType = OperateTypeEdit;
     }
     return _tieXianModel;
 }

@@ -117,7 +117,10 @@
 
 #pragma mark - Event Methods
 - (IBAction)shenQingDidTap:(id)sender {
-    ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithNibName:NSStringFromClass([ASShenQingTieXianViewController class]) bundle:nil];
+//    ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithNibName:NSStringFromClass([ASShenQingTieXianViewController class]) bundle:nil];
+    TieXianModel *model = [TieXianModel new];
+    model.company = @"123456";
+    ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithTieXianModel:model];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

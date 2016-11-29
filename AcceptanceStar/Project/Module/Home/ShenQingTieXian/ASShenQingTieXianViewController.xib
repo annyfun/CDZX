@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASShenQingTieXianViewController">
             <connections>
+                <outlet property="bottomView" destination="Pdg-ee-8Jt" id="O4y-X8-n69"/>
                 <outlet property="tableView" destination="0T9-xd-Imd" id="mbg-PN-dnN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -51,6 +52,9 @@
                         <constraint firstAttribute="bottom" secondItem="aGw-8k-wob" secondAttribute="bottom" constant="20" id="dtR-C2-Crx"/>
                         <constraint firstItem="aGw-8k-wob" firstAttribute="leading" secondItem="Pdg-ee-8Jt" secondAttribute="leading" constant="8" id="hjy-7n-M9t"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="fd_collapsibleConstraints" destination="Qwq-GN-0Uf" id="Qmi-BV-LrQ"/>
+                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

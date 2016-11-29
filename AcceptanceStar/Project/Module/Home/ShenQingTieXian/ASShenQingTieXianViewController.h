@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ASShenQingTieXianViewController : UIViewController
-
+-(id)initWithTieXianModel:(TieXianModel *)model;
 @end
