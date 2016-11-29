@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLeftLB;
 @property (weak, nonatomic) IBOutlet UILabel *allowPriceLeftLB;
 @property (weak, nonatomic) IBOutlet UILabel *allowPriceLB;
+@property (weak, nonatomic) IBOutlet UILabel *allowUnitLB;
 
 @end
 @implementation ASTieXianShenQingTableViewCell
@@ -57,5 +58,36 @@
     self.priceLB.text = _tieXianModel.price;
     self.phoneLB.text = _tieXianModel.phone;
     self.allowPriceLB.text = @"填什么";
+}
+
+- (void)bindReciveE:(TieXianModel *)tieXianModel{
+    _tieXianModel = tieXianModel;
+    self.phoneLB.fd_collapsed = NO;
+    self.allowUnitLB.hidden = YES;
+    self.allowPriceLB.hidden = YES;
+    self.allowPriceLeftLB.hidden = YES;
+    
+    
+    if (_tieXianModel.rstatus==ASElectricStautsNotWan) {
+        //未处理
+        self.bankNameLB.textColor = RGB(19, 19, 19);
+        self.priceLB.textColor = RGB(52, 106, 174);
+        self.priceLeftLB.textColor = RGB(19, 19, 19);
+        self.allowPriceLB.textColor = RGB(104,174,52);
+        self.allowPriceLeftLB.textColor = RGB(19, 19, 19);
+    }else{
+        //已经处理
+        UIColor *color = RGB(137, 137, 137);
+        self.priceLB.textColor = color;
+        self.priceLeftLB.textColor = color;
+        self.allowPriceLB.textColor = color;
+        self.allowPriceLeftLB.textColor = color;
+        self.bankNameLB.textColor = color;
+   }
+    
+    self.bankNameLB.text = _tieXianModel.name;
+    self.expLB.text = _tieXianModel.date;
+    self.priceLB.text = _tieXianModel.price;
+    self.phoneLB.text = _tieXianModel.phone;
 }
 @end

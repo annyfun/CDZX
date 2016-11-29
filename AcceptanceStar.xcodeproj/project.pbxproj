@@ -959,6 +959,10 @@
 		71E8421D1DE3E17900D954AA /* ASJiaoYiDatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E8421B1DE3E17900D954AA /* ASJiaoYiDatingCell.xib */; };
 		71E842201DE3E2D100D954AA /* ASJiaoYiDatingItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E8421F1DE3E2D100D954AA /* ASJiaoYiDatingItemView.m */; };
 		71E842221DE3E2E800D954AA /* ASJiaoYiDatingItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E842211DE3E2E800D954AA /* ASJiaoYiDatingItemView.xib */; };
+		71EDAF1C1DED5DD5004FB18B /* ASReciveEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71EDAF1A1DED5DD5004FB18B /* ASReciveEViewController.m */; };
+		71EDAF1D1DED5DD5004FB18B /* ASReciveEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71EDAF1B1DED5DD5004FB18B /* ASReciveEViewController.xib */; };
+		71EDAF211DED65BB004FB18B /* ASReciveECell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71EDAF1F1DED65BB004FB18B /* ASReciveECell.m */; };
+		71EDAF221DED65BB004FB18B /* ASReciveECell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71EDAF201DED65BB004FB18B /* ASReciveECell.xib */; };
 		9E1886B96A736BC0708F07E6 /* libPods-AcceptanceStar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27973C27F6CB9835A099B28C /* libPods-AcceptanceStar.a */; };
 		D300011D1B989A9D0045F3E9 /* icon_changepassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */; };
 		D30001211B989B100045F3E9 /* ASChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D300011F1B989B100045F3E9 /* ASChangePasswordViewController.m */; };
@@ -2098,6 +2102,12 @@
 		71E8421E1DE3E2D100D954AA /* ASJiaoYiDatingItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJiaoYiDatingItemView.h; sourceTree = "<group>"; };
 		71E8421F1DE3E2D100D954AA /* ASJiaoYiDatingItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJiaoYiDatingItemView.m; sourceTree = "<group>"; };
 		71E842211DE3E2E800D954AA /* ASJiaoYiDatingItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASJiaoYiDatingItemView.xib; sourceTree = "<group>"; };
+		71EDAF191DED5DD5004FB18B /* ASReciveEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASReciveEViewController.h; sourceTree = "<group>"; };
+		71EDAF1A1DED5DD5004FB18B /* ASReciveEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASReciveEViewController.m; sourceTree = "<group>"; };
+		71EDAF1B1DED5DD5004FB18B /* ASReciveEViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASReciveEViewController.xib; sourceTree = "<group>"; };
+		71EDAF1E1DED65BB004FB18B /* ASReciveECell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASReciveECell.h; sourceTree = "<group>"; };
+		71EDAF1F1DED65BB004FB18B /* ASReciveECell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASReciveECell.m; sourceTree = "<group>"; };
+		71EDAF201DED65BB004FB18B /* ASReciveECell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASReciveECell.xib; sourceTree = "<group>"; };
 		D300011C1B989A9D0045F3E9 /* icon_changepassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_changepassword@2x.png"; sourceTree = "<group>"; };
 		D300011E1B989B100045F3E9 /* ASChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChangePasswordViewController.h; sourceTree = "<group>"; };
 		D300011F1B989B100045F3E9 /* ASChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASChangePasswordViewController.m; sourceTree = "<group>"; };
@@ -4298,6 +4308,12 @@
 				71E2079A1DE6CE280056EA59 /* ASSearchECell.h */,
 				71E2079B1DE6CE280056EA59 /* ASSearchECell.m */,
 				71E2079C1DE6CE280056EA59 /* ASSearchECell.xib */,
+				71EDAF191DED5DD5004FB18B /* ASReciveEViewController.h */,
+				71EDAF1A1DED5DD5004FB18B /* ASReciveEViewController.m */,
+				71EDAF1B1DED5DD5004FB18B /* ASReciveEViewController.xib */,
+				71EDAF1E1DED65BB004FB18B /* ASReciveECell.h */,
+				71EDAF1F1DED65BB004FB18B /* ASReciveECell.m */,
+				71EDAF201DED65BB004FB18B /* ASReciveECell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -6340,6 +6356,7 @@
 				D38DA2CE1B100D2A005BC113 /* ZSSh1@2x.png in Resources */,
 				D38DA2781B100D2A005BC113 /* UMSCommentInputControlleriPad.xib in Resources */,
 				D313D8561B17698F0092DEAC /* ASMessageViewController.xib in Resources */,
+				71EDAF221DED65BB004FB18B /* ASReciveECell.xib in Resources */,
 				D304716B1B65321A000EBADA /* ASCitySelectionHeader.xib in Resources */,
 				7118E8E61D9A5CA100A2D44E /* MapViewController.xib in Resources */,
 				466F826C1DE1D79600E14A83 /* third_party_qq_icon@2x.png in Resources */,
@@ -6385,6 +6402,7 @@
 				D33C22E51BB06E4C00B7B904 /* AlbumHeaderBackgrounImage@2x.png in Resources */,
 				7118E9621D9A5CA100A2D44E /* btn_icon_delete_n.png in Resources */,
 				46EBC0051DE1AF0800431901 /* ASBankPriceQuotationViewController.xib in Resources */,
+				71EDAF1D1DED5DD5004FB18B /* ASReciveEViewController.xib in Resources */,
 				D33C22E41BB06E4C00B7B904 /* AlbumFlagMark@2x.png in Resources */,
 				D38DA3041B100D2A005BC113 /* ZSSundo@2x.png in Resources */,
 				D38DA2F11B100D2A005BC113 /* ZSSquicklink.png in Resources */,
@@ -7397,6 +7415,7 @@
 				D313D8551B17698F0092DEAC /* ASMessageViewController.m in Sources */,
 				7118E9321D9A5CA100A2D44E /* BaseClient.m in Sources */,
 				D328C1931C342F3E0073469E /* ASLawyerOnlineViewController.m in Sources */,
+				71EDAF211DED65BB004FB18B /* ASReciveECell.m in Sources */,
 				D3F5245B1B72440F008E305B /* LZAlbumRichTextView.m in Sources */,
 				D3CDC9DE1B6FBCF700131A06 /* DataVerifier.m in Sources */,
 				7118EA6E1D9A5CA200A2D44E /* TCDBConnection.m in Sources */,
@@ -7412,6 +7431,7 @@
 				D38DA2B31B100D2A005BC113 /* TPKeyboardAvoidingTableView.m in Sources */,
 				D38DA3231B100D2A005BC113 /* YSCBaseModel.m in Sources */,
 				D33AE7961B14C22B00219A80 /* ASLoginViewController.m in Sources */,
+				71EDAF1C1DED5DD5004FB18B /* ASReciveEViewController.m in Sources */,
 				D328C18F1C3413E90073469E /* YSCTableView.m in Sources */,
 				7118EAA61D9A5CA200A2D44E /* WTStatusView.m in Sources */,
 				7118EA3A1D9A5CA200A2D44E /* AudioMsgPlayer.m in Sources */,

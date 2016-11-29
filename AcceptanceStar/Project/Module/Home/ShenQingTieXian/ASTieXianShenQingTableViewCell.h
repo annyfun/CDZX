@@ -10,4 +10,6 @@
 
 @interface ASTieXianShenQingTableViewCell : UITableViewCell
 @property (nonatomic, strong) TieXianModel *tieXianModel;
+
+- (void)bindReciveE:(TieXianModel *)model;
 @end

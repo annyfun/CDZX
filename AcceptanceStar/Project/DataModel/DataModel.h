@@ -518,6 +518,7 @@
 typedef NS_ENUM(NSUInteger, ASElectricStauts) {
     ASElectricStautsNotWan = 1,
     ASElectricStautsWan = 2,
+    ASElectricStautsReject = 3,
 };
 
 
@@ -599,7 +600,31 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, assign) bool reject;
 @property (nonatomic, strong) NSString *bankName;
 
+@property (nonatomic, assign) ASElectricStauts rstatus;  //收到的贴现申请状态
 
+/*
+ "id": "1",
+ "buid": null,
+ "uid": "没有",
+ "pid": "1",
+ "type": "电票订单",
+ "phone": "13228159788",
+ "name": "测试",
+ "address": null,
+ "ticket_no": "12315",
+ "bank_name": "中国建设银行",
+ "price": "10",
+ "pic": "img/2015-10-17/56213ce04a601.png",
+ "exp": 1480475813,
+ "status": "未完成",
+ "date": null,
+ "_buid": null,
+ "_uid": "101945",
+ "_type": "票据经纪",
+ "_status": "1",
+ "n_status": null,
+ "_url": "/bondorder/index/id/1.html"
+ */
 @end
 
 

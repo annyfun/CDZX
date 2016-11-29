@@ -260,4 +260,8 @@
     return [self.status isEqualToString:@"3"];
 }
 
+- (ASElectricStauts)rstatus{
+    
+    return [self.status integerValue];
+}
 @end

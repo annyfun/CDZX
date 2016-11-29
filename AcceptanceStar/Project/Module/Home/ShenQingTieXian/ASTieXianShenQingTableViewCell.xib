@@ -124,6 +124,7 @@
             <connections>
                 <outlet property="allowPriceLB" destination="jVp-rI-4k5" id="0ZO-eF-8lh"/>
                 <outlet property="allowPriceLeftLB" destination="ThP-CH-FZb" id="1z5-6J-S7x"/>
+                <outlet property="allowUnitLB" destination="cXX-PP-NRV" id="djj-c1-7AU"/>
                 <outlet property="bankNameLB" destination="OnV-Zq-9mU" id="xsd-bi-cmB"/>
                 <outlet property="expLB" destination="3Cu-Lp-VgH" id="Pz5-Ur-7Un"/>
                 <outlet property="phoneLB" destination="OID-kv-o3s" id="wJ2-qz-ruy"/>
