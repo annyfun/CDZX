@@ -8,6 +8,8 @@
 
 #import "ASTieXianShenQingViewController.h"
 #import "ASReceivedTieXianShenQingTableViewCell.h"
+#import "ASTieXianShenQingTableViewCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 @interface ASTieXianShenQingViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -19,7 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class])];
+    if([self isCompany]){
+        [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASTieXianShenQingTableViewCell class])];
+    } else {
+        [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class])];
+    }
     [self requestData];
 }
 
@@ -35,20 +41,33 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ASReceivedTieXianShenQingTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class])];
-    cell.tieXianModel = self.dataArray[indexPath.row];
+    UITableViewCell *cell;
+    if([self isCompany]){
+        ASTieXianShenQingTableViewCell *txCell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ASTieXianShenQingTableViewCell class])];
+        txCell.tieXianModel = self.dataArray[indexPath.row];
+        cell = txCell;
+    } else{
+        ASReceivedTieXianShenQingTableViewCell *rtxCell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class])];
+        rtxCell.tieXianModel = self.dataArray[indexPath.row];
+        cell = rtxCell;
+    }
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if([self isCompany]){
+        return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([ASTieXianShenQingTableViewCell class]) configuration:^(ASTieXianShenQingTableViewCell *cell) {
+            cell.tieXianModel = self.dataArray[indexPath.row];
+        }];
+    }
     return 56;
 }
 
 -(void)requestData
 {
     [UIView showHUDLoadingOnWindow:@""];
-    [AFNManager postDataWithAPI:kResPathAppBondElectricOrder andDictParam:@{@"type":@"electric"} modelName:nil requestSuccessed:^(id responseObject) {
+    [AFNManager postDataWithAPI: [self isCompany] ? kResPathAppBondSellElectricOrder :kResPathAppBondElectricOrder andDictParam:@{@"type":@"electric"} modelName:nil requestSuccessed:^(id responseObject) {
                 [UIView hideHUDLoadingOnWindow];
                 if([responseObject[@"data"] isKindOfClass:[NSArray class]])
                 {
@@ -58,6 +77,10 @@
             } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                 [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
             }];
+}
 
+-(bool)isCompany
+{
+    return 2 == USER.itype;
 }
 @end

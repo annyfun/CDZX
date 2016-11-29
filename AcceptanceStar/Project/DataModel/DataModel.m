@@ -248,4 +248,16 @@
 }
 @end
 @implementation TieXianModel
++ (NSDictionary *)jsonToModelMapping {
+    return @{
+             @"_status" : @"status",
+             @"bank_name" : @"bankName"
+             };
+}
+
+-(bool)reject
+{
+    return [self.status isEqualToString:@"3"];
+}
+
 @end

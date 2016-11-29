@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -68,10 +68,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17777777777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OID-kv-o3s">
-                        <rect key="frame" x="8" y="78" width="76.5" height="14.5"/>
+                        <rect key="frame" x="8" y="78" width="76.666666666666671" height="14.666666666666671"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="x7i-eq-Vv2"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.62347334619999994" green="0.62356537580000004" blue="0.62345319990000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <connections>
+                            <outletCollection property="fd_collapsibleConstraints" destination="x7i-eq-Vv2" id="lCn-At-Uh8"/>
+                            <outletCollection property="fd_collapsibleConstraints" destination="NWP-LA-7XC" id="DGN-hQ-AZg"/>
+                        </connections>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cu-Lp-VgH">
                         <rect key="frame" x="265" y="13" width="31" height="15"/>
@@ -115,10 +122,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="allowPriceLB" destination="jVp-rI-4k5" id="0ZO-eF-8lh"/>
+                <outlet property="allowPriceLeftLB" destination="ThP-CH-FZb" id="1z5-6J-S7x"/>
                 <outlet property="bankNameLB" destination="OnV-Zq-9mU" id="xsd-bi-cmB"/>
                 <outlet property="expLB" destination="3Cu-Lp-VgH" id="Pz5-Ur-7Un"/>
                 <outlet property="phoneLB" destination="OID-kv-o3s" id="wJ2-qz-ruy"/>
                 <outlet property="priceLB" destination="4s0-No-pXS" id="eUl-bo-6aB"/>
+                <outlet property="priceLeftLB" destination="8hX-BX-DPe" id="z4O-c5-czQ"/>
             </connections>
             <point key="canvasLocation" x="112" y="187.5"/>
         </tableViewCell>

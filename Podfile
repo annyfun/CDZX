@@ -63,8 +63,8 @@ target "AcceptanceStar" do
 
     pod 'OpenShare', :git => 'https://github.com/qpwang/openshare.git', :commit => 'f421a30'
     
-    #pod 'UITableView+FDTemplateLayoutCell', '~> 1.3'
+#    pod 'UITableView+FDTemplateLayoutCell', '~> 1.3'
     
-
+    pod 'UIView+FDCollapsibleConstraints', '~> 1.1'
 end
 
