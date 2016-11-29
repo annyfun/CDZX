@@ -64,6 +64,13 @@
     return 56;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//        TieXianModel *model = [TieXianModel new];
+//        model.company = @"123456";
+//        ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithTieXianModel:model];
+}
+
 -(void)requestData
 {
     [UIView showHUDLoadingOnWindow:@""];
