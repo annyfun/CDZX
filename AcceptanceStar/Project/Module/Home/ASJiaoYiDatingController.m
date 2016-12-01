@@ -10,6 +10,7 @@
 #import "YSCInfiniteLoopView.h"
 #import "ASJiaoYiDatingCell.h"
 #import "ASElectricViewController.h"
+#import "MJRefresh.h"
 
 @interface ASJiaoYiDatingController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet YSCInfiniteLoopView *infiniteLoopView;
@@ -66,6 +67,11 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASJiaoYiDatingCell class]) bundle:nil] forCellReuseIdentifier:@"ASJiaoYiDatingCell"];
     
+    
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        [blockSelf refreshBanner];
+        [blockSelf getList:blockSelf.rateKey price:blockSelf.amountKey];
+    }];
     
     self.bannerArray = [self commonLoadCaches:@"keyOfCachedBanner"];
     [blockSelf layoutBannerView];
@@ -131,6 +137,8 @@
                   }
               }
                 requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    
+                    NSLog(@"%@",errorMessage);
                 }];
 }
 
@@ -159,8 +167,13 @@
                           [blockSelf.tableView reloadData];
                       }
                   }
+                  
+                  [blockSelf.tableView.legendHeader endRefreshing];
               }
                 requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    
+                    
+                    [blockSelf.tableView.legendHeader endRefreshing];
                 }];
 }
 
@@ -240,7 +253,7 @@
     return NO;
 }
 
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//     [self.view endEditing:YES];
-//}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+     [self.view endEditing:YES];
+}
 @end

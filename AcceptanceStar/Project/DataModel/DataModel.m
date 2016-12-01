@@ -137,7 +137,17 @@
 @implementation BankIndexModel              @end
 @implementation UserFriendModel             @end
 
-@implementation BannerModel                 @end
+@implementation BannerModel
+
+- (NSString *)thumb{
+    
+    if (_thumb && ![_thumb hasPrefix:@"http"]) {
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_thumb];
+    }
+    return _thumb;
+}
+@end
+
 @implementation CommonItemModel
 + (CommonItemModel *)buildNewItem:(NSString *)icon title:(NSString *)title viewController:(NSString *)viewController {
     CommonItemModel *item = [CommonItemModel new];
@@ -222,6 +232,14 @@
 - (ASElectricStauts)istatus{
     
     return [self.sstatus integerValue];
+}
+
+- (NSString *)pic{
+    
+    if (_pic && ![_pic hasPrefix:@"http"]) {
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_pic];
+    }
+    return _pic;
 }
 @end
 

@@ -22,7 +22,7 @@
                         <constraint firstAttribute="height" constant="80" id="aEU-SC-Z0d"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0H-jO-xfd">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0H-jO-xfd">
                     <rect key="frame" x="125" y="5" width="20" height="20"/>
                     <color key="backgroundColor" red="0.90980392156862744" green="0.16470588235294117" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
