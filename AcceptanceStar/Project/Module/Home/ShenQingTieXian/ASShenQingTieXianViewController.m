@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, OperateType)
 };
 
 @interface ASShenQingTieXianViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIView *centerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -26,15 +27,17 @@ typedef NS_ENUM(NSInteger, OperateType)
 @property (nonatomic, strong) TieXianModel *tieXianModel;
 @property (nonatomic, strong) NSMutableDictionary *imageDic;
 @property (nonatomic, assign) OperateType operateType;
+@property (nonatomic, assign) TieXianType tieXianType;
 @end
 
 @implementation ASShenQingTieXianViewController
 
--(id)initWithTieXianModel:(TieXianModel *)model
+-(id)initWithTieXianModel:(TieXianModel *)model tieXianType:(TieXianType)tieXianType;
 {
     if (self = [super initWithNibName:NSStringFromClass([ASShenQingTieXianViewController class]) bundle:nil]) {
         self.tieXianModel = model;
         self.operateType = OperateTypeShow;
+        self.tieXianType = tieXianType;
     }
     return self;
 }
@@ -50,7 +53,12 @@ typedef NS_ENUM(NSInteger, OperateType)
     }
     else{
         self.bottomView.fd_collapsed = YES;
+        self.centerView.fd_collapsed = YES;
         [self requestDetailData];
+        if (self.tieXianType == TieXianTypeReceivedApply) {
+            self.tableView.allowsMultipleSelection = YES;
+            self.centerView.fd_collapsed = NO;
+        }
     }
 }
 
@@ -117,9 +125,26 @@ typedef NS_ENUM(NSInteger, OperateType)
                                                  onViewController:weakSelf];
         };
         cell.addView.hidden = self.operateType == OperateTypeEdit ?  (indexPath.section < self.dataArray.count - 1) : YES;
-        cell.userInteractionEnabled = self.operateType == OperateTypeEdit;
+        cell.contentView.userInteractionEnabled = self.operateType == OperateTypeEdit;
+        cell.selectionStyle = self.tieXianType == TieXianTypeReceivedApply ? UITableViewCellSelectionStyleGray: UITableViewCellSelectionStyleNone;
         return cell;
     }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PaperModel *paperModel = self.dataArray[indexPath.row];
+    paperModel.selected = YES;
+    self.tieXianModel.totalPrice += paperModel.price;
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PaperModel *paperModel = self.dataArray[indexPath.row];
+    paperModel.selected = NO;
+    self.tieXianModel.totalPrice -= paperModel.price;
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -216,10 +241,23 @@ typedef NS_ENUM(NSInteger, OperateType)
     [self requestData];
 }
 
+- (IBAction)passClick:(id)sender {
+    [self requestDataWithPassOrNo:YES];
+}
+
+- (IBAction)noPassClick:(id)sender {
+    [self requestDataWithPassOrNo:NO];
+}
+
+-(void)requestDataWithPassOrNo:(bool)passOrNo
+{
+    //通过 或 不通过
+}
+
 -(void)requestDetailData
 {
     [UIView showHUDLoadingOnWindow:@"加载中"];
-    [AFNManager postDataWithAPI:kResPathAppBondSellElectricOrderDetail andDictParam:@{@"order_no":self.tieXianModel.orderNo} modelName:nil requestSuccessed:^(id responseObject) {
+    [AFNManager postDataWithAPI:self.tieXianType == TieXianTypeApply? kResPathAppBondSellElectricOrderDetail:kResPathAppBondSellElectricOrderBuyDetail andDictParam:@{@"order_no":self.tieXianModel.orderNo} modelName:nil requestSuccessed:^(id responseObject) {
         [UIView hideHUDLoadingOnWindow];
         if([responseObject[@"data"] isKindOfClass:[NSArray class]])
         {

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM(NSInteger, TieXianType) {
+    TieXianTypeApply,
+    TieXianTypeReceivedApply
+};
 @interface ASShenQingTieXianViewController : UIViewController
--(id)initWithTieXianModel:(TieXianModel *)model;
+-(id)initWithTieXianModel:(TieXianModel *)model tieXianType:(TieXianType)tieXianType;
 @end

@@ -68,10 +68,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([self isCompany]){
-        ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithTieXianModel:self.dataArray[indexPath.row]];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithTieXianModel:self.dataArray[indexPath.row] tieXianType:[self isCompany] ? TieXianTypeApply : TieXianTypeReceivedApply];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)requestData

@@ -583,6 +583,7 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *bankName;
 @property (nonatomic, assign) NSInteger price;
 @property (nonatomic, assign) long exp;
+@property (nonatomic, assign) bool selected;
 -(NSString *)getExpDateString;
 @end
 

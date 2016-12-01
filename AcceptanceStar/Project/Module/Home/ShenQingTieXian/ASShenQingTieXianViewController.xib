@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASShenQingTieXianViewController">
             <connections>
                 <outlet property="bottomView" destination="Pdg-ee-8Jt" id="O4y-X8-n69"/>
+                <outlet property="centerView" destination="8jR-G4-MUM" id="GCr-Rq-Cf3"/>
                 <outlet property="tableView" destination="0T9-xd-Imd" id="mbg-PN-dnN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-xd-Imd" customClass="TPKeyboardAvoidingTableView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <color key="sectionIndexBackgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
@@ -56,14 +57,59 @@
                         <outletCollection property="fd_collapsibleConstraints" destination="Qwq-GN-0Uf" id="Qmi-BV-LrQ"/>
                     </connections>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jR-G4-MUM">
+                    <rect key="frame" x="0.0" y="493" width="375" height="87"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2V-Xq-iYq">
+                            <rect key="frame" x="20" y="20" width="111" height="47"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="通过审核" backgroundImage="btn_blue">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="passClick:" destination="-1" eventType="touchUpInside" id="rgx-7q-Whk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz0-6N-oFR">
+                            <rect key="frame" x="244" y="20" width="111" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="cfL-M2-mTe"/>
+                                <constraint firstAttribute="width" constant="111" id="o2b-g2-rqh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="未通过审核" backgroundImage="btn_blue">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="noPassClick:" destination="-1" eventType="touchUpInside" id="rDN-um-Umf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="kz0-6N-oFR" firstAttribute="width" secondItem="z2V-Xq-iYq" secondAttribute="width" id="0XM-ae-sTB"/>
+                        <constraint firstAttribute="height" constant="87" id="L2j-D8-D0i"/>
+                        <constraint firstAttribute="trailing" secondItem="kz0-6N-oFR" secondAttribute="trailing" constant="20" id="Ldy-lh-tRO"/>
+                        <constraint firstItem="kz0-6N-oFR" firstAttribute="centerY" secondItem="8jR-G4-MUM" secondAttribute="centerY" id="R7x-qM-gDl"/>
+                        <constraint firstItem="z2V-Xq-iYq" firstAttribute="top" secondItem="8jR-G4-MUM" secondAttribute="top" constant="20" id="iz9-ax-RQl"/>
+                        <constraint firstItem="z2V-Xq-iYq" firstAttribute="leading" secondItem="8jR-G4-MUM" secondAttribute="leading" constant="20" id="kXP-b6-ZIP"/>
+                        <constraint firstAttribute="bottom" secondItem="z2V-Xq-iYq" secondAttribute="bottom" constant="20" id="sBL-ks-2bo"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="fd_collapsibleConstraints" destination="L2j-D8-D0i" id="Whs-GI-p4i"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Pdg-ee-8Jt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2Dv-sG-OAe"/>
                 <constraint firstAttribute="trailing" secondItem="0T9-xd-Imd" secondAttribute="trailing" id="6mR-Q1-xl9"/>
                 <constraint firstAttribute="bottom" secondItem="Pdg-ee-8Jt" secondAttribute="bottom" id="6ws-5N-T4V"/>
+                <constraint firstItem="Pdg-ee-8Jt" firstAttribute="top" secondItem="8jR-G4-MUM" secondAttribute="bottom" id="MoS-vh-TGy"/>
                 <constraint firstItem="0T9-xd-Imd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RRr-Nm-YlO"/>
-                <constraint firstItem="Pdg-ee-8Jt" firstAttribute="top" secondItem="0T9-xd-Imd" secondAttribute="bottom" id="cQi-Wd-kSL"/>
+                <constraint firstAttribute="trailing" secondItem="8jR-G4-MUM" secondAttribute="trailing" id="RSn-Ru-hdu"/>
+                <constraint firstItem="8jR-G4-MUM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ua2-P2-zsv"/>
+                <constraint firstItem="8jR-G4-MUM" firstAttribute="top" secondItem="0T9-xd-Imd" secondAttribute="bottom" id="WfP-5f-Enf"/>
                 <constraint firstAttribute="trailing" secondItem="Pdg-ee-8Jt" secondAttribute="trailing" id="epf-ft-DAz"/>
                 <constraint firstItem="0T9-xd-Imd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oYP-H5-gVI"/>
             </constraints>
