@@ -50,9 +50,7 @@ typedef NS_ENUM(NSInteger, OperateType)
     }
     else{
         self.bottomView.fd_collapsed = YES;
-        //request netwokring
-        
-        [self.tableView reloadData];
+        [self requestDetailData];
     }
 }
 
@@ -218,6 +216,21 @@ typedef NS_ENUM(NSInteger, OperateType)
     [self requestData];
 }
 
+-(void)requestDetailData
+{
+    [UIView showHUDLoadingOnWindow:@"加载中"];
+    [AFNManager postDataWithAPI:kResPathAppBondSellElectricOrderDetail andDictParam:@{@"order_no":self.tieXianModel.orderNo} modelName:nil requestSuccessed:^(id responseObject) {
+        [UIView hideHUDLoadingOnWindow];
+        if([responseObject[@"data"] isKindOfClass:[NSArray class]])
+        {
+            self.dataArray = [PaperModel arrayOfModelsFromDictionaries:responseObject[@"data"]];
+        }
+        [self.tableView reloadData];
+    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+    }];
+}
+
 -(void)requestData
 {
     NSMutableArray *paperArray = [NSMutableArray array];
@@ -252,10 +265,10 @@ typedef NS_ENUM(NSInteger, OperateType)
                       }];
     
     
-//    [AFNManager postDataWithAPI:kResPathAppBondElectricBuy andDictParam:dic modelName:nil requestSuccessed:^(id responseObject) {
-//        [UIView hideHUDLoadingOnWindow];
-//    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-//        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
-//    }];
+    //    [AFNManager postDataWithAPI:kResPathAppBondElectricBuy andDictParam:dic modelName:nil requestSuccessed:^(id responseObject) {
+    //        [UIView hideHUDLoadingOnWindow];
+    //    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+    //        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+    //    }];
 }
 @end

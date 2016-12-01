@@ -251,7 +251,10 @@
 + (NSDictionary *)jsonToModelMapping {
     return @{
              @"_status" : @"status",
-             @"bank_name" : @"bankName"
+             @"bank_name" : @"bankName",
+             @"company_phone": @"companyPhone",
+             @"accept_price":@"acceptPrice",
+             @"order_no":@"orderNo"
              };
 }
 

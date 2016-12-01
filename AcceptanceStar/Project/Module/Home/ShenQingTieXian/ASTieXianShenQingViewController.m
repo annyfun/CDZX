@@ -10,9 +10,11 @@
 #import "ASReceivedTieXianShenQingTableViewCell.h"
 #import "ASTieXianShenQingTableViewCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "ASShenQingTieXianViewController.h"
 
 @interface ASTieXianShenQingViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *totalBtn;
 @property (nonatomic, strong) NSArray *dataArray;
 @end
 
@@ -66,9 +68,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//        TieXianModel *model = [TieXianModel new];
-//        model.company = @"123456";
-//        ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithTieXianModel:model];
+    if([self isCompany]){
+        ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithTieXianModel:self.dataArray[indexPath.row]];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 -(void)requestData
@@ -76,10 +79,11 @@
     [UIView showHUDLoadingOnWindow:@""];
     [AFNManager postDataWithAPI: [self isCompany] ? kResPathAppBondSellElectricOrder :kResPathAppBondElectricOrder andDictParam:@{@"type":@"electric"} modelName:nil requestSuccessed:^(id responseObject) {
                 [UIView hideHUDLoadingOnWindow];
-                if([responseObject[@"data"] isKindOfClass:[NSArray class]])
+                if([responseObject[@"data"][@"list"] isKindOfClass:[NSArray class]])
                 {
-                    self.dataArray = [TieXianModel arrayOfModelsFromDictionaries:responseObject[@"data"]];
+                    self.dataArray = [TieXianModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"]];
                 }
+                [self.totalBtn setTitle:[NSString stringWithFormat:@"今日贴现%@万元，累计贴现%@万元",responseObject[@"data"][@"today_price"],responseObject[@"data"][@"total_price"]] forState:UIControlStateNormal];
                 [self.tableView reloadData];
             } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                 [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
