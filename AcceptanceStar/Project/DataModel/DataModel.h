@@ -579,6 +579,7 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @protocol PaperModel
 @end
 @interface PaperModel : BaseDataModel
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *ticketNo;
 @property (nonatomic, strong) NSString *bankName;
 @property (nonatomic, assign) NSInteger price;
@@ -608,6 +609,7 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *orderNo;
 @property (nonatomic, assign) bool reject;
 @property (nonatomic, strong) NSString *bankName;
+@property (nonatomic, strong) NSString *headpic;
 
 @property (nonatomic, assign) ASElectricStauts rstatus;  //收到的贴现申请状态
 

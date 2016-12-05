@@ -118,6 +118,7 @@
 #pragma mark - Event Methods
 - (IBAction)shenQingDidTap:(id)sender {
     ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithNibName:NSStringFromClass([ASShenQingTieXianViewController class]) bundle:nil];
+    vc.electricId = ((ElectricModel *)self.params[kParamModel]).id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

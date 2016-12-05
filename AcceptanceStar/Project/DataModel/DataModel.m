@@ -267,6 +267,14 @@
         return [formatter stringFromDate:date];
     }
 }
+
+- (NSString *)pic{
+    
+    if (_pic && ![_pic hasPrefix:@"http"]) {
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_pic];
+    }
+    return _pic;
+}
 @end
 @implementation TieXianModel
 + (NSDictionary *)jsonToModelMapping {
@@ -277,6 +285,14 @@
              @"accept_price":@"acceptPrice",
              @"order_no":@"orderNo"
              };
+}
+
+-(NSString *)headpic{
+    
+    if (_headpic && ![_headpic hasPrefix:@"http"]) {
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_headpic];
+    }
+    return _headpic;
 }
 
 -(bool)reject

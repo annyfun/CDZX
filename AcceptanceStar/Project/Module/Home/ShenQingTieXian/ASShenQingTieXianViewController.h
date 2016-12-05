@@ -13,4 +13,5 @@ typedef NS_ENUM(NSInteger, TieXianType) {
 };
 @interface ASShenQingTieXianViewController : UIViewController
 -(id)initWithTieXianModel:(TieXianModel *)model tieXianType:(TieXianType)tieXianType;
+@property (nonatomic, strong) NSString *electricId;
 @end

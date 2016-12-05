@@ -77,11 +77,11 @@
     [UIView showHUDLoadingOnWindow:@""];
     [AFNManager postDataWithAPI: [self isCompany] ? kResPathAppBondSellElectricOrder :kResPathAppBondElectricOrder andDictParam:@{@"type":@"electric"} modelName:nil requestSuccessed:^(id responseObject) {
                 [UIView hideHUDLoadingOnWindow];
-                if([responseObject[@"data"][@"list"] isKindOfClass:[NSArray class]])
+                if([responseObject[@"list"] isKindOfClass:[NSArray class]])
                 {
-                    self.dataArray = [TieXianModel arrayOfModelsFromDictionaries:responseObject[@"data"][@"list"]];
+                    self.dataArray = [TieXianModel arrayOfModelsFromDictionaries:responseObject[@"list"]];
                 }
-                [self.totalBtn setTitle:[NSString stringWithFormat:@"今日贴现%@万元，累计贴现%@万元",responseObject[@"data"][@"today_price"],responseObject[@"data"][@"total_price"]] forState:UIControlStateNormal];
+                [self.totalBtn setTitle:[NSString stringWithFormat:@"今日贴现%@万元，累计贴现%@万元",responseObject[@"today_price"],responseObject[@"total_price"]] forState:UIControlStateNormal];
                 [self.tableView reloadData];
             } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                 [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];

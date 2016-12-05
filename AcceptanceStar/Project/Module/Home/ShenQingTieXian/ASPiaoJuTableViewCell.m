@@ -38,6 +38,7 @@
     self.ticketNoTF.text = paperModel.ticketNo;
     self.priceTF.text = paperModel.price ==0 ? nil: [NSString stringWithFormat:@"%zd", paperModel.price];
     self.expDateTF.text = [paperModel getExpDateString];
+    [self.addIV setImageWithURLString:_paperModel.pic placeholderImage:[UIImage imageNamed:@"sqtx_add_image"]];
     if (paperModel.exp != 0) {
         self.expTF.text = [NSString stringWithFormat:@"%zd", [[NSDate dateWithTimeIntervalSince1970:paperModel.exp] daysAfterDate:[NSDate dateNow]]];
     }

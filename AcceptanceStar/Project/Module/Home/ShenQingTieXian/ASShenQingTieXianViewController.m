@@ -48,20 +48,18 @@ typedef NS_ENUM(NSInteger, OperateType)
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASPiaoJuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASPiaoJuTableViewCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASInfoTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASInfoTableViewCell class])];
+    self.centerView.fd_collapsed = YES;
     if (self.operateType == OperateTypeEdit) {
         [self.dataArray addObject:[PaperModel new]];
     }
     else{
         self.bottomView.fd_collapsed = YES;
-        self.centerView.fd_collapsed = YES;
         [self requestDetailData];
         if (self.tieXianType == TieXianTypeReceivedApply) {
             self.tableView.allowsMultipleSelection = YES;
             self.centerView.fd_collapsed = NO;
         }
     }
-    
-    [self requestData];
 }
 
 
@@ -136,7 +134,7 @@ typedef NS_ENUM(NSInteger, OperateType)
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PaperModel *paperModel = self.dataArray[indexPath.row];
+    PaperModel *paperModel = self.dataArray[indexPath.section];
     paperModel.selected = YES;
     self.tieXianModel.totalPrice += paperModel.price;
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
@@ -144,7 +142,7 @@ typedef NS_ENUM(NSInteger, OperateType)
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PaperModel *paperModel = self.dataArray[indexPath.row];
+    PaperModel *paperModel = self.dataArray[indexPath.section];
     paperModel.selected = NO;
     self.tieXianModel.totalPrice -= paperModel.price;
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
@@ -245,7 +243,10 @@ typedef NS_ENUM(NSInteger, OperateType)
 }
 
 - (IBAction)passClick:(id)sender {
-    
+    [self requestDataWithPassOrNo:YES comment:nil idString:self.selectedIds];
+}
+
+- (IBAction)noPassClick:(id)sender {
     WeakSelfType ws = self;
     UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"未通过审核理由" message:nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -255,23 +256,28 @@ typedef NS_ENUM(NSInteger, OperateType)
     [alert bk_addButtonWithTitle:@"拒绝申请" handler:^{
         UITextField *tf=[alert textFieldAtIndex:0];
         
-        //TODO
-        //贴现申请ID列表：id以,分隔
-        NSString *ids = @"";
-        [ws requestDataWithPassOrNo:NO comment:tf.text idString:ids];
+        [ws requestDataWithPassOrNo:NO comment:tf.text idString:ws.selectedIds];
     }];
     [alert show];
 }
 
-- (IBAction)noPassClick:(id)sender {
-    
-    //TODO
-    //贴现申请ID列表：id以,分隔
-    NSString *ids = @"";
-    [self requestDataWithPassOrNo:YES comment:nil idString:ids];
+-(NSString *)selectedIds
+{
+    __block NSString *str = @"";
+    [self.dataArray enumerateObjectsUsingBlock:^(PaperModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.selected) {
+            str = [str stringByAppendingFormat:@"%@,", obj.id];
+        }
+    }];
+    return str;
 }
 
 -(void)requestDataWithPassOrNo:(bool)passOrNo comment:(NSString *)comment idString:(NSString *)idString{
+    if ([idString isEqualToString:@""]) {
+        UIAlertView *tips = [[UIAlertView alloc] initWithTitle:@"未选择操作数据。" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [tips show];
+        return;
+    }
     
     //贴现申请ID列表：id以,分隔
     //通过 或 不通过
@@ -283,7 +289,7 @@ typedef NS_ENUM(NSInteger, OperateType)
                   andDictParam:@{@"type":@"electric",
                                  @"status":status,
                                  @"comment":comment?:@" ",
-                                 @"id":idString?:@" "}
+                                 @"id":idString}
                      modelName:ClassOfObject(PaperModel)
               requestSuccessed:^(ElectricModel *responseObject) {
                   if (passOrNo) {
@@ -318,6 +324,10 @@ typedef NS_ENUM(NSInteger, OperateType)
                       
                       blockSelf.dataArray = [responseObject mutableCopy];
                   }
+//                  self.tieXianModel.totalPrice = 0;
+//                  [self.dataArray enumerateObjectsUsingBlock:^(PaperModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                      self.tieXianModel.totalPrice += obj.price;
+//                  }];
                   [blockSelf.tableView reloadData];
               }
                 requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
@@ -333,7 +343,7 @@ typedef NS_ENUM(NSInteger, OperateType)
         [paperArray addObject:[model toDictionary]];
     }];
     self.tieXianModel.list = paperArray;
-    self.tieXianModel.id = @"123456";
+    self.tieXianModel.id = self.electricId;
     
     NSArray *sortedArray = [[self.imageDic allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
         return [obj1 compare:obj2 options:NSNumericSearch];
@@ -354,6 +364,7 @@ typedef NS_ENUM(NSInteger, OperateType)
                         imageQuality:ImageQualityNormal
                     requestSuccessed:^(id responseObject) {
                         [UIView hideHUDLoadingOnWindow];
+                        [UIView showResultThenHideOnWindow:@"申请成功" afterDelay:1.5];
                     }
                       requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                           [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
