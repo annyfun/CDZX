@@ -60,7 +60,10 @@ typedef NS_ENUM(NSInteger, OperateType)
             self.centerView.fd_collapsed = NO;
         }
     }
+    
+    [self requestData];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -242,31 +245,85 @@ typedef NS_ENUM(NSInteger, OperateType)
 }
 
 - (IBAction)passClick:(id)sender {
-    [self requestDataWithPassOrNo:YES];
+    
+    WeakSelfType ws = self;
+    UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"未通过审核理由" message:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert bk_setCancelButtonWithTitle:@"取消" handler:^{
+        
+    }];
+    [alert bk_addButtonWithTitle:@"拒绝申请" handler:^{
+        UITextField *tf=[alert textFieldAtIndex:0];
+        
+        //TODO
+        //贴现申请ID列表：id以,分隔
+        NSString *ids = @"";
+        [ws requestDataWithPassOrNo:NO comment:tf.text idString:ids];
+    }];
+    [alert show];
 }
 
 - (IBAction)noPassClick:(id)sender {
-    [self requestDataWithPassOrNo:NO];
+    
+    //TODO
+    //贴现申请ID列表：id以,分隔
+    NSString *ids = @"";
+    [self requestDataWithPassOrNo:YES comment:nil idString:ids];
 }
 
--(void)requestDataWithPassOrNo:(bool)passOrNo
-{
+-(void)requestDataWithPassOrNo:(bool)passOrNo comment:(NSString *)comment idString:(NSString *)idString{
+    
+    //贴现申请ID列表：id以,分隔
     //通过 或 不通过
+    [UIView showHUDLoadingOnWindow:@"处理中"];
+    
+    NSString *status = passOrNo?@"2":@"3";
+    WeakSelfType blockSelf = self;
+    [AFNManager getDataWithAPI:[@"/bond/bondorder_set/token" stringByAppendingPathComponent:TOKEN]
+                  andDictParam:@{@"type":@"electric",
+                                 @"status":status,
+                                 @"comment":comment?:@" ",
+                                 @"id":idString?:@" "}
+                     modelName:ClassOfObject(PaperModel)
+              requestSuccessed:^(ElectricModel *responseObject) {
+                  if (passOrNo) {
+                      UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"贴现申请已通过审核，请尽快联系企业完成贴现。" message:nil delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                      [success show];
+                  }else{
+                      [UIView showResultThenHideOnWindow:@"已拒绝申请" afterDelay:1.5];
+                  }
+                  [blockSelf requestDetailData];
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    
+                    [UIView showResultThenHideOnWindow:errorMessage?:@"网络错误" afterDelay:1.5];
+                }];
 }
 
 -(void)requestDetailData
 {
+    
+    NSString *tieXianModelId = self.tieXianModel.orderNo?:@"";
+    
+    WeakSelfType blockSelf = self;
     [UIView showHUDLoadingOnWindow:@"加载中"];
-    [AFNManager postDataWithAPI:self.tieXianType == TieXianTypeApply? kResPathAppBondSellElectricOrderDetail:kResPathAppBondSellElectricOrderBuyDetail andDictParam:@{@"order_no":self.tieXianModel.orderNo} modelName:nil requestSuccessed:^(id responseObject) {
-        [UIView hideHUDLoadingOnWindow];
-        if([responseObject[@"data"] isKindOfClass:[NSArray class]])
-        {
-            self.dataArray = [PaperModel arrayOfModelsFromDictionaries:responseObject[@"data"]];
-        }
-        [self.tableView reloadData];
-    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
-    }];
+    
+    [AFNManager getDataWithAPI:[@"/bond/bondorder_buy_detail/token" stringByAppendingPathComponent:TOKEN]
+                  andDictParam:@{@"order_no":tieXianModelId}
+                     modelName:ClassOfObject(PaperModel)
+              requestSuccessed:^(ElectricModel *responseObject) {
+                  [UIView hideHUDLoadingOnWindow];
+                  
+                  if ([responseObject isKindOfClass:[NSArray class]]) {
+                      
+                      blockSelf.dataArray = [responseObject mutableCopy];
+                  }
+                  [blockSelf.tableView reloadData];
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    
+                    [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+                }];
 }
 
 -(void)requestData

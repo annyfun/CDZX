@@ -249,7 +249,10 @@
              @"ticket_no" : @"ticketNo",
              @"bank_name" : @"bankName",
              @"price" : @"price",
-             @"exp" : @"exp"
+             @"exp" : @"exp",
+             @"_status":@"rstatus",
+             @"company":@"company",
+             @"status":@"status",
              };
 }
 
@@ -286,3 +289,34 @@
     return [self.status integerValue];
 }
 @end
+
+
+
+//@implementation TieXianShenQingItem
+//
+//+ (NSDictionary *)jsonToModelMapping {
+//    return @{
+//             @"_buid" : @"i_buid",
+//             @"_uid" : @"i_uid",
+//             @"_status": @"i_status",
+//             @"_url":@"i_url",
+//             @"id":@"model_id",
+//             };
+//}
+//
+///*
+// @property (nonatomic, strong) NSString *_buid;
+// @property (nonatomic, strong) NSString *_uid;
+// @property (nonatomic, strong) NSString *_status;
+// @property (nonatomic, strong) NSString *_url;
+//
+// */
+//
+//@end
+
+
+
+
+
+
+
