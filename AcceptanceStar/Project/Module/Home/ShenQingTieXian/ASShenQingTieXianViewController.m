@@ -46,6 +46,10 @@ typedef NS_ENUM(NSInteger, OperateType)
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:DefaultNaviBarArrowBackImage
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(backButtonClicked:)];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASPiaoJuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASPiaoJuTableViewCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASInfoTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASInfoTableViewCell class])];
     self.centerView.fd_collapsed = YES;
@@ -141,17 +145,9 @@ typedef NS_ENUM(NSInteger, OperateType)
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PaperModel *paperModel = self.dataArray[indexPath.section];
-    paperModel.selected = YES;
-    self.tieXianModel.totalPrice += paperModel.price;
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
-}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    PaperModel *paperModel = self.dataArray[indexPath.section];
-    paperModel.selected = NO;
-    self.tieXianModel.totalPrice -= paperModel.price;
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
+    paperModel.selected = !paperModel.selected;
+    self.tieXianModel.totalPrice = paperModel.selected ? (self.tieXianModel.totalPrice+paperModel.price) : (self.tieXianModel.totalPrice-paperModel.price);
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -330,14 +326,13 @@ typedef NS_ENUM(NSInteger, OperateType)
                       
                       blockSelf.dataArray = [responseObject mutableCopy];
                   }
-//                  self.tieXianModel.totalPrice = 0;
-//                  [self.dataArray enumerateObjectsUsingBlock:^(PaperModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                      self.tieXianModel.totalPrice += obj.price;
-//                  }];
+                  blockSelf.tieXianModel.totalPrice = 0;
+                  [blockSelf.dataArray enumerateObjectsUsingBlock:^(PaperModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                      blockSelf.tieXianModel.totalPrice += obj.price;
+                  }];
                   [blockSelf.tableView reloadData];
               }
                 requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-                    
                     [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
                 }];
 }
@@ -382,5 +377,9 @@ typedef NS_ENUM(NSInteger, OperateType)
     //    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
     //        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
     //    }];
+}
+
+- (IBAction)backButtonClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end
