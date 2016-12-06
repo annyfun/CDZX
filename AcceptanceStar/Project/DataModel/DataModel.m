@@ -244,6 +244,15 @@
 @end
 
 @implementation PaperModel
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.selected = YES;
+    }
+    return self;
+}
+
 + (NSDictionary *)jsonToModelMapping {
     return @{
              @"ticket_no" : @"ticketNo",

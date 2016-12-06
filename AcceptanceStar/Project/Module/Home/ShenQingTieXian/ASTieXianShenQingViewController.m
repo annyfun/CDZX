@@ -24,8 +24,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     if([self isCompany]){
+        self.title = @"我的贴现申请";
         [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASTieXianShenQingTableViewCell class])];
     } else {
+        self.title = @"收到的贴现申请";
         [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class])];
     }
     [self requestData];

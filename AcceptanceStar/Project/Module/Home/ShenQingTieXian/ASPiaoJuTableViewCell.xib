@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="277"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="276.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="276"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="承兑行名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16w-U8-FSv">
@@ -49,19 +49,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="(万元)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ydw-ml-t0P">
-                        <rect key="frame" x="87.5" y="77.5" width="224.5" height="18"/>
+                        <rect key="frame" x="87.5" y="77.5" width="192.5" height="18"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="(天)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfT-M2-t7g">
-                        <rect key="frame" x="87.5" y="147.5" width="224.5" height="18"/>
+                        <rect key="frame" x="87.5" y="147.5" width="192.5" height="18"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sqtx_add_image" translatesAutoresizingMaskIntoConstraints="NO" id="fwE-it-UsF">
-                        <rect key="frame" x="180" y="181.5" width="40" height="40"/>
+                        <rect key="frame" x="164" y="181.5" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="kAa-Fa-QcT"/>
                             <constraint firstAttribute="height" constant="40" id="nk4-Ki-hxM"/>
@@ -102,7 +102,7 @@
                         </constraints>
                     </view>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="(银行名)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="her-1p-iJ6">
-                        <rect key="frame" x="88" y="8" width="224" height="18"/>
+                        <rect key="frame" x="88" y="8" width="192" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="AVi-fc-5Zl"/>
                         </constraints>
@@ -111,7 +111,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-t7-czk">
-                        <rect key="frame" x="87.5" y="113" width="224.5" height="17"/>
+                        <rect key="frame" x="87.5" y="113" width="192.5" height="17"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -123,17 +123,26 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="(号码)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAf-58-XVe">
-                        <rect key="frame" x="88" y="43" width="223.5" height="17"/>
+                        <rect key="frame" x="88" y="43" width="191.5" height="17"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCr-Om-EQn">
+                        <rect key="frame" x="291" y="95" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="Ya8-FN-G61"/>
+                            <constraint firstAttribute="width" constant="14" id="o6m-Ra-YOj"/>
+                        </constraints>
+                        <state key="normal" image="piaoJu_unCheck"/>
+                        <state key="selected" image="piaoJu_Check"/>
+                    </button>
                 </subviews>
                 <gestureRecognizers/>
                 <constraints>
                     <constraint firstItem="sfT-M2-t7g" firstAttribute="leading" secondItem="ydw-ml-t0P" secondAttribute="leading" id="2MB-hQ-Wyb"/>
                     <constraint firstItem="gAf-58-XVe" firstAttribute="trailing" secondItem="her-1p-iJ6" secondAttribute="trailing" id="3G1-vP-DQd"/>
-                    <constraint firstAttribute="trailing" secondItem="her-1p-iJ6" secondAttribute="trailing" constant="8" id="3d6-i0-NRz"/>
+                    <constraint firstAttribute="trailing" secondItem="her-1p-iJ6" secondAttribute="trailing" constant="40" id="3d6-i0-NRz"/>
                     <constraint firstAttribute="trailing" secondItem="icu-JQ-wtG" secondAttribute="trailing" id="4Im-ix-tkx"/>
                     <constraint firstItem="A2J-fJ-40f" firstAttribute="top" secondItem="UNW-qc-Z2Z" secondAttribute="bottom" constant="18" id="6Du-93-l5s"/>
                     <constraint firstItem="vMY-t7-czk" firstAttribute="trailing" secondItem="ydw-ml-t0P" secondAttribute="trailing" id="6Hu-jw-nNR"/>
@@ -153,6 +162,7 @@
                     <constraint firstItem="fwE-it-UsF" firstAttribute="centerY" secondItem="BgN-az-NG3" secondAttribute="centerY" id="V7w-Gm-dWi"/>
                     <constraint firstItem="sfT-M2-t7g" firstAttribute="centerY" secondItem="suk-Y4-Te2" secondAttribute="centerY" id="V9C-Al-nd4"/>
                     <constraint firstItem="icu-JQ-wtG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Vkp-k3-0Xg"/>
+                    <constraint firstAttribute="trailing" secondItem="OCr-Om-EQn" secondAttribute="trailing" constant="15" id="ZC1-0a-hUE"/>
                     <constraint firstItem="BgN-az-NG3" firstAttribute="leading" secondItem="16w-U8-FSv" secondAttribute="leading" id="aEG-gO-nqG"/>
                     <constraint firstItem="ydw-ml-t0P" firstAttribute="centerY" secondItem="UNW-qc-Z2Z" secondAttribute="centerY" id="ak0-6Y-3Hi"/>
                     <constraint firstItem="gAf-58-XVe" firstAttribute="leading" secondItem="her-1p-iJ6" secondAttribute="leading" id="arn-dl-b6C"/>
@@ -160,6 +170,7 @@
                     <constraint firstItem="ydw-ml-t0P" firstAttribute="height" secondItem="her-1p-iJ6" secondAttribute="height" id="d7p-pY-oB8"/>
                     <constraint firstItem="kpU-Ix-yKQ" firstAttribute="leading" secondItem="16w-U8-FSv" secondAttribute="leading" id="kvz-0e-Ila"/>
                     <constraint firstItem="A2J-fJ-40f" firstAttribute="leading" secondItem="16w-U8-FSv" secondAttribute="leading" id="o8q-kI-ojj"/>
+                    <constraint firstItem="OCr-Om-EQn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="95" id="pdJ-Oe-Cfe"/>
                     <constraint firstItem="fwE-it-UsF" firstAttribute="centerX" secondItem="sfT-M2-t7g" secondAttribute="centerX" id="smC-3w-LEL"/>
                     <constraint firstItem="16w-U8-FSv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="swp-rn-jCf"/>
                     <constraint firstItem="UNW-qc-Z2Z" firstAttribute="leading" secondItem="16w-U8-FSv" secondAttribute="leading" id="t8G-gV-HJk"/>
@@ -172,6 +183,7 @@
                 <outlet property="addIV" destination="fwE-it-UsF" id="prB-fU-nns"/>
                 <outlet property="addView" destination="icu-JQ-wtG" id="2Wz-PK-dO4"/>
                 <outlet property="bankNameTF" destination="her-1p-iJ6" id="I7z-Ly-cPP"/>
+                <outlet property="checkBtn" destination="OCr-Om-EQn" id="ava-nf-BsE"/>
                 <outlet property="expDateTF" destination="vMY-t7-czk" id="OJn-87-KwF"/>
                 <outlet property="expTF" destination="sfT-M2-t7g" id="l1N-8J-oOd"/>
                 <outlet property="priceTF" destination="ydw-ml-t0P" id="2mH-S3-q8I"/>
@@ -181,6 +193,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="piaoJu_Check" width="14" height="14"/>
+        <image name="piaoJu_unCheck" width="14" height="14"/>
         <image name="sqtx_add_bg" width="16" height="16"/>
         <image name="sqtx_add_btn" width="14" height="14"/>
         <image name="sqtx_add_image" width="25" height="25"/>

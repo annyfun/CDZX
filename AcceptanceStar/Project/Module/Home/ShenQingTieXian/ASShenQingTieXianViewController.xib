@@ -37,11 +37,11 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2V-Xq-iYq">
                             <rect key="frame" x="20" y="20" width="111" height="47"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="通过审核" backgroundImage="btn_blue">
+                            <state key="normal" title="不同意" backgroundImage="btn_red">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="passClick:" destination="-1" eventType="touchUpInside" id="rgx-7q-Whk"/>
+                                <action selector="noPassClick:" destination="-1" eventType="touchUpInside" id="m7g-xV-jG9"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz0-6N-oFR">
@@ -50,11 +50,11 @@
                                 <constraint firstAttribute="width" constant="111" id="o2b-g2-rqh"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="未通过审核" backgroundImage="btn_blue">
+                            <state key="normal" title="同意" backgroundImage="btn_blue">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="noPassClick:" destination="-1" eventType="touchUpInside" id="rDN-um-Umf"/>
+                                <action selector="passClick:" destination="-1" eventType="touchUpInside" id="hW0-2Z-3xf"/>
                             </connections>
                         </button>
                     </subviews>
@@ -119,5 +119,6 @@
     </objects>
     <resources>
         <image name="btn_blue" width="16" height="15"/>
+        <image name="btn_red" width="16" height="16"/>
     </resources>
 </document>

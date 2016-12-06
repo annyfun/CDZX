@@ -51,11 +51,14 @@ typedef NS_ENUM(NSInteger, OperateType)
     self.centerView.fd_collapsed = YES;
     if (self.operateType == OperateTypeEdit) {
         [self.dataArray addObject:[PaperModel new]];
+        self.title = @"申请贴现";
     }
     else{
         self.bottomView.fd_collapsed = YES;
+        self.title = @"我的贴现申请详细";
         [self requestDetailData];
         if (self.tieXianType == TieXianTypeReceivedApply) {
+            self.title = @"收到的贴现详细";
             self.tableView.allowsMultipleSelection = YES;
             self.centerView.fd_collapsed = NO;
         }
@@ -127,7 +130,10 @@ typedef NS_ENUM(NSInteger, OperateType)
         };
         cell.addView.hidden = self.operateType == OperateTypeEdit ?  (indexPath.section < self.dataArray.count - 1) : YES;
         cell.contentView.userInteractionEnabled = self.operateType == OperateTypeEdit;
-        cell.selectionStyle = self.tieXianType == TieXianTypeReceivedApply ? UITableViewCellSelectionStyleGray: UITableViewCellSelectionStyleNone;
+//        cell.selectionStyle = self.tieXianType == TieXianTypeReceivedApply ? UITableViewCellSelectionStyleGray: UITableViewCellSelectionStyleNone;
+        if (self.operateType == OperateTypeShow && self.tieXianType == TieXianTypeReceivedApply) {
+            cell.checkBtn.hidden = NO;
+        }
         return cell;
     }
 }

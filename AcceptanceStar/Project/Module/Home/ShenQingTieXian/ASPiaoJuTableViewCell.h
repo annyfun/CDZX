@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIView *addView;
 @property (weak, nonatomic) IBOutlet UITextField *expDateTF;
 @property (weak, nonatomic) IBOutlet UIImageView *addIV;
+@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
 @property (nonatomic, strong) PaperModel *paperModel;
 @property (nonatomic, copy) void(^addClickBlock)();
 @property (nonatomic, copy) void(^clickDateBlock)(UITableViewCell *cell);

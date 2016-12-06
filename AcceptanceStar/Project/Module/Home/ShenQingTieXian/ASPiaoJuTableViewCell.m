@@ -42,6 +42,7 @@
     if (paperModel.exp != 0) {
         self.expTF.text = [NSString stringWithFormat:@"%zd", [[NSDate dateWithTimeIntervalSince1970:paperModel.exp] daysAfterDate:[NSDate dateNow]]];
     }
+    self.checkBtn.selected = _paperModel.selected;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
