@@ -250,7 +250,7 @@
              @"bank_name" : @"bankName",
              @"price" : @"price",
              @"exp" : @"exp",
-             @"_status":@"rstatus",
+             @"_status":@"i_status",
              @"company":@"company",
              @"status":@"status",
              };
@@ -274,6 +274,10 @@
         return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_pic];
     }
     return _pic;
+}
+
+- (ASElectricStauts)rstatus{
+    return [self.i_status integerValue];
 }
 @end
 @implementation TieXianModel

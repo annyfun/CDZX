@@ -588,6 +588,7 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *pic;
 @property (nonatomic, strong) NSString *company;
 @property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *i_status;
 @property (nonatomic, assign) ASElectricStauts rstatus;  //收到的贴现申请状态
 -(NSString *)getExpDateString;
 @end
