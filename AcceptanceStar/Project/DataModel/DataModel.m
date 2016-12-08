@@ -137,7 +137,17 @@
 @implementation BankIndexModel              @end
 @implementation UserFriendModel             @end
 
-@implementation BannerModel                 @end
+@implementation BannerModel
+
+- (NSString *)thumb{
+    
+    if (_thumb && ![_thumb hasPrefix:@"http"]) {
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_thumb];
+    }
+    return _thumb;
+}
+@end
+
 @implementation CommonItemModel
 + (CommonItemModel *)buildNewItem:(NSString *)icon title:(NSString *)title viewController:(NSString *)viewController {
     CommonItemModel *item = [CommonItemModel new];
@@ -223,15 +233,35 @@
     
     return [self.sstatus integerValue];
 }
+
+- (NSString *)pic{
+    
+    if (_pic && ![_pic hasPrefix:@"http"]) {
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_pic];
+    }
+    return _pic;
+}
 @end
 
 @implementation PaperModel
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.selected = YES;
+    }
+    return self;
+}
+
 + (NSDictionary *)jsonToModelMapping {
     return @{
              @"ticket_no" : @"ticketNo",
              @"bank_name" : @"bankName",
              @"price" : @"price",
-             @"exp" : @"exp"
+             @"exp" : @"exp",
+             @"_status":@"i_status",
+             @"company":@"company",
+             @"status":@"status",
              };
 }
 
@@ -246,13 +276,36 @@
         return [formatter stringFromDate:date];
     }
 }
+
+- (NSString *)pic{
+    
+    if (_pic && ![_pic hasPrefix:@"http"]) {
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_pic];
+    }
+    return _pic;
+}
+
+- (ASElectricStauts)rstatus{
+    return [self.i_status integerValue];
+}
 @end
 @implementation TieXianModel
 + (NSDictionary *)jsonToModelMapping {
     return @{
              @"_status" : @"status",
-             @"bank_name" : @"bankName"
+             @"bank_name" : @"bankName",
+             @"company_phone": @"companyPhone",
+             @"accept_price":@"acceptPrice",
+             @"order_no":@"orderNo"
              };
+}
+
+-(NSString *)headpic{
+    
+    if (_headpic && ![_headpic hasPrefix:@"http"]) {
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_headpic];
+    }
+    return _headpic;
 }
 
 -(bool)reject
@@ -265,3 +318,34 @@
     return [self.status integerValue];
 }
 @end
+
+
+
+//@implementation TieXianShenQingItem
+//
+//+ (NSDictionary *)jsonToModelMapping {
+//    return @{
+//             @"_buid" : @"i_buid",
+//             @"_uid" : @"i_uid",
+//             @"_status": @"i_status",
+//             @"_url":@"i_url",
+//             @"id":@"model_id",
+//             };
+//}
+//
+///*
+// @property (nonatomic, strong) NSString *_buid;
+// @property (nonatomic, strong) NSString *_uid;
+// @property (nonatomic, strong) NSString *_status;
+// @property (nonatomic, strong) NSString *_url;
+//
+// */
+//
+//@end
+
+
+
+
+
+
+

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASTieXianShenQingViewController">
             <connections>
                 <outlet property="tableView" destination="FDY-vb-Rpm" id="rDf-F8-jIX"/>
+                <outlet property="totalBtn" destination="OUr-9s-sea" id="8Cq-yG-dMc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,7 +29,7 @@
                         <outlet property="delegate" destination="-1" id="B6G-U3-SGd"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUr-9s-sea">
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUr-9s-sea">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <color key="backgroundColor" red="0.96862745098039216" green="0.38431372549019605" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

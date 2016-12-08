@@ -9,26 +9,66 @@
 #import "ASShenQingTieXianViewController.h"
 #import "ASPiaoJuTableViewCell.h"
 #import "ASInfoTableViewCell.h"
+#import <UIView+FDCollapsibleConstraints.h>
+typedef NS_ENUM(NSInteger, OperateType)
+{
+    OperateTypeEdit,
+    OperateTypeShow
+};
 
 @interface ASShenQingTieXianViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZYQAssetPickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIView *centerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UIToolbar *toolBar;
 @property (nonatomic, strong) NSIndexPath *selectDateIndexPath;
 @property (nonatomic, strong) TieXianModel *tieXianModel;
 @property (nonatomic, strong) NSMutableDictionary *imageDic;
+@property (nonatomic, assign) OperateType operateType;
+@property (nonatomic, assign) TieXianType tieXianType;
 @end
 
 @implementation ASShenQingTieXianViewController
 
+-(id)initWithTieXianModel:(TieXianModel *)model tieXianType:(TieXianType)tieXianType;
+{
+    if (self = [super initWithNibName:NSStringFromClass([ASShenQingTieXianViewController class]) bundle:nil]) {
+        self.tieXianModel = model;
+        self.operateType = OperateTypeShow;
+        self.tieXianType = tieXianType;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:DefaultNaviBarArrowBackImage
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(backButtonClicked:)];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASPiaoJuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASPiaoJuTableViewCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASInfoTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASInfoTableViewCell class])];
-    [self.dataArray addObject:[PaperModel new]];
+    self.centerView.fd_collapsed = YES;
+    if (self.operateType == OperateTypeEdit) {
+        [self.dataArray addObject:[PaperModel new]];
+        self.title = @"申请贴现";
+    }
+    else{
+        self.bottomView.fd_collapsed = YES;
+        self.title = @"我的贴现申请详细";
+        [self requestDetailData];
+        if (self.tieXianType == TieXianTypeReceivedApply) {
+            self.title = @"收到的贴现详细";
+            self.tableView.allowsMultipleSelection = YES;
+            self.centerView.fd_collapsed = NO;
+        }
+    }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,6 +100,7 @@
     if (indexPath.section == self.dataArray.count) {
         ASInfoTableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ASInfoTableViewCell class])];
         cell.tieXianModel = self.tieXianModel;
+        cell.userInteractionEnabled = self.operateType == OperateTypeEdit;
         return cell;
     }
     else
@@ -91,14 +132,27 @@
                                                 numberOfSelection:1
                                                  onViewController:weakSelf];
         };
-        cell.addView.hidden = (indexPath.section < self.dataArray.count - 1);
+        cell.addView.hidden = self.operateType == OperateTypeEdit ?  (indexPath.section < self.dataArray.count - 1) : YES;
+        cell.contentView.userInteractionEnabled = self.operateType == OperateTypeEdit;
+//        cell.selectionStyle = self.tieXianType == TieXianTypeReceivedApply ? UITableViewCellSelectionStyleGray: UITableViewCellSelectionStyleNone;
+        if (self.operateType == OperateTypeShow && self.tieXianType == TieXianTypeReceivedApply) {
+            cell.checkBtn.hidden = NO;
+        }
         return cell;
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PaperModel *paperModel = self.dataArray[indexPath.section];
+    paperModel.selected = !paperModel.selected;
+    self.tieXianModel.totalPrice = paperModel.selected ? (self.tieXianModel.totalPrice+paperModel.price) : (self.tieXianModel.totalPrice-paperModel.price);
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section < self.dataArray.count - 1 ? 233: 277;
+    return self.operateType == OperateTypeEdit ? (indexPath.section < self.dataArray.count - 1 ? 233: 277) : 233;
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -172,6 +226,7 @@
         self.tieXianModel = [TieXianModel new];
         self.tieXianModel.name = USER.nickname;
         self.tieXianModel.phone = USER.phone;
+        self.operateType = OperateTypeEdit;
     }
     return _tieXianModel;
 }
@@ -189,6 +244,99 @@
     [self requestData];
 }
 
+- (IBAction)passClick:(id)sender {
+    [self requestDataWithPassOrNo:YES comment:nil idString:self.selectedIds];
+}
+
+- (IBAction)noPassClick:(id)sender {
+    WeakSelfType ws = self;
+    UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"未通过审核理由" message:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert bk_setCancelButtonWithTitle:@"取消" handler:^{
+        
+    }];
+    [alert bk_addButtonWithTitle:@"拒绝申请" handler:^{
+        UITextField *tf=[alert textFieldAtIndex:0];
+        
+        [ws requestDataWithPassOrNo:NO comment:tf.text idString:ws.selectedIds];
+    }];
+    [alert show];
+}
+
+-(NSString *)selectedIds
+{
+    __block NSString *str = @"";
+    [self.dataArray enumerateObjectsUsingBlock:^(PaperModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.selected) {
+            str = [str stringByAppendingFormat:@"%@,", obj.id];
+        }
+    }];
+    return str;
+}
+
+-(void)requestDataWithPassOrNo:(bool)passOrNo comment:(NSString *)comment idString:(NSString *)idString{
+    if ([idString isEqualToString:@""]) {
+        UIAlertView *tips = [[UIAlertView alloc] initWithTitle:@"未选择操作数据。" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [tips show];
+        return;
+    }
+    
+    //贴现申请ID列表：id以,分隔
+    //通过 或 不通过
+    [UIView showHUDLoadingOnWindow:@"处理中"];
+    
+    NSString *status = passOrNo?@"2":@"3";
+    WeakSelfType blockSelf = self;
+    [AFNManager getDataWithAPI:[@"/bond/bondorder_set/token" stringByAppendingPathComponent:TOKEN]
+                  andDictParam:@{@"type":@"electric",
+                                 @"status":status,
+                                 @"comment":comment?:@" ",
+                                 @"id":idString}
+                     modelName:ClassOfObject(PaperModel)
+              requestSuccessed:^(ElectricModel *responseObject) {
+                  if (passOrNo) {
+                      UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"贴现申请已通过审核，请尽快联系企业完成贴现。" message:nil delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                      [success show];
+                  }else{
+                      [UIView showResultThenHideOnWindow:@"已拒绝申请" afterDelay:1.5];
+                  }
+                  [blockSelf requestDetailData];
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    
+                    [UIView showResultThenHideOnWindow:errorMessage?:@"网络错误" afterDelay:1.5];
+                }];
+}
+
+-(void)requestDetailData
+{
+    
+    NSString *tieXianModelId = self.tieXianModel.orderNo?:@"";
+    
+    WeakSelfType blockSelf = self;
+    [UIView showHUDLoadingOnWindow:@"加载中"];
+    
+    [AFNManager getDataWithAPI:[@"/bond/bondorder_buy_detail/token" stringByAppendingPathComponent:TOKEN]
+                  andDictParam:@{@"order_no":tieXianModelId}
+                     modelName:ClassOfObject(PaperModel)
+              requestSuccessed:^(ElectricModel *responseObject) {
+                  [UIView hideHUDLoadingOnWindow];
+                  
+                  if ([responseObject isKindOfClass:[NSArray class]]) {
+                      
+                      blockSelf.dataArray = [responseObject mutableCopy];
+                  }
+                  blockSelf.tieXianModel.totalPrice = 0;
+                  [blockSelf.dataArray enumerateObjectsUsingBlock:^(PaperModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                      blockSelf.tieXianModel.totalPrice += obj.price;
+                  }];
+                  [blockSelf.tableView reloadData];
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+                }];
+}
+
 -(void)requestData
 {
     NSMutableArray *paperArray = [NSMutableArray array];
@@ -196,7 +344,7 @@
         [paperArray addObject:[model toDictionary]];
     }];
     self.tieXianModel.list = paperArray;
-    self.tieXianModel.id = @"123456";
+    self.tieXianModel.id = self.electricId;
     
     NSArray *sortedArray = [[self.imageDic allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
         return [obj1 compare:obj2 options:NSNumericSearch];
@@ -217,16 +365,21 @@
                         imageQuality:ImageQualityNormal
                     requestSuccessed:^(id responseObject) {
                         [UIView hideHUDLoadingOnWindow];
+                        [UIView showResultThenHideOnWindow:@"申请成功" afterDelay:1.5];
                     }
                       requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                           [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
                       }];
     
     
-//    [AFNManager postDataWithAPI:kResPathAppBondElectricBuy andDictParam:dic modelName:nil requestSuccessed:^(id responseObject) {
-//        [UIView hideHUDLoadingOnWindow];
-//    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-//        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
-//    }];
+    //    [AFNManager postDataWithAPI:kResPathAppBondElectricBuy andDictParam:dic modelName:nil requestSuccessed:^(id responseObject) {
+    //        [UIView hideHUDLoadingOnWindow];
+    //    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+    //        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
+    //    }];
+}
+
+- (IBAction)backButtonClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

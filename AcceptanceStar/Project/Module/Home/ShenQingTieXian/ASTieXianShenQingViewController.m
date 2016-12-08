@@ -10,9 +10,11 @@
 #import "ASReceivedTieXianShenQingTableViewCell.h"
 #import "ASTieXianShenQingTableViewCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "ASShenQingTieXianViewController.h"
 
 @interface ASTieXianShenQingViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *totalBtn;
 @property (nonatomic, strong) NSArray *dataArray;
 @end
 
@@ -21,9 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:DefaultNaviBarArrowBackImage
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(backButtonClicked:)];
     if([self isCompany]){
+        self.title = @"我的贴现申请";
         [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASTieXianShenQingTableViewCell class])];
     } else {
+        self.title = @"收到的贴现申请";
         [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class])];
     }
     [self requestData];
@@ -64,15 +72,22 @@
     return 56;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithTieXianModel:self.dataArray[indexPath.row] tieXianType:[self isCompany] ? TieXianTypeApply : TieXianTypeReceivedApply];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 -(void)requestData
 {
     [UIView showHUDLoadingOnWindow:@""];
     [AFNManager postDataWithAPI: [self isCompany] ? kResPathAppBondSellElectricOrder :kResPathAppBondElectricOrder andDictParam:@{@"type":@"electric"} modelName:nil requestSuccessed:^(id responseObject) {
                 [UIView hideHUDLoadingOnWindow];
-                if([responseObject[@"data"] isKindOfClass:[NSArray class]])
+                if([responseObject[@"list"] isKindOfClass:[NSArray class]])
                 {
-                    self.dataArray = [TieXianModel arrayOfModelsFromDictionaries:responseObject[@"data"]];
+                    self.dataArray = [TieXianModel arrayOfModelsFromDictionaries:responseObject[@"list"]];
                 }
+                [self.totalBtn setTitle:[NSString stringWithFormat:@"今日贴现%@万元，累计贴现%@万元",responseObject[@"today_price"],responseObject[@"total_price"]] forState:UIControlStateNormal];
                 [self.tableView reloadData];
             } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                 [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
@@ -83,4 +98,9 @@
 {
     return 2 == USER.itype;
 }
+
+- (IBAction)backButtonClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

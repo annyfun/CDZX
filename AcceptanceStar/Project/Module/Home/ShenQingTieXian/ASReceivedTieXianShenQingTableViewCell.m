@@ -20,6 +20,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,7 +36,7 @@
     self.phoneLB.text = _tieXianModel.phone;
     self.priceLB.text = _tieXianModel.price;
     self.dateLB.text = _tieXianModel.date;
-    [self.headerIV setImageWithURLString:_tieXianModel.pic placeholderImage:DefaultAvatarImage];
+    [self.headerIV setImageWithURLString:_tieXianModel.headpic placeholderImage:DefaultAvatarImage];
 }
 
 @end

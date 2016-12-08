@@ -66,7 +66,7 @@
     
     if (array.count>1) {
         self.itemView2.hidden = NO;
-        [self.view1 loadData:array[1]];
+        [self.view2 loadData:array[1]];
     }
 }
 

@@ -57,7 +57,7 @@
     self.expLB.text = _tieXianModel.date;
     self.priceLB.text = _tieXianModel.price;
     self.phoneLB.text = _tieXianModel.phone;
-    self.allowPriceLB.text = @"填什么";
+    self.allowPriceLB.text = _tieXianModel.acceptPrice;
 }
 
 - (void)bindReciveE:(TieXianModel *)tieXianModel{

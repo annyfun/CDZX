@@ -516,9 +516,9 @@
 
 
 typedef NS_ENUM(NSUInteger, ASElectricStauts) {
-    ASElectricStautsNotWan = 1,
-    ASElectricStautsWan = 2,
-    ASElectricStautsReject = 3,
+    ASElectricStautsNotWan = 1,  //未完成
+    ASElectricStautsWan = 2,        //已完成
+    ASElectricStautsReject = 3,     //被拒绝
 };
 
 
@@ -579,10 +579,17 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @protocol PaperModel
 @end
 @interface PaperModel : BaseDataModel
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *ticketNo;
 @property (nonatomic, strong) NSString *bankName;
 @property (nonatomic, assign) NSInteger price;
 @property (nonatomic, assign) long exp;
+@property (nonatomic, assign) bool selected;
+@property (nonatomic, strong) NSString *pic;
+@property (nonatomic, strong) NSString *company;
+@property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *i_status;
+@property (nonatomic, assign) ASElectricStauts rstatus;  //收到的贴现申请状态
 -(NSString *)getExpDateString;
 @end
 
@@ -595,10 +602,15 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *pic;
 @property (nonatomic, assign) NSInteger totalPrice;
 @property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *acceptPrice;
+@property (nonatomic, strong) NSString *companyPhone;
+@property (nonatomic, strong) NSString *comment;
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *orderNo;
 @property (nonatomic, assign) bool reject;
 @property (nonatomic, strong) NSString *bankName;
+@property (nonatomic, strong) NSString *headpic;
 
 @property (nonatomic, assign) ASElectricStauts rstatus;  //收到的贴现申请状态
 
@@ -625,6 +637,72 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
  "n_status": null,
  "_url": "/bondorder/index/id/1.html"
  */
+
 @end
 
 
+//@interface TieXianShenQingItem : BaseDataModel
+//
+//
+//@property (nonatomic, strong) NSString *model_id;
+//@property (nonatomic, strong) NSString *order_no;
+//@property (nonatomic, strong) NSString *buid;
+//@property (nonatomic, strong) NSString *uid;
+//@property (nonatomic, strong) NSString *pid;
+//@property (nonatomic, strong) NSString *type;
+//
+//@property (nonatomic, strong) NSString *phone;
+//@property (nonatomic, strong) NSString *name;
+//@property (nonatomic, strong) NSString *address;
+//@property (nonatomic, strong) NSString *ticket_no;
+//
+//@property (nonatomic, strong) NSString *bank_name;
+//
+//
+//@property (nonatomic, strong) NSString *price;
+//@property (nonatomic, strong) NSString *accept_price;
+//@property (nonatomic, strong) NSString *pic;
+//@property (nonatomic, assign) NSTimeInterval exp;
+//@property (nonatomic, strong) NSString *status;
+//@property (nonatomic, strong) NSString *comment;
+//@property (nonatomic, strong) NSDate *date;
+//@property (nonatomic, strong) NSDate *do_date;
+//
+//
+//@property (nonatomic, assign) NSInteger n_status;
+//@property (nonatomic, strong) NSString *i_buid;
+//@property (nonatomic, strong) NSString *i_uid;
+//@property (nonatomic, strong) NSString *i_status;
+//@property (nonatomic, strong) NSString *i_url;
+//@property (nonatomic, strong) NSString *company;
+//
+///*
+// {
+// "id": "3",
+// "order_no": "123333",
+// "buid": "没有",
+// "uid": "没有",
+// "pid": "1",
+// "type": "电票订单",
+// "phone": "13228159788",
+// "name": "测试",
+// "address": null,
+// "ticket_no": "14444",
+// "bank_name": "中国建设银行",
+// "price": "50",
+// "accept_price": null,
+// "pic": "img/2015-10-17/56213ce04a601.png",
+// "exp": 1480475813,
+// "status": "未完成",
+// "comment": null,
+// "date": null,
+// "do_date": null,
+// "n_status": "1",
+// "_buid": "101945",
+// "_uid": "101945",
+// "_status": "1",
+// "_url": "/bondorder/index/id/3.html",
+// "company": "成都企易宝科技有限公司"
+// }
+// */
+//@end
