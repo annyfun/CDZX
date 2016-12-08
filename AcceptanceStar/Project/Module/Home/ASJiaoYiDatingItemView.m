@@ -26,7 +26,7 @@
     self.countLabel.hidden = model.buy_num==0;
     
     self.categoryLabel.text = @"几类？";
-    
+    self.categoryLabel.hidden = !model.showJiLei;
     
     [self.headImageView setImageWithURLString:model.pic];
     self.titleLabel.text = model.company;

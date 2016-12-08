@@ -58,6 +58,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="Bg7-1Q-qH9"/>
+                                    </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUX-s8-6hW">
                                     <rect key="frame" x="321" y="1" width="44" height="44"/>
@@ -176,17 +179,8 @@
                 <constraint firstItem="via-Gm-sFP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nPv-Ng-RFX"/>
                 <constraint firstAttribute="trailing" secondItem="via-Gm-sFP" secondAttribute="trailing" id="rOW-Bd-W5d"/>
             </constraints>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="g3t-7y-T8k" appends="YES" id="fhl-2K-0gF"/>
-            </connections>
             <point key="canvasLocation" x="50.5" y="53.5"/>
         </view>
-        <tapGestureRecognizer id="g3t-7y-T8k">
-            <connections>
-                <action selector="rootViewDidTap:" destination="-1" id="a86-Wp-8LX"/>
-                <outlet property="delegate" destination="-1" id="70c-dA-Znh"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="btn_blue" width="16" height="15"/>

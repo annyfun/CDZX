@@ -12,7 +12,7 @@
 #import "ASElectricViewController.h"
 #import "MJRefresh.h"
 
-@interface ASJiaoYiDatingController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ASJiaoYiDatingController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic, weak) IBOutlet YSCInfiniteLoopView *infiniteLoopView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -20,10 +20,13 @@
 
 @property (nonatomic,strong) NSMutableArray *bannerArray;
 @property (nonatomic,strong) NSMutableArray *electricModelArray;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 
 @property (nonatomic,strong) NSString *rateKey;
 @property (nonatomic,strong) NSString *amountKey;
 @property (nonatomic,strong) NSString *daysKey;
+@property (nonatomic,strong) NSString *bankNameKey;
+@property (nonatomic,strong) NSString *typeKey;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *adHeight;
 @end
@@ -95,6 +98,39 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)reloadData{
+
+    BOOL piaojuType = [self.typeKey isEqualToString:@"票据经纪"];
+    
+    self.electricModelArray = [NSMutableArray array];
+    
+    for (ElectricModel *model in self.dataArray) {
+        
+        if ([model.itype isEqualToString:@"票据经纪"] && !piaojuType) {
+            continue;
+        }
+        
+        if (![model.itype isEqualToString:@"票据经纪"] && piaojuType) {
+            continue;
+        }
+        
+        
+        if (self.bankNameKey.length) {
+            if ([model.company containsString:self.bankNameKey]) {
+                [self.electricModelArray addObject:model];
+            }
+            model.showJiLei = YES;
+        }else{
+            [self.electricModelArray addObject:model];
+            model.showJiLei = NO;
+        }
+    }
+    
+    
+  
+    [self.tableView reloadData];
+}
 
 #pragma mark - Layout
 - (void)layoutBannerView {
@@ -171,8 +207,8 @@
               requestSuccessed:^(id responseObject) {
                   if ([responseObject isKindOfClass:[NSArray class]]) {
                       if ([NSObject isNotEmpty:responseObject]) {
-                          blockSelf.electricModelArray = [responseObject mutableCopy];
-                          [blockSelf.tableView reloadData];
+                          blockSelf.dataArray = [responseObject mutableCopy];
+                          [blockSelf reloadData];
                       }
                   }
                   
@@ -187,31 +223,44 @@
 
 #pragma mark - Event Methods
 - (IBAction)bankBtnDidTap:(id)sender {
+    self.typeKey = nil;
+    [self reloadData];
 }
 - (IBAction)piaoJuBtnDidTap:(id)sender {
+     self.typeKey = @"票据经纪";
+    [self reloadData];
 }
 - (IBAction)chouYanBtnDidTap:(id)sender {
 }
-- (IBAction)searchBtnDidTap:(id)sender {
-    
-    if (self.searchField.text.length) {
-        //TODO 搜索
-    }
-    [self.view endEditing:YES];
-}
-- (IBAction)rootViewDidTap:(id)sender {
-    
-    [self.view endEditing:YES];
-}
+
+
+//- (IBAction)searchBtnDidTap:(id)sender {
+//    
+//    if (self.searchField.text.length) {
+//        //TODO 搜索
+//    }
+//    [self.view endEditing:YES];
+//}
+//- (IBAction)rootViewDidTap:(id)sender {
+//    
+//    [self.view endEditing:YES];
+//}
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     
-    if (gestureRecognizer.view==self.searchField) {
+    if (gestureRecognizer.view==self.searchField.superview) {
         return NO;
     }
     return YES;
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+
+    self.bankNameKey = textField.text;
+    [self reloadData];
+}
+
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

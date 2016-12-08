@@ -549,6 +549,8 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, assign) NSInteger buy_num;
 
 
+@property (nonatomic, assign) BOOL showJiLei;
+
 /*
  {
  "id": "1",
