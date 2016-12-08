@@ -234,18 +234,6 @@
 }
 
 
-//- (IBAction)searchBtnDidTap:(id)sender {
-//    
-//    if (self.searchField.text.length) {
-//        //TODO 搜索
-//    }
-//    [self.view endEditing:YES];
-//}
-//- (IBAction)rootViewDidTap:(id)sender {
-//    
-//    [self.view endEditing:YES];
-//}
-
 #pragma mark - UITextFieldDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     
