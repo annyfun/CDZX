@@ -547,9 +547,9 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *sstatus;
 @property (nonatomic, assign) ASElectricStauts istatus;
 @property (nonatomic, assign) NSInteger buy_num;
+@property (nonatomic, assign) NSInteger rt; //授信级别，为0不显示
 
-
-@property (nonatomic, assign) BOOL showJiLei;
+//@property (nonatomic, assign) BOOL showJiLei;
 
 /*
  {

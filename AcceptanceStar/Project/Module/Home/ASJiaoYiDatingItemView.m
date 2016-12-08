@@ -25,8 +25,8 @@
     self.countLabel.text = [NSString stringWithFormat:@"%zd",model.buy_num];
     self.countLabel.hidden = model.buy_num==0;
     
-    self.categoryLabel.text = @"几类？";
-    self.categoryLabel.hidden = !model.showJiLei;
+    self.categoryLabel.text = [NSString stringWithFormat:@"%zd类",model.rt];
+    self.categoryLabel.hidden = model.rt<=0;
     
     [self.headImageView setImageWithURLString:model.pic];
     self.titleLabel.text = model.company;

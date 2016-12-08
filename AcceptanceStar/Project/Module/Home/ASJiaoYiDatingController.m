@@ -26,7 +26,7 @@
 @property (nonatomic,strong) NSString *amountKey;
 @property (nonatomic,strong) NSString *daysKey;
 @property (nonatomic,strong) NSString *bankNameKey;
-@property (nonatomic,strong) NSString *typeKey;
+@property (nonatomic,assign) NSInteger typeKey;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *adHeight;
 @end
@@ -99,39 +99,6 @@
 }
 */
 
-- (void)reloadData{
-
-    BOOL piaojuType = [self.typeKey isEqualToString:@"票据经纪"];
-    
-    self.electricModelArray = [NSMutableArray array];
-    
-    for (ElectricModel *model in self.dataArray) {
-        
-        if ([model.itype isEqualToString:@"票据经纪"] && !piaojuType) {
-            continue;
-        }
-        
-        if (![model.itype isEqualToString:@"票据经纪"] && piaojuType) {
-            continue;
-        }
-        
-        
-        if (self.bankNameKey.length) {
-            if ([model.company containsString:self.bankNameKey]) {
-                [self.electricModelArray addObject:model];
-            }
-            model.showJiLei = YES;
-        }else{
-            [self.electricModelArray addObject:model];
-            model.showJiLei = NO;
-        }
-    }
-    
-    
-  
-    [self.tableView reloadData];
-}
-
 #pragma mark - Layout
 - (void)layoutBannerView {
     WeakSelfType blockSelf = self;
@@ -199,6 +166,12 @@
     if (price) {
         [params setObject:price forKey:@"price"];
     }
+
+    [params setObject:[NSString stringWithFormat:@"%zd",self.typeKey] forKey:@"type"];
+   
+    if (self.bankNameKey) {
+        [params setObject:self.bankNameKey forKey:@"company"];
+    }
     
     WeakSelfType blockSelf = self;
     [AFNManager getDataWithAPI:@"/bond/electric"
@@ -208,7 +181,7 @@
                   if ([responseObject isKindOfClass:[NSArray class]]) {
                       if ([NSObject isNotEmpty:responseObject]) {
                           blockSelf.dataArray = [responseObject mutableCopy];
-                          [blockSelf reloadData];
+                          [blockSelf.tableView reloadData];
                       }
                   }
                   
@@ -223,12 +196,12 @@
 
 #pragma mark - Event Methods
 - (IBAction)bankBtnDidTap:(id)sender {
-    self.typeKey = nil;
-    [self reloadData];
+    self.typeKey = 0;
+    [self getList:self.rateKey price:self.amountKey];
 }
 - (IBAction)piaoJuBtnDidTap:(id)sender {
-     self.typeKey = @"票据经纪";
-    [self reloadData];
+    self.typeKey = 1;
+    [self getList:self.rateKey price:self.amountKey];
 }
 - (IBAction)chouYanBtnDidTap:(id)sender {
 }
@@ -246,7 +219,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField{
 
     self.bankNameKey = textField.text;
-    [self reloadData];
+    [self getList:self.rateKey price:self.amountKey];
 }
 
 
