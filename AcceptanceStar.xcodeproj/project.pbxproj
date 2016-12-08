@@ -5897,7 +5897,7 @@
 					};
 					D38DA0B21B0F6FA4005BC113 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 284B4JMB2G;
+						DevelopmentTeam = 92UH237K8W;
 					};
 					D38DA0CB1B0F6FA4005BC113 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -7767,7 +7767,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 284B4JMB2G;
+				DEVELOPMENT_TEAM = 92UH237K8W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7828,7 +7828,7 @@
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat2/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release-iphoneos",
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat2/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release-iphonesimulator",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wxmovie.weipiao3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xizue.astar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -7842,7 +7842,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 284B4JMB2G;
+				DEVELOPMENT_TEAM = 92UH237K8W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7903,7 +7903,7 @@
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat2/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release-iphoneos",
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/ThinkChat2/Thirdparts/ThinkChat/TCXMPPHelper/libs/Release-iphonesimulator",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wxmovie.weipiao3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xizue.astar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

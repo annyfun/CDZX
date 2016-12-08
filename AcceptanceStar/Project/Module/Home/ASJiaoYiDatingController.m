@@ -24,6 +24,8 @@
 @property (nonatomic,strong) NSString *rateKey;
 @property (nonatomic,strong) NSString *amountKey;
 @property (nonatomic,strong) NSString *daysKey;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *adHeight;
 @end
 
 @implementation ASJiaoYiDatingController
@@ -119,6 +121,12 @@
     if (1 == [self.bannerArray count]) {
         [self.infiniteLoopView.timer invalidate];
     }
+    
+    [UIView animateWithDuration:0.3 animations:^{
+       
+        self.adHeight.constant = self.infiniteLoopView.totalPageCount?(SCREEN_WIDTH*(120.0/320)):0;
+        
+    }];
 }
 
 #pragma mark - Request
