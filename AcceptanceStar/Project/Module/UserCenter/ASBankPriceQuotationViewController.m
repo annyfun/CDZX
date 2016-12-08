@@ -26,9 +26,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 
-// 弹框
-@property (weak, nonatomic) IBOutlet UIView *alertView;
-
 @end
 
 @implementation ASBankPriceQuotationViewController
@@ -60,22 +57,11 @@
     [self.view endEditing:YES];
     [UIView showHUDLoadingOnWindow:@"正在发送请求"];
     [AFNManager postDataWithAPI:kResPathAppBondElectricAdd andDictParam:[self userInputParameters] modelName:nil requestSuccessed:^(id responseObject) {
-        [UIView hideHUDLoadingOnWindow];
-        self.alertView.hidden = NO;
+        [UIView showResultThenHideOnWindow:@"发布成功" afterDelay:1.5];
+        [self.navigationController popViewControllerAnimated:YES];
     } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
         [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
     }];
-}
-
-/// 点击"完成"按钮
-- (IBAction)finish:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-/// 点击"再发一条"按钮
-- (IBAction)reSubmitData:(id)sender {
-    self.alertView.hidden = YES;
-    [self.scrollView setContentOffset:CGPointMake(0, -64) animated:YES];
 }
 
 #pragma mark - Private Method
