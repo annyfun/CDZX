@@ -63,6 +63,7 @@
     
 }
 
+/// 普通登录
 - (IBAction)loginButtonClicked:(id)sender {
     NSString *phoneNumber = Trim(self.phoneTextField.text);
     NSString *password = Trim(self.passwordTextField.text);
@@ -87,12 +88,12 @@
 
 #pragma mark - LoginObserverDelegate
 
-- (void)loginSucceededWithUserId:(NSString *)phone session:(NSString *)theSession {
+- (void)loginSucceededWithPassword:(NSString *)password {
     NSString *username = Trim(self.phoneTextField.text);
     if ([NSString isNotEmpty:username]) {
         [[NSUserDefaults standardUserDefaults] setValue:username forKey:kCachedUserName];
     }
-    [[AppDelegate instance] loginWithUser:[USER createUser] passWord:self.passwordTextField.text];
+    [[AppDelegate instance] loginWithUser:[USER createUser] passWord:password];
     [UIView hideHUDLoadingOnWindow];
     
     WeakSelfType blockSelf = self;

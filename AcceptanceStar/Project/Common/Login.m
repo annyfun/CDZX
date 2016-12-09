@@ -102,83 +102,19 @@
       andObserver:observer];
 }
 
-/**
- *  第三方账号登录
- *
- *  @param type
- *  @param observer
- */
-- (void)loginWithSNSType:(ShareType)type andObserver:(id<LoginObserverDelegate>)observer {
-    NSAssert(observer, @"the login observer is nil");
-    [self registerLoginObserver:observer];
-    
-    WeakSelfType blockSelf = self;
-    NSString *platformName = [SNSShareManager PlatformTypeOfUMeng:type];
-    UMSocialSnsPlatform *snsPlatform = [SNSShareManager SocialSnsPlatform:type];
-    if (nil == snsPlatform) {
-        if (UMShareToWechatSession == platformName ||
-            UMShareToWechatTimeline == platformName ||
-            UMShareToWechatFavorite == platformName) {
-            [self loginFailedWithError:@"请先安装微信客户端"];
-        }
-        else {
-            [self loginFailedWithError:@"登陆失败"];
-        }
-        return;
-    }
-    snsPlatform.loginClickHandler(observer,[UMSocialControllerService defaultControllerService], YES, ^(UMSocialResponseEntity *response) {
-        NSLog(@"login response is %@",response);
-        if (UMSResponseCodeSuccess == response.responseCode) {
-            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:platformName];
-            NSLog(@"username is %@, uid is %@, token is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken);
-            
-            NSString *openId = snsAccount.usid;
-            NSString *openUserName = snsAccount.userName;
-            NSString *openAvatarUrl = snsAccount.iconURL;
-            GenderType gender = GenderTypeNotSet;
-            
-            if ([NSString isEmpty:openId]) {
-                NSLog(@"登录失败！openid为空");
-                [blockSelf loginFailedWithError:@"登录失败！openid为空"];
-            }
-            else {
-                NSMutableDictionary *paramsDict = [NSMutableDictionary dictionary];
-                [paramsDict setValue:openId forKey:kParamOpenId];
-                [paramsDict setValue:@(type) forKey:kParamOpenType];
-                [paramsDict setValue:@(gender) forKey:kParamGender];
-                [paramsDict setValue:Trim(openUserName) forKey:kParamNickName];
-                [paramsDict setValue:openAvatarUrl forKey:kParamAvatarUrl];
-                [blockSelf doLogin:kResPathAppExternalLogin
-                            params:paramsDict
-                       andObserver:observer];
-                [MobClick event:UMEventKeyLoginSNSSuccess];
-            }
-        }
-        else if (UMSResponseCodeCancel == response.responseCode) {
-            [blockSelf loginFailedWithError:@"第三方登录取消！"];
-        }
-        else {
-            NSString *errorMessage = [NSString stringWithFormat:@"第三方授权失败!(%d)", response.responseCode];
-            [blockSelf loginFailedWithError:errorMessage];
-        }
-        
-        //这里可以获取到腾讯微博openid,Qzone的token等
-        /*
-         if ([platformName isEqualToString:UMShareToTencent]) {
-         [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToTencent completion:^(UMSocialResponseEntity *respose){
-         NSLog(@"get openid  response is %@",respose);
-         }];
-         }
-         */
-    });
-    
-}
-
-/// 第三方登录(new)
+/// 第三方登录
 - (void)loginWithThirdParty:(NSString *)thirdParty andObserver:(id<LoginObserverDelegate>)observer {
     NSAssert(observer, @"the login observer is nil");
     [self registerLoginObserver:observer];
+    
+    // 检查是否已安装相应的客户端
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:thirdParty];
+    if (snsPlatform == nil) {
+        if (thirdParty == UMShareToWechatSession) {
+            [self loginFailedWithError:@"请先安装微信客户端"];
+        }
+        return;
+    }
     snsPlatform.loginClickHandler(observer,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:thirdParty];
@@ -188,6 +124,7 @@
             [AFNManager postDataWithAPI:kResPathAppUserThirdLogin andDictParam:params modelName:ClassOfObject(UserModel) requestSuccessed:^(id responseObject) {
                 // 登录成功
                 UserModel *userModel = (UserModel *)responseObject;
+                [userModel setPw:userModel.openfire];
                 if ([userModel isKindOfClass:[UserModel class]] && [NSString isNotEmptyConsiderWhitespace:userModel.userId]) {
                     [[StorageManager sharedInstance] setConfigValue:Trim(userModel.token) forKey:kCachedUserToken];//NOTE:只有登录才返回token
                     [blockSelf resetUser:userModel];
@@ -197,7 +134,7 @@
                     [blockSelf loginFailedWithError:@"登录失败！"];
                 }
             } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-                if (errorCode == 1103) { // 第三方账号未注册
+                if (errorCode == 1103) { // 第三方账号未注册 TODO:
                     [blockSelf jumpToRegisterViewControllerWithParams:params];
                 } else {
                     [blockSelf loginFailedWithError:errorMessage];
@@ -306,9 +243,8 @@
     self.isLogging = NO;
     
     for (id<LoginObserverDelegate> observer in self.loginObservers) {
-        if ([observer respondsToSelector:@selector(loginSucceededWithUserId:session:)]) {
-            [observer loginSucceededWithUserId:self.user.phone
-                                       session:nil];
+        if ([observer respondsToSelector:@selector(loginSucceededWithPassword:)]) {
+            [observer loginSucceededWithPassword:self.user.pw];
         }
     }
 }

@@ -221,6 +221,7 @@
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *nickname;//昵称
 @property (nonatomic, strong) NSString *pw;
+@property (nonatomic, strong) NSString *openfire;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *sex;//男 女
 @property (nonatomic, assign) NSInteger age;

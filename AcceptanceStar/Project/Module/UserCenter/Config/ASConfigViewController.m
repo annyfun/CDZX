@@ -66,7 +66,7 @@
     }
 }
 
-- (void)loginSucceededWithUserId:(NSString *)theUserId session:(NSString *)theSession {}
+- (void)loginSucceededWithPassword:(NSString *)password {}
 - (void)loginFailedWithError:(NSString *)errorMessage {}
 - (void)loggedOut {
     [self backViewController];
