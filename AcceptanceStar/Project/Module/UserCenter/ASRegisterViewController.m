@@ -166,7 +166,6 @@
     }
     CheckStringEmpty(self.cityTextField.text, @"请选择业务所在地区");
     
-    WeakSelfType blockSelf = self;
     [UIView showHUDLoadingOnWindow:@"正在注册"];
     
     NSString *registerAPI = nil;
@@ -190,7 +189,11 @@
                requestSuccessed:^(id responseObject) {
                    UserModel *user = (UserModel *)responseObject;
                    if ([user isKindOfClass:[UserModel class]]) {
-                       [user setPw:password];
+                       if (user.openfire.length) {
+                           [user setPw:user.openfire];
+                       } else {
+                          [user setPw:password];
+                       }
                        [LOGIN resetUser:user];
                        [UIView showResultThenHideOnWindow:@"注册成功"];
                    }
