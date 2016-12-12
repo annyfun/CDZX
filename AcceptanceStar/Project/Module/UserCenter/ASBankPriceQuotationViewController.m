@@ -33,6 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"发布本行报价";
+    self.companyTextField.text = USER.companyName;
+    self.publisherTextField.text = USER.nickname;
+    self.mainPhoneTextField.text = USER.phone;
     [self.sendButton makeRoundWithRadius:5];
 }
 
@@ -51,7 +54,7 @@
     CheckStringEmpty(self.secondRateTextField.text, @"二类行年利率不能为空");
     CheckStringEmpty(self.thirdRateTextField.text, @"三类行年利率不能为空");
     CheckStringEmpty(self.forthRateTextField.text, @"四类行年利率不能为空");
-    CheckStringEmpty(self.publisherTextField.text, @"发布人不能为空");
+    CheckStringEmpty(self.companyTextField.text, @"发布机构不能为空");
     CheckStringMatchRegex(RegexMobilePhone, self.mainPhoneTextField.text, @"输入的手机号不合法");
     
     [self.view endEditing:YES];
@@ -74,7 +77,7 @@
              @"rt_2"      : self.secondRateTextField.text,
              @"rt_3"      : self.thirdRateTextField.text,
              @"rt_4"      : self.forthRateTextField.text,
-             @"company"   : self.publisherTextField.text,
+             @"company"   : self.companyTextField.text, // 发布机构
              @"phone"     : self.mainPhoneTextField.text,
              @"comment"   : self.commentTextField.text,
              };
