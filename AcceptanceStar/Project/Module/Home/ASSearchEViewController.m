@@ -137,14 +137,20 @@
             [blockSelf.dataSource replaceObjectAtIndex:0 withObject:@[@"利率",[blockSelf rateValueToKey:blockSelf.rateKey]]];
             [blockSelf.tableView reloadData];
         }];
-        [self.rateData enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        
+        NSArray *keys = @[@"一类行利率从低到高",
+                          @"二类行利率从低到高",
+                          @"三类行利率从低到高",
+                          @"四类行利率从低到高"];
+        for (NSString *key in keys) {
+         
             [sheet bk_addButtonWithTitle:key handler:^{
                 
-                blockSelf.rateKey = obj;
+                blockSelf.rateKey = key;
                 [blockSelf.dataSource replaceObjectAtIndex:0 withObject:@[@"利率",[blockSelf rateValueToKey:blockSelf.rateKey]]];
                 [blockSelf.tableView reloadData];
             }];
-        }];
+        }
         
         [sheet bk_setCancelButtonWithTitle:@"取消" handler:NULL];
         [sheet showInView:self.view];
