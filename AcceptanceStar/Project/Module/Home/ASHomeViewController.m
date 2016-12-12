@@ -12,6 +12,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 #define keyOfCachedBanner               @"keyOfCachedBanner"
+#define keyHeightaaa ((SCREEN_WIDTH>375?175:170))
 
 @interface ASHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -119,21 +120,23 @@
 }
 - (void)initItemArray {
     self.itemArray = [NSMutableArray array];
-    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_notice" title:@"公示催告" viewController:@"ASDraftQueryViewController"]];
-    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_mymonitor" title:@"票据挂失预警" viewController:@"ASMyMonitorTicketsViewController"]];
+
+        [self.itemArray addObject:[CommonItemModel buildNewItem:@"home_item_00" title:@"票据报价平台" viewController:nil]];
     
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"home_item_1" title:@"电票交易大厅" viewController:@"ASJiaoYiDatingController"]];
+    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_notice" title:@"公示催告" viewController:@"ASDraftQueryViewController"]];
+    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_mymonitor" title:@"票据挂失预警" viewController:@"ASMyMonitorTicketsViewController"]];
 //    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_financial_expert" title:@"财税专家" viewController:@"ASLawyerOnlineViewController"]];
 //    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_lawyer_online" title:@"律师在线" viewController:@"ASLawyerOnlineViewController"]];
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_bankquery" title:@"行号查询" viewController:@"ASBankNumQueryViewController"]];
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_calculator" title:@"贴现计算器" viewController:@"ASDiscountCalculatorViewController"]];
     [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_shiborquery" title:@"shibor查询" viewController:@"ASShiBorQueryViewController"]];
-    [self.itemArray addObject:[CommonItemModel buildNewItem:@"icon_home_newsdaily" title:@"票友日报" viewController:@"ASNewsDailyViewController"]];
+    [self.itemArray addObject:[CommonItemModel buildNewItem:@"home_item_07" title:@"票友日报" viewController:@"ASNewsDailyViewController"]];
     NSInteger rowCount = (NSInteger)([self.itemArray count] / 2);
     if ([self.itemArray count] % 2 != 0) {
         rowCount++;
     }
-    self.collectionHeight.constant = AUTOLAYOUT_LENGTH(rowCount * (SCREEN_WIDTH>375?145:142));
+    self.collectionHeight.constant = AUTOLAYOUT_LENGTH(rowCount * keyHeightaaa);
 }
 - (void)refreshBanner {
     WeakSelfType blockSelf = self;
@@ -211,7 +214,7 @@
 #pragma mark - UICollectionFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    return AUTOLAYOUT_SIZE_WH(320, SCREEN_WIDTH>375?145:142);
+    return AUTOLAYOUT_SIZE_WH(320, keyHeightaaa);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsZero;
@@ -235,6 +238,9 @@
     }
     else if ([@"律师在线" isEqualToString:item.title]) {
         params[kParamType] = @"1";
+    }
+    else if ([@"票据报价平台" isEqualToString:item.title]) {
+            [self presentQuotePlatformWithInitTabBarIndex:1];
     }
     
     if ([NSString isNotEmpty:item.viewController]) {
