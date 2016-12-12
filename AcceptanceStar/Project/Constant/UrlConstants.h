@@ -10,16 +10,20 @@
 #ifndef YSCKit_UrlConstants_h
 #define YSCKit_UrlConstants_h
 
+//正式  test.yhcd.net
+//测试  test.yhcd.net
+
+
 /**
  *  定义各种正式和测试的接口地址
  */
 #pragma mark - Config Values
 //UMeng参数值优先级 > 本地参数值
-#define kResPathAppBaseUrl        @"http://www.yhcd.net"
+#define kResPathAppBaseUrl        @"http://test.yhcd.net"
 #define kResPathAppResUrl         [[AppConfigManager sharedInstance] valueOfAppConfig:@"kResPathAppResUrl"]
 #define kCheckNewVersionUrl       @"http://chat.54blues.com/app/update" //版本更新地址(独立于接口直接访问的url)
 #define kCheckNewVersionType      @"0"//0-不更新 1-通过接口更新 2-通过UMeng在线配置更新
-#define kAlipayNotifyUrl          @"http://www.yhcd.net/enpay/notify_url/type/alipay"//@"http://chat.54blues.com/pay/notify_url/type/alipay"
+#define kAlipayNotifyUrl          @"http://test.yhcd.net/enpay/notify_url/type/alipay"//@"http://chat.54blues.com/pay/notify_url/type/alipay"
 #define kLogManageType            @"0"      //0-不记录日志 1-要记录日志
 //UMeng在线参数值
 #define kNewVersionModel          @""  //UMeng在线配置的软件升级参数
