@@ -11,6 +11,7 @@
 #import "ASElectricCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "ASShenQingTieXianViewController.h"
+#import "ASBankPriceQuotationViewController.h"
 
 @interface ASElectricViewController ()
 @property (weak, nonatomic) IBOutlet UIView *otherView;
@@ -143,9 +144,11 @@
                     [blockSelf showResultThenHide:@"提交失败"];
                 }];
 }
+
 - (IBAction)chongXinFaBuDidTap:(id)sender {
-    //TODO 跳转到发布界面
-    [self pushViewController:@"ASBankPriceQuotationViewController" withParams:nil];
+    
+    ASBankPriceQuotationViewController *vc = [[ASBankPriceQuotationViewController alloc] initWithNibName:NSStringFromClass([ASBankPriceQuotationViewController class]) bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
