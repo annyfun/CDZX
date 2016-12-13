@@ -30,6 +30,14 @@
 @property (strong, nonatomic) NSString *isUserChangedObserverIdentifier;
 @property (strong, nonatomic) JSBadgeView *badgeView;
 @property (strong, nonatomic) UIView *badgeSuperView;
+
+
+@property (strong, nonatomic) JSBadgeView *recivedBadge;
+@property (strong, nonatomic) UIView *recivedBadgeSuperView;
+
+
+@property (strong, nonatomic) JSBadgeView *myBadge;
+@property (strong, nonatomic) UIView *myBadgeSuperView;
 @end
 
 @implementation ASUserCenterViewController
@@ -53,11 +61,42 @@
     return _badgeView;
 }
 
+- (JSBadgeView *)recivedBadge{
+    if (nil==_recivedBadge) {
+        self.recivedBadgeSuperView = [UIView new];
+        self.recivedBadgeSuperView.backgroundColor = [UIColor clearColor];
+        self.recivedBadgeSuperView.hidden = YES;
+        
+        _recivedBadge = [[JSBadgeView alloc] initWithParentView:nil alignment:JSBadgeViewAlignmentCenter];
+        [self.recivedBadgeSuperView addSubview:_recivedBadge];
+    }
+    return _badgeView;
+}
+
+- (JSBadgeView *)myBadge{
+    if (nil==_myBadge) {
+        self.myBadgeSuperView = [UIView new];
+        self.myBadgeSuperView.backgroundColor = [UIColor clearColor];
+        self.myBadgeSuperView.hidden = YES;
+        
+        _myBadge = [[JSBadgeView alloc] initWithParentView:nil alignment:JSBadgeViewAlignmentCenter];
+        [self.myBadgeSuperView addSubview:_myBadge];
+    }
+    return _badgeView;
+}
+
 - (void)messageDidUpdate{
  
+    return;
     AppDelegate *deleagte = (id)[[UIApplication sharedApplication] delegate];
     self.badgeView.badgeText = [NSString stringWithFormat:@"%zd",deleagte.messageCount];
     self.badgeSuperView.hidden = !deleagte.messageCount;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self requestMessageData];
 }
 
 - (void)viewDidLoad {
@@ -168,6 +207,37 @@
 
 - (void)refreshUserCenter {
     [[Login sharedInstance] refreshUserInfo];
+    
+    [self requestMessageData];
+}
+
+
+- (void)requestMessageData{
+    
+    WeakSelfType blockSelf = self;
+    [AFNManager getDataWithAPI:[@"/moments/getMsgCount2" stringByAppendingPathComponent:TOKEN]
+                  andDictParam:nil
+                     modelName:nil
+              requestSuccessed:^(NSDictionary *responseObject) {
+                  if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                      
+                      NSInteger friendCount = [responseObject[@"friendCount"]  integerValue];
+                      NSInteger receivedCount = [responseObject[@"receivedCount"]  integerValue];
+                      NSInteger applyCount = [responseObject[@"applyCount"]  integerValue];
+                      
+                      blockSelf.badgeView.badgeText = [NSString stringWithFormat:@"%zd",friendCount];
+                      blockSelf.badgeSuperView.hidden = friendCount<=0;
+
+                      
+                      blockSelf.myBadge.badgeText = [NSString stringWithFormat:@"%zd",applyCount];
+                      blockSelf.myBadgeSuperView.hidden = applyCount<=0;
+                      
+                      blockSelf.recivedBadge.badgeText = [NSString stringWithFormat:@"%zd",receivedCount];
+                      blockSelf.recivedBadgeSuperView.hidden = receivedCount<=0;
+                  }
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                }];
 }
 
 
@@ -203,7 +273,27 @@
             make.right.equalTo(cell.mas_right).offset(-25);
             make.centerY.equalTo(cell);
         }];
-    } else {
+    }
+    else if ([item.title isContains:@"收到的贴现申请"]) {
+        cell.arrowImageView.hidden = NO;
+        [cell addSubview:self.recivedBadgeSuperView];
+        
+        [self.recivedBadgeSuperView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@24);
+            make.right.equalTo(cell.mas_right).offset(-25);
+            make.centerY.equalTo(cell);
+        }];
+    }
+    else if ([item.title isContains:@"我的贴现申请"]) {
+        cell.arrowImageView.hidden = NO;
+        [cell addSubview:self.myBadgeSuperView];
+        [self.myBadgeSuperView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@24);
+            make.right.equalTo(cell.mas_right).offset(-25);
+            make.centerY.equalTo(cell);
+        }];
+    }
+    else {
         cell.arrowImageView.hidden = YES;
     }
     return cell;
