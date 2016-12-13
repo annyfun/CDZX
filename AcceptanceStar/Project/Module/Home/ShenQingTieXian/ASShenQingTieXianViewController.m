@@ -291,7 +291,8 @@ typedef NS_ENUM(NSInteger, OperateType)
                   andDictParam:@{@"type":@"electric",
                                  @"status":status,
                                  @"comment":comment?:@" ",
-                                 @"id":idString}
+                                 @"id":idString,
+                                 @"applyid":self.tieXianModel.id}
                      modelName:ClassOfObject(PaperModel)
               requestSuccessed:^(ElectricModel *responseObject) {
                   if (passOrNo) {
@@ -316,8 +317,8 @@ typedef NS_ENUM(NSInteger, OperateType)
     WeakSelfType blockSelf = self;
     [UIView showHUDLoadingOnWindow:@"加载中"];
     
-    [AFNManager getDataWithAPI:[@"/bond/bondorder_buy_detail/token" stringByAppendingPathComponent:TOKEN]
-                  andDictParam:@{@"order_no":tieXianModelId}
+    [AFNManager getDataWithAPI:[(self.tieXianType == TieXianTypeReceivedApply ? @"/bond/bondorder_buy_detail/token" : @"/bond/bondorder_sell_detail/token") stringByAppendingPathComponent:TOKEN]
+                  andDictParam:@{@"applyid":tieXianModelId}
                      modelName:ClassOfObject(PaperModel)
               requestSuccessed:^(ElectricModel *responseObject) {
                   [UIView hideHUDLoadingOnWindow];
