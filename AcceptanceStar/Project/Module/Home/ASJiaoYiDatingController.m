@@ -206,6 +206,10 @@
 - (IBAction)chouYanBtnDidTap:(id)sender {
 }
 
+- (IBAction)searchBtnDidTap:(id)sender{
+    [self.searchField resignFirstResponder];
+    [self textFieldDidEndEditing:self.searchField];
+}
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{

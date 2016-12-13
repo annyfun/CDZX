@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,8 +24,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ8-yY-3kl">
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="660"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-Sf-ho5">
+                            <rect key="frame" x="0.0" y="250" width="640" height="300"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="300" id="fwD-dy-B1S"/>
                             </constraints>
@@ -33,15 +38,18 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOR-VA-viS" userLabel="HeaderView">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOR-VA-viS" userLabel="HeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="640" height="250"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDg-Iv-JL4" customClass="YSCInfiniteLoopView">
+                                    <rect key="frame" x="0.0" y="0.0" width="640" height="250"/>
                                     <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="250" id="324-yp-GZ3"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFg-sG-Oiu">
+                                    <rect key="frame" x="0.0" y="249" width="640" height="1"/>
                                     <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="EX5-x3-Kop"/>
@@ -51,18 +59,21 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="kOZ-P1-h8b">
+                                    <rect key="frame" x="78" y="270" width="138" height="86"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="86" id="Wdv-UB-99p"/>
                                         <constraint firstAttribute="width" constant="138" id="pYH-6r-ug6"/>
                                     </constraints>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="i3L-gY-0CH">
+                                    <rect key="frame" x="390" y="260" width="180" height="36"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="180" id="eev-tC-wHE"/>
                                         <constraint firstAttribute="height" constant="36" id="qSs-6Y-hzf"/>
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaA-Hd-fFP">
+                                    <rect key="frame" x="390" y="304" width="180" height="60"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="180" id="Xek-Fh-aTK"/>
                                         <constraint firstAttribute="height" constant="60" id="whb-gp-mTb"/>
@@ -76,6 +87,7 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_right1.png" translatesAutoresizingMaskIntoConstraints="NO" id="5vt-jm-iwy">
+                                    <rect key="frame" x="548" y="327" width="14" height="14"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="14" id="SRh-MT-d3a"/>
                                         <constraint firstAttribute="height" constant="14" id="tnI-zV-Eg6"/>
@@ -92,7 +104,7 @@
                                 <constraint firstAttribute="trailing" secondItem="rFg-sG-Oiu" secondAttribute="trailing" id="MuK-jo-I9Q"/>
                                 <constraint firstItem="zDg-Iv-JL4" firstAttribute="leading" secondItem="xOR-VA-viS" secondAttribute="leading" id="Pcl-Oj-1RP"/>
                                 <constraint firstItem="kOZ-P1-h8b" firstAttribute="leading" secondItem="xOR-VA-viS" secondAttribute="leading" constant="78" id="RaV-ae-NtQ"/>
-                                <constraint firstAttribute="height" constant="380" id="XfR-9x-7ui"/>
+                                <constraint firstAttribute="height" constant="250" id="XfR-9x-7ui"/>
                                 <constraint firstItem="XaA-Hd-fFP" firstAttribute="top" secondItem="i3L-gY-0CH" secondAttribute="bottom" constant="8" id="Xhk-lJ-Ser"/>
                                 <constraint firstAttribute="trailing" secondItem="i3L-gY-0CH" secondAttribute="trailing" constant="70" id="Yax-CD-yuw"/>
                                 <constraint firstItem="XaA-Hd-fFP" firstAttribute="centerX" secondItem="i3L-gY-0CH" secondAttribute="centerX" id="jzQ-m3-piB"/>

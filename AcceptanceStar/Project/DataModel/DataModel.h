@@ -226,6 +226,7 @@
 @property (nonatomic, strong) NSString *sex;//男 女
 @property (nonatomic, assign) NSInteger age;
 @property (nonatomic, strong) NSString *company;
+@property (nonatomic, strong) NSString *companyName;
 @property (nonatomic, strong) NSString *position;
 @property (nonatomic, strong) NSString *city;//城市名称
 @property (nonatomic, strong) NSString *province;

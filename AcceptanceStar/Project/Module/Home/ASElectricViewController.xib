@@ -65,7 +65,6 @@
                             </state>
                             <connections>
                                 <action selector="jiaoYiWanChengDidTap:" destination="-1" eventType="touchUpInside" id="4qq-hq-lyL"/>
-                                <action selector="shenQingDidTap:" destination="-1" eventType="touchUpInside" id="AVJ-VT-UZ3"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BT4-wH-RuW">
@@ -76,7 +75,6 @@
                             </state>
                             <connections>
                                 <action selector="chongXinFaBuDidTap:" destination="-1" eventType="touchUpInside" id="b5F-Ll-ton"/>
-                                <action selector="shenQingDidTap:" destination="-1" eventType="touchUpInside" id="I9U-iW-TRf"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="776-z2-N8n">

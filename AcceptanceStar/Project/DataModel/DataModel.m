@@ -76,6 +76,7 @@
     return @{@"id" : @"userId",
              @"_city" : @"icity",
              @"_type" : @"itype",
+             @"company_name" : @"companyName",
              @"_sex" : @"isex",
              @"_active" : @"iactive"};
 }
