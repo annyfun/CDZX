@@ -41,7 +41,7 @@ typedef void (^CallBackWithResponseBlock)(id response);
 
 //微信(3303384205@qq.com jxj123456)
 #define AppKeyWeiXin            @"wx02be3a6564b7a50d"
-#define AppSecretWeiXin         @"91fffc758f71f6ba7e13c2a6053851c5"
+#define AppSecretWeiXin         @"2be4f68f1f7801cf1cee413b34256324"
 
 /**
  *  判断设备的相关参数
