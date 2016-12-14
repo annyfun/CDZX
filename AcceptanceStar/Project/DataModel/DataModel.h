@@ -615,6 +615,7 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, assign) bool reject;
 @property (nonatomic, strong) NSString *bankName;
 @property (nonatomic, strong) NSString *headpic;
+@property (nonatomic, strong) NSString *createtime;
 
 @property (nonatomic, assign) ASElectricStauts rstatus;  //收到的贴现申请状态
 
