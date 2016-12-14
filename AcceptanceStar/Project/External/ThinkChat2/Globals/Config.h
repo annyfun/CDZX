@@ -28,8 +28,8 @@
 
 // Demo 服务器 (app接口地址)
 //#define kBaseDemoAPIHost              @"http://www.yhcd.net"
-#define kResPathAppBaseUrl        @"http://test.yhcd.net"
-#define kBaseDemoAPIDomain            kBaseDemoAPIHost@"/index.php"
+#define kResPathAppBaseUrl             @"http://test.yhcd.net"
+#define kBaseDemoAPIDomain            @"/index.php"
 #define kBaseDemoAPPKey               @"0e93f53b5b02e29ca3eb6f37da3b05b9"
 
 // SDK 服务器 (openfire服务器设置)

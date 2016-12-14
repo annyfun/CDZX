@@ -36,10 +36,10 @@
     NSString *price = [NSString stringWithFormat:@"%@万起",model.price];
     NSString *date = [NSString stringWithFormat:@"期限%zd天起",model.days];
     
-    self.rat1.text = [NSString stringWithFormat:@"一类利率%@%%",model.rt_1];
-    self.rat2.text = [NSString stringWithFormat:@"二类利率%@%%",model.rt_2];
-    self.rat3.text = [NSString stringWithFormat:@"三类利率%@%%",model.rt_3];
-    self.rat4.text = [NSString stringWithFormat:@"四类利率%@%%",model.rt_4];
+    self.rat1.text = [NSString stringWithFormat:@"一类%@%%",model.rt_1];
+    self.rat2.text = [NSString stringWithFormat:@"二类%@%%",model.rt_2];
+    self.rat3.text = [NSString stringWithFormat:@"三类%@%%",model.rt_3];
+    self.rat4.text = [NSString stringWithFormat:@"四类%@%%",model.rt_4];
     
     NSString *string = [NSString stringWithFormat:@"%@ | %@\n%@ | %@",public,type,price,date];
     self.infoLabel.text = string;

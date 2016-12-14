@@ -20,7 +20,6 @@
 
 @property (nonatomic,strong) NSMutableArray *bannerArray;
 @property (nonatomic,strong) NSMutableArray *electricModelArray;
-@property (nonatomic,strong) NSMutableArray *dataArray;
 
 @property (nonatomic,strong) NSString *rateKey;
 @property (nonatomic,strong) NSString *amountKey;
@@ -180,7 +179,7 @@
               requestSuccessed:^(id responseObject) {
                   if ([responseObject isKindOfClass:[NSArray class]]) {
                       if ([NSObject isNotEmpty:responseObject]) {
-                          blockSelf.dataArray = [responseObject mutableCopy];
+                          blockSelf.electricModelArray = [responseObject mutableCopy];
                           [blockSelf.tableView reloadData];
                       }
                   }
