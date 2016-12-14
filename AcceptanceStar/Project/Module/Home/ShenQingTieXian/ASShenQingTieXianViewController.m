@@ -53,6 +53,7 @@ typedef NS_ENUM(NSInteger, OperateType)
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASPiaoJuTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASPiaoJuTableViewCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASInfoTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASInfoTableViewCell class])];
     self.centerView.fd_collapsed = YES;
+    self.centerView.hidden = YES;
     if (self.operateType == OperateTypeEdit) {
         [self.dataArray addObject:[PaperModel new]];
         self.title = @"申请贴现";
@@ -65,6 +66,7 @@ typedef NS_ENUM(NSInteger, OperateType)
             self.title = @"收到的贴现详细";
             self.tableView.allowsMultipleSelection = YES;
             self.centerView.fd_collapsed = NO;
+            self.centerView.hidden = NO;
         }
     }
 }
