@@ -167,22 +167,14 @@
     CheckStringEmpty(self.cityTextField.text, @"请选择业务所在地区");
     
     [UIView showHUDLoadingOnWindow:@"正在注册"];
-    
-    NSString *registerAPI = nil;
     NSMutableDictionary *params = @{kParamType : @(self.selectedTypeIndex),
                                     kParamPhone : phone,
                                     @"pw" : password,
                                     @"repw" : passwordRepeat,
                                     kParamVerify : verifyCode,
                                     kParamCity : @(self.selectedCityId)}.mutableCopy;
-    if (self.params[@"third_id"]) {
-        // 第三方登录
-        registerAPI = kResPathAppUserThirdRegister;
-        [params setObject:self.params[@"third_id"] forKey:@"third_id"];
-        [params setObject:self.params[@"third_type"] forKey:@"third_type"];
-    } else {
-        registerAPI = kResPathAppUserRegister;
-    }
+    [params addEntriesFromDictionary:self.params];
+    NSString *registerAPI = self.params[@"third_id"] ? kResPathAppUserThirdRegister : kResPathAppUserRegister;
     [AFNManager postDataWithAPI:registerAPI
                    andDictParam:params
                       modelName:ClassOfObject(UserModel)

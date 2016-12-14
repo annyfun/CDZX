@@ -119,7 +119,7 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:thirdParty];
             // 尝试登录(不知道是否注册过)
-            NSDictionary *params = @{@"third_id": snsAccount.usid,@"third_type": snsAccount.platformName};
+            NSMutableDictionary *params = @{@"third_id": snsAccount.usid,@"third_type": snsAccount.platformName}.mutableCopy;
             WeakSelfType blockSelf = self;
             [AFNManager postDataWithAPI:kResPathAppUserThirdLogin andDictParam:params modelName:ClassOfObject(UserModel) requestSuccessed:^(id responseObject) {
                 // 登录成功
@@ -135,6 +135,12 @@
                 }
             } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                 if (errorCode == 1103) { // 第三方账号未注册 TODO:
+                    if (snsAccount.userName.length) {
+                        params[@"nickname"] = snsAccount.userName;
+                    }
+                    if (snsAccount.iconURL.length) {
+                        params[@"picurl"] = snsAccount.iconURL;
+                    }
                     [blockSelf jumpToRegisterViewControllerWithParams:params];
                 } else {
                     [blockSelf loginFailedWithError:errorMessage];
