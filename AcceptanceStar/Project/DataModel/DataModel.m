@@ -297,7 +297,8 @@
              @"bank_name" : @"bankName",
              @"company_phone": @"companyPhone",
              @"accept_price":@"acceptPrice",
-             @"order_no":@"orderNo"
+             @"order_no":@"orderNo",
+             @"total_price":@"price"
              };
 }
 
@@ -307,6 +308,18 @@
         return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_headpic];
     }
     return _headpic;
+}
+
+-(NSString *)date
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DateFormat3];
+    if ([self.createtime isEqualToString:@""]) {
+        return [formatter stringFromDate:[NSDate dateNow]];
+    }else{
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[self.createtime longLongValue]];
+        return [formatter stringFromDate:date];
+    }
 }
 
 -(bool)reject
