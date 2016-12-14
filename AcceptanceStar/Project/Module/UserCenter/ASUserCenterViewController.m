@@ -128,36 +128,12 @@
     self.tableView.dataSource = self;
     
     //2. 设置列表数据源
-    self.userCenterItemArray = [NSMutableArray array];
-    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_friendcircle" title:@"朋友圈" viewController:@"ASMomentsViewController"]];
-    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_balance" title:@"余额" viewController:@"ASBalanceViewController"]];
-    if (0 == USER.itype) {//银行同行
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_verify" title:@"认证机构" viewController:@"ASPersonalVerifyViewController"]];
-    }
-    else {//企业认证 + 票据经理
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_verify" title:@"企业认证" viewController:@"ASCompanyVerifyViewController"]];
-    }
-    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_changephone" title:@"更换手机号" viewController:@"ASChangePhoneViewController"]];
-    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_submission" title:@"我的发布" viewController:@""]];
-    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_collection" title:@"我的收藏" viewController:@""]];
-    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_mymonitor" title:@"我的预警票据" viewController:@"ASMyMonitorTicketsViewController"]];
-    
-    if (0 == USER.itype || 1 == USER.itype) {
-        // 银行同业和票据经纪
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_quotation" title:@"发布本行报价" viewController:@"ASBankPriceQuotationViewController"]];
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"收到的贴现申请" viewController:@"ASTieXianShenQingViewController"]];
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_maintenance" title:@"授信银行维护" viewController:@"ASCreditBankListViewController"]];
-    } else if (2 == USER.itype) {
-        // 企业
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"我的贴现申请" viewController:@"ASTieXianShenQingViewController"]];
-    }
-    
-    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_config" title:@"设置" viewController:@"ASConfigViewController"]];
+    [self setUpTableDataSource];
     
     //3. 监控是否登录
     self.isUserChangedObserverIdentifier = [[Login sharedInstance] bk_addObserverForKeyPath:@"isUserChanged" task:^(id target) {
         [blockSelf layoutHeaderView];
-        [blockSelf.tableView reloadData];
+        [blockSelf setUpTableDataSource];
     }];
     [self layoutHeaderView];
     
@@ -175,6 +151,43 @@
     }];
     [UIView makeRoundForView:self.loginButton withRadius:5];
     [UIView makeRoundForView:self.registerButton withRadius:5];
+}
+
+- (void)setUpTableDataSource {
+    self.userCenterItemArray = [NSMutableArray array];
+    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_friendcircle" title:@"朋友圈" viewController:@"ASMomentsViewController"]];
+    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_balance" title:@"余额" viewController:@"ASBalanceViewController"]];
+    if (0 == USER.itype) {//银行同行
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_verify" title:@"认证机构" viewController:@"ASPersonalVerifyViewController"]];
+    }
+    else {//企业认证 + 票据经理
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_verify" title:@"企业认证" viewController:@"ASCompanyVerifyViewController"]];
+    }
+    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_changephone" title:@"更换手机号" viewController:@"ASChangePhoneViewController"]];
+    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_submission" title:@"我的发布" viewController:@""]];
+    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_collection" title:@"我的收藏" viewController:@""]];
+    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_mymonitor" title:@"我的预警票据" viewController:@"ASMyMonitorTicketsViewController"]];
+    
+    if (0 == USER.itype) {
+        // 银行同业
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_quotation" title:@"发布利率报价" viewController:@"ASBankPriceQuotationViewController"]];
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"收到的贴现申请" viewController:@"ASTieXianShenQingViewController"]];
+    } else if (1 == USER.itype) {
+        // 票据经纪
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_quotation" title:@"发布利率报价" viewController:@"ASBankPriceQuotationViewController"]];
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"收到的贴现申请" viewController:@"ASTieXianShenQingViewController"]];
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"我的贴现申请" viewController:@"ASTieXianShenQingViewController"]];
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_maintenance" title:@"授信银行维护" viewController:@"ASCreditBankListViewController"]];
+        
+    } else if (2 == USER.itype) {
+        // 企业
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"我的贴现申请" viewController:@"ASTieXianShenQingViewController"]];
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_maintenance" title:@"授信银行维护" viewController:@"ASCreditBankListViewController"]];
+    }
+    
+    [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_config" title:@"设置" viewController:@"ASConfigViewController"]];
+    
+    [self.tableView reloadData];
 }
 
 /**
