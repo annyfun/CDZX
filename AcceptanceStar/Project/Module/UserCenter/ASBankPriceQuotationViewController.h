@@ -8,7 +8,7 @@
 
 #import "YSCBaseViewController.h"
 
-/// 发布本行报价
+/// 发布利率报价
 @interface ASBankPriceQuotationViewController : UIViewController
 
 @end

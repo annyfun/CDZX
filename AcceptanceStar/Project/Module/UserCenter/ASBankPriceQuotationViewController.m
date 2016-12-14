@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"发布本行报价";
+    self.navigationItem.title = @"发布利率报价";
     self.companyTextField.text = USER.companyName;
     self.publisherTextField.text = USER.nickname;
     self.mainPhoneTextField.text = USER.phone;
