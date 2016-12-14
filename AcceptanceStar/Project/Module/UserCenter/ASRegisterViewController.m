@@ -188,6 +188,7 @@
                        }
                        [LOGIN resetUser:user];
                        [UIView showResultThenHideOnWindow:@"注册成功"];
+                       [self.navigationController dismissViewControllerAnimated:YES completion:nil]; //跳转到主界面
                    }
                    else {
                        [UIView showResultThenHideOnWindow:@"注册失败"];
