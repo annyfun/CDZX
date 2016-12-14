@@ -128,6 +128,32 @@
     self.tableView.dataSource = self;
     
     //2. 设置列表数据源
+    [self setUpTableDataSource];
+    
+    //3. 监控是否登录
+    self.isUserChangedObserverIdentifier = [[Login sharedInstance] bk_addObserverForKeyPath:@"isUserChanged" task:^(id target) {
+        [blockSelf layoutHeaderView];
+        [blockSelf setUpTableDataSource];
+    }];
+    [self layoutHeaderView];
+    
+    //4. 注册通知
+    addNObserver(@selector(refreshUserCenter), kNotificationRefreshUserCenter);
+    
+    //5. 设置未登录界面
+    [self.unLoginContainerView resetFontSizeOfView];
+    [self.unLoginContainerView resetConstraintOfView];
+    [self.view addSubview:self.unLoginContainerView];
+    self.unLoginContainerView.width = SCREEN_WIDTH;
+    self.unLoginContainerView.height = SCREEN_HEIGHT - 64 - 49;
+    [self.configView bk_whenTapped:^{
+        [blockSelf presentViewController:@"ASConfigViewController"];
+    }];
+    [UIView makeRoundForView:self.loginButton withRadius:5];
+    [UIView makeRoundForView:self.registerButton withRadius:5];
+}
+
+- (void)setUpTableDataSource {
     self.userCenterItemArray = [NSMutableArray array];
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_friendcircle" title:@"朋友圈" viewController:@"ASMomentsViewController"]];
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_balance" title:@"余额" viewController:@"ASBalanceViewController"]];
@@ -154,27 +180,7 @@
     
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_config" title:@"设置" viewController:@"ASConfigViewController"]];
     
-    //3. 监控是否登录
-    self.isUserChangedObserverIdentifier = [[Login sharedInstance] bk_addObserverForKeyPath:@"isUserChanged" task:^(id target) {
-        [blockSelf layoutHeaderView];
-        [blockSelf.tableView reloadData];
-    }];
-    [self layoutHeaderView];
-    
-    //4. 注册通知
-    addNObserver(@selector(refreshUserCenter), kNotificationRefreshUserCenter);
-    
-    //5. 设置未登录界面
-    [self.unLoginContainerView resetFontSizeOfView];
-    [self.unLoginContainerView resetConstraintOfView];
-    [self.view addSubview:self.unLoginContainerView];
-    self.unLoginContainerView.width = SCREEN_WIDTH;
-    self.unLoginContainerView.height = SCREEN_HEIGHT - 64 - 49;
-    [self.configView bk_whenTapped:^{
-        [blockSelf presentViewController:@"ASConfigViewController"];
-    }];
-    [UIView makeRoundForView:self.loginButton withRadius:5];
-    [UIView makeRoundForView:self.registerButton withRadius:5];
+    [self.tableView reloadData];
 }
 
 /**
