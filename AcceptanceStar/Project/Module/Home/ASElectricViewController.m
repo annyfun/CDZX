@@ -53,7 +53,7 @@
     [self.dataSource addObject:@[@"四类银行",[NSString stringWithFormat:@"月利率%@%%",model.rt_4?:@""]]];
     [self.dataSource addObject:@[@"发布时间",[model.date stringWithFormat:@"yyyy-MM-dd hh:mm"]]];
     [self.dataSource addObject:@[@"备注信息",model.comment?:@""]];
-    [self.dataSource addObject:@[@"银行简介",@"这里填什么字段？这里填什么字段？这里填什么字段？这里填什么字段？这里填什么字段？"]];
+    [self.dataSource addObject:@[@"银行简介",model.company_content?:@""]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,6 +137,7 @@
                       if  (responseObject.istatus==ASElectricStautsWan){
                           success = YES;
                       }
+                         success = YES;
                   }
                   [blockSelf showResultThenHide:success?@"交易完成":@"提交失败"];
               }

@@ -172,6 +172,7 @@
         // 银行同业
         [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_quotation" title:@"发布利率报价" viewController:@"ASBankPriceQuotationViewController"]];
         [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"收到的贴现申请" viewController:@"ASTieXianShenQingViewController"]];
+        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_maintenance" title:@"授信银行维护" viewController:@"ASCreditBankListViewController"]];
     } else if (1 == USER.itype) {
         // 票据经纪
         [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_quotation" title:@"发布利率报价" viewController:@"ASBankPriceQuotationViewController"]];
@@ -182,7 +183,6 @@
     } else if (2 == USER.itype) {
         // 企业
         [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_discount_apply" title:@"我的贴现申请" viewController:@"ASTieXianShenQingViewController"]];
-        [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_bank_maintenance" title:@"授信银行维护" viewController:@"ASCreditBankListViewController"]];
     }
     
     [self.userCenterItemArray addObject:[CommonItemModel buildNewItem:@"icon_usercenter_config" title:@"设置" viewController:@"ASConfigViewController"]];
