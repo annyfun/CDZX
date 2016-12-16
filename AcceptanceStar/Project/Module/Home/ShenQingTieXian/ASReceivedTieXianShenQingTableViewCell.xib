@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -80,6 +80,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-Ci-aYE">
+                        <rect key="frame" x="0.0" y="54.5" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.81951814889999997" green="0.81965965029999999" blue="0.81950914860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="rx0-en-dnt"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="9FV-x4-FHg" firstAttribute="leading" secondItem="O5O-tK-r9v" secondAttribute="trailing" constant="24" id="1aQ-pK-F3w"/>
@@ -93,6 +100,8 @@
                     <constraint firstItem="ZPN-tX-9g6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Toh-Js-2lH"/>
                     <constraint firstItem="rMO-CU-HDW" firstAttribute="top" secondItem="6Z5-VE-fyO" secondAttribute="top" id="Xfm-yM-Hxx"/>
                     <constraint firstItem="Jm0-73-l9r" firstAttribute="leading" secondItem="9FV-x4-FHg" secondAttribute="trailing" constant="5" id="ayC-Vt-gd7"/>
+                    <constraint firstItem="7cm-Ci-aYE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dJ5-we-IRy"/>
+                    <constraint firstAttribute="bottom" secondItem="7cm-Ci-aYE" secondAttribute="bottom" id="dRJ-SG-9Dc"/>
                     <constraint firstItem="YOr-Ak-tNe" firstAttribute="leading" secondItem="ebx-RC-bmJ" secondAttribute="trailing" constant="24" id="hqj-FW-PWC"/>
                     <constraint firstItem="ebx-RC-bmJ" firstAttribute="leading" secondItem="6Z5-VE-fyO" secondAttribute="trailing" constant="5" id="iWE-3n-YwF"/>
                     <constraint firstItem="yim-TT-cbP" firstAttribute="leading" secondItem="6Z5-VE-fyO" secondAttribute="leading" id="jmC-1N-H5k"/>
@@ -103,6 +112,7 @@
                     <constraint firstItem="rMO-CU-HDW" firstAttribute="leading" secondItem="YOr-Ak-tNe" secondAttribute="trailing" constant="5" id="v3m-0x-fN2"/>
                     <constraint firstItem="6Z5-VE-fyO" firstAttribute="top" secondItem="ZPN-tX-9g6" secondAttribute="top" id="vR9-Cb-USC"/>
                     <constraint firstItem="6Z5-VE-fyO" firstAttribute="leading" secondItem="ZPN-tX-9g6" secondAttribute="trailing" constant="8" id="yVc-q6-Ah1"/>
+                    <constraint firstAttribute="trailing" secondItem="7cm-Ci-aYE" secondAttribute="trailing" id="zdY-Gm-knF"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
