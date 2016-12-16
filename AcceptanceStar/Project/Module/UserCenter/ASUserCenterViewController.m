@@ -70,7 +70,7 @@
         _recivedBadge = [[JSBadgeView alloc] initWithParentView:nil alignment:JSBadgeViewAlignmentCenter];
         [self.recivedBadgeSuperView addSubview:_recivedBadge];
     }
-    return _badgeView;
+    return _recivedBadge;
 }
 
 - (JSBadgeView *)myBadge{
@@ -82,15 +82,13 @@
         _myBadge = [[JSBadgeView alloc] initWithParentView:nil alignment:JSBadgeViewAlignmentCenter];
         [self.myBadgeSuperView addSubview:_myBadge];
     }
-    return _badgeView;
+    return _myBadge;
 }
 
 - (void)messageDidUpdate{
- 
-    return;
-    AppDelegate *deleagte = (id)[[UIApplication sharedApplication] delegate];
-    self.badgeView.badgeText = [NSString stringWithFormat:@"%zd",deleagte.messageCount];
-    self.badgeSuperView.hidden = !deleagte.messageCount;
+//    AppDelegate *deleagte = (id)[[UIApplication sharedApplication] delegate];
+//    self.badgeView.badgeText = [NSString stringWithFormat:@"%zd",deleagte.messageCount];
+//    self.badgeSuperView.hidden = !deleagte.messageCount;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -228,7 +226,10 @@
 - (void)requestMessageData{
     
     WeakSelfType blockSelf = self;
-    [AFNManager getDataWithAPI:[@"/moments/getMsgCount2" stringByAppendingPathComponent:TOKEN]
+    
+    
+    
+    [AFNManager getDataWithAPI:[@"/moments/getMsgCount2/token" stringByAppendingPathComponent:TOKEN]
                   andDictParam:nil
                      modelName:nil
               requestSuccessed:^(NSDictionary *responseObject) {
@@ -239,17 +240,21 @@
                       NSInteger applyCount = [responseObject[@"applyCount"]  integerValue];
                       
                       blockSelf.badgeView.badgeText = [NSString stringWithFormat:@"%zd",friendCount];
-                      blockSelf.badgeSuperView.hidden = friendCount<=0;
+                      blockSelf.badgeSuperView.hidden = !friendCount;
 
                       
                       blockSelf.myBadge.badgeText = [NSString stringWithFormat:@"%zd",applyCount];
-                      blockSelf.myBadgeSuperView.hidden = applyCount<=0;
+                      blockSelf.myBadgeSuperView.hidden = !applyCount;
                       
                       blockSelf.recivedBadge.badgeText = [NSString stringWithFormat:@"%zd",receivedCount];
-                      blockSelf.recivedBadgeSuperView.hidden = receivedCount<=0;
+                      blockSelf.recivedBadgeSuperView.hidden = !receivedCount;
+                      
+                      [blockSelf.tableView reloadData];
                   }
               }
                 requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    
+                    NSLog(@"%@",errorMessage);
                 }];
 }
 
@@ -290,7 +295,6 @@
     else if ([item.title isContains:@"收到的贴现申请"]) {
         cell.arrowImageView.hidden = NO;
         [cell addSubview:self.recivedBadgeSuperView];
-        
         [self.recivedBadgeSuperView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.height.equalTo(@24);
             make.right.equalTo(cell.mas_right).offset(-25);

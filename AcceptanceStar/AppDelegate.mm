@@ -63,12 +63,18 @@ static SystemSoundID soundDidRecNotify;
                       clientKey:@"6QJxIkXBg6TqrVsJj2cD9S7F"];
     
     [self initAppDefaultUI:nil];
+    
+    //加载缓存的userModel
+    UserModel *userModel = [[StorageManager sharedInstance] configValueForKey:kCachedUserModel];
+    if ([userModel isKindOfClass:[UserModel class]] && [NSString isNotEmpty:userModel.userId]) {
+        [[StorageManager sharedInstance] setUserId:userModel.userId];
+        LOGIN.user = userModel;
+    }
 
     [MLBlackTransition validatePanPackWithMLBlackTransitionGestureRecognizerType:MLBlackTransitionGestureRecognizerTypeScreenEdgePan];
     
     dispatch_async(dispatch_queue_create("WPAppManagerConfigureLaunching", NULL), ^{
        
-        
         
         [YSCCommonUtils configUmeng];
         
