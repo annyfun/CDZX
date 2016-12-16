@@ -26,7 +26,6 @@
 - (id)init {
     if (self = [super init]) {
         self.loginObservers = [NSMutableArray new];
-        self.user = [UserModel new];
     }
     return self;
 }
@@ -37,6 +36,22 @@
     self.user = nil;
     removeAllObservers(self);
 }
+
+
+- (UserModel *)user{
+    if (nil==_user) {
+        UserModel *userModel = [[StorageManager sharedInstance] configValueForKey:kCachedUserModel];
+        if ([userModel isKindOfClass:[UserModel class]] && [NSString isNotEmpty:userModel.userId]) {
+            [[StorageManager sharedInstance] setUserId:userModel.userId];
+            _user = userModel;
+        }
+        else{
+            _user = [UserModel new];
+        }
+    }
+    return _user;
+}
+
 
 #pragma mark - methods called outside
 

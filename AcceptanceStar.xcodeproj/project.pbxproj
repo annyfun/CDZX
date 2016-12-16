@@ -5845,13 +5845,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D38DA0D61B0F6FA4005BC113 /* Build configuration list for PBXNativeTarget "AcceptanceStar" */;
 			buildPhases = (
+				B9899D3F65DE5E10539FACA5 /* 📦 Check Pods Manifest.lock */,
 				7E556A74B84F991EC5F0DA8F /* [CP] Check Pods Manifest.lock */,
 				D38DA0AF1B0F6FA4005BC113 /* Sources */,
 				D38DA0B01B0F6FA4005BC113 /* Frameworks */,
 				D38DA0B11B0F6FA4005BC113 /* Resources */,
 				691C55A63CFF643863043623 /* [CP] Embed Pods Frameworks */,
 				97862D0E496411E268F734D4 /* [CP] Copy Pods Resources */,
-				62689F6BFD0082510369B4B1 /* Embed Pods Frameworks */,
+				62689F6BFD0082510369B4B1 /* 📦 Embed Pods Frameworks */,
+				143ED8166D9F7BF4C3752260 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -6868,14 +6870,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		62689F6BFD0082510369B4B1 /* Embed Pods Frameworks */ = {
+		143ED8166D9F7BF4C3752260 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62689F6BFD0082510369B4B1 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -6926,6 +6943,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcceptanceStar/Pods-AcceptanceStar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9899D3F65DE5E10539FACA5 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -7607,10 +7639,7 @@
 					"$(PROJECT_DIR)/AcceptanceStar/Project/External/UMeng/UMSocial_Sdk/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				GCC_PREFIX_HEADER = AcceptanceStar/CalPrefixHeader.pch;
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
-					"$(inherited)",
-					"COCOAPODS=1",
-				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "$(inherited) COCOAPODS=1";
 				INFOPLIST_FILE = AFCal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

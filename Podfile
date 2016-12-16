@@ -66,5 +66,8 @@ target "AcceptanceStar" do
 #    pod 'UITableView+FDTemplateLayoutCell', '~> 1.3'
     
     pod 'UIView+FDCollapsibleConstraints', '~> 1.1'
+    
+    
+    pod 'AFOnceKit', '~> 1.0.0'
 end
 

@@ -20,6 +20,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "Masonry.h"
 #import "UMMobClick/MobClick.h"
+#import <AFOnceKit/AFOnce.h>
 
 #define kMaxSendCount 1 // 同时发送最大数
 
@@ -32,6 +33,8 @@ static SystemSoundID soundDidRecNotify;
     NSMutableArray* prepSendList;       //发送消息的队列
     int             countSend;          //正在发送的消息数
     NSTimeInterval  timeNotice;
+    
+    BOOL first;
 }
 @end
 
@@ -42,40 +45,8 @@ static SystemSoundID soundDidRecNotify;
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [AVOSCloud setApplicationId:@"ecmJqvnW8dpbCEMxQ9YmGXAR"
-                      clientKey:@"6QJxIkXBg6TqrVsJj2cD9S7F"];
     
-#pragma mark - Init ThinkChat
-    [[ThinkChat instance] application:application didFinishLaunchingWithOptions:launchOptions];
-    [[ThinkChat instance] setDebugMode:NO];
-    prepSendList = [[NSMutableArray alloc] init];
-    countSend = 0;
-    [self initializeAudios];
-    [Globals initializeGlobals];
-    [[ThinkChat instance] initWithServerUrl:kBaseSDKAPIDomain
-                                IMServerUrl:kBaseSDKAPIDomainXMPP
-                               IMServerName:kBaseSDKAPIDomainXMPPServer
-                               IMServerPort:kBaseSDKAPIDomainXMPPPort];
-    
-#pragma mark - 设置参数
-    [YSCCommonUtils configUmeng];
-    [self initAppDefaultUI:nil];
-    [self refreshCities];
-    [MLBlackTransition validatePanPackWithMLBlackTransitionGestureRecognizerType:MLBlackTransitionGestureRecognizerTypeScreenEdgePan];
-    
-    // Setup Baidu Map
-    _mapManager = [[BMKMapManager alloc] init];
-    BOOL ret = [_mapManager start:@"PwEDDlWfBQTQin5dXGCbV0vg" generalDelegate:self];
-    if (!ret) {
-        TCDemoLog(@"manager start failed!");
-    }
-    
-    //加载缓存的userModel
-    UserModel *userModel = [[StorageManager sharedInstance] configValueForKey:kCachedUserModel];
-    if ([userModel isKindOfClass:[UserModel class]] && [NSString isNotEmpty:userModel.userId]) {
-        [[StorageManager sharedInstance] setUserId:userModel.userId];
-        LOGIN.user = userModel;
-    }
+    [self configureLaunchingWithOptions:launchOptions application:application];
     
     //设置程序启动入口界面
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -83,19 +54,68 @@ static SystemSoundID soundDidRecNotify;
     self.window.rootViewController = [self rootViewController];
     [self.window makeKeyAndVisible];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        User* itemU = [BaseEngine currentBaseEngine].user;
-        if (itemU) {
-            [[ThinkChat instance] loginWithID:itemU.ID passWord:[BaseEngine currentBaseEngine].passWord delegate:self];
-        }
-        [self getNewMessageCount];
-    });
-    
-    [self downLoadDays];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetMessageCount) name:@"ASMomentsViewControllerIn" object:nil];
-    [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(getNewMessageCount) userInfo:nil repeats:YES];
     return YES;
+}
+
+- (void)configureLaunchingWithOptions:(NSDictionary *)launchOptions application:(UIApplication *)application
+{
+    [AVOSCloud setApplicationId:@"ecmJqvnW8dpbCEMxQ9YmGXAR"
+                      clientKey:@"6QJxIkXBg6TqrVsJj2cD9S7F"];
+    
+    [self initAppDefaultUI:nil];
+
+    [MLBlackTransition validatePanPackWithMLBlackTransitionGestureRecognizerType:MLBlackTransitionGestureRecognizerTypeScreenEdgePan];
+    
+    dispatch_async(dispatch_queue_create("WPAppManagerConfigureLaunching", NULL), ^{
+       
+        
+        
+        [YSCCommonUtils configUmeng];
+        
+    
+        
+        #pragma mark - Init ThinkChat
+        [[ThinkChat instance] application:application didFinishLaunchingWithOptions:launchOptions];
+        [[ThinkChat instance] setDebugMode:NO];
+        prepSendList = [[NSMutableArray alloc] init];
+        countSend = 0;
+        [self initializeAudios];
+        [Globals initializeGlobals];
+        [[ThinkChat instance] initWithServerUrl:kBaseSDKAPIDomain
+                                    IMServerUrl:kBaseSDKAPIDomainXMPP
+                                   IMServerName:kBaseSDKAPIDomainXMPPServer
+                                   IMServerPort:kBaseSDKAPIDomainXMPPPort];
+        
+        
+        
+        [self refreshCities];
+        
+        
+        // Setup Baidu Map
+        _mapManager = [[BMKMapManager alloc] init];
+        BOOL ret = [_mapManager start:@"PwEDDlWfBQTQin5dXGCbV0vg" generalDelegate:self];
+        if (!ret) {
+            TCDemoLog(@"manager start failed!");
+        }
+       
+        
+        [self downLoadDays];
+        
+        first = YES;
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            User* itemU = [BaseEngine currentBaseEngine].user;
+            if (itemU) {
+                [[ThinkChat instance] loginWithID:itemU.ID passWord:[BaseEngine currentBaseEngine].passWord delegate:self];
+            }
+            [self getNewMessageCount];
+        });
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetMessageCount) name:@"ASMomentsViewControllerIn" object:nil];
+        [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(getNewMessageCount) userInfo:nil repeats:YES];
+        
+        
+    });
 }
 
 

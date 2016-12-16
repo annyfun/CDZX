@@ -34,7 +34,6 @@
         self.title = @"收到的贴现申请";
         [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class])];
     
-        self.tableView.separatorStyle = UITableViewCellSelectionStyleGray;
     }
     
     
