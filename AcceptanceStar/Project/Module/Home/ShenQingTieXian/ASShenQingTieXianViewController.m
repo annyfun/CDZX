@@ -127,6 +127,7 @@ typedef NS_ENUM(NSInteger, OperateType)
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:weakSelf.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
         };
         cell.addImage = ^(UITableViewCell *cell){
+            [cell endEditing:YES];
             weakSelf.selectDateIndexPath = [weakSelf.tableView indexPathForCell:cell];
             [UIActionSheet showImagePickerActionSheetWithDelegate:weakSelf
                                                     allowsEditing:YES
@@ -146,10 +147,12 @@ typedef NS_ENUM(NSInteger, OperateType)
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PaperModel *paperModel = self.dataArray[indexPath.section];
-    paperModel.selected = !paperModel.selected;
-    self.tieXianModel.totalPrice = paperModel.selected ? (self.tieXianModel.totalPrice+paperModel.price) : (self.tieXianModel.totalPrice-paperModel.price);
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
+    if (self.operateType == OperateTypeShow) {
+        PaperModel *paperModel = self.dataArray[indexPath.section];
+        paperModel.selected = !paperModel.selected;
+        self.tieXianModel.totalPrice = paperModel.selected ? (self.tieXianModel.totalPrice+paperModel.price) : (self.tieXianModel.totalPrice-paperModel.price);
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:0 inSection:self.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
