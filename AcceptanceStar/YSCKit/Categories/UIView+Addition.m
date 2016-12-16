@@ -7,6 +7,7 @@
 //
 
 #import "UIView+Addition.h"
+#import "AppDelegate.h"
 
 @implementation UIView (Addition)
 
@@ -413,7 +414,7 @@
     [self showResultThenHideOnWindow:resultString afterDelay:1];
 }
 + (void)showResultThenHideOnWindow:(NSString *)resultString afterDelay:(NSTimeInterval)delay {
-    UIView *view = [UIApplication sharedApplication].keyWindow;
+    UIView *view = ((AppDelegate *)[UIApplication sharedApplication].delegate).window;
     MBProgressHUD *hud = [MBProgressHUD HUDForView:view];
     if (!hud) {
         hud = [MBProgressHUD showHUDAddedTo:view animated:YES];

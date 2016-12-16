@@ -270,10 +270,10 @@
 {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DateFormat3];
-    if (self.exp == 0) {
+    if (self.exp==nil || [self.exp isEqualToString:@""]) {
         return [formatter stringFromDate:[NSDate dateNow]];
     }else{
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.exp];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[self.exp longLongValue]];
         return [formatter stringFromDate:date];
     }
 }

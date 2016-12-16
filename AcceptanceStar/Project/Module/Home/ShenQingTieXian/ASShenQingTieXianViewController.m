@@ -1,4 +1,4 @@
-//
+ //
 //  ASShenQingTieXianViewController.m
 //  AcceptanceStar
 //
@@ -178,7 +178,7 @@ typedef NS_ENUM(NSInteger, OperateType)
 {
     [self.view endEditing:YES];
     PaperModel *model = self.dataArray[self.selectDateIndexPath.section];
-    model.exp = [self.datePicker.date timeIntervalSince1970];
+    model.exp = [NSString stringWithFormat:@"%f", [self.datePicker.date timeIntervalSince1970]];
     ASPiaoJuTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.selectDateIndexPath];
     cell.paperModel = model;
 }
@@ -289,7 +289,7 @@ typedef NS_ENUM(NSInteger, OperateType)
     
     NSString *status = passOrNo?@"2":@"3";
     WeakSelfType blockSelf = self;
-    [AFNManager getDataWithAPI:[@"/bond/bondorder_set/token" stringByAppendingPathComponent:TOKEN]
+    [AFNManager postDataWithAPI:[@"/bond/bondorder_set/token" stringByAppendingPathComponent:TOKEN]
                   andDictParam:@{@"type":@"electric",
                                  @"status":status,
                                  @"comment":comment?:@" ",
@@ -297,6 +297,7 @@ typedef NS_ENUM(NSInteger, OperateType)
                                  @"applyid":self.tieXianModel.orderNo}
                      modelName:ClassOfObject(PaperModel)
               requestSuccessed:^(ElectricModel *responseObject) {
+                  [UIView hideHUDLoadingOnWindow];
                   if (passOrNo) {
                       UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"贴现申请已通过审核，请尽快联系企业完成贴现。" message:nil delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
                       [success show];
@@ -304,9 +305,9 @@ typedef NS_ENUM(NSInteger, OperateType)
                       [UIView showResultThenHideOnWindow:@"已拒绝申请" afterDelay:1.5];
                   }
                   [blockSelf requestDetailData];
+                  [blockSelf.navigationController popViewControllerAnimated:YES];
               }
                 requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-                    
                     [UIView showResultThenHideOnWindow:errorMessage?:@"网络错误" afterDelay:1.5];
                 }];
 }
@@ -319,7 +320,7 @@ typedef NS_ENUM(NSInteger, OperateType)
     WeakSelfType blockSelf = self;
     [UIView showHUDLoadingOnWindow:@"加载中"];
     
-    [AFNManager getDataWithAPI:[(self.tieXianType == TieXianTypeReceivedApply ? @"/bond/bondorder_buy_detail/token" : @"/bond/bondorder_sell_detail/token") stringByAppendingPathComponent:TOKEN]
+    [AFNManager postDataWithAPI:[(self.tieXianType == TieXianTypeReceivedApply ? @"/bond/bondorder_buy_detail/token" : @"/bond/bondorder_sell_detail/token") stringByAppendingPathComponent:TOKEN]
                   andDictParam:@{@"applyid":tieXianModelId}
                      modelName:ClassOfObject(PaperModel)
               requestSuccessed:^(ElectricModel *responseObject) {
@@ -367,8 +368,9 @@ typedef NS_ENUM(NSInteger, OperateType)
                            modelName:nil
                         imageQuality:ImageQualityNormal
                     requestSuccessed:^(id responseObject) {
-                        [UIView hideHUDLoadingOnWindow];
+//                        [UIView hideHUDLoadingOnWindow];
                         [UIView showResultThenHideOnWindow:@"申请成功" afterDelay:1.5];
+                        [self.navigationController popViewControllerAnimated:YES];
                     }
                       requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                           [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];

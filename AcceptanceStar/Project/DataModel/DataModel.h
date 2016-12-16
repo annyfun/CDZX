@@ -590,7 +590,7 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *ticketNo;
 @property (nonatomic, strong) NSString *bankName;
 @property (nonatomic, assign) NSInteger price;
-@property (nonatomic, assign) long exp;
+@property (nonatomic, strong) NSString *exp;
 @property (nonatomic, assign) bool selected;
 @property (nonatomic, strong) NSString *pic;
 @property (nonatomic, strong) NSString *company;
