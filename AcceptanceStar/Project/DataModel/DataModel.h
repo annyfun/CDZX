@@ -601,7 +601,6 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @end
 
 @interface TieXianModel : BaseDataModel
-@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *company;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *phone;

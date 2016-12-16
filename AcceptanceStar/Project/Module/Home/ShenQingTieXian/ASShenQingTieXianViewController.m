@@ -294,7 +294,7 @@ typedef NS_ENUM(NSInteger, OperateType)
                                  @"status":status,
                                  @"comment":comment?:@" ",
                                  @"id":idString,
-                                 @"applyid":self.tieXianModel.id}
+                                 @"applyid":self.tieXianModel.orderNo}
                      modelName:ClassOfObject(PaperModel)
               requestSuccessed:^(ElectricModel *responseObject) {
                   if (passOrNo) {
@@ -347,7 +347,7 @@ typedef NS_ENUM(NSInteger, OperateType)
         [paperArray addObject:[model toDictionary]];
     }];
     self.tieXianModel.list = paperArray;
-    self.tieXianModel.id = self.electricId;
+    self.tieXianModel.orderNo = self.electricId;
     
     NSArray *sortedArray = [[self.imageDic allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
         return [obj1 compare:obj2 options:NSNumericSearch];

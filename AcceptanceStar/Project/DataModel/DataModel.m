@@ -297,7 +297,7 @@
              @"bank_name" : @"bankName",
              @"company_phone": @"companyPhone",
              @"accept_price":@"acceptPrice",
-             @"order_no":@"orderNo",
+             @"id":@"orderNo",
              @"total_price":@"price"
              };
 }
