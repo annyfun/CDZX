@@ -33,7 +33,11 @@
     } else {
         self.title = @"收到的贴现申请";
         [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ASReceivedTieXianShenQingTableViewCell class])];
+    
+        self.tableView.separatorStyle = UITableViewCellSelectionStyleGray;
     }
+    
+    
     [self requestData];
 }
 
@@ -69,7 +73,7 @@
             cell.tieXianModel = self.dataArray[indexPath.row];
         }];
     }
-    return 56;
+    return 70;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,4 +107,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+#pragma mark - Overwrite
+- (BOOL)resetAutolayout{
+    return NO;
+}
 @end

@@ -118,6 +118,18 @@
 
 #pragma mark - Event Methods
 - (IBAction)shenQingDidTap:(id)sender {
+    
+    if ( NO == ISLOGGED) {
+        YSCBaseViewController *loginViewController = (YSCBaseViewController *)[UIResponder createBaseViewController:@"ASLoginViewController"];
+        //创建navigationController
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+        navigationController.customNavigationDelegate = [[ADNavigationControllerDelegate alloc] init];
+        navigationController.navigationController.navigationBar.translucent = YES;
+        [self.navigationController presentViewController:navigationController animated:YES completion:nil];
+        
+        return;
+    }
+    
     ASShenQingTieXianViewController *vc = [[ASShenQingTieXianViewController alloc] initWithNibName:NSStringFromClass([ASShenQingTieXianViewController class]) bundle:nil];
     vc.electricId = ((ElectricModel *)self.params[kParamModel]).id;
     [self.navigationController pushViewController:vc animated:YES];
