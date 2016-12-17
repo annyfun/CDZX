@@ -165,7 +165,10 @@
     if (price) {
         [params setObject:price forKey:@"price"];
     }
+    
 
+    
+    [params setObject:self.daysKey forKey:@"days"];
     [params setObject:[NSString stringWithFormat:@"%zd",self.typeKey] forKey:@"type"];
    
     if (self.bankNameKey) {

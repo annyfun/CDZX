@@ -146,8 +146,11 @@
          
             [sheet bk_addButtonWithTitle:key handler:^{
                 
-                blockSelf.rateKey = key;
-                [blockSelf.dataSource replaceObjectAtIndex:0 withObject:@[@"利率",[blockSelf rateValueToKey:blockSelf.rateKey]]];
+                blockSelf.rateKey = [self.rateData objectForKey:key];
+                if (nil==blockSelf.rateKey) {
+                    blockSelf.rateKey = @"不限";
+                }
+                [blockSelf.dataSource replaceObjectAtIndex:0 withObject:@[@"利率",key]];
                 [blockSelf.tableView reloadData];
             }];
         }
