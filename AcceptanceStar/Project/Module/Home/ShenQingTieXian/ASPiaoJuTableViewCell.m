@@ -25,9 +25,10 @@
     [self.priceTF addTarget:self action:@selector(tFDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.ticketNoTF addTarget:self action:@selector(tFDidChange:)  forControlEvents:UIControlEventEditingChanged];
     self.expDateTF.delegate = self;
+    self.coverView.backgroundColor = [UIColor clearColor];
     WEAKSELF1
     [self.addIV bk_whenTapped:^{
-        !weakSelf.addImage?:self.addImage(weakSelf);
+        !weakSelf.addImage?:self.addImage(weakSelf,weakSelf.addIV);
     }];
 }
 

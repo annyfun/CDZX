@@ -146,17 +146,24 @@ typedef NS_ENUM(NSInteger, OperateType)
             }];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:weakSelf.dataArray.count]] withRowAnimation:UITableViewRowAnimationNone];
         };
-        cell.addImage = ^(UITableViewCell *cell){
-            [cell endEditing:YES];
-            weakSelf.selectDateIndexPath = [weakSelf.tableView indexPathForCell:cell];
-            [UIActionSheet showImagePickerActionSheetWithDelegate:weakSelf
-                                                    allowsEditing:YES
-                                                      singleImage:YES
-                                                numberOfSelection:1
-                                                 onViewController:weakSelf];
+        cell.addImage = ^(UITableViewCell *tcell,UIImageView *image){
+            if (weakSelf.operateType==OperateTypeShow) {
+                //展示大图
+                if (image.image) {
+                    [ShowPhotosManager showPhotosWithImages:@[image.image] atIndex:0 fromImageView:image];
+                }
+            }else{
+                [tcell endEditing:YES];
+                weakSelf.selectDateIndexPath = [weakSelf.tableView indexPathForCell:tcell];
+                [UIActionSheet showImagePickerActionSheetWithDelegate:weakSelf
+                                                        allowsEditing:YES
+                                                          singleImage:YES
+                                                    numberOfSelection:1
+                                                     onViewController:weakSelf];
+            }
         };
         cell.addView.hidden = self.operateType == OperateTypeEdit ?  (indexPath.section < self.dataArray.count - 1) : YES;
-        cell.contentView.userInteractionEnabled = self.operateType == OperateTypeEdit;
+        cell.coverView.userInteractionEnabled = self.operateType != OperateTypeEdit;
 //        cell.selectionStyle = self.tieXianType == TieXianTypeReceivedApply ? UITableViewCellSelectionStyleGray: UITableViewCellSelectionStyleNone;
         if (self.operateType == OperateTypeShow && self.tieXianType == TieXianTypeReceivedApply) {
             cell.checkBtn.hidden = NO;
@@ -190,7 +197,7 @@ typedef NS_ENUM(NSInteger, OperateType)
     if (pickedImage) {
         ASPiaoJuTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.selectDateIndexPath];
         [cell.addIV setImageWithURLString:nil placeholderImage:pickedImage];
-        [self.imageDic setObject:pickedImage forKey:[NSString stringWithFormat:@"%d", self.selectDateIndexPath.section]];
+        [self.imageDic setObject:pickedImage forKey:[NSString stringWithFormat:@"%zd", self.selectDateIndexPath.section]];
     }
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

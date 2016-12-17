@@ -137,6 +137,10 @@
                         <state key="normal" image="piaoJu_unCheck"/>
                         <state key="selected" image="piaoJu_Check"/>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUY-fL-uRo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <gestureRecognizers/>
                 <constraints>
@@ -146,6 +150,7 @@
                     <constraint firstAttribute="trailing" secondItem="icu-JQ-wtG" secondAttribute="trailing" id="4Im-ix-tkx"/>
                     <constraint firstItem="A2J-fJ-40f" firstAttribute="top" secondItem="UNW-qc-Z2Z" secondAttribute="bottom" constant="18" id="6Du-93-l5s"/>
                     <constraint firstItem="vMY-t7-czk" firstAttribute="trailing" secondItem="ydw-ml-t0P" secondAttribute="trailing" id="6Hu-jw-nNR"/>
+                    <constraint firstAttribute="trailing" secondItem="jUY-fL-uRo" secondAttribute="trailing" id="8MP-SI-Z95"/>
                     <constraint firstItem="sfT-M2-t7g" firstAttribute="height" secondItem="her-1p-iJ6" secondAttribute="height" id="9zn-LU-lh4"/>
                     <constraint firstItem="sfT-M2-t7g" firstAttribute="trailing" secondItem="ydw-ml-t0P" secondAttribute="trailing" id="AYt-hc-vGe"/>
                     <constraint firstItem="icu-JQ-wtG" firstAttribute="top" secondItem="fwE-it-UsF" secondAttribute="bottom" constant="13" id="CK6-P3-vvv"/>
@@ -154,6 +159,7 @@
                     <constraint firstItem="suk-Y4-Te2" firstAttribute="top" secondItem="A2J-fJ-40f" secondAttribute="bottom" constant="18" id="DSF-63-M31"/>
                     <constraint firstItem="kpU-Ix-yKQ" firstAttribute="top" secondItem="16w-U8-FSv" secondAttribute="bottom" constant="18" id="ETs-4R-Qau"/>
                     <constraint firstItem="BgN-az-NG3" firstAttribute="top" secondItem="suk-Y4-Te2" secondAttribute="bottom" constant="28" id="GPL-ry-fOn"/>
+                    <constraint firstItem="jUY-fL-uRo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JYU-1K-yh6"/>
                     <constraint firstItem="ydw-ml-t0P" firstAttribute="leading" secondItem="her-1p-iJ6" secondAttribute="leading" id="LcQ-A1-Itt"/>
                     <constraint firstItem="16w-U8-FSv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="NaP-Tu-rWa"/>
                     <constraint firstItem="suk-Y4-Te2" firstAttribute="leading" secondItem="16w-U8-FSv" secondAttribute="leading" id="Nbz-ha-ldH"/>
@@ -168,6 +174,8 @@
                     <constraint firstItem="gAf-58-XVe" firstAttribute="leading" secondItem="her-1p-iJ6" secondAttribute="leading" id="arn-dl-b6C"/>
                     <constraint firstItem="vMY-t7-czk" firstAttribute="centerY" secondItem="A2J-fJ-40f" secondAttribute="centerY" id="b2q-wc-Q1Z"/>
                     <constraint firstItem="ydw-ml-t0P" firstAttribute="height" secondItem="her-1p-iJ6" secondAttribute="height" id="d7p-pY-oB8"/>
+                    <constraint firstItem="fwE-it-UsF" firstAttribute="top" secondItem="jUY-fL-uRo" secondAttribute="bottom" constant="7.5" id="f2U-gi-zTj"/>
+                    <constraint firstItem="jUY-fL-uRo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gK5-dW-3Md"/>
                     <constraint firstItem="kpU-Ix-yKQ" firstAttribute="leading" secondItem="16w-U8-FSv" secondAttribute="leading" id="kvz-0e-Ila"/>
                     <constraint firstItem="A2J-fJ-40f" firstAttribute="leading" secondItem="16w-U8-FSv" secondAttribute="leading" id="o8q-kI-ojj"/>
                     <constraint firstItem="OCr-Om-EQn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="95" id="pdJ-Oe-Cfe"/>
@@ -184,6 +192,7 @@
                 <outlet property="addView" destination="icu-JQ-wtG" id="2Wz-PK-dO4"/>
                 <outlet property="bankNameTF" destination="her-1p-iJ6" id="I7z-Ly-cPP"/>
                 <outlet property="checkBtn" destination="OCr-Om-EQn" id="ava-nf-BsE"/>
+                <outlet property="coverView" destination="jUY-fL-uRo" id="3vE-VF-V9j"/>
                 <outlet property="expDateTF" destination="vMY-t7-czk" id="OJn-87-KwF"/>
                 <outlet property="expTF" destination="sfT-M2-t7g" id="l1N-8J-oOd"/>
                 <outlet property="priceTF" destination="ydw-ml-t0P" id="2mH-S3-q8I"/>
