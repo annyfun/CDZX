@@ -41,14 +41,11 @@
     
     UIColor *textColor = [UIColor lightGrayColor];
     UIImage *statusImage = nil;
-    UIColor *imageColor = [UIColor clearColor];
     
     if (tieXianModel.rstatus==ASElectricStautsReject){
-        statusImage = [UIImage imageNamed:@"img_e_reject"];
-        imageColor = [UIColor redColor];
+        statusImage = [UIImage imageNamed:@"img_fail_icon"];
     }else if(tieXianModel.rstatus==ASElectricStautsWan){
-        statusImage = [UIImage imageNamed:@"img_e_pass"];
-        imageColor = [UIColor greenColor];
+        statusImage = [UIImage imageNamed:@"img_pass_icon"];
     }else{
         textColor = [UIColor blackColor];
     }
@@ -58,7 +55,6 @@
     self.dateLB.textColor = textColor;
     
     self.statusImageView.image = statusImage;
-    self.statusImageView.backgroundColor = imageColor;
     
 }
 

@@ -601,48 +601,42 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @end
 
 @interface TieXianModel : BaseDataModel
+@property (nonatomic, strong) NSString *orderNo;
+@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, strong) NSString *buid;
+@property (nonatomic, strong) NSString *electricid;
+@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *acceptPrice;
+@property (nonatomic, assign) NSInteger totalPrice;
 @property (nonatomic, strong) NSString *company;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *phone;
-@property (nonatomic, strong) NSMutableArray *list;
-@property (nonatomic, strong) NSString *pic;
-@property (nonatomic, assign) NSInteger totalPrice;
-@property (nonatomic, strong) NSString *price;
-@property (nonatomic, strong) NSString *acceptPrice;
-@property (nonatomic, strong) NSString *companyPhone;
-@property (nonatomic, strong) NSString *comment;
-@property (nonatomic, strong) NSString *date;
-@property (nonatomic, strong) NSString *status;
-@property (nonatomic, strong) NSString *orderNo;
-@property (nonatomic, assign) bool reject;
-@property (nonatomic, strong) NSString *bankName;
-@property (nonatomic, strong) NSString *headpic;
+@property (nonatomic, strong) NSString *remark;
 @property (nonatomic, strong) NSString *createtime;
+@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *headpic;
+@property (nonatomic, strong) NSString *status;
 
+@property (nonatomic, strong) NSMutableArray *list;
+
+
+@property (nonatomic, assign) BOOL reject;
 @property (nonatomic, assign) ASElectricStauts rstatus;  //收到的贴现申请状态
 
 /*
+ 
  "id": "1",
- "buid": null,
- "uid": "没有",
- "pid": "1",
- "type": "电票订单",
- "phone": "13228159788",
- "name": "测试",
- "address": null,
- "ticket_no": "12315",
- "bank_name": "中国建设银行",
- "price": "10",
- "pic": "img/2015-10-17/56213ce04a601.png",
- "exp": 1480475813,
- "status": "未完成",
- "date": null,
- "_buid": null,
- "_uid": "101945",
- "_type": "票据经纪",
- "_status": "1",
- "n_status": null,
- "_url": "/bondorder/index/id/1.html"
+ "uid": "100002",
+ "buid": "100002",
+ "electricid": "1",
+ "total_price": "247",
+ "company": "xizue",
+ "name": "xizue",
+ "phone": "13200000004",
+ "remark": null,
+ "createtime": "1481536483",
+ "status": "0",
+ "headpic": "img/2016-12-12/584e74022a471.jpg"
  */
 
 @end

@@ -53,7 +53,7 @@
         self.allowPriceLeftLB.textColor = RGB(19, 19, 19);
         self.phoneLB.fd_collapsed = NO;
     }
-    self.bankNameLB.text = _tieXianModel.bankName;
+    self.bankNameLB.text = _tieXianModel.company;
     self.expLB.text = _tieXianModel.date;
     self.priceLB.text = _tieXianModel.price;
     self.phoneLB.text = _tieXianModel.phone;

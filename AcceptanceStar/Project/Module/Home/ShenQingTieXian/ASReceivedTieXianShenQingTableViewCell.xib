@@ -27,42 +27,46 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-RC-bmJ">
-                        <rect key="frame" x="66" y="15" width="31" height="14.5"/>
+                        <rect key="frame" x="66" y="15" width="31" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_rigth" translatesAutoresizingMaskIntoConstraints="NO" id="8Fc-jN-omG">
-                        <rect key="frame" x="299" y="29" width="13" height="13"/>
+                        <rect key="frame" x="299" y="28" width="13" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="13" id="HMt-Fh-mwI"/>
                             <constraint firstAttribute="height" constant="13" id="oXz-Xp-6QE"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5O-tK-r9v">
-                        <rect key="frame" x="66" y="40.5" width="31" height="14.5"/>
+                        <rect key="frame" x="66" y="40" width="31" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMO-CU-HDW">
-                        <rect key="frame" x="251" y="15" width="31" height="14.5"/>
+                        <rect key="frame" x="251" y="15" width="31" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-Ci-aYE">
-                        <rect key="frame" x="0.0" y="69" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="68" width="320" height="1"/>
                         <color key="backgroundColor" red="0.81951814889999997" green="0.81965965029999999" blue="0.81950914860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="rx0-en-dnt"/>
                         </constraints>
                     </view>
-                    <imageView verifyAmbiguity="ignoreSizes" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qaX-Fh-oOj">
-                        <rect key="frame" x="197" y="1" width="40" height="40"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="electick_phone_icon" translatesAutoresizingMaskIntoConstraints="NO" id="qaX-Fh-oOj">
+                        <rect key="frame" x="229" y="13.5" width="17" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="03U-9x-4lD"/>
+                            <constraint firstAttribute="width" constant="17" id="4cA-wN-S7B"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jm0-73-l9r">
-                        <rect key="frame" x="251" y="40.5" width="31" height="14.5"/>
+                        <rect key="frame" x="251" y="40" width="31" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -105,6 +109,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="electick_phone_icon" width="17" height="18"/>
         <image name="image_rigth" width="13" height="13"/>
     </resources>
 </document>

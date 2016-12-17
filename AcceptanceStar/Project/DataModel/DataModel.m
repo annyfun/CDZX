@@ -295,12 +295,9 @@
 @implementation TieXianModel
 + (NSDictionary *)jsonToModelMapping {
     return @{
-             @"_status" : @"status",
-             @"bank_name" : @"bankName",
-             @"company_phone": @"companyPhone",
-             @"accept_price":@"acceptPrice",
              @"id":@"orderNo",
-             @"total_price":@"price"
+             @"total_price":@"price",
+             @"accept_price":@"acceptPrice",
              };
 }
 
@@ -326,12 +323,16 @@
 
 -(bool)reject
 {
-    return [self.status isEqualToString:@"3"];
+    return self.rstatus==ASElectricStautsReject;
 }
 
 - (ASElectricStauts)rstatus{
     
-    return [self.status integerValue];
+    NSInteger s = [self.status integerValue];
+    if (s<ASElectricStautsNotWan) {
+        s = ASElectricStautsNotWan;
+    }
+    return s;
 }
 @end
 
