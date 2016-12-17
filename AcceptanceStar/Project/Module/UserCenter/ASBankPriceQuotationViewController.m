@@ -33,10 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"发布利率报价";
+    self.companyTextField.userInteractionEnabled = NO;
     self.companyTextField.text = USER.companyName;
     self.publisherTextField.text = USER.nickname;
     self.mainPhoneTextField.text = USER.phone;
     [self.sendButton makeRoundWithRadius:5];
+    if (USER.companyName.length<=0) {
+        [self getName];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,6 +49,26 @@
 }
 
 #pragma mark - User Action
+- (void)getName{
+    
+    WEAKSELF;
+    [AFNManager getDataWithAPI:[@"Court/index/token" stringByAppendingPathComponent:TOKEN]
+                  andDictParam:nil
+                     modelName:nil
+              requestSuccessed:^(id responseObject) {
+                  if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                      NSString *company_name = responseObject[@"company_name"];
+                      if (company_name) {
+                          USER.companyName = company_name;
+                          blockSelf.companyTextField.text = USER.companyName;
+                      }
+                  }
+              }
+                requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
+                    
+                }];
+}
+
 
 - (IBAction)submitData:(id)sender {
     // 验证用户输入合法性
@@ -54,7 +78,7 @@
     CheckStringEmpty(self.secondRateTextField.text, @"二类行年利率不能为空");
     CheckStringEmpty(self.thirdRateTextField.text, @"三类行年利率不能为空");
     CheckStringEmpty(self.forthRateTextField.text, @"四类行年利率不能为空");
-    CheckStringEmpty(self.companyTextField.text, @"发布机构不能为空");
+    CheckStringEmpty(self.companyTextField.text, @"发布机构不能为空，请先认证");
     CheckStringMatchRegex(RegexMobilePhone, self.mainPhoneTextField.text, @"输入的手机号不合法");
     
     [self.view endEditing:YES];
