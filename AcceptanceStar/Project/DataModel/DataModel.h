@@ -617,7 +617,7 @@ typedef NS_ENUM(NSUInteger, ASElectricStauts) {
 @property (nonatomic, strong) NSString *headpic;
 @property (nonatomic, strong) NSString *status;
 
-@property (nonatomic, strong) NSMutableArray *list;
+@property (nonatomic, strong) NSString *list;
 
 
 @property (nonatomic, assign) BOOL reject;

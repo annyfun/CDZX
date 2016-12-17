@@ -162,6 +162,7 @@
                 <outlet property="companyTF" destination="ccc-Yn-OnL" id="9ue-0t-RaT"/>
                 <outlet property="nameTF" destination="hxH-MS-HlI" id="GrO-kq-uyi"/>
                 <outlet property="phoneTF" destination="UzB-XK-mwY" id="Voo-Wx-rha"/>
+                <outlet property="remarkTF" destination="rvY-EN-4Kj" id="OJI-f9-wyF"/>
                 <outlet property="totalPriceTF" destination="pux-wx-Ixs" id="cIy-AP-3xi"/>
             </connections>
             <point key="canvasLocation" x="48" y="145.5"/>

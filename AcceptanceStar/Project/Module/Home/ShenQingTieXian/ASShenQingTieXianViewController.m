@@ -378,11 +378,19 @@ typedef NS_ENUM(NSInteger, OperateType)
 
 -(void)requestData
 {
-    NSMutableArray *paperArray = [NSMutableArray array];
+    NSMutableString *jsonString = [@"[" mutableCopy];
+    
+    NSInteger count = self.dataArray.count-1;
     [self.dataArray enumerateObjectsUsingBlock:^(PaperModel *  _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
-        [paperArray addObject:[model toDictionary]];
+        
+        if (idx==count) {
+            [jsonString appendFormat:@"%@",[model toJSONString]];
+        }else{
+            [jsonString appendFormat:@"%@,",[model toJSONString]];
+        }
     }];
-    self.tieXianModel.list = paperArray;
+    [jsonString appendString:@"]"];
+    self.tieXianModel.list = jsonString;
     self.tieXianModel.orderNo = self.electricId;
     
     NSArray *sortedArray = [[self.imageDic allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
@@ -395,6 +403,35 @@ typedef NS_ENUM(NSInteger, OperateType)
     }];
     
     NSDictionary *dic = [self.tieXianModel toDictionary];
+    /*
+     
+     list值格式：[{"ticket_no":123,"bank_name":"tt","price":123,"exp":123432232}]
+     被申请贴现的利率发布人，会收到通知为20000的有新的提现通知，如果没有查看，就显示未读数。
+     
+     company = "\U9ad8\U65b0\U533a";
+     date = "1970-01-01";
+     id = 71;
+     list =     (
+     {
+     "bank_name" = "\U54c8\U54c8\U54c8\U54c8";
+     exp = "1545038128.000000";
+     price = 1;
+     rstatus = 0;
+     selected = 1;
+     "ticket_no" = 123;
+     }
+     );
+     name = "\U6731";
+     phone = 18084839200;
+     reject = 0;
+     rstatus = 1;
+     totalPrice = 1;
+     
+     list	Y		电票列表：JSON
+     pic[]	Y		票据图片
+     备注
+     */
+    
     [UIView showHUDLoadingOnWindow:@"正在发送请求"];
     [AFNManager uploadImageDataParam:dictNew
                                toUrl:kResPathAppBaseUrl
@@ -403,20 +440,12 @@ typedef NS_ENUM(NSInteger, OperateType)
                            modelName:nil
                         imageQuality:ImageQualityNormal
                     requestSuccessed:^(id responseObject) {
-//                        [UIView hideHUDLoadingOnWindow];
                         [UIView showResultThenHideOnWindow:@"申请成功" afterDelay:1.5];
                         [self.navigationController popViewControllerAnimated:YES];
                     }
                       requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                           [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
                       }];
-    
-    
-    //    [AFNManager postDataWithAPI:kResPathAppBondElectricBuy andDictParam:dic modelName:nil requestSuccessed:^(id responseObject) {
-    //        [UIView hideHUDLoadingOnWindow];
-    //    } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-    //        [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
-    //    }];
 }
 
 - (IBAction)backButtonClicked:(id)sender {

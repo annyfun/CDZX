@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTF;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UITextField *companyTF;
+@property (weak, nonatomic) IBOutlet UITextField *remarkTF;
 @end
 @implementation ASInfoTableViewCell
 
@@ -20,6 +21,9 @@
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.companyTF addTarget:self action:@selector(tFDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+    
+    [self.remarkTF addTarget:self action:@selector(rFDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -32,6 +36,11 @@
     self.tieXianModel.company = sender.text;
 }
 
+- (void)rFDidChange:(UITextField *) sender {
+    self.tieXianModel.remark = sender.text;
+}
+
+
 -(void)setTieXianModel:(TieXianModel *)tieXianModel
 {
     _tieXianModel = tieXianModel;
@@ -39,5 +48,6 @@
     self.nameTF.text = tieXianModel.name;
     self.phoneTF.text = tieXianModel.phone;
     self.companyTF.text = self.tieXianModel.company;
+    self.remarkTF.text = self.tieXianModel.remark;
 }
 @end
