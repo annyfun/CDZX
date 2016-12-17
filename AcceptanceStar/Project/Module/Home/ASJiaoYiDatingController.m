@@ -165,10 +165,9 @@
     if (price) {
         [params setObject:price forKey:@"price"];
     }
-    
-
-    
-    [params setObject:self.daysKey forKey:@"days"];
+    if (self.daysKey) {
+        [params setObject:self.daysKey forKey:@"days"];
+    }
     [params setObject:[NSString stringWithFormat:@"%zd",self.typeKey] forKey:@"type"];
    
     if (self.bankNameKey) {
@@ -181,10 +180,9 @@
                      modelName:ClassOfObject(ElectricModel)
               requestSuccessed:^(id responseObject) {
                   if ([responseObject isKindOfClass:[NSArray class]]) {
-                      if ([NSObject isNotEmpty:responseObject]) {
-                          blockSelf.electricModelArray = [responseObject mutableCopy];
-                          [blockSelf.tableView reloadData];
-                      }
+                      blockSelf.electricModelArray = [responseObject mutableCopy];
+                      [blockSelf.tableView reloadData];
+
                   }
                   
                   [blockSelf.tableView.legendHeader endRefreshing];
