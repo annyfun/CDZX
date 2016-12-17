@@ -287,7 +287,7 @@
 }
 
 - (ASElectricStauts)rstatus{
-    return [self.i_status integerValue];
+    return [self.status integerValue];
 }
 @end
 @implementation TieXianModel

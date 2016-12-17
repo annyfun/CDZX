@@ -55,6 +55,7 @@ typedef NS_ENUM(NSInteger, OperateType)
     self.centerView.fd_collapsed = YES;
     self.centerView.hidden = YES;
     
+    
     if (self.operateType == OperateTypeEdit) {
         [self.dataArray addObject:[PaperModel new]];
         self.title = @"申请贴现";
@@ -68,14 +69,26 @@ typedef NS_ENUM(NSInteger, OperateType)
             self.tableView.allowsMultipleSelection = YES;
             self.centerView.fd_collapsed = NO;
             self.centerView.hidden = NO;
-            
-            if (self.tieXianModel.rstatus!=ASElectricStautsNotWan) {
+        }
+    }
+    [self realoadData];
+}
+
+
+- (void)realoadData{
+    if (self.operateType == OperateTypeEdit) {
+    
+    }else{
+        self.bottomView.fd_collapsed = YES;
+        if (self.tieXianType == TieXianTypeReceivedApply) {
+            if (self.tieXianModel.rstatus==ASElectricStautsNotWan) {
                 self.centerView.fd_collapsed = NO;
             }else{
                 self.centerView.fd_collapsed = YES;
             }
         }
     }
+    [self.tableView reloadData];
 }
 
 
@@ -341,10 +354,15 @@ typedef NS_ENUM(NSInteger, OperateType)
                       blockSelf.dataArray = [responseObject mutableCopy];
                   }
                   blockSelf.tieXianModel.totalPrice = 0;
+                  
                   [blockSelf.dataArray enumerateObjectsUsingBlock:^(PaperModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                       blockSelf.tieXianModel.totalPrice += obj.price;
+                      
+                      if (blockSelf.tieXianModel.rstatus==ASElectricStautsNotWan || blockSelf.tieXianModel.rstatus==0) {
+                          blockSelf.tieXianModel.status = obj.status;
+                      }
                   }];
-                  [blockSelf.tableView reloadData];
+                  [blockSelf realoadData];
               }
                 requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
                     [UIView showResultThenHideOnWindow:errorMessage afterDelay:1.5];
