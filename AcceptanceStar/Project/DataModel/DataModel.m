@@ -9,6 +9,8 @@
 #import "DataModel.h"
 #import <FMDB/FMDB.h>
 
+
+
 @implementation NewVersionModel             @end
 
 @implementation BondBuyModel
@@ -143,7 +145,7 @@
 - (NSString *)thumb{
     
     if (_thumb && ![_thumb hasPrefix:@"http"]) {
-        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_thumb];
+        return [NSString stringWithFormat:@"http://test.yhcd.net/upload/%@",_thumb];
     }
     return _thumb;
 }
@@ -238,7 +240,7 @@
 - (NSString *)pic{
     
     if (_pic && ![_pic hasPrefix:@"http"]) {
-        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_pic];
+        return [NSString stringWithFormat:@"http://test.yhcd.net/upload/%@",_pic];
     }
     return _pic;
 }
@@ -281,7 +283,7 @@
 - (NSString *)pic{
     
     if (_pic && ![_pic hasPrefix:@"http"]) {
-        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_pic];
+        return [NSString stringWithFormat:@"http://test.yhcd.net/upload/%@",_pic];
     }
     return _pic;
 }
@@ -305,7 +307,7 @@
 -(NSString *)headpic{
     
     if (_headpic && ![_headpic hasPrefix:@"http"]) {
-        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_headpic];
+        return [NSString stringWithFormat:@"http://test.yhcd.net/upload/%@",_headpic];
     }
     return _headpic;
 }
