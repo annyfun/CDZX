@@ -145,7 +145,7 @@
 - (NSString *)thumb{
     
     if (_thumb && ![_thumb hasPrefix:@"http"]) {
-        return [NSString stringWithFormat:@"http://test.yhcd.net/upload/%@",_thumb];
+        return [NSString stringWithFormat:@"http://www.yhcd.net/upload/%@",_thumb];
     }
     return _thumb;
 }
