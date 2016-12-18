@@ -139,7 +139,7 @@
     ElectricModel *model = self.params[kParamModel];
     
     WeakSelfType blockSelf = self;
-    [AFNManager getDataWithAPI:@"/bond/electric_complete"
+    [AFNManager postDataWithAPI:@"/bond/electric_complete"
                   andDictParam:model.id?@{@"id":model.id}:nil
                      modelName:ClassOfObject(ElectricModel)
               requestSuccessed:^(ElectricModel *responseObject) {
