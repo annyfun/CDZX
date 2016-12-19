@@ -197,6 +197,7 @@ typedef NS_ENUM(NSInteger, OperateType)
     if (pickedImage) {
         ASPiaoJuTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.selectDateIndexPath];
         [cell.addIV setImageWithURLString:nil placeholderImage:pickedImage];
+        cell.paperModel.selectedImage = pickedImage;
         [self.imageDic setObject:pickedImage forKey:[NSString stringWithFormat:@"%zd", self.selectDateIndexPath.section]];
     }
 }
